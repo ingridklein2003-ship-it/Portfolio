@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <title>Klein Design – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="page">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html#forside" class="header__logo">
+        <span class="header__logo-main">Klein</span>
+        <span class="header__logo-sub">DESIGN</span>
+      </a>
+
+      <nav class="nav header__nav">
+        <a href="index.html#forside" class="nav__link nav__link--active">Forside</a>
+        <a href="index.html#om" class="nav__link">Om</a>
+        <a href="projekter.html" class="nav__link">Projekter</a>
+        <a href="index.html#kontakt" class="nav__link">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / FORSIDE -->
+    <section id="forside" class="hero">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            <span class="hero__title-main">Klein</span>
+            <span class="hero__title-sub">DESIGN</span>
+          </h1>
+
+          <p class="hero__tagline">Grafisk designer fra Færøerne med rødder i Island.</p>
+
+          <p class="hero__text">
+            Jeg kombinerer nordisk minimalisme med rå visuel identitet.
+            Inspireret af dramatiske landskaber, håndbold, musik og
+            menneskerne omkring mig.
+          </p>
+
+          <div class="hero__actions">
+            <a href="projekter.html" class="button button--filled">Se mit arbejde</a>
+            <a href="#kontakt" class="button button--outline">Kontakt mig</a>
+          </div>
+        </div>
+
+        <div class="hero__image-wrapper">
+          <img src="img/hero-portræt.JPG" alt="Portræt af Ingrid" class="hero__image" />
+          <p class="hero__image-caption">Ingrid – 2025</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HVAD JEG LAVER -->
+    <section class="section section--light">
+      <div class="section__heading">
+        <h2 class="section__title">Hvad jeg laver</h2>
+      </div>
+
+      <div class="card-grid">
+        <article class="card card--postit">
+          <h3 class="card__overtitle">Branding</h3>
+          <p class="card__text">
+            Visuelle identiteter der fortæller historier og skaber forbindelse –
+            fra logo til et lille, sammenhængende univers.
+          </p>
+        </article>
+
+        <article class="card card--postit">
+          <h3 class="card__overtitle">Grafisk design</h3>
+          <p class="card__text">
+            Layout til print og digitalt med fokus på typografi, komposition
+            og et tydeligt visuelt udtryk.
+          </p>
+        </article>
+
+        <article class="card card--postit">
+          <h3 class="card__overtitle">Foto & billedbehandling</h3>
+          <p class="card__text">
+            Stemningsfulde billeder fra Nordatlanten og redigering der
+            understøtter fortællingen.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- UDVALGTE PROJEKTER (2 PR. RÆKKE) -->
+    <section id="projekter" class="section section--light">
+      <div class="section__heading">
+        <h2 class="section__title">Udvalgte projekter</h2>
+        <p class="section__intro">
+          Et udsnit af opgaver og projekter – se den fulde oversigt på projektsiden.
+        </p>
+      </div>
+
+     <div class="project-grid project-grid--two">
+
+  <!-- 1: LOGO -->
+  <article class="project card card--postit">
+    <h3 class="project__title">Hverdagshjælp – logo & identitet</h3>
+    <p class="project__category">Branding</p>
+    <img src="img/hverdagshjaelp-logo.png" alt="Logo til Hverdagshjælp" class="project__image">
+    <p class="card__text">
+      Et venligt logo og et lille univers med varme farver og genkendelighed.
+    </p>
+    <p class="project__meta">Illustrator · 2025</p>
+  </article>
+
+  <!-- 2: POSTKORT -->
+  <article class="project card card--postit">
+    <h3 class="project__title">Gåsetorvet – julepostkort</h3>
+    <p class="project__category">Branding · Billedbehandling</p>
+    <img src="img/julekort.jpg" alt="Julepostkort til Gåsetorvet" class="project__image">
+    <p class="card__text">
+      Retouch, farver og et lille gåse-element for at ramme stemningen.
+    </p>
+    <p class="project__meta">Photoshop · Illustrator · 2023</p>
+  </article>
+
+  <!-- 3: ANIMATION (VIDEO) -->
+  <article class="project card card--postit">
+    <h3 class="project__title">Gåsen i baren – animation</h3>
+    <p class="project__category">Animation</p>
+
+    <video class="project__video" controls muted playsinline preload="metadata">
+      <source src="video/gaas-animation.mp4" type="video/mp4">
+      Din browser understøtter ikke video.
+    </video>
+
+    <p class="card__text">
+      En kort, legende animation lavet til SoMe – simple bevægelser og timing.
+    </p>
+    <p class="project__meta">Procreate · CapCut</p>
+  </article>
+
+  <!-- 4: INSTAGRAM KAMP-POST -->
+  <article class="project card card--postit">
+    <h3 class="project__title">Instagram kamp-post</h3>
+    <p class="project__category">Layout · SoMe</p>
+    <img src="img/instagram-kamp-post.jpg" alt="Instagram kamp-post design" class="project__image">
+    <p class="card__text">
+      Stærke kontraster, rytme og typografi der fanger opmærksomhed hurtigt.
+    </p>
+    <p class="project__meta">Photoshop · Layout</p>
+  </article>
+
+</div>
+
+
+      <div class="projects-cta">
+        <a class="button button--outline" href="projekter.html">Se flere projekter</a>
+      </div>
+    </section>
+
+    <!-- ERFARING & SKILLS -->
+    <section class="section">
+      <div class="section__heading">
+        <h2 class="section__title">Erfaring & kompetencer</h2>
+      </div>
+
+      <div class="experience">
+        <div class="experience__list">
+          <article class="experience-item">
+            <p class="experience-item__year">2023 – nu</p>
+            <h3 class="experience-item__title">Multimediedesign-studerende</h3>
+            <p class="experience-item__text">
+              Arbejder med grafisk design, foto, UX og front-end udvikling.
+              Projekter med fokus på branding og visuelle fortællinger.
+            </p>
+          </article>
+
+          <article class="experience-item experience-item--secondary">
+            <p class="experience-item__year">Før 2023</p>
+            <h3 class="experience-item__title">Studiejobs & frivilligt arbejde</h3>
+            <p class="experience-item__text">
+              Erfaring med teamwork, ansvar og at skabe oplevelser
+              for andre – både på og uden for banen.
+            </p>
+          </article>
+        </div>
+
+        <div class="skills">
+          <h3 class="skills__title">Værktøjer & fokusområder</h3>
+
+          <div class="skills__grid">
+            <div class="skill">
+              <p class="skill__label">Photoshop</p>
+              <div class="skill__bar"><span class="skill__fill" style="width: 80%;"></span></div>
+            </div>
+            <div class="skill">
+              <p class="skill__label">Illustrator</p>
+              <div class="skill__bar"><span class="skill__fill" style="width: 75%;"></span></div>
+            </div>
+            <div class="skill">
+              <p class="skill__label">InDesign</p>
+              <div class="skill__bar"><span class="skill__fill" style="width: 70%;"></span></div>
+            </div>
+            <div class="skill">
+              <p class="skill__label">Figma</p>
+              <div class="skill__bar"><span class="skill__fill" style="width: 70%;"></span></div>
+            </div>
+            <div class="skill">
+              <p class="skill__label">Typografi</p>
+              <div class="skill__bar"><span class="skill__fill" style="width: 85%;"></span></div>
+            </div>
+            <div class="skill">
+              <p class="skill__label">Branding</p>
+              <div class="skill__bar"><span class="skill__fill" style="width: 80%;"></span></div>
+            </div>
+          </div>
+
+          <p class="skills__quote">
+            “Design handler ikke kun om, hvad du ser – men hvordan det får dig til at føle.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OM MIG -->
+   <section id="om" class="section section--light">
+  <div class="section__heading">
+    <h2 class="section__title">Hvem er Klein Design?</h2>
+  </div>
+
+  <div class="about about--spaced">
+
+    <!-- TEKST -->
+    <div class="about__text about__text--narrow">
+      <p class="about__lead">
+        Jeg er Ingrid – en visuelt drevet multimediedesigner med rødder på Færøerne.
+        Jeg arbejder med branding, layout og illustration, hvor personlighed,
+        stemning og funktion mødes.
+      </p>
+
+      <p>
+        Jeg er ikke drevet af hurtige løsninger, men af fordybelse og nysgerrighed.
+        Når jeg arbejder med et projekt, går jeg ind i det med ambitionen om at
+        forstå både idéen, konteksten og menneskene bag – og bliver ved, indtil
+        det hele klikker.
+      </p>
+
+      <p>
+        Mine idéer opstår ofte ude i verden, hvor farver, former og detaljer
+        sætter noget i gang. Den færøske blanding af rå natur, gamle huse og
+        moderne byliv former mit visuelle blik og giver mine projekter en kant,
+        der både er personlig og visuel.
+      </p>
+    </div>
+
+    <!-- PORTRÆTTER -->
+    <div class="about__images">
+      <img src="img/portraet-1.jpg" alt="Portræt af Ingrid" class="about__image">
+      <img src="img/portraet-2.jpg" alt="Portræt af Ingrid" class="about__image">
+    </div>
+
+  </div>
+
+  <!-- SPORT -->
+  <div class="about about--sport">
+    <div class="about__text about__text--narrow">
+      <h3 class="about__subtitle">Arbejde i bevægelse</h3>
+
+      <p>
+        Jeg er vokset op med håndbold. Tempo, fokus og samarbejde er ikke bare
+        sport for mig – det er måden, jeg arbejder på.
+      </p>
+
+      <p>
+        Den energi tager jeg med ind i mit designarbejde. Jeg ser sport som
+        bevægelse, rytme og dynamik, og netop de elementer bruger jeg ofte, når
+        jeg arbejder med form, komposition og visuelle udtryk.
+      </p>
+    </div>
+
+    <div class="about__images">
+      <img src="img/handbold-1.jpg" alt="Håndbold i kamp" class="about__image">
+      <img src="img/handbold-2.jpg" alt="Håndbold i kamp" class="about__image">
+    </div>
+  </div>
+</section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section section--light">
+      <div class="section__heading">
+        <h2 class="section__title">Kontakt</h2>
+        <p class="section__intro">
+          Har du et projekt, en idé eller bare lyst til at sige hej? Skriv til mig.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div class="contact__info">
+          <p><strong>E-mail:</strong> <a href="mailto:KleinDesignGrafik@gmail.com">KleinDesignGrafik@gmail.com</a></p>
+          <p><strong>Lokation:</strong> Færøerne · Danmark</p>
+        </div>
+
+        <form class="contact__form" action="#" method="post">
+          <div class="contact__field">
+            <label for="navn">Navn</label>
+            <input type="text" id="navn" name="navn" placeholder="Dit navn" required>
+          </div>
+          <div class="contact__field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="din@mail.dk" required>
+          </div>
+          <div class="contact__field">
+            <label for="besked">Besked</label>
+            <textarea id="besked" name="besked" rows="4" placeholder="Hvad vil du gerne tale om?" required></textarea>
+          </div>
+          <button type="submit" class="button button--filled contact__submit">
+            Send (dummy-form til portfolio)
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__text">© 2025 Klein Design · Portfolio til 1. semesterprøven</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
