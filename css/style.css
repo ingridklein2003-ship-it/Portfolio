@@ -969,3 +969,99 @@ body.page {
 .about__images {
   gap: 1.2rem; /* lidt mindre luft mellem billederne */
 }
+/* ==================================================
+   MOBIL FIRST – FINPUDS (projekter + om mig)
+   ================================================== */
+
+/* ---------- PROJEKT-KORT (MINDRE & STRAMMERE) ---------- */
+
+.project-grid {
+  gap: 1.2rem;
+}
+
+.project.card {
+  padding: 0.9rem;
+}
+
+.project__image,
+.case__image {
+  margin-bottom: 0.6rem;
+}
+
+.card__text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ---------- OM MIG – MOBIL FIX ---------- */
+
+.about,
+.about--sport {
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+}
+
+.about__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.about__image {
+  border-radius: 12px;
+}
+
+.about__text {
+  font-size: 0.92rem;
+}
+
+.about__lead {
+  font-size: 1rem;
+}
+
+
+/* ==================================================
+   TABLET (fra 768px)
+   ================================================== */
+
+@media (min-width: 768px) {
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .project.card {
+    padding: 1.1rem;
+  }
+
+  .about,
+  .about--sport {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.4rem;
+  }
+
+  .about__images {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==================================================
+   DESKTOP (fra 1100px)
+   ================================================== */
+
+@media (min-width: 1100px) {
+
+  .project-grid {
+    gap: 2.2rem;
+  }
+
+  .project.card {
+    padding: 1.2rem;
+  }
+
+  .about__text {
+    font-size: 0.95rem;
+  }
+}
