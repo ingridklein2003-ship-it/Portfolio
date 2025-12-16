@@ -1065,3 +1065,68 @@ body.page {
     font-size: 0.95rem;
   }
 }
+/* ==================================================
+   PROJEKTSIDE – MERE LUFT + MINDRE BOKSE
+   ================================================== */
+
+/* Mere luft mellem sektioner (Branding, Foto osv.) */
+.project-section {
+  margin-bottom: 4rem;
+}
+
+/* Mere luft mellem projekter */
+.case-grid {
+  gap: 2.8rem;
+}
+
+/* Projektkort – lidt smallere & roligere */
+.case.card {
+  padding: 1.2rem;
+}
+
+/* Billeder fylder lidt mindre visuelt */
+.case__image,
+.case-block__image,
+.case-block__video {
+  margin-bottom: 0.8rem;
+}
+
+/* Tekst lidt strammere */
+.case__details p,
+.case-block__text p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------
+   MOBIL – mere luft, mindre scroll-stress
+-------------------------------------------------- */
+@media (max-width: 768px) {
+
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .case.card {
+    padding: 1rem;
+  }
+
+  .project-section {
+    margin-bottom: 3rem;
+  }
+}
+
+/* --------------------------------------------------
+   DESKTOP – endnu mere ro
+-------------------------------------------------- */
+@media (min-width: 1100px) {
+
+  .case-grid {
+    gap: 3.2rem;
+  }
+
+  .case.card {
+    padding: 1.4rem;
+  }
+}
