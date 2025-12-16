@@ -1165,3 +1165,44 @@ body.page {
   object-fit: cover;
   border-radius: 12px;
 }
+.project__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  .project__gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+.project__gallery img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+/* FEATURE GALLERY */
+.project__gallery--feature {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.project__gallery--feature .is-wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 600px) {
+  .project__gallery--feature {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project__gallery--feature .is-wide {
+    grid-column: 1 / -1;
+  }
+}
