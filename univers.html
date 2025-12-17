@@ -179,7 +179,7 @@
   </style>
 </head>
 
-<body class="page">
+<body class="page page--universe">
 
   <!-- Header: behold din eksisterende header hvis du har en fælles -->
   <header class="header">
@@ -199,99 +199,150 @@
     </div>
   </header>
 
-  <main class="univers-main">
-    <div class="univers-wrap">
+ <main class="universe">
 
-      <!-- Intro -->
-      <section class="univers-hero" aria-labelledby="univers-title">
-        <p class="univers-eyebrow">MIT UPERFEKTE UNIVERS</p>
-        <h1 id="univers-title" class="univers-title">Kreativt rod, skitser og idéer</h1>
-        <p class="univers-lead">
-          Et lille arkiv af ting der ikke behøver være “færdige” for at være værdifulde.
-          Bladr i skitsebogen og se processen — uden filter.
-        </p>
+  <!-- INTRO / COVER -->
+  <section class="univers__cover" aria-labelledby="univers-title">
+    <div class="univers__cover-inner">
+      <p class="univers__kicker">MIT UPERFEKTE UNIVERS</p>
 
-        <div class="univers-actions">
-          <a class="button button--filled" href="#bogen">Åbn skitsebogen →</a>
-          <a class="button button--outline" href="#tabs">Se kapitler</a>
+      <h1 id="univers-title" class="univers__title">
+        Kreativt rod, skitser og idéer
+      </h1>
+
+      <p class="univers__subtitle">
+        Et lille arkiv af ting der ikke behøver være “færdige” for at være værdifulde.
+        Bladr i skitsebogen og se processen — uden filter.
+      </p>
+
+      <a href="#bogen" class="univers__btn">
+        Gå til skitsebogen ↓
+      </a>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <div id="tabs" class="book__tabs" role="tablist" aria-label="Univers tabs">
+    <button class="tab is-active" role="tab" aria-selected="true"
+      aria-controls="panel-skitser" id="tab-skitser">
+      Skitser
+    </button>
+
+    <button class="tab" role="tab" aria-selected="false"
+      aria-controls="panel-mood" id="tab-mood">
+      Moodboards
+    </button>
+
+    <button class="tab" role="tab" aria-selected="false"
+      aria-controls="panel-skitsebog" id="tab-skitsebog">
+      Skitsebog
+    </button>
+  </div>
+
+  <!-- ANCHOR TIL BOGEN -->
+  <div id="bogen"></div>
+
+  <!-- ===================== -->
+  <!-- PANEL: SKITSER (iPad) -->
+  <!-- ===================== -->
+  <section class="book tab-panel is-active"
+    role="tabpanel"
+    aria-labelledby="tab-skitser"
+    id="panel-skitser">
+
+    <div class="book__frame">
+
+      <div class="book__controls">
+        <div class="book__counter" id="bookMetaSkitser">
+          Side 1–2 / 17
         </div>
-      </section>
 
-      <!-- Tabs -->
-      <div id="tabs" class="tabs" role="tablist" aria-label="Univers tabs">
-        <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-skitser" id="tab-skitser">Skitser</button>
-        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-mood" id="tab-mood">Moodboards</button>
-        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-skitsebog" id="tab-skitsebog">Skitsebog</button>
+        <div>
+          <button class="book__btn" id="prevSkitser" type="button">←</button>
+          <button class="book__btn" id="nextSkitser" type="button">→</button>
+        </div>
       </div>
 
-      <!-- Panel: Skitser (iPad) -->
-      <section id="bogen" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-skitser" id="panel-skitser">
-        <div class="book-shell">
-          <div class="book-topbar">
-            <div class="book-meta" id="bookMetaSkitser">Side 1–2</div>
-            <div class="book-controls">
-              <button class="icon-btn" id="prevSkitser" type="button">←</button>
-              <button class="icon-btn" id="nextSkitser" type="button">→</button>
-            </div>
+      <div class="spread" id="spreadSkitser">
+        <article class="sheet sheet--left">
+          <div class="pagecard__img">
+            <img id="imgLeftSkitser" src="" alt="">
           </div>
+          <div class="pagecard__text" id="capLeftSkitser"></div>
+        </article>
 
-          <div class="spread" id="spreadSkitser">
-            <article class="page" aria-label="Venstre side">
-              <figure><img id="imgLeftSkitser" src="" alt=""></figure>
-              <div class="caption" id="capLeftSkitser"></div>
-            </article>
-
-            <article class="page" aria-label="Højre side">
-              <figure><img id="imgRightSkitser" src="" alt=""></figure>
-              <div class="caption" id="capRightSkitser"></div>
-            </article>
+        <article class="sheet sheet--right">
+          <div class="pagecard__img">
+            <img id="imgRightSkitser" src="" alt="">
           </div>
-        </div>
-      </section>
+          <div class="pagecard__text" id="capRightSkitser"></div>
+        </article>
 
-      <!-- Panel: Moodboards (tomt lige nu, men klar) -->
-      <section class="tab-panel" role="tabpanel" aria-labelledby="tab-mood" id="panel-mood">
-        <div class="book-shell" style="max-width:980px;">
-          <div class="book-topbar">
-            <div class="book-meta">Moodboards / scraps (du kan fylde dem på senere)</div>
-          </div>
-
-          <div class="mood-grid">
-            <!-- Når du vil: tilføj img tags her -->
-            <!-- <img src="img/mood-01.png" alt="Moodboard 1"> -->
-            <!-- <img src="img/mood-02.png" alt="Moodboard 2"> -->
-            <!-- <img src="img/mood-03.png" alt="Moodboard 3"> -->
-          </div>
-        </div>
-      </section>
-
-      <!-- Panel: Skitsebog (fysisk) -->
-      <section class="tab-panel" role="tabpanel" aria-labelledby="tab-skitsebog" id="panel-skitsebog">
-        <div class="book-shell">
-          <div class="book-topbar">
-            <div class="book-meta" id="bookMetaBog">Side 1–2</div>
-            <div class="book-controls">
-              <button class="icon-btn" id="prevBog" type="button">←</button>
-              <button class="icon-btn" id="nextBog" type="button">→</button>
-            </div>
-          </div>
-
-          <div class="spread" id="spreadBog">
-            <article class="page" aria-label="Venstre side">
-              <figure><img id="imgLeftBog" src="" alt=""></figure>
-              <div class="caption" id="capLeftBog"></div>
-            </article>
-
-            <article class="page" aria-label="Højre side">
-              <figure><img id="imgRightBog" src="" alt=""></figure>
-              <div class="caption" id="capRightBog"></div>
-            </article>
-          </div>
-        </div>
-      </section>
+        <div class="spine"></div>
+      </div>
 
     </div>
-  </main>
+  </section>
+
+  <!-- ===================== -->
+  <!-- PANEL: MOODBOARDS -->
+  <!-- ===================== -->
+  <section class="book tab-panel"
+    role="tabpanel"
+    aria-labelledby="tab-mood"
+    id="panel-mood">
+
+    <div class="book__frame">
+      <p style="opacity:.7; padding:24px;">
+        Moodboards og scraps – kommer snart ✨
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- PANEL: SKITSEBOG (FYSISK) -->
+  <!-- ===================== -->
+  <section class="book tab-panel"
+    role="tabpanel"
+    aria-labelledby="tab-skitsebog"
+    id="panel-skitsebog">
+
+    <div class="book__frame">
+
+      <div class="book__controls">
+        <div class="book__counter" id="bookMetaBog">
+          Side 1–2 / 5
+        </div>
+
+        <div>
+          <button class="book__btn" id="prevBog" type="button">←</button>
+          <button class="book__btn" id="nextBog" type="button">→</button>
+        </div>
+      </div>
+
+      <div class="spread" id="spreadBog">
+        <article class="sheet sheet--left">
+          <div class="pagecard__img">
+            <img id="imgLeftBog" src="" alt="">
+          </div>
+          <div class="pagecard__text" id="capLeftBog"></div>
+        </article>
+
+        <article class="sheet sheet--right">
+          <div class="pagecard__img">
+            <img id="imgRightBog" src="" alt="">
+          </div>
+          <div class="pagecard__text" id="capRightBog"></div>
+        </article>
+
+        <div class="spine"></div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
 
   <script>
     // -----------------------------
