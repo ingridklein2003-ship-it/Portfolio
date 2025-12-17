@@ -27,76 +27,104 @@
   </header>
 
   <main class="univers">
+
     <!-- COVER -->
     <section class="univers__cover" id="cover">
       <div class="univers__cover-inner">
         <p class="univers__kicker">Mit uperfekte univers</p>
         <h1 class="univers__title">Kreativt rod, skitser og idéer</h1>
-        <p class="univers__subtitle">Et lille arkiv af ting der ikke behøver være “færdige” for at være værdifulde.</p>
-        <button class="univers__btn" id="openBook">Åbn skitsebogen →</button>
+        <p class="univers__subtitle">
+          Et lille arkiv af ting der ikke behøver være “færdige” for at være værdifulde.
+          (Tip: piletaster virker også)
+        </p>
+        <button class="univers__btn" id="openBook" type="button">Åbn skitsebogen →</button>
       </div>
     </section>
 
     <!-- BOOK -->
     <section class="book" id="book" aria-label="Skitsebog" hidden>
       <div class="book__frame">
-        <div class="book__page" id="page"></div>
 
-        <div class="book__controls">
-          <button class="book__btn" id="prev">← Forrige</button>
-          <div class="book__counter"><span id="index">1</span>/<span id="total">1</span></div>
-          <button class="book__btn" id="next">Næste →</button>
+        <!-- Tabs -->
+        <div class="book__tabs" role="tablist" aria-label="Kategorier">
+          <button class="tab is-active" data-cat="skitser" role="tab" type="button">Skitser</button>
+          <button class="tab" data-cat="mood" role="tab" type="button">Moodboards</button>
+          <button class="tab" data-cat="foto" role="tab" type="button">Foto scraps</button>
         </div>
+
+        <!-- Spread (2 sider) -->
+        <div class="spread is-anim" id="spread">
+          <div class="sheet sheet--left" id="leftPage"></div>
+          <div class="sheet sheet--right" id="rightPage"></div>
+          <div class="spine" aria-hidden="true"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="book__controls">
+          <button class="book__btn" id="prev" type="button">← Forrige</button>
+          <div class="book__counter"><span id="index">1</span>/<span id="total">1</span></div>
+          <button class="book__btn" id="next" type="button">Næste →</button>
+        </div>
+
+        <button class="book__close" id="closeBook" type="button" aria-label="Luk">Esc · Luk</button>
       </div>
     </section>
+
   </main>
 
   <script>
-    const pages = [
-      {
-        title: "Dåse-studier",
-        text: "Observations-tegninger. Fokus på form, label og typografi.",
-        img: "img/tegning-1.jpg"
-      },
-      {
-        title: "Skitser & noter",
-        text: "Små idéer, ting jeg samler, og det der bliver til noget senere.",
-        img: "img/tegning-2.jpg"
-      },
-      {
-        title: "Moodboard / stemning",
-        text: "Farver, materialer, teksturer – alt det der sætter retningen.",
-        img: "img/moodboard-1.jpg"
-      },
-      {
-        title: "Eksperimenter",
-        text: "Rod og leg – her må det gerne være ufærdigt.",
-        img: "img/tegning-3.jpg"
-      }
-    ];
+    // Skift bare filnavne her når du vil:
+    const data = {
+      skitser: [
+        { title: "Dåse-studier", text: "Form, label og typografi.", img: "img/tegning-1.jpg" },
+        { title: "Streg & detaljer", text: "Små observationer og rytme.", img: "img/tegning-2.jpg" },
+        { title: "Eksperiment", text: "Rod og leg – ufærdigt er ok.", img: "img/tegning-3.jpg" },
+        { title: "Udvalg", text: "Skitser jeg vender tilbage til.", img: "img/tegning-4.jpg" }
+      ],
+      mood: [
+        { title: "Moodboard 01", text: "Farver og teksturer.", img: "img/moodboard-1.jpg" },
+        { title: "Moodboard 02", text: "Stemning og materialer.", img: "img/moodboard-2.jpg" },
+        { title: "Moodboard 03", text: "Kontraster og reference.", img: "img/moodboard-3.jpg" },
+        { title: "Moodboard 04", text: "Retning og udtryk.", img: "img/moodboard-4.jpg" }
+      ],
+      foto: [
+        { title: "Scrap 01", text: "Detaljer jeg gemmer.", img: "img/scrap-1.jpg" },
+        { title: "Scrap 02", text: "Billeder som inspiration.", img: "img/scrap-2.jpg" },
+        { title: "Scrap 03", text: "Små frames fra ture.", img: "img/scrap-3.jpg" },
+        { title: "Scrap 04", text: "Tekstur og lys.", img: "img/scrap-4.jpg" }
+      ]
+    };
 
     const cover = document.getElementById("cover");
     const book = document.getElementById("book");
     const openBook = document.getElementById("openBook");
-    const pageEl = document.getElementById("page");
+    const closeBook = document.getElementById("closeBook");
+
+    const leftPage = document.getElementById("leftPage");
+    const rightPage = document.getElementById("rightPage");
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
     const indexEl = document.getElementById("index");
     const totalEl = document.getElementById("total");
+    const spread = document.getElementById("spread");
 
-    let i = 0;
-    totalEl.textContent = pages.length;
+    const tabs = Array.from(document.querySelectorAll(".tab"));
 
-    function render() {
-      const p = pages[i];
-      pageEl.classList.remove("is-anim");
-      void pageEl.offsetWidth; // restart animation
-      pageEl.classList.add("is-anim");
+    let category = "skitser";
+    let pageIndex = 0; // “spreads” (2 sider ad gangen)
 
-      pageEl.innerHTML = `
+    function getSpreads() {
+      const arr = data[category] || [];
+      const spreads = [];
+      for (let i = 0; i < arr.length; i += 2) spreads.push([arr[i], arr[i + 1] || null]);
+      return spreads;
+    }
+
+    function pageHTML(p) {
+      return `
         <div class="pagecard">
           <div class="pagecard__img">
-            <img src="${p.img}" alt="${p.title}">
+            <img src="${p.img}" alt="${p.title}" loading="lazy">
           </div>
           <div class="pagecard__text">
             <h2>${p.title}</h2>
@@ -104,10 +132,37 @@
           </div>
         </div>
       `;
-      indexEl.textContent = i + 1;
+    }
 
-      prev.disabled = i === 0;
-      next.disabled = i === pages.length - 1;
+    function emptyHTML() {
+      return `<div class="pagecard pagecard--empty"><p>—</p></div>`;
+    }
+
+    function render() {
+      const spreads = getSpreads();
+      totalEl.textContent = spreads.length || 1;
+      indexEl.textContent = Math.min(pageIndex + 1, spreads.length || 1);
+
+      const current = spreads[pageIndex] || [null, null];
+      const L = current[0];
+      const R = current[1];
+
+      leftPage.innerHTML = L ? pageHTML(L) : emptyHTML();
+      rightPage.innerHTML = R ? pageHTML(R) : emptyHTML();
+
+      prev.disabled = pageIndex === 0;
+      next.disabled = pageIndex >= (spreads.length - 1);
+
+      spread.classList.remove("is-anim");
+      void spread.offsetWidth; // restart animation
+      spread.classList.add("is-anim");
+    }
+
+    function setCategory(cat) {
+      category = cat;
+      pageIndex = 0;
+      tabs.forEach(t => t.classList.toggle("is-active", t.dataset.cat === cat));
+      render();
     }
 
     openBook.addEventListener("click", () => {
@@ -116,18 +171,35 @@
       render();
     });
 
-    prev.addEventListener("click", () => { if (i > 0) { i--; render(); }});
-    next.addEventListener("click", () => { if (i < pages.length - 1) { i++; render(); }});
+    closeBook.addEventListener("click", () => {
+      book.hidden = true;
+      cover.hidden = false;
+    });
+
+    prev.addEventListener("click", () => {
+      if (pageIndex > 0) {
+        pageIndex--;
+        render();
+      }
+    });
+
+    next.addEventListener("click", () => {
+      const spreads = getSpreads();
+      if (pageIndex < spreads.length - 1) {
+        pageIndex++;
+        render();
+      }
+    });
+
+    tabs.forEach(t => t.addEventListener("click", () => setCategory(t.dataset.cat)));
 
     window.addEventListener("keydown", (e) => {
       if (book.hidden) return;
-      if (e.key === "ArrowLeft" && i > 0) { i--; render(); }
-      if (e.key === "ArrowRight" && i < pages.length - 1) { i++; render(); }
-      if (e.key === "Escape") {
-        book.hidden = true;
-        cover.hidden = false;
-      }
+      if (e.key === "ArrowLeft") prev.click();
+      if (e.key === "ArrowRight") next.click();
+      if (e.key === "Escape") closeBook.click();
     });
   </script>
+
 </body>
 </html>
