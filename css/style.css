@@ -1184,3 +1184,165 @@ body.page {
   object-fit: cover;
   border-radius: 12px;
 }
+/* ===== Univers page ===== */
+.page--univers {
+  background: #0b0b0c;
+  color: #f4f0e8;
+}
+
+.univers__cover {
+  min-height: calc(100vh - 90px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.univers__cover-inner {
+  width: min(680px, 92vw);
+  border-radius: 22px;
+  padding: 28px;
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
+              linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+}
+
+.univers__kicker { letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; }
+.univers__title { font-size: clamp(2rem, 4vw, 3rem); margin: 10px 0 8px; }
+.univers__subtitle { opacity: 0.85; line-height: 1.5; }
+
+.univers__btn {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: inherit;
+  cursor: pointer;
+}
+
+.book {
+  min-height: calc(100vh - 90px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.book__frame {
+  width: min(980px, 94vw);
+  border-radius: 26px;
+  padding: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+}
+
+.book__page {
+  border-radius: 18px;
+  background: #f4f0e8;
+  color: #141414;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.pagecard {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .pagecard { grid-template-columns: 1.2fr 0.8fr; }
+}
+
+.pagecard__img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.pagecard__text {
+  padding: 18px 18px 20px;
+}
+
+.pagecard__text h2 {
+  margin: 0 0 8px;
+}
+
+.book__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 10px;
+}
+
+.book__btn {
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: #f4f0e8;
+  cursor: pointer;
+}
+
+.book__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.book__counter {
+  opacity: 0.8;
+}
+
+/* “bladring” animation */
+.book__page.is-anim {
+  animation: flipIn 220ms ease;
+}
+@keyframes flipIn {
+  from { transform: translateX(10px); opacity: 0.6; }
+  to { transform: translateX(0); opacity: 1; }
+}
+/* ===== Univers teaser på forsiden ===== */
+.univers-teaser {
+  padding: 26px 16px;
+}
+
+.univers-teaser__card {
+  max-width: 980px;
+  margin: 0 auto;
+  border-radius: 22px;
+  padding: 22px;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.10);
+}
+
+.univers-teaser__kicker {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 10px;
+}
+
+.univers-teaser__title {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.univers-teaser__text {
+  margin: 0 0 14px;
+  opacity: 0.9;
+  line-height: 1.5;
+  max-width: 62ch;
+}
+
+.univers-teaser__btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.15);
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,0.65);
+}
