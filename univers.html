@@ -3,12 +3,185 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mit uperfekte univers</title>
+  <title>Univers – Mit uperfekte univers</title>
+
+  <!-- Fonts (samme som resten af sitet, hvis du bruger dem) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Din hoved-css -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Side-specifik CSS (kun til univers) -->
+  <style>
+    /* --- Layout wrapper (matcher din site vibe) --- */
+    .univers-main { padding: 7rem 1.25rem 4rem; }
+    .univers-wrap { max-width: 1100px; margin: 0 auto; }
+
+    /* --- Intro card --- */
+    .univers-hero {
+      margin: 0 auto 2rem;
+      max-width: 900px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.45);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+      padding: 2rem 2rem 1.5rem;
+    }
+    .univers-eyebrow { letter-spacing: .18em; text-transform: uppercase; font-size: .85rem; opacity: .7; margin: 0 0 .6rem; }
+    .univers-title { font-family: "Playfair Display", serif; font-size: clamp(2rem, 4vw, 3.2rem); margin: 0 0 .5rem; line-height: 1.05; }
+    .univers-lead { margin: 0 0 1.25rem; font-size: 1.05rem; opacity: .85; max-width: 62ch; }
+    .univers-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+    /* --- Tabs --- */
+    .tabs {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      margin: 1rem auto 1.25rem;
+      max-width: 900px;
+      justify-content: center;
+    }
+    .tab-btn {
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.4);
+      padding: .65rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: .02em;
+      transition: transform .08s ease, background .2s ease;
+    }
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.55); }
+    .tab-btn[aria-selected="true"] { background: rgba(0,0,0,.08); }
+
+    .tab-panel { display: none; }
+    .tab-panel.is-active { display: block; }
+
+    /* --- Book container --- */
+    .book-shell {
+      margin: 0 auto;
+      max-width: 980px;
+      background: rgba(255,255,255,.25);
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 28px;
+      padding: 1.25rem;
+      box-shadow: 0 22px 70px rgba(0,0,0,.14);
+    }
+
+    .book-topbar {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: .5rem .75rem 1rem;
+    }
+    .book-meta { font-size: .95rem; opacity: .8; }
+    .book-controls { display: flex; gap: .6rem; align-items: center; }
+
+    .icon-btn {
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.55);
+      padding: .55rem .85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .icon-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+    /* --- Spread --- */
+    .spread {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+      background: rgba(255,255,255,.55);
+      border-radius: 22px;
+      padding: 1rem;
+      border: 1px solid rgba(0,0,0,.10);
+      overflow: hidden;
+      min-height: 540px;
+    }
+
+    /* Bog-ryg */
+    .spread::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.08);
+      box-shadow: 0 0 30px rgba(0,0,0,.12);
+      pointer-events: none;
+    }
+
+    .page {
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(0,0,0,.08);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .page figure { margin: 0; display: grid; place-items: center; padding: .75rem; flex: 1; }
+    .page img {
+      width: 100%;
+      height: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .caption {
+      padding: .75rem 1rem 1rem;
+      border-top: 1px solid rgba(0,0,0,.06);
+      font-size: .95rem;
+      opacity: .9;
+    }
+    .caption strong { font-weight: 800; }
+
+    /* --- Mobile: 1 side ad gangen --- */
+    @media (max-width: 760px) {
+      .univers-main { padding-top: 6.2rem; }
+      .univers-hero { padding: 1.5rem 1.25rem 1.25rem; }
+      .spread { grid-template-columns: 1fr; min-height: 520px; }
+      .spread::before { display: none; }
+      .page img { max-height: 460px; }
+    }
+
+    /* --- Simple grid preview panels (til “Moodboards” hvis du vil) --- */
+    .mood-grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .mood-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.6);
+    }
+    @media (max-width: 900px) { .mood-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .mood-grid { grid-template-columns: 1fr; } .mood-grid img { height: 240px; } }
+
+    /* --- Smooth scroll anchor helper --- */
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 
-<body class="page page--univers">
+<body class="page">
 
+  <!-- Header: behold din eksisterende header hvis du har en fælles -->
   <header class="header">
     <div class="header__inner">
       <a href="index.html#forside" class="header__logo">
@@ -26,180 +199,279 @@
     </div>
   </header>
 
-  <main class="univers">
+  <main class="univers-main">
+    <div class="univers-wrap">
 
-    <!-- COVER -->
-    <section class="univers__cover" id="cover">
-      <div class="univers__cover-inner">
-        <p class="univers__kicker">Mit uperfekte univers</p>
-        <h1 class="univers__title">Kreativt rod, skitser og idéer</h1>
-        <p class="univers__subtitle">
+      <!-- Intro -->
+      <section class="univers-hero" aria-labelledby="univers-title">
+        <p class="univers-eyebrow">MIT UPERFEKTE UNIVERS</p>
+        <h1 id="univers-title" class="univers-title">Kreativt rod, skitser og idéer</h1>
+        <p class="univers-lead">
           Et lille arkiv af ting der ikke behøver være “færdige” for at være værdifulde.
-          (Tip: piletaster virker også)
+          Bladr i skitsebogen og se processen — uden filter.
         </p>
-        <button class="univers__btn" id="openBook" type="button">Åbn skitsebogen →</button>
+
+        <div class="univers-actions">
+          <a class="button button--filled" href="#bogen">Åbn skitsebogen →</a>
+          <a class="button button--outline" href="#tabs">Se kapitler</a>
+        </div>
+      </section>
+
+      <!-- Tabs -->
+      <div id="tabs" class="tabs" role="tablist" aria-label="Univers tabs">
+        <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-skitser" id="tab-skitser">Skitser</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-mood" id="tab-mood">Moodboards</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-skitsebog" id="tab-skitsebog">Skitsebog</button>
       </div>
-    </section>
 
-    <!-- BOOK -->
-    <section class="book" id="book" aria-label="Skitsebog" hidden>
-      <div class="book__frame">
+      <!-- Panel: Skitser (iPad) -->
+      <section id="bogen" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-skitser" id="panel-skitser">
+        <div class="book-shell">
+          <div class="book-topbar">
+            <div class="book-meta" id="bookMetaSkitser">Side 1–2</div>
+            <div class="book-controls">
+              <button class="icon-btn" id="prevSkitser" type="button">←</button>
+              <button class="icon-btn" id="nextSkitser" type="button">→</button>
+            </div>
+          </div>
 
-        <!-- Tabs -->
-        <div class="book__tabs" role="tablist" aria-label="Kategorier">
-          <button class="tab is-active" data-cat="skitser" role="tab" type="button">Skitser</button>
-          <button class="tab" data-cat="mood" role="tab" type="button">Moodboards</button>
-          <button class="tab" data-cat="foto" role="tab" type="button">Foto scraps</button>
+          <div class="spread" id="spreadSkitser">
+            <article class="page" aria-label="Venstre side">
+              <figure><img id="imgLeftSkitser" src="" alt=""></figure>
+              <div class="caption" id="capLeftSkitser"></div>
+            </article>
+
+            <article class="page" aria-label="Højre side">
+              <figure><img id="imgRightSkitser" src="" alt=""></figure>
+              <div class="caption" id="capRightSkitser"></div>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <!-- Spread (2 sider) -->
-        <div class="spread is-anim" id="spread">
-          <div class="sheet sheet--left" id="leftPage"></div>
-          <div class="sheet sheet--right" id="rightPage"></div>
-          <div class="spine" aria-hidden="true"></div>
+      <!-- Panel: Moodboards (tomt lige nu, men klar) -->
+      <section class="tab-panel" role="tabpanel" aria-labelledby="tab-mood" id="panel-mood">
+        <div class="book-shell" style="max-width:980px;">
+          <div class="book-topbar">
+            <div class="book-meta">Moodboards / scraps (du kan fylde dem på senere)</div>
+          </div>
+
+          <div class="mood-grid">
+            <!-- Når du vil: tilføj img tags her -->
+            <!-- <img src="img/mood-01.png" alt="Moodboard 1"> -->
+            <!-- <img src="img/mood-02.png" alt="Moodboard 2"> -->
+            <!-- <img src="img/mood-03.png" alt="Moodboard 3"> -->
+          </div>
         </div>
+      </section>
 
-        <!-- Controls -->
-        <div class="book__controls">
-          <button class="book__btn" id="prev" type="button">← Forrige</button>
-          <div class="book__counter"><span id="index">1</span>/<span id="total">1</span></div>
-          <button class="book__btn" id="next" type="button">Næste →</button>
+      <!-- Panel: Skitsebog (fysisk) -->
+      <section class="tab-panel" role="tabpanel" aria-labelledby="tab-skitsebog" id="panel-skitsebog">
+        <div class="book-shell">
+          <div class="book-topbar">
+            <div class="book-meta" id="bookMetaBog">Side 1–2</div>
+            <div class="book-controls">
+              <button class="icon-btn" id="prevBog" type="button">←</button>
+              <button class="icon-btn" id="nextBog" type="button">→</button>
+            </div>
+          </div>
+
+          <div class="spread" id="spreadBog">
+            <article class="page" aria-label="Venstre side">
+              <figure><img id="imgLeftBog" src="" alt=""></figure>
+              <div class="caption" id="capLeftBog"></div>
+            </article>
+
+            <article class="page" aria-label="Højre side">
+              <figure><img id="imgRightBog" src="" alt=""></figure>
+              <div class="caption" id="capRightBog"></div>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <button class="book__close" id="closeBook" type="button" aria-label="Luk">Esc · Luk</button>
-      </div>
-    </section>
-
+    </div>
   </main>
 
   <script>
-    // Skift bare filnavne her når du vil:
+    // -----------------------------
+    // DATA (DINE FILNAVNE)
+    // -----------------------------
     const data = {
       skitser: [
-        { title: "Dåse-studier", text: "Form, label og typografi.", img: "img/tegning-1.jpg" },
-        { title: "Streg & detaljer", text: "Små observationer og rytme.", img: "img/tegning-2.jpg" },
-        { title: "Eksperiment", text: "Rod og leg – ufærdigt er ok.", img: "img/tegning-3.jpg" },
-        { title: "Udvalg", text: "Skitser jeg vender tilbage til.", img: "img/tegning-4.jpg" }
+        // spreads: uden → med (2 sider)
+        { title: "Øl – uden farver", text: "Samme motiv – kun streg og form.", img: "img/skitse-ol-uden-farver.png" },
+        { title: "Øl – med farver", text: "Farver lagt på som stemning.", img: "img/skitse-ol-med-farver.png" },
+
+        { title: "Hamburg – uden farver", text: "Øvelse i lys/skygge og proportioner.", img: "img/skitse-hamburg-uden-farver.png" },
+        { title: "Hamburg – med farver", text: "Farver lagt på ovenpå strukturen.", img: "img/skitse-hamburg-med-farver.png" },
+
+        { title: "Hår – uden", text: "Bare øvelse – former og flow.", img: "img/skitse-har-uden.png" },
+        { title: "Hår – med", text: "Variation og detalje.", img: "img/skitse-har-med.png" },
+
+        { title: "Andras – uden farver", text: "Ikke færdig – fokus på streg.", img: "img/skitse-andras-uden-farver.png" },
+        { title: "Andras – med farver", text: "Farver undervejs (proces).", img: "img/skitse-andras-med-farver.png" },
+
+        { title: "Hygge – Ingrid (1)", text: "Små øjeblikke – bare fordi.", img: "img/skitse-ingrid-01.png" },
+        { title: "Hygge – Ingrid (2)", text: "Samme vibe – ny side.", img: "img/skitse-ingrid-02.png" },
+
+        // enkeltsider (vi “parrer” dem automatisk 2 og 2)
+        { title: "Portugal", text: "Skitse fra minde / stemning.", img: "img/skitse-mamma-jeppe-portugal.png" },
+        { title: "iPad baggrund", text: "Eksperiment / layout-følelse.", img: "img/skitse-ipad-baggrund.png" },
+
+        { title: "Anja & Jørgen", text: "Figurer og relationer.", img: "img/skitse-anja-jorgen.png" },
+        { title: "Tavleskitse", text: "Idéer hurtigt ned.", img: "img/skitse-tavle.png" },
+
+        { title: "Sara – komfi", text: "Rolig figur / udtryk.", img: "img/skitse-sara-komfi.png" },
+        { title: "Sara – rejse", text: "Bevægelse og energi.", img: "img/skitse-rejs-sara.png" },
+
+        { title: "Sara – tunge", text: "Leg / karakter.", img: "img/skitse-sara-tunge.png" },
+        // hvis du får én mere senere, passer den perfekt her :)
       ],
-      mood: [
-        { title: "Moodboard 01", text: "Farver og teksturer.", img: "img/moodboard-1.jpg" },
-        { title: "Moodboard 02", text: "Stemning og materialer.", img: "img/moodboard-2.jpg" },
-        { title: "Moodboard 03", text: "Kontraster og reference.", img: "img/moodboard-3.jpg" },
-        { title: "Moodboard 04", text: "Retning og udtryk.", img: "img/moodboard-4.jpg" }
-      ],
-      foto: [
-        { title: "Scrap 01", text: "Detaljer jeg gemmer.", img: "img/scrap-1.jpg" },
-        { title: "Scrap 02", text: "Billeder som inspiration.", img: "img/scrap-2.jpg" },
-        { title: "Scrap 03", text: "Små frames fra ture.", img: "img/scrap-3.jpg" },
-        { title: "Scrap 04", text: "Tekstur og lys.", img: "img/scrap-4.jpg" }
+
+      skitsebog: [
+        { title: "Skitsebog – 1", text: "Håndtegnet side fra min fysiske bog.", img: "img/bog-tegning-01.jpg" },
+        { title: "Skitsebog – 2", text: "Observationer og små noter.", img: "img/bog-tegning-02.jpg" },
+        { title: "Skitsebog – 3", text: "Uperfekt – men ærlig proces.", img: "img/bog-tegning-03.jpg" },
+        { title: "Skitsebog – 4", text: "Variationer og gentagelser.", img: "img/bog-tegning-04.jpg" },
+        { title: "Skitsebog – 5", text: "Sidste side i serien.", img: "img/bog-tegning-05.jpg" },
+
+        { title: "Prototype – 1", text: "Tidlige idéer og opbygning.", img: "img/bog-prototype-01.jpg" },
+        { title: "Prototype – 2", text: "Formtest og struktur.", img: "img/bog-prototype-02.jpg" },
+        { title: "Prototype – 3", text: "Proces frem for resultat.", img: "img/bog-prototype-03.jpg" },
+        { title: "Prototype – 4", text: "Justeringer og nye vinkler.", img: "img/bog-prototype-04.jpg" },
+        { title: "Prototype – 5", text: "Sidste iteration i serien.", img: "img/bog-prototype-05.jpg" }
       ]
     };
 
-    const cover = document.getElementById("cover");
-    const book = document.getElementById("book");
-    const openBook = document.getElementById("openBook");
-    const closeBook = document.getElementById("closeBook");
+    // -----------------------------
+    // TAB LOGIK
+    // -----------------------------
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const panels = {
+      skitser: document.getElementById("panel-skitser"),
+      mood: document.getElementById("panel-mood"),
+      skitsebog: document.getElementById("panel-skitsebog"),
+    };
 
-    const leftPage = document.getElementById("leftPage");
-    const rightPage = document.getElementById("rightPage");
-    const prev = document.getElementById("prev");
-    const next = document.getElementById("next");
-    const indexEl = document.getElementById("index");
-    const totalEl = document.getElementById("total");
-    const spread = document.getElementById("spread");
+    function setTab(which) {
+      tabButtons.forEach(btn => btn.setAttribute("aria-selected", "false"));
+      Object.values(panels).forEach(p => p.classList.remove("is-active"));
 
-    const tabs = Array.from(document.querySelectorAll(".tab"));
-
-    let category = "skitser";
-    let pageIndex = 0; // “spreads” (2 sider ad gangen)
-
-    function getSpreads() {
-      const arr = data[category] || [];
-      const spreads = [];
-      for (let i = 0; i < arr.length; i += 2) spreads.push([arr[i], arr[i + 1] || null]);
-      return spreads;
+      document.getElementById("tab-" + which).setAttribute("aria-selected", "true");
+      panels[which].classList.add("is-active");
     }
 
-    function pageHTML(p) {
-      return `
-        <div class="pagecard">
-          <div class="pagecard__img">
-            <img src="${p.img}" alt="${p.title}" loading="lazy">
-          </div>
-          <div class="pagecard__text">
-            <h2>${p.title}</h2>
-            <p>${p.text}</p>
-          </div>
-        </div>
-      `;
-    }
+    document.getElementById("tab-skitser").addEventListener("click", () => setTab("skitser"));
+    document.getElementById("tab-mood").addEventListener("click", () => setTab("mood"));
+    document.getElementById("tab-skitsebog").addEventListener("click", () => setTab("skitsebog"));
 
-    function emptyHTML() {
-      return `<div class="pagecard pagecard--empty"><p>—</p></div>`;
-    }
+    // -----------------------------
+    // BOOK RENDER (2 sider ad gangen)
+    // -----------------------------
+    function makeBook(opts) {
+      const {
+        items,
+        imgLeft, imgRight,
+        capLeft, capRight,
+        metaEl,
+        prevBtn, nextBtn,
+        spreadEl
+      } = opts;
 
-    function render() {
-      const spreads = getSpreads();
-      totalEl.textContent = spreads.length || 1;
-      indexEl.textContent = Math.min(pageIndex + 1, spreads.length || 1);
+      let index = 0; // index = venstre side (0,2,4...)
 
-      const current = spreads[pageIndex] || [null, null];
-      const L = current[0];
-      const R = current[1];
+      function safeItem(i) { return items[i] || null; }
 
-      leftPage.innerHTML = L ? pageHTML(L) : emptyHTML();
-      rightPage.innerHTML = R ? pageHTML(R) : emptyHTML();
+      function render() {
+        const left = safeItem(index);
+        const right = safeItem(index + 1);
 
-      prev.disabled = pageIndex === 0;
-      next.disabled = pageIndex >= (spreads.length - 1);
+        if (left) {
+          imgLeft.src = left.img;
+          imgLeft.alt = left.title || "Side";
+          capLeft.innerHTML = `<strong>${left.title || ""}</strong>${left.text ? " — " + left.text : ""}`;
+        } else {
+          imgLeft.src = "";
+          imgLeft.alt = "";
+          capLeft.textContent = "";
+        }
 
-      spread.classList.remove("is-anim");
-      void spread.offsetWidth; // restart animation
-      spread.classList.add("is-anim");
-    }
+        if (right) {
+          imgRight.src = right.img;
+          imgRight.alt = right.title || "Side";
+          capRight.innerHTML = `<strong>${right.title || ""}</strong>${right.text ? " — " + right.text : ""}`;
+        } else {
+          // hvis ulige antal sider: tom højre side
+          imgRight.src = "";
+          imgRight.alt = "";
+          capRight.textContent = "";
+        }
 
-    function setCategory(cat) {
-      category = cat;
-      pageIndex = 0;
-      tabs.forEach(t => t.classList.toggle("is-active", t.dataset.cat === cat));
+        const leftNum = index + 1;
+        const rightNum = Math.min(index + 2, items.length);
+        metaEl.textContent = `Side ${leftNum}–${rightNum} / ${items.length}`;
+
+        prevBtn.disabled = index <= 0;
+        nextBtn.disabled = index + 2 >= items.length;
+      }
+
+      function next() { if (index + 2 < items.length) { index += 2; render(); } }
+      function prev() { if (index - 2 >= 0) { index -= 2; render(); } }
+
+      nextBtn.addEventListener("click", next);
+      prevBtn.addEventListener("click", prev);
+
+      // Tastatur (kun hvis panel er synligt)
+      document.addEventListener("keydown", (e) => {
+        const panel = spreadEl.closest(".tab-panel");
+        if (!panel.classList.contains("is-active")) return;
+
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+      });
+
+      // Swipe (mobil)
+      let touchStartX = 0;
+      spreadEl.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+
+      spreadEl.addEventListener("touchend", (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - touchStartX;
+        if (Math.abs(diff) < 50) return;
+        if (diff < 0) next(); else prev();
+      }, { passive: true });
+
       render();
     }
 
-    openBook.addEventListener("click", () => {
-      cover.hidden = true;
-      book.hidden = false;
-      render();
+    // Init: Skitser
+    makeBook({
+      items: data.skitser,
+      imgLeft: document.getElementById("imgLeftSkitser"),
+      imgRight: document.getElementById("imgRightSkitser"),
+      capLeft: document.getElementById("capLeftSkitser"),
+      capRight: document.getElementById("capRightSkitser"),
+      metaEl: document.getElementById("bookMetaSkitser"),
+      prevBtn: document.getElementById("prevSkitser"),
+      nextBtn: document.getElementById("nextSkitser"),
+      spreadEl: document.getElementById("spreadSkitser")
     });
 
-    closeBook.addEventListener("click", () => {
-      book.hidden = true;
-      cover.hidden = false;
-    });
-
-    prev.addEventListener("click", () => {
-      if (pageIndex > 0) {
-        pageIndex--;
-        render();
-      }
-    });
-
-    next.addEventListener("click", () => {
-      const spreads = getSpreads();
-      if (pageIndex < spreads.length - 1) {
-        pageIndex++;
-        render();
-      }
-    });
-
-    tabs.forEach(t => t.addEventListener("click", () => setCategory(t.dataset.cat)));
-
-    window.addEventListener("keydown", (e) => {
-      if (book.hidden) return;
-      if (e.key === "ArrowLeft") prev.click();
-      if (e.key === "ArrowRight") next.click();
-      if (e.key === "Escape") closeBook.click();
+    // Init: Skitsebog
+    makeBook({
+      items: data.skitsebog,
+      imgLeft: document.getElementById("imgLeftBog"),
+      imgRight: document.getElementById("imgRightBog"),
+      capLeft: document.getElementById("capLeftBog"),
+      capRight: document.getElementById("capRightBog"),
+      metaEl: document.getElementById("bookMetaBog"),
+      prevBtn: document.getElementById("prevBog"),
+      nextBtn: document.getElementById("nextBog"),
+      spreadEl: document.getElementById("spreadBog")
     });
   </script>
-
 </body>
 </html>
