@@ -347,23 +347,53 @@ og retning.
           <p><strong>Lokation:</strong> Færøerne · Danmark</p>
         </div>
 
-        <form class="contact__form" action="#" method="post">
-          <div class="contact__field">
-            <label for="navn">Navn</label>
-            <input type="text" id="navn" name="navn" placeholder="Dit navn" required>
-          </div>
-          <div class="contact__field">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="din@mail.dk" required>
-          </div>
-          <div class="contact__field">
-            <label for="besked">Besked</label>
-            <textarea id="besked" name="besked" rows="4" placeholder="Hvad vil du gerne tale om?" required></textarea>
-          </div>
-          <button type="submit" class="button button--filled contact__submit">
-            Send (dummy-form til portfolio)
-          </button>
-        </form>
+        <form
+  class="contact__form"
+  action="https://formspree.io/f/xldqqzkv"
+  method="POST"
+>
+  <div class="contact__field">
+    <label for="navn">Navn</label>
+    <input
+      type="text"
+      id="navn"
+      name="navn"
+      placeholder="Dit navn"
+      required
+    >
+  </div>
+
+  <div class="contact__field">
+    <label for="email">E-mail</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="din@mail.dk"
+      required
+    >
+  </div>
+
+  <div class="contact__field">
+    <label for="besked">Besked</label>
+    <textarea
+      id="besked"
+      name="besked"
+      rows="4"
+      placeholder="Hvad vil du gerne tale om?"
+      required
+    ></textarea>
+  </div>
+
+  <!-- Valgfrit men nice -->
+  <input type="hidden" name="_subject" value="Ny besked fra portfolio">
+  <input type="hidden" name="_captcha" value="false">
+
+  <button type="submit" class="button button--filled contact__submit">
+    Send besked →
+  </button>
+</form>
+
       </div>
     </section>
   </main>
