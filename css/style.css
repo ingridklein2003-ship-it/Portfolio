@@ -1344,3 +1344,130 @@ html, body { height: auto; }
   background: linear-gradient(90deg, rgba(0,0,0,0.12), rgba(0,0,0,0.04), rgba(0,0,0,0.12));
   opacity:.4;
 }
+/* Univers teaser – force "rigtig boks" + klikbar card */
+.univers-teaser__card--link{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.univers-teaser__card{
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+  align-items: center;
+}
+
+@media (max-width: 820px){
+  .univers-teaser__card{ grid-template-columns: 1fr; }
+}
+
+.univers-teaser__hint{
+  opacity: .75;
+  margin: 0 0 12px;
+}
+
+.univers-teaser__preview{
+  display: grid;
+  gap: 12px;
+}
+
+.univers-teaser__chips{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.univers-teaser__chip{
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.55);
+}
+
+.univers-teaser__thumbs{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.univers-teaser__thumbs img{
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+/* FORCE univers-teaser til at ligne en rigtig boks (override alt andet) */
+.univers-teaser{
+  padding: 34px 16px !important;
+}
+
+.univers-teaser__card.univers-teaser__card--link{
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  gap: 18px !important;
+  align-items: center !important;
+
+  max-width: 980px !important;
+  margin: 0 auto !important;
+
+  padding: 22px !important;
+  border-radius: 22px !important;
+
+  background: rgba(255,255,255,0.55) !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.12) !important;
+
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.univers-teaser__card.univers-teaser__card--link:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.14);
+}
+
+@media (max-width: 820px){
+  .univers-teaser__card.univers-teaser__card--link{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* fjern “lilla link/underline” look */
+.univers-teaser__card *{
+  text-decoration: none !important;
+}
+
+/* preview thumbs */
+.univers-teaser__thumbs{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.univers-teaser__thumbs img{
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.univers-teaser__cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.16);
+  background: rgba(255,255,255,0.7);
+  font-weight: 600;
+}
+
+.univers-teaser__card--link:hover .univers-teaser__cta{
+  background: rgba(255,255,255,0.92);
+}
