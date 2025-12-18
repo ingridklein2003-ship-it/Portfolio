@@ -838,7 +838,7 @@ body.page {
 .case--narrow {
   max-width: 920px;          /* gør casen mindre bred */
   margin: 0 auto;            /* centrer den */
-  padding: 2.2rem 2.2rem 2.6rem;  /* mere luft inde i kortet */
+  padding: 2.2rem 2.2rem 2.6rem;  /* mere luft inde i lortet */
 }
 
 .case__intro {
@@ -954,6 +954,7 @@ body.page {
 .case--narrow .case-details {
   margin-top: 3rem;
 }
+
 /* OM MIG: gør billedkolonnen smallere og billederne mindre */
 .about{
   grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.85fr);
@@ -961,16 +962,16 @@ body.page {
 
 .about__images{
   max-width: 430px;      /* gør hele billedkolonnen smallere */
-  margin-left: auto;     /* skubber billederne pænt mod højre */
+  margin-left: auto;     /* skubber billederne mod højre */
 }
 
 .about__image{
-  aspect-ratio: 16 / 10; /* eller 4/3 hvis du vil mere kompakt */
+  aspect-ratio: 16 / 10; /*  4/3 hvis den skal vil mere kompakt */
 }
 .about__image {
   width: 100%;
   max-width: 420px;   /* ↓ begrænser billedets størrelse */
-  margin-left: auto; /* holder dem pænt til højre */
+  margin-left: auto; /* holder dem til højre */
   margin-right: auto;
   display: block;
   border-radius: 16px;
@@ -1109,7 +1110,7 @@ body.page {
 }
 
 /* --------------------------------------------------
-   MOBIL – mere luft, mindre scroll-stress
+   MOBIL – mere luft, mindre scroll-stress..
 -------------------------------------------------- */
 @media (max-width: 768px) {
 
@@ -1128,7 +1129,7 @@ body.page {
 }
 
 /* --------------------------------------------------
-   DESKTOP – endnu mere ro
+   DESKTOP – endnu mere ro prøve igenigen..
 -------------------------------------------------- */
 @media (min-width: 1100px) {
 
@@ -1196,16 +1197,16 @@ body.page {
 }
 /* ===== Univers page (scroll + bog-agtig) ===== */
 
-/* ===== UNIVERS – SCROLL FIX + BOG ===== */
+/* ===== UNIVERS – SCROLL FIX + BOG genial ide ah ===== */
 html, body { height: auto; }
 
 .page--universe{
   min-height: 100%;
   overflow-x: hidden;
-  overflow-y: auto;      /* må gerne scrolle */
+  overflow-y: auto;      /* må gerne scrolle virk nu!*/
 }
 
-/* vigtig: hvis du har .page { overflow:hidden } et andet sted -> override her */
+/* vigtig: har .page { overflow:hidden } SÅ override her */
 .page--universe.page{
   overflow-x: hidden;
   overflow-y: auto;
