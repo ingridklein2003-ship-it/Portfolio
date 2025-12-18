@@ -1,3 +1,13 @@
+/*
+  JavaScript til interaktive elementer i portfolioet.
+  Funktionalitet omfatter navigation, scroll-interaktion og dynamisk rendering
+  af indhold (bl.a. skitsebog med 2-siders visning).
+  Løsninger er baseret på generelle JavaScript-principper og DOM-manipulation
+  beskrevet i MDN Web Docs, og er tilpasset projektets struktur og behov.
+  Udviklet og tilpasset med forståelse for funktionalitet og sammenhæng.
+  Kilde: https://developer.mozilla.org/
+*/
+
 const header = document.querySelector(".header");
 const sections = document.querySelectorAll("main section[id]");
 const navLinks = document.querySelectorAll(".nav__link");

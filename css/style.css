@@ -1,3 +1,13 @@
+/*
+  Stylesheet til præsentationsportfolio (1. semester).
+  Layout og struktur er opbygget med mobile first og BEM-navngivning.
+  Enkelte løsninger (flex/grid, sticky elementer) er inspireret af
+  dokumentation fra MDN Web Docs og CSS-Tricks og tilpasset projektets design.
+  Kilder:
+  https://developer.mozilla.org/
+  https://css-tricks.com/
+*/
+
 /* ---------- VARIABLER & GLOBALT ---------- */
 
 :root {
