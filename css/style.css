@@ -11,11 +11,14 @@
 /* ---------- VARIABLER & GLOBALT ---------- */
 
 :root {
+  /* Blå må gerne eksistere – men vi bruger den KUN som subtil accent */
+  --accent-blue: #000066;
+
   --color-bg: #f2e1c5;
   --color-grid: #ddc6a1;
   --color-dark: #111111;
   --color-black: #000000;
-  --color-accent: #df7c3b;
+  --color-accent: #df7c3b; /* orange */
   --color-muted: #9a8f80;
 
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -103,7 +106,7 @@ body.page {
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: var(--color-accent);
+  background-color: var(--color-accent); /* ORANGE som før */
   transition: width 0.15s ease;
 }
 
@@ -194,44 +197,81 @@ body.page {
   gap: 0.9rem;
 }
 
-/* --- POLAROID HERO-BILLEDE --- */
+/* =========================================
+   HERO FOTO – LØST PRINT + GAMMELDAGS NÅL
+   ========================================= */
 
-.hero__image-wrapper {
+.hero__image-wrapper{
   position: relative;
   align-self: flex-start;
   margin-left: auto;
 
   width: 100%;
-  max-width: 280px;
-  padding: 14px 14px 45px 14px;
-  background: #EFE7D3;
-  border-radius: 5px;
+  max-width: 300px;
+
+  padding: 0;
+  background: transparent;
+  border: none;
+
+  transform: rotate(-2deg);
 
   box-shadow:
-    0 8px 18px rgba(0,0,0,0.16),
-    0 3px 6px rgba(0,0,0,0.10);
-
-  background-image:
-    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
-  background-size: 4px 4px, 6px 6px;
+    0 24px 45px rgba(0,0,0,0.22),
+    0 6px 14px rgba(0,0,0,0.14);
 }
 
 .hero__image {
   width: 100%;
   height: auto;
-  border-radius: 4px;
   display: block;
+  border-radius: 10px;
   object-fit: cover;
 }
 
-.hero__image-caption {
+/* LILLE GAMMELDAGS KNAPPENÅL (METAL) */
+.hero__image-wrapper::before{
+  content: "";
   position: absolute;
-  bottom: 12px;
-  left: 18px;
-  font-size: 0.8rem;
-  font-family: var(--font-serif);
-  color: #444;
+  top: -10px;
+  left: 52%;
+  transform: translateX(-50%);
+
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 30% 30%,
+      #f5f5f5 0%,
+      #cfcfcf 40%,
+      #9c9c9c 70%,
+      #6f6f6f 100%
+    );
+
+  border: 1px solid rgba(0,0,0,0.45);
+
+  box-shadow:
+    0 3px 6px rgba(0,0,0,0.35);
+
+  z-index: 3;
+}
+
+/* lille hul/skygge i papiret */
+.hero__image-wrapper::after{
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 52%;
+  transform: translateX(-50%);
+
+  width: 6px;
+  height: 4px;
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.35);
+  filter: blur(2px);
+
+  z-index: 2;
 }
 
 /* ---------- GENEREL SEKTION ---------- */
@@ -245,6 +285,8 @@ body.page {
   margin: 0 auto 2.2rem;
   padding: 0 1.5rem;
   text-align: left;
+
+  /* ✅ vigtigt: INGEN ekstra venstre-padding til blå linje */
 }
 
 .section__title {
@@ -360,10 +402,7 @@ body.page {
   gap: 2.4rem;
 }
 
-/* Default: 2 kolonner (pro og roligt) */
 .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-/* Forside: samme (2 kolonner) – class er bare til tydelighed */
 .project-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .project__title {
@@ -376,7 +415,7 @@ body.page {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--color-accent);
+  color: var(--color-accent); /* ✅ tilbage til orange */
 }
 
 .project__image {
@@ -386,6 +425,7 @@ body.page {
   margin: 0.4rem 0 0.8rem;
   border-radius: 4px;
 }
+
 .project__video{
   width: 100%;
   display: block;
@@ -682,25 +722,27 @@ body.page {
 
 /* ---------- RESPONSIV ---------- */
 
-@media (max-width: 960px) {
-  .hero__inner { grid-template-columns: 1fr; }
-  .hero__image-wrapper { max-width: 320px; margin: 2rem auto 0; order: -1; }
+.hero__image-wrapper {
+  position: relative;
+  align-self: flex-start;
+  margin-left: auto;
 
-  .card-grid,
-  .about,
-  .experience,
-  .contact { grid-template-columns: 1fr; }
+  width: 100%;
+  max-width: 380px;
+  margin-top: 1.5rem;
 
-  .project-grid,
-  .case-grid { grid-template-columns: 1fr; }
+  padding: 0;
+  background: none;
+  border-radius: 12px;
+
+  transform: rotate(-2deg);
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.18),
+    0 4px 10px rgba(0,0,0,0.12);
 }
 
-@media (max-width: 640px) {
-  .header__inner { padding-inline: 1rem; gap: 0.5rem; }
-  .nav { gap: 0.9rem; font-size: 0.85rem; }
-  .hero { padding-top: 3.2rem; }
-  .section__title { font-size: 2rem; }
-}/* ---------- OM MIG – FINPUDS ---------- */
+/* ---------- OM MIG – FINPUDS ---------- */
 
 .about--spaced {
   margin-bottom: 4rem;
@@ -716,7 +758,6 @@ body.page {
   align-items: flex-start;
 }
 
-/* Kortere linjer = mere professionelt */
 .about__text--narrow {
   max-width: 520px;
 }
@@ -726,7 +767,6 @@ body.page {
   line-height: 1.7;
 }
 
-/* Billeder */
 .about__images {
   display: grid;
   gap: 1.6rem;
@@ -739,30 +779,20 @@ body.page {
   object-fit: cover;
 }
 
-/* Sport-del */
 .about--sport {
   margin-top: 4rem;
 }
 
-/* Mobil */
 @media (max-width: 900px) {
-  .about {
-    grid-template-columns: 1fr;
-  }
-
-  .about__images {
-    order: -1;
-  }
+  .about { grid-template-columns: 1fr; }
+  .about__images { order: -1; }
 }
+
 /* ---------- CASE: GÅSETORVET ---------- */
 
-.case--large {
-  padding-top: 2rem;
-}
+.case--large { padding-top: 2rem; }
 
-.case__header {
-  margin-bottom: 1.2rem;
-}
+.case__header { margin-bottom: 1.2rem; }
 
 .case__subtitle {
   margin: 0.2rem 0 0;
@@ -787,9 +817,7 @@ body.page {
   font-size: 0.9rem;
 }
 
-.case-block + .case-block {
-  margin-top: 3rem;
-}
+.case-block + .case-block { margin-top: 3rem; }
 
 .case-block__title {
   margin: 0 0 1rem;
@@ -817,66 +845,18 @@ body.page {
   line-height: 1.65;
 }
 
-/* Mobil */
 @media (max-width: 900px) {
-  .case-facts {
-    grid-template-columns: 1fr;
-  }
-
-  .case-block__grid {
-    grid-template-columns: 1fr;
-  }
+  .case-facts { grid-template-columns: 1fr; }
+  .case-block__grid { grid-template-columns: 1fr; }
 }
+
 .case-block__video {
   width: 100%;
   display: block;
   border-radius: 12px;
   background: #000;
 }
-/* ---------- CASE: GÅSETORVET – NARROW + LUFT ---------- */
 
-.case--narrow {
-  max-width: 920px;          /* gør casen mindre bred */
-  margin: 0 auto;            /* centrer den */
-  padding: 2.2rem 2.2rem 2.6rem;  /* mere luft inde i lortet */
-}
-
-.case__intro {
-  max-width: 62ch;           /* pæn linjelængde */
-}
-
-.case-facts {
-  margin-top: 1.4rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.case-facts li {
-  line-height: 1.5;
-}
-
-/* Delprojekter: mere rolig spacing */
-.case-block__grid {
-  gap: 2.4rem;
-}
-
-/* Sæt billeder lidt roligere */
-.case-block__image,
-.case-block__video {
-  border-radius: 14px;
-}
-
-/* Mobil: stadig luft */
-@media (max-width: 900px) {
-  .case--narrow {
-    padding: 1.6rem 1.3rem 2rem;
-  }
-
-  .case__intro {
-    max-width: none;
-  }
-}
 /* ---------- CASE: GÅSETORVET – NARROW + LUFT ---------- */
 
 .case--narrow {
@@ -885,45 +865,27 @@ body.page {
   padding: 2.2rem 2.2rem 2.6rem;
 }
 
-.case__intro p {
-  margin-bottom: 1.2rem;
-}
-
+.case__intro { max-width: 62ch; }
 
 .case-facts {
-  margin-top: 2.4rem;              /* mere luft OVER facts */
-  padding-top: 1.8rem;             /* mere luft UNDER stregen */
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
   border-top: 1px solid rgba(0,0,0,0.08);
-
-  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem 2rem;                 /* mere luft mellem facts */
 }
 
+.case-facts li { line-height: 1.5; }
 
-.case-block__grid {
-  gap: 2.4rem;
-}
+.case-block__grid { gap: 2.4rem; }
 
 .case-block__image,
-.case-block__video {
-  border-radius: 14px;
-}
-
-.case-block__text {
-  max-width: 58ch;
-}
+.case-block__video { border-radius: 14px; }
 
 @media (max-width: 900px) {
-  .case--narrow {
-    padding: 1.6rem 1.3rem 2rem;
-  }
-
-  .case__intro,
-  .case-block__text {
-    max-width: none;
-  }
+  .case--narrow { padding: 1.6rem 1.3rem 2rem; }
+  .case__intro { max-width: none; }
 }
+
 /* ---------- TRÆDESIGN GALLERI ---------- */
 
 .case-block__gallery {
@@ -939,72 +901,44 @@ body.page {
   object-fit: cover;
 }
 
-/* Mobil */
 @media (max-width: 900px) {
-  .case-block__gallery {
-    grid-template-columns: 1fr;
-  }
-}
-/* Mere luft mellem intro-tekst og facts i case */
-
-.case--narrow > hr,
-.case--narrow .case__meta,
-.case--narrow .case-facts,
-.case--narrow .case-info,
-.case--narrow .case-details {
-  margin-top: 3rem;
+  .case-block__gallery { grid-template-columns: 1fr; }
 }
 
 /* OM MIG: gør billedkolonnen smallere og billederne mindre */
-.about{
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.85fr);
-}
+.about{ grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.85fr); }
 
 .about__images{
-  max-width: 430px;      /* gør hele billedkolonnen smallere */
-  margin-left: auto;     /* skubber billederne mod højre */
+  max-width: 430px;
+  margin-left: auto;
 }
 
-.about__image{
-  aspect-ratio: 16 / 10; /*  4/3 hvis den skal vil mere kompakt */
-}
+.about__image{ aspect-ratio: 16 / 10; }
+
 .about__image {
   width: 100%;
-  max-width: 420px;   /* ↓ begrænser billedets størrelse */
-  margin-left: auto; /* holder dem til højre */
+  max-width: 420px;
+  margin-left: auto;
   margin-right: auto;
   display: block;
   border-radius: 16px;
   object-fit: cover;
 }
-.about__images {
-  gap: 1.2rem; /* lidt mindre luft mellem billederne */
-}
+
+.about__images { gap: 1.2rem; }
+
 /* ==================================================
    MOBIL FIRST – FINPUDS (projekter + om mig)
    ================================================== */
 
-/* ---------- PROJEKT-KORT (MINDRE & STRAMMERE) ---------- */
+.project-grid { gap: 1.2rem; }
 
-.project-grid {
-  gap: 1.2rem;
-}
-
-.project.card {
-  padding: 0.9rem;
-}
+.project.card { padding: 0.9rem; }
 
 .project__image,
-.case__image {
-  margin-bottom: 0.6rem;
-}
+.case__image { margin-bottom: 0.6rem; }
 
-.card__text {
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-/* ---------- OM MIG – MOBIL FIX ---------- */
+.card__text { font-size: 0.9rem; line-height: 1.5; }
 
 .about,
 .about--sport {
@@ -1018,33 +952,15 @@ body.page {
   gap: 0.8rem;
 }
 
-.about__image {
-  border-radius: 12px;
-}
+.about__image { border-radius: 12px; }
 
-.about__text {
-  font-size: 0.92rem;
-}
+.about__text { font-size: 0.92rem; }
 
-.about__lead {
-  font-size: 1rem;
-}
-
-
-/* ==================================================
-   TABLET (fra 768px)
-   ================================================== */
+.about__lead { font-size: 1rem; }
 
 @media (min-width: 768px) {
-
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .project.card {
-    padding: 1.1rem;
-  }
+  .project-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .project.card { padding: 1.1rem; }
 
   .about,
   .about--sport {
@@ -1052,130 +968,48 @@ body.page {
     gap: 2.4rem;
   }
 
-  .about__images {
-    grid-template-columns: 1fr;
-  }
+  .about__images { grid-template-columns: 1fr; }
 }
-
-
-/* ==================================================
-   DESKTOP (fra 1100px)
-   ================================================== */
 
 @media (min-width: 1100px) {
-
-  .project-grid {
-    gap: 2.2rem;
-  }
-
-  .project.card {
-    padding: 1.2rem;
-  }
-
-  .about__text {
-    font-size: 0.95rem;
-  }
+  .project-grid { gap: 2.2rem; }
+  .project.card { padding: 1.2rem; }
+  .about__text { font-size: 0.95rem; }
 }
+
 /* ==================================================
    PROJEKTSIDE – MERE LUFT + MINDRE BOKSE
    ================================================== */
 
-/* Mere luft mellem sektioner (Branding, Foto osv.) */
-.project-section {
-  margin-bottom: 4rem;
-}
+.project-section { margin-bottom: 4rem; }
 
-/* Mere luft mellem projekter */
-.case-grid {
-  gap: 2.8rem;
-}
+.case-grid { gap: 2.8rem; }
 
-/* Projektkort – lidt smallere & roligere */
-.case.card {
-  padding: 1.2rem;
-}
+.case.card { padding: 1.2rem; }
 
-/* Billeder fylder lidt mindre visuelt */
 .case__image,
 .case-block__image,
-.case-block__video {
-  margin-bottom: 0.8rem;
-}
+.case-block__video { margin-bottom: 0.8rem; }
 
-/* Tekst lidt strammere */
 .case__details p,
 .case-block__text p {
   font-size: 0.92rem;
   line-height: 1.6;
 }
 
-/* --------------------------------------------------
-   MOBIL – mere luft, mindre scroll-stress..
--------------------------------------------------- */
 @media (max-width: 768px) {
-
-  .case-grid {
-    grid-template-columns: 1fr;
-    gap: 2.2rem;
-  }
-
-  .case.card {
-    padding: 1rem;
-  }
-
-  .project-section {
-    margin-bottom: 3rem;
-  }
+  .case-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+  .case.card { padding: 1rem; }
+  .project-section { margin-bottom: 3rem; }
 }
 
-/* --------------------------------------------------
-   DESKTOP – endnu mere ro prøve igenigen..
--------------------------------------------------- */
 @media (min-width: 1100px) {
-
-  .case-grid {
-    gap: 3.2rem;
-  }
-
-  .case.card {
-    padding: 1.4rem;
-  }
-}
-.project__gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
+  .case-grid { gap: 3.2rem; }
+  .case.card { padding: 1.4rem; }
 }
 
-.project__gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-}
-.project__gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 12px;
-}
+/* ---------- GALLERI ---------- */
 
-@media (max-width: 600px) {
-  .project__gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.project__gallery img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 12px;
-}
 .project__gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1195,24 +1029,22 @@ body.page {
   object-fit: cover;
   border-radius: 12px;
 }
+
 /* ===== Univers page (scroll + bog-agtig) ===== */
 
-/* ===== UNIVERS – SCROLL FIX + BOG genial ide ah ===== */
 html, body { height: auto; }
 
 .page--universe{
   min-height: 100%;
   overflow-x: hidden;
-  overflow-y: auto;      /* må gerne scrolle virk nu!*/
+  overflow-y: auto;
 }
 
-/* vigtig: har .page { overflow:hidden } SÅ override her */
 .page--universe.page{
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-/* Cover må IKKE låse skærmen */
 .univers__cover{
   padding: 48px 24px 18px;
   display: grid;
@@ -1243,14 +1075,13 @@ html, body { height: auto; }
   text-decoration:none;
 }
 
-/* Tabs */
 .book__tabs{
   display:flex;
   gap:10px;
   justify-content:center;
   padding: 10px 16px 18px;
   position: sticky;
-  top: 90px;            /* hvis header er ca 90px */
+  top: 90px;
   z-index: 5;
   background: rgba(242, 225, 199, 0.65);
   backdrop-filter: blur(6px);
@@ -1265,7 +1096,6 @@ html, body { height: auto; }
 }
 .tab.is-active{ background: rgba(255,255,255,0.85); }
 
-/* Bogen */
 .book{
   padding: 10px 24px 64px;
   display: grid;
@@ -1300,7 +1130,6 @@ html, body { height: auto; }
 
 .book__counter{ opacity:.8; }
 
-/* Spread */
 .spread{
   position: relative;
   display:grid;
@@ -1352,9 +1181,10 @@ html, body { height: auto; }
   top:0; bottom:0;
   left: calc(50% - 10px);
   width: 20px;
-  background: linear-gradient(90deg, rgba(0,0,0,0.12), rgba(0,0,0,0.04), rgba(0,0,0,0.12));
+  background: linear-gradientgradient(90deg, rgba(0,0,0,0.12), rgba(0,0,0,0.04), rgba(0,0,0,0.12));
   opacity:.4;
 }
+
 /* Univers teaser – force "rigtig boks" + klikbar card */
 .univers-teaser__card--link{
   display: block;
@@ -1375,30 +1205,6 @@ html, body { height: auto; }
   .univers-teaser__card{ grid-template-columns: 1fr; }
 }
 
-.univers-teaser__hint{
-  opacity: .75;
-  margin: 0 0 12px;
-}
-
-.univers-teaser__preview{
-  display: grid;
-  gap: 12px;
-}
-
-.univers-teaser__chips{
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.univers-teaser__chip{
-  font-size: 12px;
-  padding: 8px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.12);
-  background: rgba(255,255,255,0.55);
-}
-
 .univers-teaser__thumbs{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1412,7 +1218,7 @@ html, body { height: auto; }
   border-radius: 14px;
   border: 1px solid rgba(0,0,0,0.08);
 }
-/* FORCE univers-teaser til at ligne en rigtig boks (override alt andet) */
+
 .univers-teaser{
   padding: 34px 16px !important;
 }
@@ -1448,25 +1254,8 @@ html, body { height: auto; }
   }
 }
 
-/* fjern “lilla link/underline” look */
-.univers-teaser__card *{
-  text-decoration: none !important;
-}
+.univers-teaser__card *{ text-decoration: none !important; }
 
-/* preview thumbs */
-.univers-teaser__thumbs{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.univers-teaser__thumbs img{
-  width: 100%;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.08);
-}
 .univers-teaser__cta{
   display: inline-flex;
   align-items: center;
@@ -1481,4 +1270,373 @@ html, body { height: auto; }
 
 .univers-teaser__card--link:hover .univers-teaser__cta{
   background: rgba(255,255,255,0.92);
+}
+
+@media (max-width: 768px) {
+  section { padding: 2rem 1rem; }
+  .container { padding: 0 1rem; }
+  .project-card { margin-bottom: 1.5rem; }
+}
+
+body { font-size: 16px; line-height: 1.6; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+p { max-width: 65ch; }
+
+.case-feature { margin-top: 2rem; }
+
+/* ==================================================
+   VISUELLE FORBEDRINGER – PROJEKTSIDE (CASES)
+   ================================================== */
+
+.case-grid { gap: 3rem; }
+.project-section + .project-section { margin-top: 4rem; }
+
+.case.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.case.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+}
+
+.case__tags {
+  opacity: 0.75;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  margin: 0 0 1rem;
+}
+
+.case__image { aspect-ratio: 4 / 3; object-fit: cover; }
+
+.case-feature { margin-top: 2.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .case.card { transition: none; }
+  .case.card:hover { transform: none; }
+}
+
+@media (max-width: 768px) {
+  .case-grid { gap: 2.2rem; }
+  .project-section + .project-section { margin-top: 3rem; }
+}
+
+/* ==================================================
+   OM MIG – BILLEDER (3 stk)
+   ================================================== */
+
+.about-images--three{
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.hang{
+  position: relative;
+  background: rgba(255,255,255,0.55);
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+  transform: rotate(-1deg);
+}
+
+.hang:nth-child(2){ transform: rotate(1deg); }
+.hang:nth-child(3){ transform: rotate(-0.6deg); }
+
+.hang img{
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.hang::before{
+  content:"";
+  position:absolute;
+  top:-8px;
+  left:50%;
+  transform:translateX(-50%);
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #cfcfcf 60%, #8f8f8f);
+  border:1px solid rgba(0,0,0,0.25);
+  box-shadow:0 6px 12px rgba(0,0,0,0.35);
+}
+
+.hang::after{
+  content:"";
+  position:absolute;
+  top:6px;
+  left:50%;
+  transform:translateX(-50%);
+  width:6px;
+  height:4px;
+  border-radius:50%;
+  background:rgba(0,0,0,0.3);
+  filter:blur(2px);
+}
+
+@media (max-width: 900px){
+  .about-images--three{ grid-template-columns: 1fr; }
+}
+
+/* ==================================================
+   OM MIG – ASIDE (idé 1)
+   ================================================== */
+
+.about-block{
+  max-width: var(--page-width);
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 2.2rem 3rem;
+  align-items: start;
+}
+
+.about-block .about__text{ grid-column: 1; }
+.about-block .about-aside{ grid-column: 2; }
+.about-block .about-images{ grid-column: 1 / -1; }
+
+.about-aside{
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 1.2rem 1.2rem 1.1rem;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+
+  /* ✅ ingen blå kant */
+}
+
+.about-aside__title{
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-muted);
+}
+
+.about-aside__list{
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.about-aside__list li{
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 1000px){
+  .about-block{ grid-template-columns: 1fr; }
+  .about-block .about-aside{ grid-column: 1; }
+}
+
+/* ==================================================
+   ERFARING – CLEAN LISTE
+   ================================================== */
+
+.skills--clean .skills__list{
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.skills--clean .skills__list li{
+  margin: 0 0 0.6rem;
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+.skills__note{
+  margin: 1rem 0 0;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+}
+
+/* ==================================================
+   FORSIDE – PROJEKT SLIDER (HORIZONTAL + FADE)
+   ================================================== */
+
+.project-slider{
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0 1.5rem 0.8rem;
+  margin-top: 1.2rem;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  cursor: grab;
+}
+.project-slider:active{ cursor: grabbing; }
+
+.project-slide{
+  scroll-snap-align: start;
+  flex: 0 0 340px;
+  max-width: 340px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+@media (max-width: 640px){
+  .project-slide{
+    flex-basis: 82%;
+    max-width: 82%;
+  }
+}
+
+.project-slide:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(0,0,0,0.10);
+}
+
+.project-slide .project__image{
+  margin-top: 0.6rem;
+  border-radius: 10px;
+}
+
+.project-slide__meta{
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+}
+
+/* scrollbar diskret */
+.project-slider::-webkit-scrollbar { height: 7px; }
+.project-slider::-webkit-scrollbar-track { background: transparent; }
+.project-slider::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.18);
+  border-radius: 999px;
+}
+
+/* ✅ FJERN TAPE KUN I SLIDER */
+.project-slider .card--postit::before,
+.project-slider .card--postit::after{
+  display: none !important;
+  content: none !important;
+}
+
+/* “Usynlig væg” + blød fade (mere naturlig) */
+.project-slider-viewport{
+  overflow: hidden;
+
+  /* en smule mindre fade end før, så det ikke ser “fake” ud */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 80px,
+    #000 calc(100% - 80px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 80px,
+    #000 calc(100% - 80px),
+    transparent 100%
+  );
+}
+
+/* Træk slideren lidt ud men mindre aggressivt */
+.project-slider{
+  padding: 0.75rem 56px 1rem;
+  margin: 0 -56px;
+}
+
+/* ==================================================
+   ✅ BLÅ ACCENT – KUN SUBTIL (OPTION 1)
+   Bruges kun som outline på projektkort ved hover/focus
+   ================================================== */
+
+.project-slide:focus-visible{
+  outline: 2px solid rgba(0,0,102,0.35);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.project-slide:hover{
+  /* samme hover som før, men med meget diskret outline */
+  outline: 2px solid rgba(0,0,102,0.18);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+.section__kicker{
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-muted);
+}
+.card-grid{
+  margin-top: 1.6rem;
+}
+
+.card{
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.12);
+}
+
+/* lille “accent dot” i hjørnet */
+.card::marker{ content: none; } /* bare safety */
+.card::before{
+  /* behold din tape som den er (den ligger på card--postit) */
+}
+
+.card__overtitle{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card__overtitle::before{
+  content:"";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.9;
+}
+/* ===== OM MIG: 3 billeder – større ===== */
+.about-images--three{
+  /* behold 3 kolonner, men gør dem mere “fyldige” */
+  gap: 2.2rem;
+}
+
+.about-images--three .hang{
+  padding: 12px;            /* lidt mere “print kant” */
+  border-radius: 20px;
+}
+
+/* gør selve billedet større + ens højde */
+.about-images--three .hang img{
+  width: 100%;
+  height: 240px;            /* 🔼 gør dem større */
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* på store skærme: endnu større */
+@media (min-width: 1100px){
+  .about-images--three .hang img{
+    height: 280px;          /* 🔼 endnu mere wow */
+  }
+}
+
+/* mobil: stadig pænt */
+@media (max-width: 900px){
+  .about-images--three .hang img{
+    height: 220px;
+  }
 }
