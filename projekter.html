@@ -7,348 +7,432 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Kun til projekter-siden: grid + modal + gallery (så du ikke skal pille i style.css) -->
+  <style>
+    /* --- GRID med rolige cards --- */
+    .cases{
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem 1.6rem;
+    }
+    @media (max-width: 900px){
+      .cases{ grid-template-columns: 1fr; }
+    }
+
+    .case-card{
+      background: rgba(255,255,255,0.40);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 18px;
+      padding: 1.1rem 1.1rem 1rem;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+      display: grid;
+      gap: .6rem;
+      cursor: pointer;
+    }
+    .case-card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    }
+
+    .case-card__tag{
+      margin: 0;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-accent);
+      opacity: .95;
+    }
+    .case-card__title{
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+    .case-card__thumb{
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.35);
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+    }
+    .case-card__thumb img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .case-card__meta{
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      opacity: .95;
+    }
+    .case-card__cta{
+      justify-self: start;
+      margin-top: .1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(0,0,0,0.16);
+      background: rgba(255,255,255,0.55);
+      padding: .45rem .7rem;
+      border-radius: 999px;
+    }
+
+    /* --- Filtre --- */
+    .filters{
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: .95rem;
+    }
+    .filter{
+      border: 1px solid rgba(0,0,0,0.14);
+      background: rgba(255,255,255,0.55);
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: .9rem;
+    }
+    .filter.is-active{
+      background: rgba(255,255,255,0.85);
+      font-weight: 600;
+    }
+
+    /* --- MODAL / OVERLAY --- */
+    .modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      z-index: 999;
+    }
+    .modal.is-open{ display: block; }
+
+    .modal__backdrop{
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(2px);
+    }
+
+    .modal__panel{
+      position: relative;
+      width: min(1040px, calc(100vw - 24px));
+      max-height: calc(100vh - 24px);
+      overflow: auto;
+      margin: 12px auto;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(0,0,0,0.10);
+      box-shadow: 0 28px 90px rgba(0,0,0,0.22);
+    }
+
+    .modal__inner{
+      padding: 1.25rem 1.25rem 1.35rem;
+      background:
+        radial-gradient(900px 500px at 10% 10%, rgba(0,0,0,0.05), transparent 60%),
+        radial-gradient(700px 400px at 90% 70%, rgba(0,0,0,0.04), transparent 60%);
+    }
+
+    .modal__top{
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid rgba(0,0,0,0.10);
+    }
+
+    .modal__tag{
+      margin: 0 0 .25rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-accent);
+    }
+    .modal__title{
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      line-height: 1.15;
+    }
+    .modal__meta{
+      margin: .4rem 0 0;
+      color: var(--color-muted);
+      font-size: .9rem;
+    }
+
+    .modal__close{
+      flex: 0 0 auto;
+      border: 1px solid rgba(0,0,0,0.16);
+      background: rgba(255,255,255,0.75);
+      border-radius: 999px;
+      padding: .55rem .8rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .modal__grid{
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.2rem 1.6rem;
+      align-items: start;
+    }
+    @media (max-width: 900px){
+      .modal__grid{ grid-template-columns: 1fr; }
+    }
+
+    .modal__text p{
+      margin: 0 0 .9rem;
+      line-height: 1.7;
+      max-width: none;
+    }
+
+    .modal__facts{
+      margin: 0 0 .9rem;
+      padding-left: 1.1rem;
+    }
+    .modal__facts li{
+      margin: 0 0 .55rem;
+      line-height: 1.55;
+    }
+
+    /* --- Gallery: wide/tall + video --- */
+    .case-gallery{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .8rem;
+    }
+    @media (max-width: 600px){
+      .case-gallery{ grid-template-columns: 1fr; }
+    }
+
+    .case-shot{
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.55);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+    }
+    .case-shot img{
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .case-shot--wide{ grid-column: 1 / -1; }
+    .case-shot--tall{ grid-row: span 2; }
+
+    .case-video{
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 16px;
+    }
+
+    /* Fokus */
+    .case-card:focus-visible{
+      outline: 2px solid rgba(0,0,102,0.35);
+      outline-offset: 4px;
+    }
+  </style>
 </head>
 
 <body class="page">
+  <!-- HEADER -->
   <header class="header">
-  <div class="header__inner">
-    <a href="index.html#forside" class="header__logo">
-      <span class="header__logo-main">Klein</span>
-      <span class="header__logo-sub">DESIGN</span>
-    </a>
+    <div class="header__inner">
+      <a href="index.html#forside" class="header__logo">
+        <span class="header__logo-main">Klein</span>
+        <span class="header__logo-sub">DESIGN</span>
+      </a>
 
-    <button class="header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      Menu
-    </button>
+      <button class="header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
 
-    <nav id="site-nav" class="nav header__nav" aria-label="Hovednavigation">
-      <a href="index.html#forside" class="nav__link">Forside</a>
-      <a href="index.html#om" class="nav__link">Om</a>
-      <a href="projekter.html" class="nav__link">Projekter</a>
-      <a href="univers.html" class="nav__link">Univers</a>
-      <a href="index.html#kontakt" class="nav__link">Kontakt</a>
-    </nav>
-  </div>
-</header>
-
+      <nav id="site-nav" class="nav header__nav" aria-label="Hovednavigation">
+        <a href="index.html#forside" class="nav__link">Forside</a>
+        <a href="index.html#om" class="nav__link">Om</a>
+        <a href="projekter.html" class="nav__link nav__link--active">Projekter</a>
+        <a href="univers.html" class="nav__link">Univers</a>
+        <a href="index.html#kontakt" class="nav__link">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    <section class="section section--light">
+    <section class="section section--light" id="projekter">
       <div class="section__heading">
         <h1 class="section__title">Projekter</h1>
         <p class="section__intro">
-          Udvalgte cases opdelt i kategorier. Hver case viser mål, rolle, proces og værktøjer.
+          Udvalgte cases. Klik på et projekt for at åbne mål, rolle, proces og materialer.
         </p>
+
+        <div class="filters" role="list" aria-label="Filtre">
+          <button class="filter is-active" type="button" data-filter="all">Alle</button>
+          <button class="filter" type="button" data-filter="branding">Branding</button>
+          <button class="filter" type="button" data-filter="layout">Layout/Print</button>
+          <button class="filter" type="button" data-filter="some">SoMe</button>
+          <button class="filter" type="button" data-filter="foto">Foto</button>
+          <button class="filter" type="button" data-filter="illustration">Illustration</button>
+        </div>
       </div>
 
-      <nav class="project-nav" aria-label="Projektkategorier">
-        <a class="project-nav__link" href="#branding">Branding</a>
-        <a class="project-nav__link" href="#layout">Layout/Print</a>
-        <a class="project-nav__link" href="#foto">Foto</a>
-        <a class="project-nav__link" href="#illustration">Illustration</a>
-      </nav>
+      <!-- CASES GRID -->
+      <div class="cases">
+        <!-- Gåsetorvet – julekort -->
+        <article class="case-card" tabindex="0" data-tags="branding" data-case="case-gaasetorvet-julekort">
+          <p class="case-card__tag">Branding · Billedbehandling</p>
+          <h2 class="case-card__title">Gåsetorvet – julekort</h2>
+          <div class="case-card__thumb">
+            <img src="img/julekort.webp" alt="Julekort til Gåsetorvet">
+          </div>
+          <p class="case-card__meta">Photoshop · Illustrator · 2023</p>
+          <span class="case-card__cta">Åbn case →</span>
+        </article>
 
-      <!-- BRANDING -->
-      <section id="branding" class="project-section">
-        <h2 class="project-section__title">Branding</h2>
+        <!-- Hverdagshjælp – logo -->
+        <article class="case-card" tabindex="0" data-tags="branding illustration" data-case="case-hverdagshjaelp">
+          <p class="case-card__tag">Branding · Illustration</p>
+          <h2 class="case-card__title">Hverdagshjælp – logo & identitet</h2>
+          <div class="case-card__thumb">
+            <img src="img/hverdagshjaelp-logo.webp" alt="Logo til Hverdagshjælp">
+          </div>
+          <p class="case-card__meta">Illustrator · 2025</p>
+          <span class="case-card__cta">Åbn case →</span>
+        </article>
 
-        <div class="case-grid">
-          <article id="case-gaasetorvet-julekort" class="case card card--postit">
-  <h3 class="case__title">Gåsetorvet – julekort</h3>
-            <p class="case__tags">Branding · Billedbehandling</p>
-
-            <img src="img/julekort.webp" alt="Julekort til Gåsetorvet" class="case__image">
-
-            <div class="case__details">
-              <p><strong>Mål:</strong> Skabe et julekort med tydelig stemning og et personligt, genkendeligt præg.</p>
-              <p><strong>Min rolle:</strong> Retouch, farvejustering, komposition og logo-idé.</p>
-              <p><strong>Proces:</strong> Fjernede uønskede elementer, justerede lys/farver og tilføjede små grafiske detaljer.</p>
-              <p><strong>Værktøjer:</strong> Photoshop · Illustrator · 2023</p>
-            </div>
-          </article>
-
-          <article id="case-hverdagshjaelp" class="case card card--postit">
-  <h3 class="case__title">Hverdagshjælp – logo & identitet</h3>
-            <p class="case__tags">Branding · Illustration</p>
-
-            <img src="img/hverdagshjaelp-logo.webp" alt="Logo til Hverdagshjælp" class="case__image">
-
-            <div class="case__details">
-              <p><strong>Mål:</strong> Skabe et venligt og imødekommende brand til en nystartet hjælpeservice.</p>
-              <p><strong>Min rolle:</strong> Idéudvikling, logo, farver og visuelle elementer.</p>
-              <p><strong>Proces:</strong> Skitser → simplificering → finpudsning af udtryk, så det føles varmt og genkendeligt.</p>
-              <p><strong>Værktøjer:</strong> Illustrator · 2025</p>
-            </div>
-          </article>
-        </div>
-
-        <!-- FEATURE CASE (samlet korrekt under Branding) -->
-        <div class="case-feature">
-          <article id="case-gaasetorvet-feature" class="case card card--postit case--large case--narrow">
-            <header class="case__header">
-              <h3 class="case__title">Gåsetorvet</h3>
-              <p class="case__subtitle">Visuel identitet & kommunikation</p>
-            </header>
-
-            <div class="case__intro">
-              <p>
-                Gåsetorvet er et lokalt sted med personlighed, humor og fællesskab.
-                Opgaven bestod i at udvikle visuelle elementer, der kunne bruges på tværs
-                af sæsoner og formater – uden at miste stedets varme og genkendelighed.
-              </p>
-
-              <p>
-                Jeg arbejdede med illustration, billedbehandling, layout og animation
-                for at skabe et sammenhængende visuelt udtryk, der føles både legende
-                og konsistent.
-              </p>
-            </div>
-
-            <!-- CASE FACTS -->
-            <ul class="case-facts">
-              <li><strong>Rolle:</strong> Grafisk design & illustration</li>
-              <li><strong>Fokus:</strong> Branding, stemning og genkendelighed</li>
-              <li><strong>Værktøjer:</strong> Illustrator · Photoshop</li>
-              <li><strong>År:</strong> 2023–2024</li>
-            </ul>
-
-            <!-- DELPROJEKT 1 -->
-            <section class="case-block">
-              <h4 class="case-block__title">Julepostkort</h4>
-
-              <div class="case-block__grid">
-                <img src="img/julekort.webp" alt="Julekort til Gåsetorvet" class="case-block__image">
-
-                <div class="case-block__text">
-                  <p>
-                    Julepostkortet blev designet med fokus på varme, humor og et tydeligt
-                    Gåsetorvet-udtryk. Jeg arbejdede med farvejustering, billedretouch
-                    og et lille gåse-ikon som gennemgående element.
-                  </p>
-
-                  <p>
-                    Målet var at skabe noget, der føltes personligt og genkendeligt,
-                    uden at blive for poleret.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <!-- DELPROJEKT 2 -->
-            <section class="case-block">
-              <h4 class="case-block__title">Illustrationer & små visuelle elementer</h4>
-
-              <div class="case-block__grid">
-                <img src="img/gaas-illustration.webp" alt="Illustration til Gåsetorvet" class="case-block__image">
-
-                <div class="case-block__text">
-                  <p>
-                    Illustrationerne fungerer som små visuelle “personligheder”
-                    i brandet. De er bevidst enkle og lette at genkende og kan bruges
-                    fleksibelt på tværs af medier.
-                  </p>
-
-                  <p>
-                    Det legende udtryk er med til at understøtte Gåsetorvets tone of voice
-                    og skabe sammenhæng i kommunikationen.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <!-- DELPROJEKT 3 -->
-            <section id="case-gaasen-i-baren" class="case-block">
-  <h4 class="case-block__title">Animation & bevægelse</h4>
-
-
-              <div class="case-block__grid">
-                <video class="case-block__video" controls muted playsinline>
-                  <source src="video/gaas-animation.mp4" type="video/mp4">
-                  Din browser understøtter ikke video-tagget.
-                </video>
-
-                <div class="case-block__text">
-                  <p>
-                    Animationen blev udviklet som en del af Gåsetorvets digitale kommunikation
-                    og bruges på sociale medier. Formålet var at give brandet mere liv
-                    og bevægelse uden at miste det legende og genkendelige udtryk.
-                  </p>
-
-                  <p>
-                    Jeg arbejdede med timing, rytme og simple bevægelser, så animationen
-                    understøtter illustrationerne og bidrager til en sammenhængende
-                    visuel identitet.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <!-- DELPROJEKT: TRÆDESIGN -->
-            <section class="case-block">
-              <h4 class="case-block__title">Trædesign – “Drik-status”</h4>
-
-              <div class="case-block__grid">
-                <div class="case-block__gallery">
-                  <img src="img/drikstatus-1.webp" alt="Trædesign – ølglas form" />
-                  <img src="img/drikstatus-2.webp" alt="Trædesign – krus form" />
-                </div>
-
-                <div class="case-block__text">
-                  <p>
-                    “Drik-status” er et igangværende samarbejde med Gåsetorvet, hvor målet
-                    var at udvikle et unikt trædesign til et nyt drik-status-koncept,
-                    inspireret af idéen fra Viggos.
-                  </p>
-
-                  <p>
-                    Jeg har udarbejdet flere skitser og prototyper i forskellige former,
-                    blandt andet ølglas og krus, alle med Gåsetorvets logo integreret i
-                    linjerne. Designet er tænkt som et lille fysisk element, der både
-                    fungerer som et sjovt samleobjekt og som en nøglering, gæsterne kan
-                    tage med hjem.
-                  </p>
-
-                  <p>
-                    Projektet er nu tæt på et færdigt design, og næste skridt er produktion.
-                    Planen er at få skåret de første 500 stk. på en lasercutter, så baren
-                    kan teste konceptet i praksis som en del af gæsteoplevelsen.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-          </article>
-        </div>
-      </section>
-
-      <!-- LAYOUT/PRINT -->
-      <section id="layout" class="project-section">
-        <h2 class="project-section__title">Layout/Print & SoMe</h2>
-
-        <div class="case-grid">
-          <article class="case card card--postit">
-            <h3 class="case__title">Sanghæfter – 60 års fødselsdag</h3>
-            <p class="case__tags">Layout · Print · Personligt projekt</p>
-
-            <div class="project-slider">
-              <figure class="project-slider__item">
-                <img src="img/sanghaefte-cover.webp" alt="Sanghæfte forside" class="project-slider__image">
-                <figcaption class="project-slider__caption">Forside</figcaption>
-              </figure>
-              <figure class="project-slider__item">
-                <img src="img/sanghaefte-side1.webp" alt="Side 1" class="project-slider__image">
-                <figcaption class="project-slider__caption">Side 1</figcaption>
-              </figure>
-              <figure class="project-slider__item">
-                <img src="img/sanghaefte-side2.webp" alt="Side 2" class="project-slider__image">
-                <figcaption class="project-slider__caption">Side 2</figcaption>
-              </figure>
-              <figure class="project-slider__item">
-                <img src="img/sanghaefte-side3.webp" alt="Side 3" class="project-slider__image">
-                <figcaption class="project-slider__caption">Side 3</figcaption>
-              </figure>
-              <figure class="project-slider__item">
-                <img src="img/sanghaefte-side4.webp" alt="Side 4" class="project-slider__image">
-                <figcaption class="project-slider__caption">Side 4</figcaption>
-              </figure>
-            </div>
-
-            <p class="project-slider__hint">Swipe/scroll for flere sider.</p>
-
-            <div class="case__details">
-              <p><strong>Mål:</strong> Et varmt og personligt print-design, der føles gennemtænkt og festligt.</p>
-              <p><strong>Min rolle:</strong> Layout, typografi, illustrationer og opsætning til print.</p>
-              <p><strong>Proces:</strong> Valg af typografisk hierarki → grid → ensartet stil på sider → finjustering.</p>
-              <p><strong>Værktøjer:</strong> InDesign · 2024</p>
-            </div>
-          </article>
-       <article id="case-instagram-kamp" class="case card card--postit">
-  <h3 class="case__title">Instagram kamp-post</h3>
-  <p class="case__tags">Layout · SoMe</p>
-
-  <img src="img/instagram-kamp-post.webp" alt="Instagram kamp-post design" class="case__image">
-
-  <div class="case__details">
-    <p><strong>Mål:</strong> Skabe en kamp-post der fanger opmærksomhed hurtigt og fungerer i feed-format.</p>
-    <p><strong>Min rolle:</strong> Layout, billedbehandling og typografisk hierarki.</p>
-    <p><strong>Proces:</strong> Skitse af komposition → typografi/kontrast → finjustering til mobilvisning.</p>
-    <p><strong>Værktøjer:</strong> Photoshop · Layout</p>
+<!-- Friend Finder -->
+<article class="case-card" tabindex="0" data-tags="layout some" data-case="case-friend-finder">
+  <p class="case-card__tag">UX · UI · Prototype</p>
+  <h2 class="case-card__title">Friend Finder – app prototype</h2>
+  <div class="case-card__thumb">
+    <img src="img/friend-finder-logo.webp" alt="Friend Finder logo">
   </div>
+  <p class="case-card__meta">Prototype · Workshop (1. semester)</p>
+  <span class="case-card__cta">Åbn case →</span>
 </article>
-        </div>
-      </section>
 
-      <!-- FOTO -->
-      <section id="foto" class="project-section">
-        <h2 class="project-section__title">Foto</h2>
+<!-- T-shirt / merch illustration -->
+<article class="case-card" tabindex="0" data-tags="illustration" data-case="case-tshirt">
+  <p class="case-card__tag">Illustration · Merch</p>
+  <h2 class="case-card__title">T-shirt design – illustration</h2>
+  <div class="case-card__thumb">
+    <img src="img/tshirt-illustration.webp" alt="T-shirt design illustration">
+  </div>
+  <p class="case-card__meta">Illustration · iPad</p>
+  <span class="case-card__cta">Åbn case →</span>
+</article>
 
-        <div class="case-grid">
+        <!-- Gåsetorvet – feature -->
+        <article class="case-card" tabindex="0" data-tags="branding illustration some" data-case="case-gaasetorvet-feature">
+          <p class="case-card__tag">Visuel identitet · Kommunikation</p>
+          <h2 class="case-card__title">Gåsetorvet – visuel identitet</h2>
+          <div class="case-card__thumb">
+            <img src="img/gåsen.webp" alt="Gåsetorvet illustration">
+          </div>
+          <p class="case-card__meta">Illustrator · Photoshop · 2023–2024</p>
+          <span class="case-card__cta">Åbn case →</span>
+        </article>
+<!-- Gåsetorvet – animation -->
+<article class="case-card" tabindex="0" data-tags="some branding" data-case="case-gaasetorvet-animation">
+  <p class="case-card__tag">Animation · SoMe</p>
+  <h2 class="case-card__title">Gåsen i baren – animation</h2>
+  <div class="case-card__thumb">
+    <!-- brug evt. et billede/thumb hvis du har et -->
+    <img src="img/gaas-animation-thumb.webp" alt="Gåsen i baren – animation thumbnail">
+  </div>
+  <p class="case-card__meta">Animation · 2023</p>
+  <span class="case-card__cta">Åbn case →</span>
+</article>
 
-          <!-- HAMBURG -->
-          <article id="case-hamburg" class="case card card--postit">
-            <h3 class="case__title">Hamburg – visuel research</h3>
-            <p class="case__tags">FOTO · STEMNING · RESEARCH</p>
+<!-- Gåsetorvet – trædesign -->
+<article class="case-card" tabindex="0" data-tags="branding illustration" data-case="case-gaasetorvet-traedesign">
+  <p class="case-card__tag">Trædesign · Koncept</p>
+  <h2 class="case-card__title">“Drik-status” – trædesign</h2>
+  <div class="case-card__thumb">
+    <img src="img/drikstatus-1.webp" alt="Trædesign – Drik-status">
+  </div>
+  <p class="case-card__meta">Skitser · prototype · 2024</p>
+  <span class="case-card__cta">Åbn case →</span>
+</article>
 
-            <img src="img/hamburg3.webp" alt="Hamburg – visuel research" class="case__image">
+<!-- Gåsetorvet – nytårs post/plakat -->
+<article class="case-card" tabindex="0" data-tags="some layout branding" data-case="case-gaasetorvet-nytaar">
+  <p class="case-card__tag">Layout · SoMe</p>
+  <h2 class="case-card__title">Gåsetorvet – nytårs post</h2>
+  <div class="case-card__thumb">
+    <!-- SKIFT filnavn til dit rigtige billede -->
+    <img src="img/gaas-illustration.webp" alt="Gåsetorvet nytårs post">
+  </div>
+  <p class="case-card__meta">Photoshop · 2024</p>
+  <span class="case-card__cta">Åbn case →</span>
+</article>
 
-            <div class="case__details">
-              <p><strong>Mål:</strong> Indsamle visuel inspiration og stemningsbilleder til et designprojekt med fokus på byliv og kultur.</p>
-              <p><strong>Min rolle:</strong> Fotografering og udvælgelse af billeder med fokus på lys, farver og komposition.</p>
-              <p><strong>Proces:</strong> Optagelse → sortering → farve/lys-tilpasning → udvælgelse efter stemning og sammenhæng.</p>
-              <p><strong>Værktøjer:</strong> Foto · iPhone</p>
-            </div>
+        <!-- Sanghæfter -->
+        <article class="case-card" tabindex="0" data-tags="layout" data-case="case-sanghaefter">
+          <p class="case-card__tag">Layout · Print · Personligt</p>
+          <h2 class="case-card__title">Sanghæfter – 60 års fødselsdag</h2>
+          <div class="case-card__thumb">
+            <img src="img/sanghaefte-cover.webp" alt="Sanghæfte forside">
+          </div>
+          <p class="case-card__meta">InDesign · 2024</p>
+          <span class="case-card__cta">Åbn case →</span>
+        </article>
 
-            <div class="project__gallery project__gallery--feature">
-              <img src="img/hamburg1.webp" alt="Hamburg – byrum">
-              <img src="img/hamburg4.webp" alt="Hamburg – stemning">
-              <img src="img/hamburg6.webp" alt="Hamburg – collage">
-            </div>
-          </article>
+        <!-- Instagram kamp -->
+        <article class="case-card" tabindex="0" data-tags="some layout" data-case="case-instagram-kamp">
+          <p class="case-card__tag">Layout · SoMe</p>
+          <h2 class="case-card__title">Instagram kamp-post</h2>
+          <div class="case-card__thumb">
+            <img src="img/instagram-kamp-post.webp" alt="Instagram kamp-post design">
+          </div>
+          <p class="case-card__meta">Photoshop · Layout</p>
+          <span class="case-card__cta">Åbn case →</span>
+        </article>
 
-          <!-- FÆRØERNE -->
-          <article id="case-faeroerne" class="case card card--postit">
-            <h3 class="case__title">Færøsk hverdagsliv før i tiden</h3>
-            <p class="case__tags">FOTO · STEMNING · VISUEL FORTÆLLING</p>
+        <!-- Hamburg -->
+        <article class="case-card" tabindex="0" data-tags="foto" data-case="case-hamburg">
+          <p class="case-card__tag">Foto · Stemning · Research</p>
+          <h2 class="case-card__title">Hamburg – visuel research</h2>
+          <div class="case-card__thumb">
+            <img src="img/hamburg3.webp" alt="Hamburg – visuel research">
+          </div>
+          <p class="case-card__meta">Foto · iPhone</p>
+          <span class="case-card__cta">Åbn case →</span>
+        </article>
 
-            <img src="img/faeroerne-hus-udvendigt.webp" alt="Lille færøsk hus med åben dør – kig ind i historien" class="case__image">
+        <!-- Færøerne -->
+        <article class="case-card" tabindex="0" data-tags="foto" data-case="case-faeroerne">
+          <p class="case-card__tag">Foto · Stemning · Visuel fortælling</p>
+          <h2 class="case-card__title">Færøsk hverdagsliv før i tiden</h2>
+          <div class="case-card__thumb">
+            <img src="img/faeroerne-hus-udvendigt.webp" alt="Færøsk hverdagsliv før i tiden">
+          </div>
+          <p class="case-card__meta">Foto · iPhone</p>
+          <span class="case-card__cta">Åbn case →</span>
+        </article>
 
-            <div class="case__details">
-              <p><strong>Mål:</strong> Fange stemningen i et lille færøsk hus, hvor døren står åben, så man kan se hvordan man boede før i tiden.</p>
-              <p><strong>Min rolle:</strong> Fotografering og udvælgelse af billeder til et samlet visuelt udtryk.</p>
-              <p><strong>Proces:</strong> Optagelse → sortering → farve/lys-tilpasning → udvælgelse efter stemning og sammenhæng.</p>
-              <p><strong>Værktøjer:</strong> Foto · iPhone</p>
-            </div>
-
-            <div class="project__gallery project__gallery--feature">
-              <img src="img/faeroerne-hus-indeni-2.webp" alt="Køkken i gammelt færøsk hus">
-              <img src="img/faeroerne-hus-indeni-3.webp" alt="Soveplads i færøsk hus">
-              <img src="img/faeroerne-hus-indeni-4.webp" alt="Interiør og detaljer">
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- ILLUSTRATION -->
-      <section id="illustration" class="project-section">
-        <h2 class="project-section__title">Illustration</h2>
-
-        <div class="case-grid">
-          <article id="case-figur-haandbold" class="case card card--postit">
-            <h3 class="case__title">Figur – Håndbold</h3>
-            <p class="case__tags">Illustration · Identitet</p>
-
-            <img src="img/Figur_håndbold.webp" alt="Illustration af håndbold-figur" class="case__image">
-
-            <div class="case__details">
-              <p><strong>Mål:</strong> Skabe et venligt og dynamisk visuelt element (maskot) der kan bruges i et projektunivers.</p>
-              <p><strong>Min rolle:</strong> Illustration og udtryk.</p>
-              <p><strong>Proces:</strong> Skitse → former → simplificering → finjustering af proportioner og energi.</p>
-              <p><strong>Værktøjer:</strong> iPad · Illustrator</p>
-            </div>
-          </article>
-        </div>
-      </section>
+        <!-- Figur håndbold -->
+        <article class="case-card" tabindex="0" data-tags="illustration" data-case="case-figur-haandbold">
+          <p class="case-card__tag">Illustration · Identitet</p>
+          <h2 class="case-card__title">Figur – Håndbold</h2>
+          <div class="case-card__thumb">
+            <img src="img/Figur_håndbold.webp" alt="Illustration af håndbold-figur">
+          </div>
+          <p class="case-card__meta">iPad · Illustrator</p>
+          <span class="case-card__cta">Åbn case →</span>
+        </article>
+      </div>
 
       <div class="projects-cta">
         <a class="button button--outline" href="index.html#forside">Tilbage til forsiden</a>
@@ -359,6 +443,554 @@
   <footer class="footer">
     <p class="footer__text">© 2025 Klein Design · Portfolio til 1. semesterprøven</p>
   </footer>
+
+  <!-- MODAL (én gang) -->
+  <div class="modal" id="caseModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="true"></div>
+
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__inner" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- TEMPLATES (indhold til modal) -->
+
+  <template id="tpl-case-gaasetorvet-julekort">
+    <div class="modal__top">
+      <div>
+        <p class="modal__tag">Branding · Billedbehandling</p>
+        <h2 class="modal__title" id="modalTitle">Gåsetorvet – julekort</h2>
+        <p class="modal__meta">Photoshop · Illustrator · 2023</p>
+      </div>
+      <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+    </div>
+
+    <div class="modal__grid">
+      <div class="modal__text">
+        <p><strong>Mål:</strong> Skabe et julekort med tydelig stemning og et personligt, genkendeligt præg.</p>
+        <p><strong>Min rolle:</strong> Retouch, farvejustering, komposition og logo-idé.</p>
+        <p><strong>Proces:</strong> Fjernede uønskede elementer, justerede lys/farver og tilføjede små grafiske detaljer.</p>
+        <ul class="modal__facts">
+          <li><strong>Fokus:</strong> stemning + tydeligt hierarki</li>
+          <li><strong>Levering:</strong> klar til print</li>
+        </ul>
+      </div>
+
+      <div class="case-gallery">
+        <figure class="case-shot case-shot--wide">
+          <img src="img/julekort.webp" alt="Julekort til Gåsetorvet">
+        </figure>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-case-hverdagshjaelp">
+    <div class="modal__top">
+      <div>
+        <p class="modal__tag">Branding · Illustration</p>
+        <h2 class="modal__title" id="modalTitle">Hverdagshjælp – logo & identitet</h2>
+        <p class="modal__meta">Illustrator · 2025</p>
+      </div>
+      <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+    </div>
+
+    <div class="modal__grid">
+      <div class="modal__text">
+        <p><strong>Mål:</strong> Skabe et venligt og imødekommende brand til en nystartet hjælpeservice.</p>
+        <p><strong>Min rolle:</strong> Idéudvikling, logo, farver og visuelle elementer.</p>
+        <p><strong>Proces:</strong> Skitser → simplificering → finpudsning af udtryk, så det føles varmt og genkendeligt.</p>
+      </div>
+
+      <div class="case-gallery">
+        <figure class="case-shot case-shot--wide">
+          <img src="img/hverdagshjaelp-logo.webp" alt="Logo til Hverdagshjælp">
+        </figure>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-case-gaasetorvet-feature">
+    <div class="modal__top">
+      <div>
+        <p class="modal__tag">Visuel identitet · Kommunikation</p>
+        <h2 class="modal__title" id="modalTitle">Gåsetorvet</h2>
+        <p class="modal__meta">Illustrator · Photoshop · 2023–2024</p>
+      </div>
+      <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+    </div>
+
+    <div class="modal__grid">
+      <div class="modal__text">
+        <p>
+          Gåsetorvet er et lokalt sted med personlighed, humor og fællesskab.
+          Opgaven bestod i at udvikle visuelle elementer, der kunne bruges på tværs af sæsoner og formater,
+          uden at miste stedets varme og genkendelighed.
+        </p>
+        <p>
+          Jeg arbejdede med illustration, billedbehandling, layout og animation for at skabe et sammenhængende visuelt udtryk.
+        </p>
+
+        <ul class="modal__facts">
+          <li><strong>Rolle:</strong> Grafisk design & illustration</li>
+          <li><strong>Fokus:</strong> branding, stemning, genkendelighed</li>
+          <li><strong>År:</strong> 2023–2024</li>
+        </ul>
+
+        <p><strong>Delprojekter:</strong></p>
+<ul class="modal__facts">
+  <li><button class="case-card__cta" type="button" data-open-case="case-gaasetorvet-julekort">Åbn julepostkort</button></li>
+  <li><button class="case-card__cta" type="button" data-open-case="case-gaasetorvet-animation">Åbn animation</button></li>
+  <li><button class="case-card__cta" type="button" data-open-case="case-gaasetorvet-traedesign">Åbn trædesign</button></li>
+  <li><button class="case-card__cta" type="button" data-open-case="case-gaasetorvet-nytaar">Åbn nytårs post</button></li>
+</ul>
+
+      </div>
+
+      <div class="case-gallery">
+        <figure class="case-shot case-shot--wide">
+          <img src="img/julekort.webp" alt="Gåsetorvet – julepostkort">
+        </figure>
+
+        <figure class="case-shot">
+          <img src="img/gaas-illustration.webp" alt="Gåsetorvet – illustration">
+        </figure>
+
+        <figure class="case-shot">
+          <img src="img/drikstatus-1.webp" alt="Trædesign – drikstatus 1">
+        </figure>
+
+        <figure class="case-shot">
+          <img src="img/drikstatus-2.webp" alt="Trædesign – drikstatus 2">
+        </figure>
+
+        <figure class="case-shot case-shot--wide">
+          <video class="case-video" controls muted playsinline>
+            <source src="video/gaas-animation.mp4" type="video/mp4">
+            Din browser understøtter ikke video-tagget.
+          </video>
+        </figure>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-case-sanghaefter">
+    <div class="modal__top">
+      <div>
+        <p class="modal__tag">Layout · Print · Personligt projekt</p>
+        <h2 class="modal__title" id="modalTitle">Sanghæfter – 60 års fødselsdag</h2>
+        <p class="modal__meta">InDesign · 2024</p>
+      </div>
+      <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+    </div>
+
+    <div class="modal__grid">
+      <div class="modal__text">
+        <p><strong>Mål:</strong> Et varmt og personligt print-design, der føles gennemtænkt og festligt.</p>
+        <p><strong>Min rolle:</strong> Layout, typografi, illustrationer og opsætning til print.</p>
+        <p><strong>Proces:</strong> Typografisk hierarki → grid → ensartet stil på sider → finjustering.</p>
+      </div>
+
+      <div class="case-gallery">
+        <figure class="case-shot case-shot--wide">
+          <img src="img/sanghaefte-cover.webp" alt="Sanghæfte forside">
+        </figure>
+        <figure class="case-shot">
+          <img src="img/sanghaefte-side1.webp" alt="Sanghæfte side 1">
+        </figure>
+        <figure class="case-shot">
+          <img src="img/sanghaefte-side2.webp" alt="Sanghæfte side 2">
+        </figure>
+        <figure class="case-shot">
+          <img src="img/sanghaefte-side3.webp" alt="Sanghæfte side 3">
+        </figure>
+        <figure class="case-shot">
+          <img src="img/sanghaefte-side4.webp" alt="Sanghæfte side 4">
+        </figure>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-case-instagram-kamp">
+    <div class="modal__top">
+      <div>
+        <p class="modal__tag">Layout · SoMe</p>
+        <h2 class="modal__title" id="modalTitle">Instagram kamp-post</h2>
+        <p class="modal__meta">Photoshop · Layout</p>
+      </div>
+      <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+    </div>
+
+    <div class="modal__grid">
+      <div class="modal__text">
+        <p><strong>Mål:</strong> Skabe en kamp-post der fanger opmærksomhed hurtigt og fungerer i feed-format.</p>
+        <p><strong>Min rolle:</strong> Layout, billedbehandling og typografisk hierarki.</p>
+        <p><strong>Proces:</strong> Skitse af komposition → typografi/kontrast → finjustering til mobilvisning.</p>
+      </div>
+
+      <div class="case-gallery">
+        <figure class="case-shot case-shot--wide">
+          <img src="img/instagram-kamp-post.webp" alt="Instagram kamp-post design">
+        </figure>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-case-hamburg">
+    <div class="modal__top">
+      <div>
+        <p class="modal__tag">Foto · Stemning · Research</p>
+        <h2 class="modal__title" id="modalTitle">Hamburg – visuel research</h2>
+        <p class="modal__meta">Foto · iPhone</p>
+      </div>
+      <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+    </div>
+
+    <div class="modal__grid">
+      <div class="modal__text">
+        <p><strong>Mål:</strong> Indsamle visuel inspiration og stemningsbilleder til et designprojekt med fokus på byliv og kultur.</p>
+        <p><strong>Min rolle:</strong> Fotografering og udvælgelse med fokus på lys, farver og komposition.</p>
+        <p><strong>Proces:</strong> Optagelse → sortering → farve/lys-tilpasning → udvælgelse efter stemning og sammenhæng.</p>
+      </div>
+
+      <div class="case-gallery">
+        <figure class="case-shot case-shot--wide">
+          <img src="img/hamburg3.webp" alt="Hamburg – visuel research">
+        </figure>
+        <figure class="case-shot">
+          <img src="img/hamburg1.webp" alt="Hamburg – byrum">
+        </figure>
+        <figure class="case-shot">
+          <img src="img/hamburg4.webp" alt="Hamburg – stemning">
+        </figure>
+        <figure class="case-shot case-shot--wide">
+          <img src="img/hamburg6.webp" alt="Hamburg – collage">
+        </figure>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-case-faeroerne">
+    <div class="modal__top">
+      <div>
+        <p class="modal__tag">Foto · Stemning · Visuel fortælling</p>
+        <h2 class="modal__title" id="modalTitle">Færøsk hverdagsliv før i tiden</h2>
+        <p class="modal__meta">Foto · iPhone</p>
+      </div>
+      <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+    </div>
+
+    <div class="modal__grid">
+      <div class="modal__text">
+        <p><strong>Mål:</strong> Fange stemningen i et lille færøsk hus, hvor døren står åben, så man kan se hvordan man boede før i tiden.</p>
+        <p><strong>Min rolle:</strong> Fotografering og udvælgelse af billeder til et samlet visuelt udtryk.</p>
+        <p><strong>Proces:</strong> Optagelse → sortering → farve/lys-tilpasning → udvælgelse efter stemning og sammenhæng.</p>
+      </div>
+
+      <div class="case-gallery">
+        <figure class="case-shot case-shot--wide">
+          <img src="img/faeroerne-hus-udvendigt.webp" alt="Færøsk hus udvendigt">
+        </figure>
+        <figure class="case-shot">
+          <img src="img/faeroerne-hus-indeni-2.webp" alt="Køkken i gammelt færøsk hus">
+        </figure>
+        <figure class="case-shot">
+          <img src="img/faeroerne-hus-indeni-3.webp" alt="Soveplads i færøsk hus">
+        </figure>
+        <figure class="case-shot case-shot--wide">
+          <img src="img/faeroerne-hus-indeni-4.webp" alt="Interiør og detaljer">
+        </figure>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-case-figur-haandbold">
+    <div class="modal__top">
+      <div>
+        <p class="modal__tag">Illustration · Identitet</p>
+        <h2 class="modal__title" id="modalTitle">Figur – Håndbold</h2>
+        <p class="modal__meta">iPad · Illustrator</p>
+      </div>
+      <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+    </div>
+
+    <div class="modal__grid">
+      <div class="modal__text">
+        <p><strong>Mål:</strong> Skabe et venligt og dynamisk visuelt element (maskot), der kan bruges i et projektunivers.</p>
+        <p><strong>Min rolle:</strong> Illustration og udtryk.</p>
+        <p><strong>Proces:</strong> Skitse → former → simplificering → finjustering af proportioner og energi.</p>
+      </div>
+
+      <div class="case-gallery">
+        <figure class="case-shot case-shot--wide">
+          <img src="img/Figur_håndbold.webp" alt="Illustration af håndbold-figur">
+        </figure>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-case-friend-finder">
+  <div class="modal__top">
+    <div>
+      <p class="modal__tag">UX · UI · Prototype</p>
+      <h2 class="modal__title" id="modalTitle">Friend Finder – app prototype</h2>
+      <p class="modal__meta">Workshop · 1. semester · Samarbejde</p>
+    </div>
+    <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+  </div>
+
+  <div class="modal__grid">
+    <div class="modal__text">
+      <p>
+        Prototype udviklet i workshop på 1. semester i samarbejde med to andre studerende.
+        Fokus på brugerflow, UI og sammenhæng i et lille designsystem.
+      </p>
+
+      <ul class="modal__facts">
+        <li><strong>Rolle:</strong> UI, flow, idéudvikling</li>
+        <li><strong>Samarbejde:</strong> 3 studerende (workshop)</li>
+        <li><strong>Leverance:</strong> Klikbar prototype + UI screens</li>
+      </ul>
+
+      <p><strong>Fokus:</strong> tydelige CTA’er, konsekvent typografi og komponenter, samt et roligt UI.</p>
+    </div>
+
+    <div class="case-gallery">
+      <figure class="case-shot case-shot--wide">
+        <img src="img/friend-finder-logo.webp" alt="Friend Finder logo" loading="lazy">
+      </figure>
+
+      <figure class="case-shot case-shot--tall">
+        <img src="img/Side 2 oversigt.webp" alt="Friend Finder – oversigt" loading="lazy">
+      </figure>
+
+      <figure class="case-shot">
+        <img src="img/Side 3.webp" alt="Friend Finder – skærm 3" loading="lazy">
+      </figure>
+
+      <figure class="case-shot">
+        <img src="img/Side 5.webp" alt="Friend Finder – skærm 5" loading="lazy">
+      </figure>
+
+      <figure class="case-shot case-shot--wide">
+        <img src="img/Side 6.webp" alt="Friend Finder – skærm 6" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-case-tshirt">
+  <div class="modal__top">
+    <div>
+      <p class="modal__tag">Illustration · Merch</p>
+      <h2 class="modal__title" id="modalTitle">T-shirt design – illustration</h2>
+      <p class="modal__meta">Illustration · iPad</p>
+    </div>
+    <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+  </div>
+
+  <div class="modal__grid">
+    <div class="modal__text">
+      <p>
+        Illustration der kan bruges på t-shirts, stickers og små tryksager.
+        Fokus på et tydeligt formsprog og et udtryk der fungerer både stort og småt.
+      </p>
+
+      <ul class="modal__facts">
+        <li><strong>Rolle:</strong> Illustration + udtryk</li>
+        <li><strong>Leverance:</strong> Printklar grafik</li>
+        <li><strong>Muligt brug:</strong> merch, stickers, plakater</li>
+      </ul>
+    </div>
+
+    <div class="case-gallery">
+      <figure class="case-shot case-shot--wide">
+        <img src="img/tshirt-illustration.webp" alt="T-shirt illustration" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</template>
+
+<!-- TEMPLATE: Gåsetorvet animation -->
+<template id="tpl-case-gaasetorvet-animation">
+  <div class="modal__top">
+    <div>
+      <p class="modal__tag">Animation · SoMe</p>
+      <h2 class="modal__title" id="modalTitle">Gåsen i baren – animation</h2>
+      <p class="modal__meta">Video · 2023</p>
+    </div>
+    <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+  </div>
+
+  <div class="modal__grid">
+    <div class="modal__text">
+      <p><strong>Mål:</strong> Give Gåsetorvets univers mere liv i digital kommunikation (SoMe).</p>
+      <p><strong>Min rolle:</strong> Idé, illustration/opsætning og timing i bevægelse.</p>
+      <p><strong>Proces:</strong> Storyboard → simple bevægelser → test i format → finpudsning.</p>
+    </div>
+
+    <div class="case-gallery">
+      <figure class="case-shot case-shot--wide">
+        <video class="case-video" controls muted playsinline>
+          <source src="video/gaas-animation.mp4" type="video/mp4">
+          Din browser understøtter ikke video-tagget.
+        </video>
+      </figure>
+    </div>
+  </div>
+</template>
+
+<!-- TEMPLATE: Trædesign “Drik-status” -->
+<template id="tpl-case-gaasetorvet-traedesign">
+  <div class="modal__top">
+    <div>
+      <p class="modal__tag">Trædesign · Koncept</p>
+      <h2 class="modal__title" id="modalTitle">“Drik-status” – trædesign</h2>
+      <p class="modal__meta">Koncept · skitser · prototype</p>
+    </div>
+    <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+  </div>
+
+  <div class="modal__grid">
+    <div class="modal__text">
+      <p>
+        <strong>Mål:</strong> Udvikle et lille fysisk element til Gåsetorvet – et “drik-status”-koncept,
+        der både kan fungere som sjov detalje i baren og som et take-away/souvenir-element.
+      </p>
+      <p><strong>Min rolle:</strong> Skitsering, formudvikling og prototyping.</p>
+      <p><strong>Proces:</strong> Variationer (ølglas/krus) → logo integreret i linjer → test af form og læsbarhed.</p>
+
+      <ul class="modal__facts">
+        <li><strong>Status:</strong> tæt på endeligt design</li>
+        <li><strong>Næste skridt:</strong> produktion/test i praksis</li>
+      </ul>
+    </div>
+
+    <div class="case-gallery">
+      <figure class="case-shot">
+        <img src="img/drikstatus-1.webp" alt="Drik-status – variation 1">
+      </figure>
+      <figure class="case-shot">
+        <img src="img/drikstatus-2.webp" alt="Drik-status – variation 2">
+      </figure>
+    </div>
+  </div>
+</template>
+
+<!-- TEMPLATE: Nytårs post -->
+<template id="tpl-case-gaasetorvet-nytaar">
+  <div class="modal__top">
+    <div>
+      <p class="modal__tag">Layout · SoMe</p>
+      <h2 class="modal__title" id="modalTitle">Gåsetorvet – nytårs post</h2>
+      <p class="modal__meta">Photoshop · (indsæt år)</p>
+    </div>
+    <button class="modal__close" type="button" data-close="true" aria-label="Luk">Luk ✕</button>
+  </div>
+
+  <div class="modal__grid">
+    <div class="modal__text">
+      <p><strong>Mål:</strong> Skabe en nytårs-post der fungerer hurtigt i feed og matcher Gåsetorvets tone.</p>
+      <p><strong>Min rolle:</strong> Layout, billedbehandling og typografisk hierarki.</p>
+      <p><strong>Proces:</strong> Komposition → kontrast/typografi → export til SoMe-format.</p>
+    </div>
+
+    <div class="case-gallery">
+      <figure class="case-shot case-shot--wide">
+        <!-- SKIFT filnavn til dit rigtige billede -->
+        <img src="img/gaasetorvet-nytaar.webp" alt="Gåsetorvet nytårs post">
+      </figure>
+    </div>
+  </div>
+</template>
+
+  <!-- JS: filter + modal -->
+  <script>
+    // --- FILTER ---
+    const filters = document.querySelectorAll(".filter");
+    const cards = document.querySelectorAll(".case-card");
+
+    filters.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filters.forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+
+        const tag = btn.dataset.filter;
+
+        cards.forEach(card => {
+          const tags = (card.dataset.tags || "").split(" ").filter(Boolean);
+          const show = tag === "all" || tags.includes(tag);
+          card.style.display = show ? "" : "none";
+        });
+      });
+    });
+
+    // --- MODAL ---
+    const modal = document.getElementById("caseModal");
+    const modalContent = document.getElementById("modalContent");
+    let lastFocused = null;
+
+    function openModal(caseId){
+      const tpl = document.getElementById("tpl-" + caseId);
+      if(!tpl) return;
+
+      lastFocused = document.activeElement;
+      modalContent.innerHTML = "";
+      modalContent.appendChild(tpl.content.cloneNode(true));
+
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      const closeBtn = modal.querySelector("[data-close='true']");
+      if(closeBtn) closeBtn.focus();
+    }
+
+    function closeModal(){
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      modalContent.innerHTML = "";
+      document.body.style.overflow = "";
+
+      if(lastFocused && typeof lastFocused.focus === "function"){
+        lastFocused.focus();
+      }
+    }
+
+    // Åbn ved klik + Enter/Space
+    cards.forEach(card => {
+      const id = card.dataset.case;
+      card.addEventListener("click", () => openModal(id));
+      card.addEventListener("keydown", (e) => {
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          openModal(id);
+        }
+      });
+    });
+// Åbn en anden case indefra modalen (Delprojekter-knapper)
+modalContent.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-open-case]");
+  if(!btn) return;
+  const id = btn.getAttribute("data-open-case");
+  // genåbn med ny template
+  openModal(id);
+});
+
+    // Luk ved klik på backdrop/luk-knap
+    modal.addEventListener("click", (e) => {
+      const t = e.target;
+      if(t && t.dataset && t.dataset.close === "true"){
+        closeModal();
+      }
+    });
+
+    // Luk med ESC
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && modal.classList.contains("is-open")){
+        closeModal();
+      }
+    });
+  </script>
 
   <script src="js/main.js"></script>
 </body>

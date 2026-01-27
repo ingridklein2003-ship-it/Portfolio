@@ -112,3 +112,31 @@ markActivePageLink();
 markActiveSectionOnIndex();
 opdaterHeader();
 setupMobileMenu();
+// Case toggles (accordion)
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".case__toggle");
+  if (!btn) return;
+
+  const id = btn.getAttribute("aria-controls");
+  const details = document.getElementById(id);
+  if (!details) return;
+
+  const isOpen = !details.hasAttribute("hidden");
+
+  // toggle
+  if (isOpen) {
+    details.setAttribute("hidden", "");
+    btn.setAttribute("aria-expanded", "false");
+  } else {
+    details.removeAttribute("hidden");
+    btn.setAttribute("aria-expanded", "true");
+  }
+
+  // hvis der findes en "close" knap inde i details, så sync dens aria
+  const wrapper = btn.closest(".case");
+  if (wrapper) {
+    wrapper.querySelectorAll(`.case__toggle[aria-controls="${id}"]`).forEach((b) => {
+      b.setAttribute("aria-expanded", String(!isOpen));
+    });
+  }
+});

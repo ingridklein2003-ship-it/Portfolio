@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <title>Priser – Klein Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="page">
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html#forside" class="header__logo">
+        <span class="header__logo-main">Klein</span>
+        <span class="header__logo-sub">DESIGN</span>
+      </a>
+
+      <button class="header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav id="site-nav" class="nav header__nav" aria-label="Hovednavigation">
+        <a href="index.html#forside" class="nav__link">Forside</a>
+        <a href="index.html#om" class="nav__link">Om</a>
+        <a href="projekter.html" class="nav__link">Projekter</a>
+        <a href="univers.html" class="nav__link">Univers</a>
+        <a href="priser.html" class="nav__link">Priser</a>
+        <a href="index.html#kontakt" class="nav__link">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section--light">
+      <div class="section__heading">
+        <h1 class="section__title">Priser & <span>ydelser</span></h1>
+        <p class="section__intro">
+          Her er tre branding-pakker og en “a la carte” prisliste til små opgaver.
+          Priser er vejledende — skriv til mig, så finder vi en løsning der passer.
+        </p>
+      </div>
+
+      <!-- PAKKER -->
+      <div id="pakker" class="pricing">
+        <div class="pricing__grid">
+          <article class="price-card">
+            <p class="price-card__kicker">Branding pakke</p>
+            <h2 class="price-card__title">Mini</h2>
+            <p class="price-card__price">1.500 kr.</p>
+            <p class="price-card__note">Til små virksomheder, events eller idéer.</p>
+            <ul class="price-card__list">
+              <li>Mini-brief (10–15 min) + retning</li>
+              <li>1 logo-idé + 1 variation</li>
+              <li>1 feedbackrunde</li>
+              <li>Levering: PNG + PDF + farveversion</li>
+            </ul>
+            <a class="button button--filled" href="index.html#kontakt">Book Mini →</a>
+          </article>
+
+          <article class="price-card">
+            <span class="price-card__badge">Mest valgt</span>
+            <p class="price-card__kicker">Branding pakke</p>
+            <h2 class="price-card__title">Standard</h2>
+            <p class="price-card__price">3.500 kr.</p>
+            <p class="price-card__note">En lille identitet der føles sammenhængende.</p>
+            <ul class="price-card__list">
+              <li>Brief + mood/retning</li>
+              <li>Logo + farver + typografi</li>
+              <li>Små elementer (ikon/pattern)</li>
+              <li>2 feedbackrunder</li>
+              <li>Mini-styleguide (1 side)</li>
+            </ul>
+            <a class="button button--filled" href="index.html#kontakt">Book Standard →</a>
+          </article>
+
+          <article class="price-card">
+            <p class="price-card__kicker">Branding pakke</p>
+            <h2 class="price-card__title">Plus</h2>
+            <p class="price-card__price">6.500 kr.</p>
+            <p class="price-card__note">Til dig der vil have et “univers” med skabeloner.</p>
+            <ul class="price-card__list">
+              <li>Udvidet identitet + flere elementer</li>
+              <li>Skabeloner (SoMe/print)</li>
+              <li>2–3 feedbackrunder</li>
+              <li>Styleguide (3–5 sider)</li>
+            </ul>
+            <a class="button button--filled" href="index.html#kontakt">Book Plus →</a>
+          </article>
+        </div>
+
+        <div class="pricing__cta">
+          <a class="button button--outline" href="#alacarte">Se a la carte</a>
+          <a class="button button--outline" href="projekter.html">Se cases</a>
+        </div>
+
+        <!-- A LA CARTE -->
+        <section id="alacarte" class="alacarte">
+          <h2 class="alacarte__title">A la carte – små opgaver</h2>
+          <p class="price-table__muted" style="margin:0 0 1rem;">
+            Perfekt hvis du bare mangler én ting: en plakat, et klistermærke, en outline osv.
+          </p>
+
+          <table class="price-table" aria-label="A la carte prisliste">
+            <thead>
+              <tr>
+                <th>Ydelse</th>
+                <th>Pris</th>
+                <th>Levering</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Klistermærke design (1 motiv)</td>
+                <td>450 kr.</td>
+                <td>2–4 dage</td>
+              </tr>
+              <tr>
+                <td>Plakat (A3/A2) – layout + typografi</td>
+                <td>900 kr.</td>
+                <td>3–5 dage</td>
+              </tr>
+              <tr>
+                <td>T-shirt design (1 tryk)</td>
+                <td>750 kr.</td>
+                <td>3–5 dage</td>
+              </tr>
+              <tr>
+                <td>Outline/vektor af billede (simpel)</td>
+                <td>350 kr.</td>
+                <td>1–3 dage</td>
+              </tr>
+              <tr>
+                <td>Instagram post / kampgrafik</td>
+                <td>450 kr.</td>
+                <td>1–3 dage</td>
+              </tr>
+              <tr>
+                <td>Story skabelon (pakke: 3 stk)</td>
+                <td>600 kr.</td>
+                <td>2–4 dage</td>
+              </tr>
+              <tr>
+                <td>Retouch / billedbehandling (pr. billede)</td>
+                <td>250 kr.</td>
+                <td>1–3 dage</td>
+              </tr>
+              <tr>
+                <td>Visitkort (2 sider)</td>
+                <td>650 kr.</td>
+                <td>3–5 dage</td>
+              </tr>
+              <tr>
+                <td>Flyer (A5/A4)</td>
+                <td>800 kr.</td>
+                <td>3–6 dage</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="price-table__muted" style="margin: 1rem 0 0;">
+            *Haste-levering kan tilkøbes. Større opgaver gives som tilbud.
+          </p>
+
+          <div class="pricing__cta">
+            <a class="button button--filled" href="index.html#kontakt">Spørg om en opgave →</a>
+            <a class="button button--outline" href="#faq">FAQ</a>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq" aria-label="Spørgsmål og svar">
+          <details>
+            <summary>Hvad er inkluderet i en “feedbackrunde”?</summary>
+            <p>En samlet liste med ændringer (fx tekst, farver, små justeringer). Så arbejder jeg ud fra det i én iteration.</p>
+          </details>
+
+          <details>
+            <summary>Hvad hvis jeg ikke ved, hvad jeg har brug for?</summary>
+            <p>Så starter vi med en kort snak, og jeg hjælper med at vælge den rigtige løsning (pakke eller a la carte).</p>
+          </details>
+
+          <details>
+            <summary>Kan du lave noget, der ikke står på listen?</summary>
+            <p>Ja — listen er bare de mest typiske opgaver. Skriv, så giver jeg et tilbud.</p>
+          </details>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__text">© 2025 Klein Design · Portfolio til 1. semesterprøven</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

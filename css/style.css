@@ -1738,3 +1738,1069 @@ p { max-width: 65ch; }
   .mood-grid{ grid-template-columns: 1fr; }
   .mood-card img{ height: 220px; }
 }
+/* ==================================================
+   PRISER (NYT) – matcher dit “papir/post-it” look
+   ================================================== */
+
+.pricing{
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.pricing__grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 900px){
+  .pricing__grid{ grid-template-columns: 1fr; }
+}
+
+.price-card{
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 1.4rem 1.35rem 1.25rem;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.10);
+  position: relative;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.price-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 22px 55px rgba(0,0,0,0.13);
+}
+
+.price-card__kicker{
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+
+.price-card__title{
+  margin: 0 0 0.6rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}
+
+.price-card__price{
+  margin: 0 0 0.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.price-card__note{
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.price-card__list{
+  margin: 0 0 1.1rem;
+  padding-left: 1.15rem;
+}
+
+.price-card__list li{
+  margin: 0 0 0.5rem;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.price-card__badge{
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: rgba(223,124,59,0.92);
+  color: #fff;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+.pricing__cta{
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* A la carte */
+.alacarte{
+  margin-top: 2.6rem;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 1.2rem 1.2rem 1.35rem;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+}
+
+.alacarte__title{
+  margin: 0 0 0.8rem;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+}
+
+.price-table{
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.price-table th,
+.price-table td{
+  text-align: left;
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.92rem;
+}
+
+.price-table th{
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-muted);
+}
+
+.price-table tr:hover td{
+  background: rgba(0,0,0,0.03);
+}
+
+.price-table__muted{
+  color: var(--color-muted);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 720px){
+  .price-table th:nth-child(3),
+  .price-table td:nth-child(3){
+    display: none; /* skjul “tid/levering” på mobil */
+  }
+}
+
+/* FAQ */
+.faq{
+  margin-top: 2.4rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.faq details{
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+}
+
+.faq summary{
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.faq p{
+  margin: 0.8rem 0 0;
+  opacity: 0.9;
+}
+/* ==================================================
+   OM MIG + ARBEJDE I BEVÆGELSE (RYDDET) – CLOTHESLINE
+   ================================================== */
+
+/* Wrapper */
+.about-one{
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- CLOTHESLINE (SNOR + 5 BILLEDER) ---------- */
+
+.clothesline{
+  /* vigtigt: position til pseudo-elementer */
+  position: relative;
+
+  /* layout */
+  max-width: 980px;
+  margin: 1.2rem auto 0;
+  padding: 2.6rem 0 1.4rem;
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.2rem;
+  align-items: start;
+
+  /* sluk alt “lige streg” der kan komme fra andre styles */
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  overflow: visible;
+}
+
+/* Buet snor (den ENESTE snor) */
+.clothesline::before{
+  content: "";
+  position: absolute;
+  left: calc(-50vw + 50%);
+  right: calc(-50vw + 50%);
+  top: 18px;
+  height: 72px; /* hvor meget den hænger */
+
+  /* brug border-bottom (mere stabilt til bue-look) */
+  border-bottom: 2px solid rgba(0,0,0,0.32);
+  border-radius: 0 0 220% 220%;
+
+  /* snoren bag billederne */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ---------- POLAROIDS ---------- */
+
+.clip{
+  position: relative;
+  z-index: 2;                 /* over snoren */
+  justify-self: center;
+
+  width: 100%;
+  max-width: 170px;
+
+  /* “hænger ned fra snoren” */
+  margin-top: 18px;
+
+  /* smooth hover */
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+/* selve “polaroid” billedet */
+.clip img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+
+  background: #fff;
+  padding: 4px;              /* tynd papir-kant */
+  border-radius: 10px;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+/* lille klemme (træ) */
+.clip::before{
+  content:"";
+  position:absolute;
+  top: -22px;                /* op til snoren */
+  left: 50%;
+  transform: translateX(-50%) rotate(-6deg);
+
+  width: 16px;
+  height: 24px;
+  border-radius: 3px;
+
+  background: linear-gradient(180deg, #caa26c, #a9773f);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.18);
+
+  z-index: 3;
+}
+
+/* lille “split” i klemmen */
+.clip::after{
+  content:"";
+  position:absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 12px;
+  height: 2px;
+  background: rgba(0,0,0,0.18);
+  border-radius: 999px;
+
+  z-index: 4;
+}
+
+/* variation (så de ikke er ens) */
+.clip--1{ transform: rotate(-2deg) translateY(8px); }
+.clip--2{ transform: rotate(1.2deg) translateY(2px); }
+.clip--3{ transform: rotate(-0.6deg) translateY(12px); }
+.clip--4{ transform: rotate(1.8deg) translateY(6px); }
+.clip--5{ transform: rotate(-1.4deg) translateY(10px); }
+
+/* hover = “bevægelse” */
+.clip:hover{
+  transform: translateY(6px) rotate(0.4deg);
+  filter: saturate(1.05);
+}
+
+.clip:hover img{
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+}
+
+/* ---------- MOBIL ---------- */
+@media (max-width: 900px){
+  .clothesline{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 2.6rem 0 1rem;
+  }
+  .clip{ max-width: 190px; }
+  .clip img{ height: 180px; }
+}
+
+/* ===== Arbejde i bevægelse: samlet kort med header + grid ===== */
+.movement{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.6rem 1.6rem 1.8rem;
+
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.10);
+
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.movement:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 22px 52px rgba(0,0,0,0.14);
+}
+
+/* header inde i boksen */
+.movement__header{
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba(0,0,0,0.18);
+}
+
+.movement__kicker{
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+
+.movement__headline{
+  margin: 0 0 0.35rem;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+}
+
+.movement__sub{
+  margin: 0;
+  max-width: 60ch;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* grid: tekst + papir */
+.movement__grid{
+  display: grid;
+  gap: 1.2rem;
+}
+
+@media (min-width: 900px){
+  .movement__grid{
+    grid-template-columns: 1.35fr 0.9fr;
+    gap: 1.4rem 2.2rem;
+    align-items: start;
+  }
+}
+
+.movement__text p{
+  margin: 0 0 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* papir på højre side */
+.movement__paper{
+  background: rgba(255,255,255,0.68);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 1.1rem 1.1rem 1rem;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+/* fold hjørne */
+.movement__paper::after{
+  content:"";
+  position:absolute;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.10), transparent 60%);
+  border-top-right-radius: 16px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.movement__paperTitle{
+  margin: 0 0 0.7rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-muted);
+}
+
+.movement__list{
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+}
+
+.movement__list li{
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.movement__btn{
+  width: fit-content;
+}
+/* ===== Om mig: 2 tekstkolonner + kompakt aside ===== */
+.about-one__content{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 2.2rem 3rem;
+  align-items: start;
+}
+
+.about-one__columns{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem 2.2rem;
+}
+
+.about-one__col p{
+  margin: 0 0 1rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* gør kort-fortalt mere “kompakt” og mindre hvid */
+.about-aside{
+  background: rgba(255,255,255,0.38); /* mindre hvid */
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 1rem 1rem 0.9rem;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+}
+
+.about-aside__list li{
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+/* mobil: alt under hinanden */
+@media (max-width: 1000px){
+  .about-one__content{ grid-template-columns: 1fr; }
+  .about-one__columns{ grid-template-columns: 1fr; }
+}
+
+/* ===== SAFE ALIGN FIX: kun spacing (ingen layout-skub) ===== */
+
+/* fjern top-margin på første element i hver kolonne */
+.about-one__col > :first-child{
+  margin-top: 0 !important;
+}
+
+/* ens afstand før underoverskrifter */
+.about-one__subtitle{
+  margin: 1.6rem 0 0.6rem !important;
+}
+
+/* men hvis underoverskrift er det første i kolonnen, så ingen ekstra luft */
+.about-one__col > .about-one__subtitle:first-child{
+  margin-top: 0 !important;
+}
+/* Mere luft mellem billeder og tekst */
+/* Mere luft mellem billeder og tekst (finjusteret) */
+.clothesline{
+  margin-bottom: 2.4rem;      /* var 1.8 */
+  padding-bottom: 2.8rem;     /* var 2.2 */
+}
+/* ================================
+   FLOW PATCH (ro + bedre flow)
+   Læg nederst i din CSS
+   ================================ */
+
+/* Pusterum = små pauser mellem tunge sektioner */
+.breather{
+  height: 28px;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.breather::after{
+  content:"";
+  width: min(980px, 92vw);
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+}
+.breather--hero{ height: 30px; }
+.breather--before-projects{ height: 36px; }
+.breather--after-projects{ height: 40px; }
+
+/* Gør projekter mere rolige (mindre kontrast, mindre “råb”) */
+#projekter .project-slide{
+  background: rgba(255,255,255,0.42);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+}
+
+/* dæmp hover så det føles roligt */
+#projekter .project-slide:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.10);
+  outline: none !important;
+}
+
+/* fjern den blå outline på hover i slideren (den gør det hårdt) */
+#projekter .project-slide:hover{
+  outline: none !important;
+}
+#projekter .project-slide:focus-visible{
+  outline: 2px solid rgba(0,0,0,0.18);
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+
+/* gør teksten i projekter lidt blødere */
+#projekter .project__category{
+  opacity: 0.85;
+}
+#projekter .project-slide__meta{
+  opacity: 0.85;
+}
+
+/* slider viewport fade: mindre “teater”, mere naturlig */
+.project-slider-viewport{
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 56px,
+    #000 calc(100% - 56px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 56px,
+    #000 calc(100% - 56px),
+    transparent 100%
+  );
+}
+
+/* =========================
+   PROJEKTER – GALLERI LOOK
+   ========================= */
+
+.projects-gallery{
+  max-width: 1120px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem;
+}
+
+/* selve kortet */
+.project-card{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 0.8rem;
+
+  box-shadow: 0 14px 32px rgba(0,0,0,0.10);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+  transform: rotate(-0.6deg);
+}
+
+.project-card:nth-child(2n){
+  transform: rotate(0.6deg);
+}
+
+.project-card:hover{
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow: 0 22px 46px rgba(0,0,0,0.14);
+}
+
+.project-card img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* tekst */
+.project-card__meta{
+  margin-top: 0.8rem;
+}
+
+.project-card__meta span{
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.project-card__meta h3{
+  margin: 0.3rem 0 0;
+  font-size: 1rem;
+}
+
+/* variationer */
+.project-card--wide{
+  grid-column: span 2;
+}
+
+.project-card--tall img{
+  height: 300px;
+}
+
+/* mobil */
+@media (max-width: 900px){
+  .projects-gallery{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .project-card--wide{
+    grid-column: span 1;
+  }
+}
+/* ==================================================
+   PROJEKTER – roligt galleri (6 lige store “postkort”)
+   ================================================== */
+
+.projects-gallery{
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+@media (max-width: 980px){
+  .projects-gallery{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px){
+  .projects-gallery{ grid-template-columns: 1fr; }
+}
+
+.project-card{
+  text-decoration: none;
+  color: inherit;
+
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 1.05rem 1.05rem 1.1rem;
+
+  box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+.project-card:hover{
+  transform: rotate(var(--tilt, 0deg)) translateY(-3px);
+  box-shadow: 0 20px 46px rgba(0,0,0,0.12);
+}
+
+/* små “skæve” variationer – stadig roligt */
+.project-card:nth-child(1){ --tilt: -0.6deg; }
+.project-card:nth-child(2){ --tilt:  0.4deg; }
+.project-card:nth-child(3){ --tilt: -0.2deg; }
+.project-card:nth-child(4){ --tilt:  0.7deg; }
+.project-card:nth-child(5){ --tilt: -0.4deg; }
+.project-card:nth-child(6){ --tilt:  0.3deg; }
+
+.project-card__tag{
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
+}
+
+.project-card__title{
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.project-card__media{
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.55);
+
+  /* gør alle ens i højden */
+  aspect-ratio: 4 / 3;
+}
+
+.project-card__media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* til logo/illustration: mere “plakat/print” look */
+.project-card__media--contain img{
+  object-fit: contain;
+  padding: 14px;
+}
+
+.project-card__meta{
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: auto; /* holder metatekst nede, så kortene bliver lige høje */
+}
+/* ==============================
+   PROJEKTER (NYT REDESIGN)
+   Rolig oversigt + fold-ud cases
+   ============================== */
+
+.filters{
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.filter{
+  border: 1px solid rgba(0,0,0,0.16);
+  background: rgba(255,255,255,0.45);
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-size: .9rem;
+}
+.filter.is-active{
+  background: rgba(255,255,255,0.72);
+  border-color: rgba(0,0,0,0.22);
+  font-weight: 600;
+}
+
+.cases{
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem 1.6rem;
+}
+
+@media (max-width: 900px){
+  .cases{ grid-template-columns: 1fr; }
+}
+
+/* Card */
+.case-card{
+  background: rgba(255,255,255,0.42);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+/* remove default marker */
+.case-card > summary{
+  list-style: none;
+}
+.case-card > summary::-webkit-details-marker{ display: none; }
+
+.case-card__summary{
+  padding: 1.1rem 1.1rem 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.case-card__tag{
+  margin: 0 0 .4rem;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--color-accent);
+}
+
+.case-card__title{
+  margin: 0 0 .8rem;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+}
+
+.case-card__thumb{
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.55);
+}
+.case-card__thumb img{
+  width: 100%;
+  height: 190px;
+  display: block;
+  object-fit: cover;
+}
+
+/* hvis thumbnail er et logo (centreret) */
+.case-card__thumb--logo{
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+.case-card__thumb--logo img{
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+}
+
+.case-card__meta{
+  margin: .75rem 0 0;
+  font-size: .85rem;
+  color: var(--color-muted);
+}
+
+.case-card__cta{
+  display: inline-flex;
+  margin-top: .65rem;
+  font-weight: 600;
+  font-size: .92rem;
+}
+
+/* fold-ud body */
+.case-card__body{
+  border-top: 1px dashed rgba(0,0,0,0.18);
+  padding: 1.1rem 1.1rem 1.2rem;
+  background: rgba(255,255,255,0.28);
+}
+
+.case-body__grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem 1.6rem;
+}
+@media (max-width: 900px){
+  .case-body__grid{ grid-template-columns: 1fr; }
+}
+
+.case-body__h{
+  margin: 0 0 .5rem;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--color-muted);
+}
+
+.case-body__list{
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.case-body__list li{ margin: 0 0 .5rem; line-height: 1.5; }
+
+.case-body__muted{
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* subtle hover */
+.case-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 20px 52px rgba(0,0,0,0.13);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+/* ===== Case: indhold når den åbnes ===== */
+.case-card__body{
+  padding: 1rem 1rem 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.case-card__text p{
+  margin: 0 0 0.6rem;
+  line-height: 1.65;
+}
+
+/* ===== Gallery layout ===== */
+.case-gallery{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+/* Billede wrapper */
+.case-media{
+  margin: 0;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.case-media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Wide = fylder hele bredden */
+.case-media--wide{
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+
+/* Tall = højere billede */
+.case-media--tall{
+  aspect-ratio: 3 / 4;
+}
+
+/* Normal (små) */
+.case-media:not(.case-media--wide):not(.case-media--tall){
+  aspect-ratio: 4 / 3;
+}
+
+/* Mobil */
+@media (max-width: 700px){
+  .case-gallery{
+    grid-template-columns: 1fr;
+  }
+  .case-media--wide{
+    aspect-ratio: 4 / 3;
+  }
+}
+/* =========================
+   CASE: Åben/Luk + Gallery
+   ========================= */
+
+.case__top{
+  display: grid;
+  gap: 0.7rem;
+}
+
+/* knappen der åbner/lukker */
+.case__toggle{
+  margin-top: 0.2rem;
+  justify-self: start;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.55);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.case__toggle:hover{
+  background: rgba(255,255,255,0.8);
+}
+
+.case__desc{
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* details wrapper */
+.case__details{
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.case__details-grid{
+  display: grid;
+  gap: 1.2rem;
+}
+
+@media (min-width: 900px){
+  .case__details-grid{
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.8rem;
+    align-items: start;
+  }
+}
+
+.case__details-text h4{
+  margin: 0.2rem 0 0.5rem;
+  font-family: var(--font-serif);
+}
+
+.case__details-text ul{
+  margin: 0.2rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.case__details-text li{
+  margin: 0 0 0.45rem;
+  line-height: 1.5;
+}
+
+/* Gallery: fleksibel grid med “varierende” størrelser */
+.case-gallery{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: start;
+}
+
+@media (min-width: 900px){
+  .case-gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.case-shot{
+  margin: 0;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+}
+
+.case-shot img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+/* variationer */
+.case-shot--tall img{ height: 320px; }
+.case-shot--wide{ grid-column: 1 / -1; }
+.case-shot--wide img{ height: 240px; }
+
+/* close button */
+.case__toggle--close{
+  margin-top: 1rem;
+}

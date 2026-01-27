@@ -27,6 +27,7 @@
       <a href="index.html#om" class="nav__link">Om</a>
       <a href="projekter.html" class="nav__link">Projekter</a>
       <a href="univers.html" class="nav__link">Univers</a>
+      <a href="priser.html" class="nav__link">Priser</a>
       <a href="index.html#kontakt" class="nav__link">Kontakt</a>
     </nav>
   </div>
@@ -68,6 +69,8 @@
       </div>
     </section>
 
+    <div class="breather breather--hero" aria-hidden="true"></div>
+
     <!-- HVAD JEG LAVER -->
     <section class="section section--light">
       <div class="section__heading">
@@ -105,82 +108,90 @@
       </div>
     </section>
 
-    <!-- UDVALGTE PROJEKTER (SLIDER – swipe/scroll, ingen pile) -->
+<div class="breather breather--before-projects" aria-hidden="true"></div>
+
+    <!-- UDVALGTE PROJEKTER (GALLERI – 6 lige store “postkort”) -->
 <section id="projekter" class="section section--light">
   <div class="section__heading">
     <h2 class="section__title">Udvalgte <span>projekter</span></h2>
     <p class="section__intro">
-      Swipe/scroll til siden for at se flere. Klik på et projekt for at gå direkte til casen.
+      Et lille udvalg af det, jeg arbejder med lige nu. Klik for at åbne casen.
     </p>
   </div>
 
-    <div class="project-slider-viewport" aria-label="Udvalgte projekter slider">
-    <div class="project-slider" id="projectSlider">
+  <div class="projects-gallery" aria-label="Udvalgte projekter galleri">
 
-      <!-- Branding -->
-      <a class="project-slide card card--postit" href="projekter.html#case-gaasetorvet-julekort">
-        <p class="project__category">Branding · Billedbehandling</p>
-        <h3 class="project__title">Gåsetorvet – julekort</h3>
-        <img src="img/julekort.webp" alt="Julekort til Gåsetorvet" class="project__image">
-        <p class="project-slide__meta">Photoshop · Illustrator · 2023</p>
-      </a>
+    <!-- 1) Postkort -->
+    <a class="project-card" href="projekter.html#case-gaasetorvet-julekort">
+      <p class="project-card__tag">Branding · Billedbehandling</p>
+      <h3 class="project-card__title">Gåsetorvet – postkort/julekort</h3>
+      <div class="project-card__media">
+        <img src="img/julekort.webp" alt="Gåsetorvet – postkort/julekort">
+      </div>
+      <p class="project-card__meta">Photoshop · Illustrator · 2023</p>
+    </a>
 
-      <a class="project-slide card card--postit" href="projekter.html#case-gaasen-i-baren">
-        <p class="project__category">Animation</p>
-        <h3 class="project__title">Gåsen i baren – animation</h3>
-        <img src="img/gaas-animation-thumb.webp" alt="Thumbnail til animationen Gåsen i baren" class="project__image">
-        <p class="project-slide__meta">Procreate · CapCut</p>
-      </a>
+    <!-- 2) Kamp -->
+    <a class="project-card" href="projekter.html#case-instagram-kamp">
+      <p class="project-card__tag">Layout · SoMe</p>
+      <h3 class="project-card__title">Instagram kamp-post</h3>
+      <div class="project-card__media">
+        <img src="img/instagram-kamp-post.webp" alt="Instagram kamp-post design">
+      </div>
+      <p class="project-card__meta">Photoshop · Layout</p>
+    </a>
 
-      <a class="project-slide card card--postit" href="projekter.html#case-hverdagshjaelp">
-        <p class="project__category">Branding · Illustration</p>
-        <h3 class="project__title">Hverdagshjælp – logo & identitet</h3>
-        <img src="img/hverdagshjaelp-logo.webp" alt="Logo til Hverdagshjælp" class="project__image">
-        <p class="project-slide__meta">Illustrator · 2025</p>
-      </a>
+    <!-- 3) Færøerne -->
+    <a class="project-card" href="projekter.html#case-faeroerne">
+      <p class="project-card__tag">Foto · Visuel fortælling</p>
+      <h3 class="project-card__title">Færøsk hverdagsliv</h3>
+      <div class="project-card__media">
+        <img src="img/faeroerne-hus-udvendigt.webp" alt="Færøsk hverdagsliv før i tiden">
+      </div>
+      <p class="project-card__meta">Foto · iPhone</p>
+    </a>
 
-      <a class="project-slide card card--postit" href="projekter.html#case-instagram-kamp">
-        <p class="project__category">Layout · SoMe</p>
-        <h3 class="project__title">Instagram kamp-post</h3>
-        <img src="img/instagram-kamp-post.webp" alt="Instagram kamp-post design" class="project__image">
-        <p class="project-slide__meta">Photoshop · Layout</p>
-      </a>
+    <!-- 4) Logo -->
+    <a class="project-card" href="projekter.html#case-hverdagshjaelp">
+      <p class="project-card__tag">Branding · Illustration</p>
+      <h3 class="project-card__title">Hverdagshjælp – logo & identitet</h3>
+      <div class="project-card__media">
+        <img src="img/hverdagshjaelp-logo.webp" alt="Logo til Hverdagshjælp">
+      </div>
+      <p class="project-card__meta">Illustrator · 2025</p>
+    </a>
 
-      <a class="project-slide card card--postit" href="projekter.html#case-hamburg">
-        <p class="project__category">Foto · Research</p>
-        <h3 class="project__title">Hamburg – visuel research</h3>
-        <img src="img/hamburg3.webp" alt="Hamburg – visuel research" class="project__image">
-        <p class="project-slide__meta">Foto · iPhone</p>
-      </a>
+    <!-- 5) NYT: App (logo + navn på forsiden) -->
+    <a class="project-card" href="projekter.html#case-friendfinder">
+      <p class="project-card__tag">App · Prototype</p>
+      <h3 class="project-card__title">Friend Finder</h3>
+      <div class="project-card__media project-card__media--contain">
+        <!-- brug logo-filen her (det første billede du sendte) -->
+        <img src="img/friend-finder-logo.webp" alt="Friend Finder logo">
+      </div>
+      <p class="project-card__meta">Workshop · 1. semester</p>
+    </a>
 
-      <a class="project-slide card card--postit" href="projekter.html#case-faeroerne">
-        <p class="project__category">Foto · Visuel fortælling</p>
-        <h3 class="project__title">Færøsk hverdagsliv før i tiden</h3>
-        <img src="img/faeroerne-hus-udvendigt.webp" alt="Færøsk hverdagsliv før i tiden" class="project__image">
-        <p class="project-slide__meta">Foto · iPhone</p>
-      </a>
+    <!-- 6) NYT: T-shirt/illustration -->
+    <a class="project-card" href="projekter.html#case-tshirt-illustration">
+      <p class="project-card__tag">Illustration · Merch</p>
+      <h3 class="project-card__title">T-shirt design – illustration</h3>
+      <div class="project-card__media project-card__media--contain">
+        <img src="img/tshirt-illustration.webp" alt="Illustration til t-shirt og merch">
+      </div>
+      <p class="project-card__meta">Illustration · Print</p>
+    </a>
 
-      <a class="project-slide card card--postit" href="projekter.html#case-figur-haandbold">
-        <p class="project__category">Illustration · Identitet</p>
-        <h3 class="project__title">Figur – Håndbold</h3>
-        <img src="img/Figur_håndbold.webp" alt="Illustration af håndbold-figur" class="project__image">
-        <p class="project-slide__meta">iPad · Illustrator</p>
-      </a>
-
-      <a class="project-slide card card--postit" href="projekter.html#case-gaasetorvet-feature">
-        <p class="project__category">Branding · Identitet</p>
-        <h3 class="project__title">Gåsetorvet – visuel identitet</h3>
-        <img src="img/gaas-illustration.webp" alt="Gåsetorvet illustration" class="project__image">
-        <p class="project-slide__meta">Illustrator · Photoshop · 2023–2024</p>
-      </a>
-    </div>
   </div>
-
 
   <div class="projects-cta">
     <a class="button button--outline" href="projekter.html">Se flere projekter</a>
   </div>
 </section>
+
+
+
+<div class="breather breather--after-projects" aria-hidden="true"></div>
 
 
     <!-- ERFARING (renset: ingen skill-bars, ingen citat) -->
@@ -229,106 +240,127 @@
       </div>
     </section>
 
-    <!-- OM MIG (idé 1: tekst + aside, billeder under) -->
-    <section id="om" class="section section--light">
-      <div class="section__heading">
-        <h2 class="section__title">Hvem er Klein <span>Design?</span></h2>
-      </div>
+   <!-- OM MIG (NY: snor + samlet tekst + én aside) -->
+<section id="om" class="section section--light">
+  <div class="section__heading">
+    <h2 class="section__title">Hvem er Klein <span>Design?</span></h2>
+    <p class="section__intro">
+      Et lille indblik i mit udtryk, min proces og hvad jeg bygger mine løsninger på.
+    </p>
+  </div>
 
-      <!-- DEL 1 -->
-      <div class="about-block">
-        <div class="about__text about__text--narrow">
-          <p class="about__lead">
-            Jeg er Ingrid – en visuelt drevet multimediedesigner med fokus på branding,
-            layout og illustration. I mit arbejde lægger jeg vægt på, at form, stemning
-            og funktion hænger naturligt sammen, og at hvert projekt får sit eget udtryk
-            – uden at miste sammenhæng.
-          </p>
+  <div class="about-one">
+    <!-- Snor med 5 billeder -->
+    <div class="clothesline" aria-label="Billeder af mig og mit univers">
+      <figure class="clip clip--1">
+  <img src="img/about-portrait-01.webp" alt="Portræt af Ingrid">
+</figure>
 
-          <p>
-            Jeg arbejder bedst, når der er tid til at tænke, teste og justere.
-            I stedet for hurtige løsninger går jeg i dybden med idéen, konteksten
-            og målgruppen, så designet ikke kun fungerer visuelt, men også
-            kommunikerer klart og ærligt.
-          </p>
+<figure class="clip clip--2">
+  <img src="img/about-portrait-02.webp" alt="Portræt af Ingrid">
+</figure>
 
-          <p>
-            Mit visuelle udtryk er ofte kendetegnet ved kontraster – mellem det rolige
-            og det rå, det strukturerede og det legende. Jeg er optaget af, hvordan
-            små detaljer kan give et projekt personlighed og skabe en helhed,
-            der føles gennemtænkt.
-          </p>
+<figure class="clip clip--3">
+  <img src="img/about-portrait-03.webp" alt="Portræt af Ingrid">
+</figure>
 
-          <p>
-            Jeg er født og opvokset på Færøerne med rødder i Island, og den nordatlantiske
-            blanding af rå natur, gamle huse og moderne byliv har haft stor betydning
-            for mit visuelle blik.
-          </p>
-        </div>
+<figure class="clip clip--4">
+  <img src="img/handbold-1.webp" alt="Håndboldkamp">
+</figure>
 
-        <aside class="about-aside">
-          <h4 class="about-aside__title">Kort fortalt</h4>
-          <ul class="about-aside__list">
-            <li><strong>Fokus:</strong> Branding, layout & illustration</li>
-            <li><strong>Stil:</strong> Roligt + råt, med små legende detaljer</li>
-            <li><strong>Proces:</strong> Idé → skitser → test → iteration</li>
-            <li><strong>Værktøjer:</strong> Illustrator, Photoshop, InDesign, Figma</li>
-          </ul>
-        </aside>
+<figure class="clip clip--5">
+  <img src="img/handbold-2.webp" alt="Håndboldkamp">
+</figure>
+    </div>
 
-        <div class="about-images about-images--three">
-          <figure class="hang"><img src="img/about-portrait-01.webp" alt="Portræt af Ingrid"></figure>
-          <figure class="hang"><img src="img/about-portrait-02.webp" alt="Portræt af Ingrid"></figure>
-          <figure class="hang"><img src="img/about-portrait-03.webp" alt="Portræt af Ingrid"></figure>
-        </div>
-      </div>
+    <!-- Tekst + aside -->
+    <div class="about-one__content">
+  <div class="about-one__columns">
+    <div class="about-one__col">
+      <!-- Intro + Mit udtryk -->
+      <p class="about__lead">
+        Jeg er Ingrid – en visuelt drevet multimediedesigner med fokus på branding, layout og illustration.
+        Jeg lægger vægt på, at form, stemning og funktion hænger naturligt sammen, så hvert projekt får sit eget udtryk — uden at miste sammenhæng.
+      </p>
 
-      <!-- DEL 2 -->
-      <div class="about-block">
-        <div class="about__text about__text--narrow">
-          <h3 class="about__subtitle">Arbejde i bevægelse</h3>
+      <h4 class="about-one__subtitle">Mit udtryk</h4>
+      <p>
+        Mit visuelle udtryk er ofte kendetegnet ved kontraster – mellem det rolige og det rå,
+        det strukturerede og det legende. Jeg er optaget af, hvordan små detaljer kan give et
+        projekt personlighed og skabe en helhed, der føles gennemtænkt.
+      </p>
+    </div>
 
-          <p>
-            Jeg er vokset op med håndbold, og tempo, fokus og samarbejde har præget mig
-            fra en tidlig alder. Det er ikke kun noget, jeg tager med på banen, men også
-            ind i mit designarbejde.
-          </p>
+    <div class="about-one__col">
+      <!-- Sådan arbejder jeg + Baggrund -->
+      <h4 class="about-one__subtitle">Sådan arbejder jeg</h4>
+      <p>
+        Jeg arbejder bedst, når der er tid til at tænke, teste og justere. I stedet for hurtige
+        løsninger går jeg i dybden med idéen, konteksten og målgruppen, så designet ikke kun
+        fungerer visuelt, men også kommunikerer klart og ærligt.
+      </p>
 
-          <p>
-            Sport har lært mig at arbejde målrettet, reagere hurtigt og bevare overblikket
-            – også når tingene ændrer sig undervejs. Den tilgang bruger jeg i design,
-            hvor processer ofte er iterative og kræver justeringer undervejs.
-          </p>
+      <h4 class="about-one__subtitle">Baggrund</h4>
+      <p>
+        Jeg er født og opvokset på Færøerne med rødder i Island, og den nordatlantiske blanding af rå natur,
+        gamle huse og moderne byliv har haft stor betydning for mit visuelle blik.
+      </p>
+    </div>
+  </div>
+      <aside class="about-aside">
+        <h4 class="about-aside__title">Kort fortalt</h4>
+        <ul class="about-aside__list">
+          <li><strong>Fokus:</strong> Branding, layout & illustration</li>
+          <li><strong>Stil:</strong> Roligt + råt, med små legende detaljer</li>
+          <li><strong>Proces:</strong> Idé → skitser → test → iteration</li>
+          <li><strong>Værktøjer:</strong> Illustrator, Photoshop, InDesign, Figma</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
 
-          <p>
-            Jeg ser sport som bevægelse, rytme og dynamik, og netop de elementer
-            arbejder jeg ofte med, når jeg designer – i kompositioner, kontraster
-            og visuelle hierarkier.
-          </p>
+<!-- ARBEJDE I BEVÆGELSE -->
+<section class="section">
+  <div class="movement">
+  <header class="movement__header">
+    <p class="movement__kicker">Sport → design</p>
+    <h4 class="movement__headline">Arbejde i bevægelse</h4>
+    <p class="movement__sub">
+      Jeg omsætter tempo, fokus og samarbejde fra håndbold til visuel kommunikation.
+    </p>
+  </header>
 
-          <p>
-            For mig handler design ikke om at stå stille, men om at skabe flow,
-            retning og sammenhæng i det visuelle udtryk.
-          </p>
-        </div>
+  <div class="movement__grid">
+    <div class="movement__text">
+      <p>
+        Jeg er vokset op med håndbold, hvor tempo, fokus og samarbejde er afgørende.
+        Den tilgang tager jeg med ind i mit designarbejde – især i projekter,
+        der handler om sport, bevægelse og fællesskab.
+      </p>
 
-        <aside class="about-aside">
-          <h4 class="about-aside__title">Det tager jeg med</h4>
-          <ul class="about-aside__list">
-            <li><strong>Tempo:</strong> hurtige valg med ro</li>
-            <li><strong>Overblik:</strong> struktur i komplekse opgaver</li>
-            <li><strong>Samarbejde:</strong> feedback og fælles retning</li>
-            <li><strong>Rytme:</strong> kompositioner med dynamik</li>
-          </ul>
-        </aside>
+      <p>
+        Jeg arbejder struktureret under pres, tænker i flow og visuelle hierarkier
+        og er vant til at justere hurtigt, når situationen ændrer sig.
+        Det gør mig særligt motiveret for at arbejde i et miljø som en håndboldklub,
+        hvor kommunikation ofte skal være klar, hurtig og visuel.
+      </p>
+    </div>
 
-        <div class="about-images about-images--three">
-          <figure class="hang"><img src="img/handbold-1.webp" alt="Håndboldkamp"></figure>
-          <figure class="hang"><img src="img/handbold-2.webp" alt="Håndboldkamp"></figure>
-          <figure class="hang"><img src="img/handball-action-01.webp" alt="Håndboldkamp"></figure>
-        </div>
-      </div>
-    </section>
+    <aside class="movement__paper" aria-label="Kompetencer fra sport">
+      <h5 class="movement__paperTitle">Det jeg tager med</h5>
+      <ul class="movement__list">
+        <li><strong>Tempo:</strong> hurtige beslutninger og klare prioriteringer</li>
+        <li><strong>Samarbejde:</strong> feedback, roller og fælles mål</li>
+        <li><strong>Pres:</strong> levere til tiden – også når det går stærkt</li>
+      </ul>
+
+      <a class="movement__btn button button--outline" href="#kontakt">Kontakt mig</a>
+    </aside>
+  </div>
+</div>
+</section>
+
 
     <!-- MIT UNIVERS teaser (hele boksen klikbar) -->
     <section class="univers-teaser">
@@ -349,6 +381,68 @@
         </div>
       </a>
     </section>
+
+<!-- PRISER TEASER -->
+<section id="priser" class="section section--light">
+  <div class="section__heading">
+    <h2 class="section__title">Pakker & <span>priser</span></h2>
+    <p class="section__intro">
+      Tre branding-pakker der passer til forskellige behov. Du kan også vælge enkelte opgaver fra prislisten.
+    </p>
+  </div>
+
+  <div class="pricing">
+    <div class="pricing__grid">
+      <article class="price-card">
+        <p class="price-card__kicker">Branding pakke</p>
+        <h3 class="price-card__title">Mini</h3>
+        <p class="price-card__price">1.500 kr.</p>
+        <p class="price-card__note">God til små projekter og hurtige leverancer.</p>
+        <ul class="price-card__list">
+          <li>Mini-brief + retning</li>
+          <li>1 logo-idé + 1 variation</li>
+          <li>1 feedbackrunde</li>
+          <li>Levering i standardformater</li>
+        </ul>
+        <a class="button button--outline" href="priser.html#pakker">Se detaljer</a>
+      </article>
+
+      <article class="price-card">
+        <span class="price-card__badge">Mest valgt</span>
+        <p class="price-card__kicker">Branding pakke</p>
+        <h3 class="price-card__title">Standard</h3>
+        <p class="price-card__price">3.500 kr.</p>
+        <p class="price-card__note">Til dig der vil have en tydelig identitet.</p>
+        <ul class="price-card__list">
+          <li>Logo + farver + typografi</li>
+          <li>Små elementer (ikon/pattern)</li>
+          <li>2 feedbackrunder</li>
+          <li>Mini-styleguide (1 side)</li>
+        </ul>
+        <a class="button button--filled" href="priser.html#pakker">Åbn prissiden</a>
+      </article>
+
+      <article class="price-card">
+        <p class="price-card__kicker">Branding pakke</p>
+        <h3 class="price-card__title">Plus</h3>
+        <p class="price-card__price">6.500 kr.</p>
+        <p class="price-card__note">Når du vil have et komplet lille univers.</p>
+        <ul class="price-card__list">
+          <li>Udvidet identitet + elementer</li>
+          <li>Skabeloner (SoMe/print)</li>
+          <li>2–3 feedbackrunder</li>
+          <li>Styleguide (3–5 sider)</li>
+        </ul>
+        <a class="button button--outline" href="priser.html#pakker">Se detaljer</a>
+      </article>
+    </div>
+
+    <div class="pricing__cta">
+      <a class="button button--outline" href="priser.html#alacarte">Se pris på enkelte ting</a>
+      <a class="button button--filled" href="index.html#kontakt">Book / skriv til mig</a>
+    </div>
+  </div>
+</section>
 
     <!-- KONTAKT -->
     <section id="kontakt" class="section section--light">
