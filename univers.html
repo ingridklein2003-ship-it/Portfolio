@@ -6,35 +6,20 @@
   <title>Univers – Mit uperfekte univers</title>
 
   <!-- Fonts (samme som resten af sitet) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Din hoved-css -->
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Side-specifik CSS (kun til univers) -->
   <style>
-    :root {
-      --universe-bg: #e8dec9;
-      --universe-grid: rgba(0, 0, 0, 0.06);
-      --glass: rgba(255, 255, 255, 0.68);
-      --shadow: 0 22px 70px rgba(0, 0, 0, 0.14);
-    }
+    html { scroll-behavior: smooth; }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body.universe-locked {
-      overflow: hidden;
-    }
+    body.universe-locked { overflow: hidden; }
 
     .univers-main {
-      padding: 7rem 1.25rem 4rem;
-      background-color: var(--universe-bg);
-      background-image:
-        linear-gradient(0deg, var(--universe-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--universe-grid) 1px, transparent 1px);
-      background-size: 32px 32px;
+      padding: 5rem 1.5rem 4rem;
+      background: #fff;
       min-height: 100vh;
     }
 
@@ -46,63 +31,79 @@
     .univers-hero {
       margin: 0 auto 2.5rem;
       max-width: 920px;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.85);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.12);
-      padding: 2rem 2.2rem 1.8rem;
-      text-align: left;
+      border: 1px solid #0A0A0A;
+      padding: 2.5rem;
+      background: #fff;
     }
 
     .univers-eyebrow {
-      letter-spacing: 0.18em;
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      font-size: 0.82rem;
-      opacity: 0.7;
+      color: #0000FF;
       margin: 0 0 0.6rem;
     }
 
     .univers-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      margin: 0 0 0.6rem;
-      line-height: 1.05;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.7rem;
+      line-height: 1;
     }
 
     .univers-lead {
-      margin: 0 auto 1.25rem;
-      font-size: 1.05rem;
-      opacity: 0.85;
-      max-width: 62ch;
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #444;
+      max-width: 58ch;
     }
 
     .book-shelf {
       display: grid;
-      gap: 1.5rem;
+      gap: 1.25rem;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
     .shelf-book {
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: 20px;
-      padding: 1.4rem 1.4rem 1.5rem;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+      border: 1px solid #0A0A0A;
+      border-radius: 0;
+      padding: 0 0 1.25rem;
+      background: #fff;
+      box-shadow: none;
       text-align: left;
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      min-height: 220px;
+      min-height: 260px;
+      overflow: hidden;
+      transition: background 0.15s ease;
+      font-family: inherit;
     }
+
+    .shelf-book:hover { background: #F4F4F4; }
+
+    .shelf-book .shelf-book__title,
+    .shelf-book .shelf-book__meta,
+    .shelf-book .shelf-book__cta {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    .shelf-book .shelf-book__title { padding-top: 1.25rem; }
 
     .shelf-book::before {
       content: "";
       width: 100%;
-      height: 160px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+      height: 180px;
+      border-radius: 0;
+      background: #F4F4F4;
+      border-bottom: 1px solid #0A0A0A;
+      flex-shrink: 0;
     }
 
     .shelf-book[data-book-id="wireframes"]::before {
@@ -118,55 +119,74 @@
     }
 
     .shelf-book__tag {
-      font-size: 0.78rem;
+      font-size: 0.7rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      opacity: 0.7;
+      letter-spacing: 0.2em;
+      color: #0000FF;
     }
 
     .shelf-book__title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
-      margin: 0;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.4rem;
     }
 
     .shelf-book__meta {
       margin: 0;
-      opacity: 0.75;
-      font-size: 0.96rem;
+      font-size: 0.88rem;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    /* inner text padding */
+    .shelf-book > :not(.shelf-book::before) {
+      padding: 1.25rem;
+    }
+    /* workaround: wrap text content */
+    .shelf-book__body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
     }
 
     .shelf-book__cta {
       margin-top: auto;
-      font-weight: 600;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #0000FF;
       display: inline-flex;
       gap: 0.35rem;
       align-items: center;
+      padding-top: 0.75rem;
     }
 
+    /* OVERLAY */
     .universe-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(232, 222, 201, 0.92);
+      background: rgba(10, 10, 10, 0.85);
       display: grid;
       place-items: center;
-      padding: 0.75rem;
+      padding: 1rem;
       z-index: 30;
-      background-image:
-        linear-gradient(0deg, var(--universe-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--universe-grid) 1px, transparent 1px);
-      background-size: 32px 32px;
     }
 
     .universe-book {
       width: min(1200px, 94vw);
       height: min(680px, 80vh);
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 26px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.16);
+      background: #fff;
+      border: 1px solid #0A0A0A;
+      border-radius: 0;
+      box-shadow: none;
       display: grid;
       grid-template-rows: auto 1fr auto;
-      border: 1px solid rgba(0, 0, 0, 0.08);
       overflow: hidden;
     }
 
@@ -175,40 +195,48 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: 0.9rem 1.2rem 0.5rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #0A0A0A;
     }
 
     .book-header h2 {
       margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: 1.3rem;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .book-header p {
-      margin: 0.35rem 0 0;
-      opacity: 0.7;
+      margin: 0.25rem 0 0;
       font-size: 0.85rem;
+      color: #777;
     }
 
     .book-close {
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      background: rgba(255, 255, 255, 0.95);
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
+      border: 1px solid #0A0A0A;
+      background: transparent;
+      padding: 0.45rem 1rem;
+      border-radius: 0;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: inherit;
+      transition: background 0.12s, color 0.12s;
     }
+
+    .book-close:hover { background: #0A0A0A; color: #fff; }
 
     .book-spread {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.7rem;
-      padding: 0 0.9rem 0.7rem;
+      gap: 0;
+      padding: 0;
       position: relative;
       min-height: 0;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 22px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: #F4F4F4;
     }
 
     .book-spread::before {
@@ -216,18 +244,18 @@
       position: absolute;
       left: 50%;
       top: 0;
-      width: 2px;
+      width: 1px;
       height: 100%;
-      background: rgba(0, 0, 0, 0.08);
+      background: #E0E0E0;
       transform: translateX(-50%);
       pointer-events: none;
     }
 
     .book-page {
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.98);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      padding: 0.5rem;
+      border-radius: 0;
+      background: #fff;
+      border: none;
+      padding: 0.75rem;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -241,7 +269,6 @@
       align-items: center;
       justify-content: center;
       min-height: 0;
-      padding: 0.35rem;
     }
 
     .book-page img {
@@ -250,15 +277,15 @@
       width: auto;
       height: auto;
       object-fit: contain;
-      border-radius: 16px;
+      border-radius: 0;
     }
 
     .book-caption {
-      margin-top: 0.55rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      margin-top: 0.5rem;
+      border-top: 1px solid #E0E0E0;
       padding-top: 0.35rem;
       font-size: 0.82rem;
-      opacity: 0.8;
+      color: #444;
       min-height: 1.6rem;
     }
 
@@ -267,55 +294,42 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: 0.65rem 1.1rem 0.9rem;
+      padding: 0.75rem 1.5rem;
+      border-top: 1px solid #0A0A0A;
     }
 
-    .nav-buttons {
-      display: flex;
-      gap: 0.7rem;
-    }
+    .nav-buttons { display: flex; gap: 0.5rem; }
 
     .nav-btn {
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      background: rgba(255, 255, 255, 0.95);
-      padding: 0.55rem 1rem;
-      border-radius: 999px;
+      border: 1px solid #0A0A0A;
+      background: transparent;
+      padding: 0.5rem 1rem;
+      border-radius: 0;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.8rem;
+      font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: background 0.12s, color 0.12s;
     }
 
+    .nav-btn:hover { background: #0A0A0A; color: #fff; }
+
     .nav-btn:disabled {
-      opacity: 0.4;
+      opacity: 0.35;
       cursor: not-allowed;
     }
 
     .page-indicator {
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 960px) {
-      .univers-main {
-        padding-top: 6rem;
-      }
-
-      .universe-book {
-        height: min(640px, 80vh);
-      }
+      font-size: 0.85rem;
+      color: #777;
     }
 
     @media (max-width: 760px) {
-      .book-spread {
-        grid-template-columns: 1fr;
-      }
-
-      .book-spread::before {
-        display: none;
-      }
-
-      .universe-book {
-        height: min(700px, 80vh);
-      }
+      .book-spread { grid-template-columns: 1fr; }
+      .book-spread::before { display: none; }
+      .universe-book { height: min(700px, 85vh); }
     }
   </style>
 </head>
