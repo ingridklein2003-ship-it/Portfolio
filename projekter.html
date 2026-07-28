@@ -243,6 +243,38 @@
       outline: 2px solid rgba(0,0,102,0.35);
       outline-offset: 4px;
     }
+
+    /* --- Fremhævet case (går til dedikeret case-side) --- */
+    .case-card--feature{
+      grid-column: 1 / -1;
+      background: rgba(255,255,255,0.62);
+      border: 2px solid var(--blue);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.10);
+    }
+    .case-card--feature:hover{
+      box-shadow: 0 22px 54px rgba(0,0,0,0.15);
+    }
+    .case-card--feature .case-card__tag{
+      color: var(--blue);
+      font-weight: 700;
+    }
+    .case-card--feature .case-card__title{
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .case-card--feature .case-card__thumb{
+      aspect-ratio: 21 / 9;
+    }
+    .case-card--feature .case-card__cta{
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+      font-weight: 700;
+    }
+    @media (max-width: 900px){
+      .case-card--feature .case-card__thumb{ aspect-ratio: 4 / 3; }
+    }
   </style>
 </head>
 
@@ -291,6 +323,17 @@
 
       <!-- CASES GRID -->
       <div class="cases">
+        <!-- KøberGuiden – eksamensprojekt (dedikeret case-side) -->
+        <article class="case-card case-card--feature" tabindex="0" data-tags="uxui branding some" data-href="case-koeberguiden.html">
+          <p class="case-card__tag">UX/UI · Branding · Indholdsstrategi</p>
+          <h2 class="case-card__title">KøberGuiden – app til boligkøbere</h2>
+          <div class="case-card__thumb">
+            <img src="img/p5-mockup-duo.webp" alt="KøberGuiden app vist på to telefoner">
+          </div>
+          <p class="case-card__meta">Eksamensprojekt · Klient: Benedikte Brechmann Ejendomsmægler · 2026</p>
+          <span class="case-card__cta">Åbn hele casen →</span>
+        </article>
+
         <!-- Gåsetorvet – julekort -->
         <article class="case-card" tabindex="0" data-tags="branding" data-case="case-gaasetorvet-julekort">
           <p class="case-card__tag">Branding · Billedbehandling</p>
@@ -465,7 +508,7 @@
   </main>
 
   <footer class="footer">
-    <p class="footer__text">© 2025 Klein Design · Portfolio til 1. semesterprøven</p>
+    <p class="footer__text">© 2026 Klein Design</p>
   </footer>
 
   <!-- MODAL (én gang) -->
@@ -1041,7 +1084,7 @@
     <div class="case-gallery">
       <figure class="case-shot case-shot--wide">
         <!-- SKIFT filnavn til dit rigtige billede -->
-        <img src="img/gaasetorvet-nytaar.webp" alt="Gåsetorvet nytårs post">
+        <img src="img/gaas-illustration.webp" alt="Gåsetorvet nytårs post">
       </figure>
     </div>
   </div>
@@ -1101,16 +1144,39 @@
     }
 
     // Åbn ved klik + Enter/Space
+    // Kort med data-href navigerer til en dedikeret case-side i stedet for modalen
     cards.forEach(card => {
       const id = card.dataset.case;
-      card.addEventListener("click", () => openModal(id));
+      const href = card.dataset.href;
+
+      function aktiver(){
+        if(href){
+          window.location.href = href;
+          return;
+        }
+        openModal(id);
+      }
+
+      card.addEventListener("click", aktiver);
       card.addEventListener("keydown", (e) => {
         if(e.key === "Enter" || e.key === " "){
           e.preventDefault();
-          openModal(id);
+          aktiver();
         }
       });
     });
+
+    // Åbn casen direkte hvis man kommer ind med et #case-... i URL'en
+    // (forsidens projektkort linker hertil)
+    function aabnFraHash(){
+      const id = window.location.hash.replace("#", "");
+      if(!id) return;
+      if(!document.getElementById("tpl-" + id)) return;
+      openModal(id);
+    }
+
+    window.addEventListener("hashchange", aabnFraHash);
+    aabnFraHash();
 // Åbn en anden case indefra modalen (Delprojekter-knapper)
 modalContent.addEventListener("click", (e) => {
   const btn = e.target.closest("[data-open-case]");
