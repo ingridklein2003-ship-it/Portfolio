@@ -48,6 +48,8 @@ button{font-family:inherit}
 
 /* Ikoner */
 .icons{position:absolute;top:48px;left:26px;z-index:10;display:grid;grid-template-columns:repeat(2,124px);gap:10px 12px}
+.icons__skel{grid-column:1/-1;height:1px;background:rgba(255,255,255,.28);margin:8px 6px 4px}
+.icons__mrk{grid-column:1/-1;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);text-shadow:0 1px 3px rgba(0,0,0,.8);padding:0 6px 2px}
 .icon{background:none;border:none;cursor:pointer;padding:10px 5px 8px;border-radius:9px;display:flex;flex-direction:column;align-items:center;gap:7px;transition:background .15s,transform .2s var(--ease)}
 .icon:hover{background:rgba(255,255,255,.16)}
 .icon:active{transform:scale(.95)}
@@ -323,6 +325,8 @@ button{font-family:inherit}
 		<button class="icon" data-w="w-skitser"><span class="icon__art"><svg viewBox="0 0 80 64"><path d="M2 12a6 6 0 0 1 6-6h19l7 7h38a6 6 0 0 1 6 6v3H2z" fill="#1E5FD6"/><path d="M2 19h76v33a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#3D8BFF"/><path d="M2 19h76v6H2z" fill="#5AA0FF"/></svg></span><span>Skitsebøger</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art"><svg viewBox="0 0 80 64"><path d="M2 12a6 6 0 0 1 6-6h19l7 7h38a6 6 0 0 1 6 6v3H2z" fill="#7C25C4"/><path d="M2 19h76v33a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#9B4DF0"/><path d="M2 19h76v6H2z" fill="#B071FF"/></svg></span><span>Om mig</span></button>
 
+		<span class="icons__skel"></span>
+		<span class="icons__mrk">Apps jeg har bygget</span>
 		<button class="icon appicon" data-app="koeberguiden"><span class="icon__art"><img src="img/ikon-koeberguiden.png" alt=""></span><span>KøberGuiden</span></button>
 		<button class="icon appicon" data-app="wordfestival"><span class="icon__art"><img src="img/ikon-word.png" alt=""></span><span>Word Festival</span></button>
 		<button class="icon appicon" data-app="friendfinder"><span class="icon__art"><img src="img/ikon-friendfinder.png" alt=""></span><span>Friend Finder</span></button>
@@ -590,10 +594,6 @@ button{font-family:inherit}
 		<button class="dockitem" data-w="w-print" data-tip="Print &amp; SoMe" style="background:var(--neon-lime);color:#141414"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="1.6"/><path d="M6 15h12v6H6z"/></svg><span class="dockdot"></span></button>
 		<button class="dockitem" data-w="w-foto" data-tip="Foto" style="background:var(--neon-green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="14" rx="2"/><circle cx="12" cy="13" r="3.6"/><path d="M8 6l1.6-2.4h4.8L16 6"/></svg><span class="dockdot"></span></button>
 		<button class="dockitem" data-w="w-skitser" data-tip="Skitsebøger" style="background:var(--neon-cyan)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22z"/></svg><span class="dockdot"></span></button>
-		<span class="docksep"></span>
-		<button class="dockitem" data-app="koeberguiden" data-tip="KøberGuiden — prøv appen"><img src="img/ikon-koeberguiden.png" alt=""><span class="dockdot"></span></button>
-		<button class="dockitem" data-app="wordfestival" data-tip="Word Festival"><img src="img/ikon-word.png" alt=""><span class="dockdot"></span></button>
-		<button class="dockitem" data-app="friendfinder" data-tip="Friend Finder"><img src="img/ikon-friendfinder.png" alt=""><span class="dockdot"></span></button>
 		<span class="docksep"></span>
 		<button class="dockitem dockfolder" id="toolsBtn" aria-label="Værktøjer">
 			<i style="background:#330000;color:#FF9A00">Ai</i>
