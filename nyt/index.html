@@ -155,6 +155,7 @@ button{font-family:inherit}
 .thing__t{font-family:var(--f-d);font-weight:600;font-size:19px;letter-spacing:-.025em;margin-top:13px;line-height:1.2}
 .thing__s{font-size:13px;color:var(--ink-2);margin-top:4px;display:flex;align-items:center;gap:8px}
 .thing__s i{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
+.thing__wip{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:var(--neon-lime);color:#141414;padding:3px 9px;border-radius:20px;margin-bottom:9px;font-weight:500}
 .thing__go{font-size:12.5px;color:var(--neon-blue);margin-top:7px;opacity:0;transform:translateX(-4px);transition:all .3s var(--ease)}
 .thing:hover .thing__go{opacity:1;transform:none}
 
@@ -360,7 +361,7 @@ button{font-family:inherit}
 	<!-- MAPPEVINDUER -->
 
 	<section class="window" id="w-digital" style="left:300px;top:80px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design — 3 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design — 5 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Digitalt design</h2><p>Apps og prototyper hvor research kom før form. Klik på et projekt — så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.</p></div>
 			<div class="things">
@@ -374,6 +375,8 @@ button{font-family:inherit}
 					</span>
 				</a>
 				<a class="thing ar-16-10" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Programplanlægger · Figma</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing ar-16-10" data-case="hosted" href="#"><span class="thing__m"><img src="img/hosted-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">HOSTED</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Eget produkt · app under udvikling</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing ar-16-10" data-case="dualitet" href="#"><span class="thing__m"><img src="img/dualitet-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">Dualitet</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Podcast · under optagelse</span><span class="thing__go">Åbn →</span></a>
 				<a class="thing ar-16-10 fit" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.webp" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Prototype · workshop</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
@@ -917,12 +920,13 @@ const APPS={
 		shots:["img/p5-opslag.webp","img/p5-flyer-front.webp","img/p5-flyer-back.webp","img/p5-persona.webp"],
 		video:{fil:"video/qa-video.mp4",poster:"img/qa-poster.webp",tekst:"Q&A-produktion til Instagram. Optaget hjemme i en stue med gimbal på en flyttekasse — formatet skulle være til at gentage, ikke til at producere én gang."}},
 	wordfestival:{titel:"Word Festival",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:null,skaerm:"img/word-festival-cover.webp",live:false,
-		hint:"Prototypen ligger i Figma — skærmbillederne her er ikke interaktive endnu.",
-		lead:"En planlægningsapp der gør det muligt at sammensætte sit eget program blandt over 100 events — uden at miste overblikket.",
-		fakta:[["Type","Programplanlægger"],["Min rolle","UX-research, UI, prototyping"],["Værktøj","Figma"],["Fokus","Overblik og ro"]],
-		afsnit:[["Problemet","Brugerresearch viste tre ting: manglende overblik, overlappende events og usikkerhed om hvad man nåede. Festivalens egne værdier handler om ro og fordybelse — det stod i kontrast til stresset ved at vælge."],["Løsningen","Filtrering efter dag, interesse og venue. Funktionen „Mit program“, hvor man gemmer events og ser dem samlet. Populariteten vises med farvekoder, så man hurtigt ser hvad der fyldes op."]],
-		citat:null,efter:["Proces","Udviklet gennem iterative prototyper og brugertests i Figma. Projektet styrkede mine kompetencer inden for UX-research, prototyping og brugercentreret design."],
-		tal:[["100+","events"],["3","filtre"]],shots:[]},
+		hint:"Prototypen ligger i Figma. Skærmbillederne er ikke interaktive endnu — den bygges som klikbar prototype ligesom de andre.",
+		lead:"En app til Word Festival i Odense, hvor gæsten kan sætte sit eget program sammen blandt over hundrede oplæg — uden at miste overblikket over hvad der overlapper.",
+		fakta:[["Klient","Word Festival, Odense"],["Type","Installationsprojekt"],["Min rolle","UX-research, UI-design, prototyping"],["Værktøj","Figma"]],
+		afsnit:[["Problemet","Over hundrede oplæg fordelt på Borgernes Hus, Odeon og DIAS-scenen over få dage. Brugerresearchen pegede på tre ting: man mister overblikket, man opdager for sent at to oplæg ligger oven i hinanden, og man er usikker på om man nu har fået det bedste med. Festivalens egne værdier handler om ro og fordybelse — det stod i skarp kontrast til stresset ved at vælge."],["Løsningen","Programmet kan filtreres på dag, interesse og spillested. Funktionen „Mit program“ samler det man har gemt, så man kan se sin egen dag som en tidslinje frem for som en liste. Hvert oplæg har sin egen side med foredragsholderen, så man kan læse sig frem til et valg."],["Hvordan det ser ud","Fredag den 21. november: fællessang med Thomas Bach i Borgernes Hus klokken 10, Morten Pape om vejen fra Amager til bestseller klokken 11, Helen Fielding om Bridget Jones i Odeon klokken 16, og Ulrik Langen om pudderparykker og borgerlige frontkæmpere på DIAS-scenen. Fire meget forskellige oplæg på fire spillesteder — det er præcis det, appen skal gøre til at overskue."]],
+		citat:null,
+		efter:["Hvad jeg lærte","Populariteten på hvert oplæg vises med farvekoder, så man hurtigt ser hvad der fyldes op. Det var ikke i den første version — det kom først, da vi forstod at problemet ikke kun var overblik, men også frygten for at gå glip."],
+		tal:[["100+","oplæg"],["3","spillesteder"],["4","faneblade"]],shots:[]},
 	friendfinder:{titel:"Friend Finder",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:"app-friendfinder/index.html",live:true,
 		hint:"Log ind med hvad som helst. Prøv Events, Venner og en profil — bundnavigationen virker.",
 		lead:"En app til at finde nogen at lave noget med. Startede som en gråtonet wireframe på en workshop og er siden bygget færdig som et rigtigt design.",
@@ -984,6 +988,19 @@ document.querySelectorAll(".thing[data-app]").forEach(t=>t.addEventListener("cli
 
 /* ── Cases ── */
 const CASES={
+	hosted:{farve:"var(--neon-pink)",mappe:"Digitalt design",hero:"img/hosted-cover.webp",titel:"HOSTED",
+		lead:"En fest-app hvor værten opretter festen, gæsterne joiner med ét link i browseren, og alle spiller sammen fra deres egen telefon. Mit eget produkt — under udvikling.",
+		fakta:[["Type","Eget produkt · app"],["Status","Beta · under udvikling"],["Min rolle","Idé, design, brand og frontend"],["Website","hosted-web-five.vercel.app"]],
+		afsnit:[["Idéen","Fem spil — Impostor, Most Likely To, Kender du X, Turnering og kortspil — der alle starter på under tredive sekunder. Værten trykker start, gæsterne følger med live. Ingen skal downloade noget: man åbner et link, skriver sit navn, og er med."],["Det valg jeg er mest stolt af","Hvert spil har en drikke-indstilling per spiller. Vælger du fra, får du ingen slurke, men er stadig hundrede procent med i spillet. Der er også pakker helt uden alkohol — samtalekort, catch-up spørgsmål og lege der virker til familieaften. En festapp der ikke tvinger nogen til noget."]],
+		citat:null,
+		efter:["Hvor den er nu","Landingssiden er live med venteliste, brand og tekst på dansk og engelsk. Appen selv bygges. Jeg opdaterer casen når der er noget at klikke på."],
+		shots:[],tal:[["5","spil"],["0","downloads for gæster"]],
+		link:{url:"https://hosted-web-five.vercel.app/",tekst:"Se websitet →"}},
+	dualitet:{farve:"var(--neon-green)",mappe:"Digitalt design",hero:"img/dualitet-cover.webp",titel:"Dualitet",
+		lead:"En podcast jeg er i gang med. Mere om den, når der er noget at høre.",
+		fakta:[["Type","Podcast"],["Status","Under optagelse"],["Navn","Dualitet"]],
+		afsnit:[["Kommer","Casen er tom med vilje. Jeg lægger den ind, når de første afsnit er i hus."]],
+		citat:null,efter:null,shots:[],tal:[]},
 	gaasetorvet:{farve:"var(--neon-pink)",mappe:"Branding",hero:"img/gaasen.webp",titel:"Gåsetorvet",
 		lead:"Et lokalt sted med personlighed, humor og fællesskab. Opgaven var visuelle elementer der kunne bruges på tværs af sæsoner og formater uden at miste stedets varme.",
 		fakta:[["Periode","2023–2024"],["Min rolle","Grafisk design & illustration"],["Fokus","Branding, stemning"],["Værktøjer","Illustrator · Photoshop"]],
@@ -1039,6 +1056,7 @@ function visCase(n){
 	if(c.citat) h+='<blockquote class="case__quote">'+esc(c.citat[0])+'<span>'+esc(c.citat[1])+'</span></blockquote>';
 	if(c.efter) h+='<h3 class="case__h">'+esc(c.efter[0])+'</h3><p class="case__p">'+esc(c.efter[1])+'</p>';
 	if(c.shots.length){ h+='<div class="case__shots">'; c.shots.forEach(s=>h+='<img src="'+s+'" alt="" loading="lazy">'); h+='</div>'; }
+	if(c.link) h+='<p style="margin-top:18px"><a href="'+c.link.url+'" target="_blank" rel="noopener" style="color:'+c.farve+';font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px">'+esc(c.link.tekst)+'</a></p>';
 	h+='<button class="case__back" type="button" id="caseBack">← luk</button>';
 
 	caseBody.innerHTML=h; caseBody.scrollTop=0;
