@@ -190,6 +190,9 @@ button{font-family:inherit}
 .case__quote span{display:block;font-family:var(--f-m);font-weight:400;font-size:12.5px;color:var(--ink-3);margin-top:9px;letter-spacing:0}
 .case__shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin:20px 0 6px}
 .case__shots img{width:100%;height:auto;border-radius:5px}
+.case__video{margin:20px 0 6px;max-width:300px}
+.case__video video{width:100%;border-radius:12px;display:block;background:#000}
+.case__video figcaption{font-size:12.5px;color:var(--ink-3);margin-top:9px;line-height:1.6}
 .case__stats{display:flex;gap:34px;flex-wrap:wrap;margin:22px 0 8px}
 .case__stats div strong{display:block;font-family:var(--f-d);font-weight:800;font-size:32px;letter-spacing:-.03em;line-height:1}
 .case__stats div span{font-size:12.5px;color:var(--ink-3)}
@@ -911,7 +914,8 @@ const APPS={
 		citat:["„Jeg ville aldrig ringe til en mægler bare fordi jeg har et spørgsmål. Men skrive en besked — det tør jeg godt.“","Deltager, behovsundersøgelse"],
 		efter:["Løsningen","Chat sidder yderst til højre i bundnavigationen, hvor tommelfingeren når den. Vidensbasen samler alt det, folk ellers googler. I profilen kan man se sin egen købsrejse som en tidslinje — den kom ud af testrunde to."],
 		tal:[["3","testrunder"],["4","SoMe-produkter"],["8","ugers forløb"]],
-		shots:["img/p5-opslag.webp","img/p5-flyer-front.webp","img/p5-flyer-back.webp","img/p5-persona.webp"]},
+		shots:["img/p5-opslag.webp","img/p5-flyer-front.webp","img/p5-flyer-back.webp","img/p5-persona.webp"],
+		video:{fil:"video/qa-video.mp4",poster:"img/qa-poster.webp",tekst:"Q&A-produktion til Instagram. Optaget hjemme i en stue med gimbal på en flyttekasse — formatet skulle være til at gentage, ikke til at producere én gang."}},
 	wordfestival:{titel:"Word Festival",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:null,skaerm:"img/word-festival-cover.webp",live:false,
 		hint:"Prototypen ligger i Figma — skærmbillederne her er ikke interaktive endnu.",
 		lead:"En planlægningsapp der gør det muligt at sammensætte sit eget program blandt over 100 events — uden at miste overblikket.",
@@ -943,6 +947,9 @@ function visApp(n){
 	if(a.citat) v+='<blockquote class="case__quote">'+esc(a.citat[0])+'<span>'+esc(a.citat[1])+'</span></blockquote>';
 	if(a.efter) v+='<h3 class="case__h">'+esc(a.efter[0])+'</h3><p class="case__p">'+esc(a.efter[1])+'</p>';
 	if(a.shots.length){ v+='<div class="case__shots">'; a.shots.forEach(s=>v+='<img src="'+s+'" alt="" loading="lazy">'); v+='</div>'; }
+	if(a.video){ v+='<figure class="case__video"><video controls preload="none" poster="'+a.video.poster+'">'+
+		'<source src="'+a.video.fil+'" type="video/mp4"></video>'+
+		'<figcaption>'+esc(a.video.tekst)+'</figcaption></figure>'; }
 
 	const sk=a.live?'<iframe id="simFrame" src="'+a.sim+'" title="Simulator"></iframe>':'<img src="'+a.skaerm+'" alt="">';
 	const bad=a.live?'<span class="phone__tag">Live prototype</span>':'<span class="phone__tag" style="background:var(--line)">Statisk</span>';
