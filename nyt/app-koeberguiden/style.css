@@ -1,0 +1,1447 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --primary: #e30613; /* Primær rød farve, knapper og vigtige ting */
+  --secondary: #ffd6d7; /* Sekundær, mindre vigtige ting og menu */
+  --accent: #e8f1f8; /* Komplimenter til rød for balance */
+
+  /* UI / baggrund */
+  --background: #ffffff;
+  --surface: #f8f8f8; /* Bruges inde i input felt */
+  --border: #dadada; /* Bruges ved chat og andre bokse som stroke primært */
+
+  /* Tekst */
+  --text-primary: #1d1d1b; /* primær tekst */
+  --text-muted: #6b6b6b; /* sekundær tekst / mindre tydeligt tekst */
+
+  --font-family: 'Open Sans', sans-serif;
+
+  --text-xl: 24px;
+  --text-lg: 16px;
+  --text-md: 14px;
+  --text-sm: 12px;
+
+  --font-regular: 400;
+  --font-semi: 500;
+  --font-bold: 600;
+
+  /* Spacing */
+  --space-sm: 8px; /* Små afstande: label til input, tekst til tekst */
+  --space-md: 16px; /* Standark afstand: mellem komponenter padding i cards osv. */
+  --space-lg: 24px; /* Store sektioner: mellem større blocks og mellem sektioner */
+
+  /* Linjehøjde */
+  --line-tight: 1.3; /* Bruges på overskrifter for at bruge mindst plads som muligt */
+  --line-normal: 1.5; /* Bruges til brødtekst for mere luft */
+}
+
+/* Typografi /*
+
+
+/* H1 - store overskrifter */
+h1 {
+  margin: 0 0 var(--space-sm);
+
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  line-height: var(--line-tight);
+
+  color: var(--text-primary);
+}
+
+/* H2 - sektioner / undertitler */
+h2 {
+  margin: 0 0 var(--space-sm);
+
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  line-height: var(--line-tight);
+
+  color: var(--text-primary);
+}
+
+/* Normal tekst */
+p {
+  margin: 0 0 var(--space-md);
+
+  font-size: var(--text-md);
+  font-weight: var(--font-regular);
+  line-height: var(--line-normal);
+
+  color: var(--text-primary);
+}
+
+/* Lille / muted tekst */
+small {
+  font-size: var(--text-sm);
+  line-height: var(--line-normal);
+
+  color: var(--text-muted);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+
+  font-size: var(--text-md);
+  font-weight: var(--font-bold);
+  line-height: var(--line-normal);
+
+  text-decoration: none;
+}
+
+/* Hvid overskrift (i billeder) */
+H3 {
+  margin: 0 0 var(--space-sm);
+
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  line-height: var(--line-tight);
+
+  color: var(--accent);
+}
+
+/* Hvid overskrift (i billeder) */
+H4 {
+  margin: 0 0 var(--space-sm);
+
+  font-size: var(--text-md);
+  font-weight: var(--font-semi);
+  line-height: var(--line-tight);
+
+  color: var(--accent);
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: #eee;
+}
+
+/* App */
+.app {
+    width: 100%;
+    max-width: 850px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: var(--background);
+    padding: var(--space-md);
+    padding-bottom: 100px;
+}
+
+/* Sektioner */
+.section {
+  margin-bottom: var(--space-lg);
+}
+
+/* Typografi */
+.text-heading {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+}
+
+.text-subheading {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.text-body {
+  font-size: var(--text-md);
+  color: var(--text-primary);
+}
+
+.text-muted {
+  font-size: var(--text-md);
+  color: var(--text-muted);
+}
+
+.text-link {
+  font-size: var(--text-md);
+  font-weight: var(--font-bold);
+  color: var(--primary);
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: var(--text-md);
+}
+
+/* Row */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-md);
+  color: var(--text-muted);
+}
+
+/* Link */
+.link {
+  font-size: var(--text-md);
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* Knap */
+.btn {
+  width: 100%;
+  padding: var(--space-md);
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+}
+
+.btn:active {
+  background: var(--secondary);
+}
+
+/* Farvetekst */
+.color-list p {
+  margin-bottom: 6px;
+}
+
+.color-primary { color: var(--primary); }
+.color-secondary { color: var(--secondary); }
+.color-accent { color: var(--accent); }
+.color-text { color: var(--text-primary); }
+.color-border { color: var(--border); }
+.color-background { color: var(--background); }
+
+
+
+/* Tilbageknap
+____________________ */
+
+
+.back-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    width:32px;
+
+    height:32px;
+
+    margin-bottom: var(--space-sm);
+}
+
+
+.back-btn img{
+
+    width:20px;
+
+    height:20px;
+
+    object-fit:contain;
+}
+
+/* Navbar
+_________________________________________*/
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    position:fixed;
+    
+    padding-bottom: 15px;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    max-width:850px;
+
+    height:75px;
+
+    background:rgba(240,240,240,.75);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+}
+
+
+.navbar-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex:1;
+
+    height:100%;
+}
+
+
+.navbar-icon{
+
+    width:30px;
+
+    height:30px;
+
+    opacity:1;
+
+    filter:drop-shadow(0 0 1px rgba(29,29,27,.2));
+}
+
+
+
+
+/* Forside 
+_________________________________________*/
+
+/* Logo */
+
+.app-header{
+    display:flex;
+    justify-content:center;
+    margin: var(--space-lg);
+}
+
+.app-logo{
+    width:180px;
+}
+
+
+
+/* HERO */
+
+.hero-swiper{
+
+    width:100%;
+
+    height:240px;
+
+    margin-bottom: var(--space-md);
+
+    position:relative;
+}
+
+
+.hero-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    transition:.4s;
+}
+
+
+.hero-slide.active{
+
+    opacity:1;
+}
+
+
+.hero-slide::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+      background:
+    linear-gradient(
+    to top,
+    rgba(0,0,0,.8),
+    transparent
+    );
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    padding: var(--space-md);
+
+    color:white;
+}
+
+
+.hero-content h2{
+
+    margin-bottom: var(--space-sm);
+}
+
+
+
+/* Prikker */
+
+.slider-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap: var(--space-sm);
+
+    margin-bottom: var(--space-xl);
+}
+
+
+.dot{
+
+    width:10px;
+
+    height:10px;
+
+    background:#ccc;
+
+    cursor:pointer;
+}
+
+
+.dot.active{
+
+    background: var(--primary);
+}
+
+
+
+/* REVIEWS */
+
+.reviews h2{
+    margin-bottom: var(--space-xl);
+}
+
+.review-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+    auto-fit,
+    minmax(220px,1fr)
+    );
+
+    gap: var(--space-lg);
+}
+
+
+.review-card{
+
+    width:100%;
+}
+
+
+.review-card img{
+
+    width:100%;
+
+    aspect-ratio:4/3;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin-bottom: var(--space-sm);
+
+}
+
+
+.review-card h3{
+
+    margin-bottom: var(--space-sm);
+}
+
+.stars{
+
+    display:flex;
+
+    gap:4px;
+}
+
+
+.stars img{
+
+    width:16px;
+
+    height:16px;
+
+    object-fit:contain;
+}
+
+
+
+.review-card p {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+
+.review-card.active p {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.review-card {
+    cursor: pointer;
+}
+
+/* større iPad */
+
+@media(min-width:768px){
+
+.hero-swiper{
+
+height:400px;
+
+}
+
+}
+
+
+/* Profil side
+_________________________________________*/
+
+/* Profil header */
+
+.profil-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap: var(--space-md);
+
+    padding: var(--space-md) 0;
+
+    margin-bottom: var(--space-md);
+}
+
+
+.profil-avatar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.profil-avatar img{
+    
+    width:56px;
+
+    height:56px;
+}
+
+.profil-name{
+    margin-bottom:4px;
+}
+
+
+.link{
+    display:block;
+    margin-bottom: var(--space-md);
+}
+
+
+
+/* Købsrejse */
+
+.journey-card{
+
+    padding: var(--space-md);
+
+    margin-bottom: var(--space-md);
+
+    border:1px solid var(--border);
+
+    background: var(--surface);
+}
+
+
+.journey-card-subtitle{
+    margin-bottom:0;
+    color: var(--text-muted);
+}
+
+
+.journey-progress{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:40px 0;
+}
+
+
+.journey-step{
+
+    flex:1;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+.journey-step + .journey-step::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:-50%;
+
+    width:100%;
+
+    height:2px;
+
+    background: var(--border);
+
+    transform:translateY(-50%);
+
+    z-index:0;
+}
+
+
+.journey-step--done + .journey-step::before{
+    background: var(--primary);
+}
+
+
+.journey-step-dot{
+
+    position:relative;
+
+    z-index:1;
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background: var(--border);
+}
+
+
+.journey-step--done .journey-step-dot{
+    background: var(--primary);
+}
+
+
+.journey-step--active .journey-step-dot{
+
+    background: var(--primary);
+
+    box-shadow:0 0 0 4px var(--secondary);
+}
+
+
+.journey-step-label{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size: var(--text-sm);
+
+    color: var(--text-muted);
+
+    white-space:nowrap;
+
+    text-align:center;
+}
+
+
+.journey-step-label--above{
+    bottom:calc(100% + 8px);
+}
+
+
+.journey-step-label--below{
+    top:calc(100% + 8px);
+}
+
+
+.journey-step--active .journey-step-label{
+    color: var(--text-primary);
+    font-weight: var(--font-bold);
+}
+
+
+
+/* Næste møde */
+
+.meeting-card{
+
+    padding: var(--space-md);
+
+    border:1px solid var(--border);
+
+    background: var(--surface);
+}
+
+
+.meeting-card-subtitle{
+    margin-bottom: var(--space-sm);
+    color: var(--text-muted);
+}
+
+
+.meeting-date{
+    margin-bottom: var(--space-md);
+    font-weight: var(--font-bold);
+}
+
+
+/* Chat side
+_________________________________________*/
+
+.page--chat{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:calc(100vh - var(--space-md) * 2);
+}
+
+
+.faq{
+
+    margin: 0 auto var(--space-md);
+    
+    max-width: 480px;
+    
+    margin-bottom: var(--space-md);
+    
+}
+
+
+.faq-toggle{
+    
+    display: block ;
+    
+    width:100%;
+
+    padding:10px var(--space-md);
+
+    border:none;
+
+    background: var(--primary);
+
+    color:white;
+
+    font-size: var(--text-md);
+
+    font-weight: var(--font-bold);
+
+    cursor:pointer;
+
+    text-align:left;
+}
+
+
+.faq-list{
+
+    display:none;
+
+    border:1px solid var(--border);
+
+    border-top:none;
+}
+
+
+.faq-list--open{
+
+    display:block;
+}
+
+
+.faq-item{
+
+    display:block;
+
+    width:100%;
+
+    padding:12px var(--space-md);
+
+    border:none;
+
+    border-bottom:1px solid var(--border);
+
+    background: var(--background);
+
+    font-size: var(--text-md);
+
+    color: var(--text-primary);
+
+    text-align:left;
+
+    cursor:pointer;
+}
+
+
+.faq-item:last-child{
+
+    border-bottom:none;
+}
+
+
+.faq-answer{
+
+    padding: var(--space-md);
+
+    background: var(--accent);
+
+    font-size: var(--text-md);
+
+    color: var(--text-primary);
+
+    margin-bottom:0;
+}
+
+
+.chat-messages{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding: var(--space-md) 0;
+}
+
+
+.chat-input-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap: var(--space-sm);
+
+    padding: var(--space-sm) 0;
+}
+
+
+.chat-input{
+
+    flex:1;
+
+    padding:10px var(--space-md);
+
+    border:1px solid var(--border);
+
+    background: var(--surface);
+
+    border-radius:20px;
+
+    font-size: var(--text-md);
+}
+
+
+.chat-send-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background: var(--primary);
+
+    cursor:pointer;
+}
+
+
+.chat-bubble {
+    
+    padding: var(--space-sm) var(--space-md);
+    
+    margin-bottom: var(--space-sm);
+    
+    max-width: 80%;
+    
+    font-size: var(--text-md);
+    
+    line-height: var(--line-normal);
+}
+
+
+.chat-bubble--bot {
+    
+    background: var(--surface);
+    
+    border: 1px solid var(--border);
+    
+    align-self: flex-start;
+}
+
+
+/* Vidensbasen
+_________________________________________*/
+
+.knowledgebase-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom: var(--space-lg);
+}
+
+
+.knowledgebase-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap: var(--space-sm);
+}
+
+
+
+/* Ikon knapper */
+
+.knowledgebase-icon-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:36px;
+
+    height:36px;
+
+    padding:0;
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+}
+
+
+.knowledgebase-icon-btn img{
+
+    width:22px;
+
+    height:22px;
+
+    object-fit:contain;
+}
+
+
+
+/* Grid */
+
+.knowledgebase-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap: var(--space-md);
+
+    padding-bottom:100px;
+}
+
+
+
+/* Cards */
+
+.knowledge-card{
+
+    width:100%;
+}
+
+
+.knowledge-card img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin-bottom: var(--space-sm);
+}
+
+
+.knowledge-card-content h2{
+
+    margin-bottom:4px;
+}
+
+
+.knowledge-card-content p{
+
+    margin:0;
+
+    line-height:1.4;
+}
+
+/* Bolignyt
+_________________________________________*/
+
+.news-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom: var(--space-lg);
+}
+
+
+
+/* Top ikoner */
+
+.news-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap: var(--space-sm);
+}
+
+
+.news-action-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:36px;
+
+    height:36px;
+
+    padding:0;
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+}
+
+
+.news-action-btn img{
+
+    width:22px;
+
+    height:22px;
+
+    object-fit:contain;
+}
+
+
+
+/* Grid */
+
+.news-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap: var(--space-md);
+
+    padding-bottom:100px;
+}
+
+
+
+/* Card */
+
+.news-card{
+
+    width:100%;
+}
+
+
+.news-card img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin-bottom: var(--space-sm);
+}
+
+
+
+/* Content */
+
+.news-card-content{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+
+.news-card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap: var(--space-sm);
+
+    margin-bottom:4px;
+}
+
+
+.news-card-top h2{
+
+    margin:0;
+
+    flex:1;
+
+    line-height:1.25;
+}
+
+
+.news-card-content p{
+
+    margin:0;
+
+    color: var(--text-primary);
+
+    line-height:1.4;
+}
+
+
+
+/* Bookmark */
+
+.bookmark-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    width:28px;
+
+    height:28px;
+
+    padding:0;
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+}
+
+
+.bookmark-btn img{
+
+    width:24px;
+
+    height:24px;
+
+    object-fit:contain;
+}
+
+/* Artikel side
+_________________________________________*/
+
+
+
+/* Hero billede */
+
+.article-hero{
+
+    width:100%;
+
+    margin-bottom: var(--space-lg);
+}
+
+
+.article-hero img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+
+/* Artikel */
+
+.article{
+
+    padding-bottom:120px;
+}
+
+.article-meta{
+
+    margin-bottom: var(--space-lg);
+}
+
+
+.article-meta h2{
+
+    margin-bottom:4px;
+}
+
+.article-content h2{
+
+    margin-bottom: var(--space-md);
+
+    line-height:1.3;
+}
+
+
+.article-content p{
+
+    margin-bottom: var(--space-md);
+
+    color: var(--text-muted);
+}
+
+/* Login side
+_________________________________________*/
+
+.login-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+}
+
+
+
+/* Content */
+
+.login-content{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+
+.login-subtitle{
+
+    margin-bottom:48px;
+
+    color: var(--text-muted);
+}
+
+
+
+/* Form */
+
+.login-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+}
+
+
+
+/* Labels */
+
+.login-label{
+
+    margin-bottom:6px;
+
+    font-size: var(--text-md);
+
+    color: var(--text-muted);
+}
+
+
+
+/* Inputs */
+
+.login-input{
+
+    width:100%;
+
+    height:50px;
+
+    padding:0 18px;
+
+    margin-bottom: var(--space-md);
+
+    border:1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+    outline:none;
+}
+
+
+.login-input::placeholder{
+
+    color: var(--text-muted);
+    font-size: var(--text-md);
+}
+
+
+.password-wrapper{
+
+    position:relative;
+}
+
+
+.login-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:4px;
+
+    margin-bottom:auto;
+}
+
+
+
+.checkbox{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:var(--space-sm);
+
+    font-size: var(--text-md);
+
+    color: var(--text-muted);
+}
+
+
+.checkbox input{
+
+    width: var(--space-md);
+
+    height:var(--space-md);
+}
+
+.loginBtn {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: 100%;
+  padding: var(--space-md);
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+}
