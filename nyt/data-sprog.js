@@ -10,6 +10,7 @@ window.OVERSAT = {
 	"Vis": "View",
 	"Færøerne": "Faroe Islands",
 	"Apps jeg har bygget": "Apps I've built",
+	"Dokumenter": "Documents",
 	"Skift baggrund": "Change wallpaper",
 	"CV.pdf": "CV.pdf",
 	"Billede": "Image",

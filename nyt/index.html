@@ -335,6 +335,7 @@ button{font-family:inherit}
 		<button class="icon" data-w="w-foto"><span class="icon__art"><svg viewBox="0 0 80 64"><path d="M2 12a6 6 0 0 1 6-6h19l7 7h38a6 6 0 0 1 6 6v3H2z" fill="#1E5FD6"/><path d="M2 19h76v33a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#3D8BFF"/><path d="M2 19h76v6H2z" fill="#5AA0FF"/></svg></span><span>Foto</span></button>
 		<button class="icon" data-w="w-skitser"><span class="icon__art"><svg viewBox="0 0 80 64"><path d="M2 12a6 6 0 0 1 6-6h19l7 7h38a6 6 0 0 1 6 6v3H2z" fill="#1E5FD6"/><path d="M2 19h76v33a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#3D8BFF"/><path d="M2 19h76v6H2z" fill="#5AA0FF"/></svg></span><span>Skitsebøger</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art"><svg viewBox="0 0 80 64"><path d="M2 12a6 6 0 0 1 6-6h19l7 7h38a6 6 0 0 1 6 6v3H2z" fill="#7C25C4"/><path d="M2 19h76v33a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#9B4DF0"/><path d="M2 19h76v6H2z" fill="#B071FF"/></svg></span><span>Om mig</span></button>
+		<button class="icon" data-w="w-bag"><span class="icon__art"><svg viewBox="0 0 80 64"><path d="M2 12a6 6 0 0 1 6-6h19l7 7h38a6 6 0 0 1 6 6v3H2z" fill="#0E7A4A"/><path d="M2 19h76v33a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#16A863"/><path d="M2 19h76v6H2z" fill="#2DC57C"/></svg></span><span>Bag om arbejdet</span></button>
 
 		<span class="icons__skel"></span>
 		<span class="icons__mrk">Apps jeg har bygget</span>
@@ -342,9 +343,11 @@ button{font-family:inherit}
 		<button class="icon appicon" data-app="wordfestival"><span class="icon__art"><img src="img/ikon-word.png" alt=""></span><span>Word Festival</span></button>
 		<button class="icon appicon" data-app="friendfinder"><span class="icon__art"><img src="img/ikon-friendfinder.png" alt=""></span><span>Friend Finder</span></button>
 
-		<button class="icon" data-w="w-bag"><span class="icon__art"><svg viewBox="0 0 80 64"><path d="M2 12a6 6 0 0 1 6-6h19l7 7h38a6 6 0 0 1 6 6v3H2z" fill="#0E7A4A"/><path d="M2 19h76v33a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#16A863"/><path d="M2 19h76v6H2z" fill="#2DC57C"/></svg></span><span>Bag om arbejdet</span></button>
-
+		<span class="icons__skel"></span>
+		<span class="icons__mrk">Dokumenter</span>
 		<a class="icon fileicon" href="Ingrid-Klein-CV-UDKAST.pdf" download><span class="icon__art"><b>PDF</b></span><span>CV.pdf</span></a>
+
+
 
 	</div>
 
@@ -630,25 +633,26 @@ button{font-family:inherit}
 <script src="data-nyheder.js"></script>
 <script src="data-galleri.js"></script>
 <script>
+let sprog = "da";
+
 function tick(){
 	const d=new Date();
-	const dage=(typeof sprog!=="undefined"&&sprog==="en")?["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+	const dage=(sprog==="en")?["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 		:["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"];
-	const maaneder=(typeof sprog!=="undefined"&&sprog==="en")?["January","February","March","April","May","June","July","August","September","October","November","December"]
+	const maaneder=(sprog==="en")?["January","February","March","April","May","June","July","August","September","October","November","December"]
 		:["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december"];
 
 	document.getElementById("urTid").textContent =
 		String(d.getHours()).padStart(2,"0")+"."+String(d.getMinutes()).padStart(2,"0");
 
 	document.getElementById("urDato").textContent =
-		(typeof sprog!=="undefined"&&sprog==="en")
+		(sprog==="en")
 		? dage[d.getDay()]+" "+d.getDate()+" "+maaneder[d.getMonth()]+" "+d.getFullYear()
 		: dage[d.getDay()]+" d. "+d.getDate()+". "+maaneder[d.getMonth()]+" "+d.getFullYear();
 }
 tick(); setInterval(tick,20000);
 
 /* ── Sprogskift ── */
-let sprog = "da";
 const ORIGINAL = new Map();
 const ORIGINAL_HTML = new Map();
 
