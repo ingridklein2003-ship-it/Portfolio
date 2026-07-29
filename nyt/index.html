@@ -375,7 +375,7 @@ button{font-family:inherit}
 					</span>
 				</a>
 				<a class="thing ar-16-10" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Programplanlægger · Figma</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-16-10" data-case="hosted" href="#"><span class="thing__m"><img src="img/hosted-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">HOSTED</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Eget produkt · app under udvikling</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing ar-16-10" data-case="hosted" href="#"><span class="thing__m"><img src="img/hosted-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">HOSTED</span><span class="thing__s"><i style="background:#CFF70E"></i>Eget produkt · app under udvikling</span><span class="thing__go">Åbn →</span></a>
 				<a class="thing ar-16-10" data-case="dualitet" href="#"><span class="thing__m"><img src="img/dualitet-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">Dualitet</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Podcast · under optagelse</span><span class="thing__go">Åbn →</span></a>
 				<a class="thing ar-16-10 fit" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.webp" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Prototype · workshop</span><span class="thing__go">Åbn →</span></a>
 			</div>
@@ -988,13 +988,14 @@ document.querySelectorAll(".thing[data-app]").forEach(t=>t.addEventListener("cli
 
 /* ── Cases ── */
 const CASES={
-	hosted:{farve:"var(--neon-pink)",mappe:"Digitalt design",hero:"img/hosted-cover.webp",titel:"HOSTED",
+	hosted:{farve:"#CFF70E",mappe:"Digitalt design",hero:"img/hosted-cover.webp",titel:"HOSTED",
 		lead:"En fest-app hvor værten opretter festen, gæsterne joiner med ét link i browseren, og alle spiller sammen fra deres egen telefon. Mit eget produkt — under udvikling.",
-		fakta:[["Type","Eget produkt · app"],["Status","Beta · under udvikling"],["Min rolle","Idé, design, brand og frontend"],["Website","hosted-web-five.vercel.app"]],
-		afsnit:[["Idéen","Fem spil — Impostor, Most Likely To, Kender du X, Turnering og kortspil — der alle starter på under tredive sekunder. Værten trykker start, gæsterne følger med live. Ingen skal downloade noget: man åbner et link, skriver sit navn, og er med."],["Det valg jeg er mest stolt af","Hvert spil har en drikke-indstilling per spiller. Vælger du fra, får du ingen slurke, men er stadig hundrede procent med i spillet. Der er også pakker helt uden alkohol — samtalekort, catch-up spørgsmål og lege der virker til familieaften. En festapp der ikke tvinger nogen til noget."]],
+		fakta:[["Type","Eget produkt · iOS-app og web"],["Status","Beta · under udvikling"],["Min rolle","Idé, brand, design og frontend"],["Brand","Sort, hvid versal, lime #CFF70E"]],
+		afsnit:[["Idéen","Fem spil — Impostor, Most Likely To, Kender du X, Turnering og kortspil — der alle starter på under tredive sekunder. Værten trykker start, gæsterne følger med live. Ingen skal downloade noget: man åbner et link, skriver sit navn, og er med."],["Brandet","Sort baggrund, hvid fed versaltypografi og én limegrøn accent. Det skulle ligne noget man har lyst til at åbne klokken elleve om aftenen — ikke en app til møder. Hvert spil har sin egen farve, så man kender dem på afstand: lime til Impostor, orange til Most Likely To, cyan til Turnering."],["Det valg jeg er mest stolt af","Hvert spil har en drikke-indstilling per spiller. Vælger du fra, får du ingen slurke, men er stadig hundrede procent med i spillet. Der er også pakker helt uden alkohol — samtalekort, catch-up spørgsmål og lege der virker til familieaften. En festapp der ikke tvinger nogen til noget."]],
 		citat:null,
-		efter:["Hvor den er nu","Landingssiden er live med venteliste, brand og tekst på dansk og engelsk. Appen selv bygges. Jeg opdaterer casen når der er noget at klikke på."],
-		shots:[],tal:[["5","spil"],["0","downloads for gæster"]],
+		efter:["Hvor den er nu","Appen kører i simulator med hjem, spil, fester og profil. Landingssiden er live med venteliste og tekst på både dansk og engelsk. Jeg opdaterer casen, når der er en beta man kan prøve."],
+		shots:["img/hosted-01.webp","img/hosted-02.webp"],
+		tal:[["5","spil"],["0","downloads for gæster"],["4","faneblade"]],
 		link:{url:"https://hosted-web-five.vercel.app/",tekst:"Se websitet →"}},
 	dualitet:{farve:"var(--neon-green)",mappe:"Digitalt design",hero:"img/dualitet-cover.webp",titel:"Dualitet",
 		lead:"En podcast jeg er i gang med. Mere om den, når der er noget at høre.",
