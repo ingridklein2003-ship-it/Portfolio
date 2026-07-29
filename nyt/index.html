@@ -44,7 +44,14 @@ button{font-family:inherit}
 .menubar__ur{display:flex;align-items:baseline;gap:9px;opacity:1 !important;padding-right:6px;border-right:1px solid rgba(255,255,255,.22)}
 .menubar__ur b{font-weight:500;font-size:13px;letter-spacing:.02em}
 .menubar__ur i{font-style:normal;font-size:12px;opacity:.75}
-.menubar__r{display:flex;gap:14px;opacity:.85;font-size:12px}
+.menubar__r{display:flex;gap:14px;align-items:center;opacity:.9;font-size:12px}
+.sprogknap{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);color:#fff;font-family:var(--f-m);font-size:11px;letter-spacing:.06em;border-radius:20px;padding:3px 11px;display:flex;gap:5px;align-items:center;transition:background .2s}
+.sprogknap:hover{background:rgba(255,255,255,.26)}
+.sprogknap b{font-weight:600}
+.sprogknap i{opacity:.4;font-style:normal}
+.sprogknap span{opacity:.5}
+.sprogknap.en b{opacity:.5;font-weight:400}
+.sprogknap.en span{opacity:1;font-weight:600}
 
 /* Ikoner */
 .icons{position:absolute;top:48px;left:26px;z-index:10;display:grid;grid-template-columns:repeat(2,124px);gap:10px 12px}
@@ -318,7 +325,7 @@ button{font-family:inherit}
 			<span class="menubar__ur"><b id="urTid">–</b><i id="urDato">–</i></span>
 			<span>Arkiv</span><span>Rediger</span><span>Vis</span>
 		</div>
-		<div class="menubar__r"><span>Færøerne</span></div>
+		<div class="menubar__r"><span>Færøerne</span><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
 	</div>
 
 	<div class="icons" id="icons">
@@ -477,8 +484,8 @@ button{font-family:inherit}
 				</div>
 
 				<h4 class="me__h">Undervisning og formidling</h4>
-				<p>Jeg har undervist flere gange på <strong>brobygning</strong>, hvor gymnasie- og HF-elever kommer ud og prøver multimediedesign af. Jeg står for undervisningen og er den, der forklarer faget for folk, der aldrig har rørt det før.</p>
-				<p>Derudover har jeg repræsenteret uddannelsen ved <strong>åbent hus</strong>, og fra september er jeg <strong>tutor</strong> for de nye studerende.</p>
+				<p id="om-underv-1">Jeg har undervist flere gange på <strong>brobygning</strong>, hvor gymnasie- og HF-elever kommer ud og prøver multimediedesign af. Jeg står for undervisningen og er den, der forklarer faget for folk, der aldrig har rørt det før.</p>
+				<p id="om-underv-2">Derudover har jeg repræsenteret uddannelsen ved <strong>åbent hus</strong>, og fra september er jeg <strong>tutor</strong> for de nye studerende.</p>
 				<p>Det er den del af mit arbejde, der ikke kan vises som et billede: at kunne forklare noget fagligt for nogen, der ikke kan det endnu, og gøre det så de får lyst til at prøve.</p>
 
 				<h4 class="me__h">Kort fortalt</h4>
@@ -619,21 +626,101 @@ button{font-family:inherit}
 
 </div>
 
+<script src="data-sprog.js"></script>
 <script src="data-nyheder.js"></script>
 <script src="data-galleri.js"></script>
 <script>
 function tick(){
 	const d=new Date();
-	const dage=["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"];
-	const maaneder=["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december"];
+	const dage=(typeof sprog!=="undefined"&&sprog==="en")?["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+		:["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"];
+	const maaneder=(typeof sprog!=="undefined"&&sprog==="en")?["January","February","March","April","May","June","July","August","September","October","November","December"]
+		:["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december"];
 
 	document.getElementById("urTid").textContent =
 		String(d.getHours()).padStart(2,"0")+"."+String(d.getMinutes()).padStart(2,"0");
 
 	document.getElementById("urDato").textContent =
-		dage[d.getDay()]+" d. "+d.getDate()+". "+maaneder[d.getMonth()]+" "+d.getFullYear();
+		(typeof sprog!=="undefined"&&sprog==="en")
+		? dage[d.getDay()]+" "+d.getDate()+" "+maaneder[d.getMonth()]+" "+d.getFullYear()
+		: dage[d.getDay()]+" d. "+d.getDate()+". "+maaneder[d.getMonth()]+" "+d.getFullYear();
 }
 tick(); setInterval(tick,20000);
+
+/* ── Sprogskift ── */
+let sprog = "da";
+const ORIGINAL = new Map();
+const ORIGINAL_HTML = new Map();
+
+function samlTekstnoder(rod){
+	const ud = [];
+	const g = document.createTreeWalker(rod, NodeFilter.SHOW_TEXT, {
+		acceptNode(n){
+			if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+			const f = n.parentElement;
+			if(!f || f.closest("script,style,#toolsheet")) return NodeFilter.FILTER_REJECT;
+			return NodeFilter.FILTER_ACCEPT;
+		}
+	});
+	let n; while((n = g.nextNode())) ud.push(n);
+	return ud;
+}
+
+function skiftTekst(){
+	const O = window.OVERSAT || {};
+
+	samlTekstnoder(document.body).forEach(n => {
+		if(!ORIGINAL.has(n)) ORIGINAL.set(n, n.nodeValue);
+		const dansk = ORIGINAL.get(n);
+		const nøgle = dansk.trim();
+
+		if(sprog === "en" && O[nøgle]){
+			n.nodeValue = dansk.replace(nøgle, O[nøgle]);
+		} else {
+			n.nodeValue = dansk;
+		}
+	});
+
+	/* Værktøjsmappen har egne labels */
+	const vt = document.querySelector("#toolsheet h4");
+	if(vt){
+		if(!ORIGINAL.has(vt.firstChild)) ORIGINAL.set(vt.firstChild, vt.textContent);
+		vt.textContent = sprog === "en" ? "Tools I work in" : ORIGINAL.get(vt.firstChild);
+	}
+
+	/* Afsnit med fed skrift indeni */
+	Object.keys(window.OVERSAT_HTML || {}).forEach(id => {
+		const el = document.getElementById(id);
+		if(!el) return;
+		if(!ORIGINAL_HTML.has(id)) ORIGINAL_HTML.set(id, el.innerHTML);
+		el.innerHTML = sprog === "en" ? window.OVERSAT_HTML[id] : ORIGINAL_HTML.get(id);
+	});
+
+	document.documentElement.lang = sprog;
+	const k = document.getElementById("sprogknap");
+	k.classList.toggle("en", sprog === "en");
+	k.setAttribute("aria-label", sprog === "en" ? "Switch to Danish" : "Skift til engelsk");
+}
+
+function flet(base, ekstra){
+	if(!ekstra) return base;
+	const ny = Object.assign({}, base, ekstra);
+	if(base.link && ekstra.link) ny.link = Object.assign({}, base.link, ekstra.link);
+	if(base.video && ekstra.video) ny.video = Object.assign({}, base.video, ekstra.video);
+	return ny;
+}
+
+document.getElementById("sprogknap").addEventListener("click", () => {
+	sprog = sprog === "da" ? "en" : "da";
+	skiftTekst();
+	tegnNyheder();
+	tick();
+
+	/* Genindlæs åbne case- og appvinduer på det nye sprog */
+	if(document.getElementById("w-case").classList.contains("open") && sidsteCase) visCase(sidsteCase);
+	if(document.getElementById("w-app").classList.contains("open") && sidsteApp) visApp(sidsteApp);
+});
+
 
 const desktop=document.getElementById("desktop");
 let zTop=100;
@@ -849,7 +936,7 @@ function tegnFoto(){
 	document.getElementById("visImg").src=b.fil;
 	document.getElementById("visTekst").textContent=b.tekst;
 	document.getElementById("visTal").textContent=(vi+1)+" / "+BAG.length;
-	document.getElementById("visTitel").textContent="Bag om arbejdet — "+(vi+1)+" af "+BAG.length;
+	document.getElementById("visTitel").textContent=(sprog==="en"?"Behind the work — "+(vi+1)+" of ":"Bag om arbejdet — "+(vi+1)+" af ")+BAG.length;
 }
 document.getElementById("visNext").addEventListener("click",()=>{ vi=(vi+1)%BAG.length; tegnFoto(); });
 document.getElementById("visBack").addEventListener("click",()=>{ vi=(vi-1+BAG.length)%BAG.length; tegnFoto(); });
@@ -896,16 +983,20 @@ document.getElementById("fotoAlle").addEventListener("click",()=>aabn("w-foto"))
 /* ── Nyhedswidget ── */
 const FARVER={projekt:"var(--neon-blue)",karriere:"var(--neon-violet)",note:"var(--neon-green)"};
 const nytBox=document.getElementById("nyt");
+function tegnNyheder(){
+nytBox.innerHTML="";
 (window.NYHEDER||[]).forEach(n=>{
 	const a=document.createElement("article");
 	const d=new Date(n.dato);
-	const maaned=["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"][d.getMonth()];
+	const maaned=(sprog==="en"?["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]:["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"])[d.getMonth()];
 	a.innerHTML=
 		'<div class="nyt__top"><span class="nyt__dot" style="background:'+(FARVER[n.type]||"var(--ink-3)")+'"></span>'+
 		'<span class="nyt__dato">'+d.getDate()+". "+maaned+" "+d.getFullYear()+'</span></div>'+
-		'<h5>'+n.titel+'</h5><p>'+n.tekst+'</p>';
+		'<h5>'+((sprog==="en"&&n.titel_en)?n.titel_en:n.titel)+'</h5><p>'+((sprog==="en"&&n.tekst_en)?n.tekst_en:n.tekst)+'</p>';
 	nytBox.appendChild(a);
 });
+}
+tegnNyheder();
 
 /* ── Apps ── */
 const APPS={
@@ -943,7 +1034,9 @@ const appBody=document.getElementById("appBody"),appAccent=document.getElementBy
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
 
 function visApp(n){
-	const a=APPS[n]; if(!a) return;
+	sidsteApp=n;
+	let a=APPS[n]; if(!a) return;
+	if(sprog==="en") a=flet(a,(window.APPS_EN||{})[n]);
 	let v='<h2>'+esc(a.titel)+'</h2><p class="case__lead">'+esc(a.lead)+'</p>';
 	if(a.fakta.length){ v+='<dl class="case__facts">'; a.fakta.forEach(f=>v+='<div><dt>'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>'); v+='</dl>'; }
 	if(a.tal.length){ v+='<div class="case__stats">'; a.tal.forEach(t=>v+='<div><strong>'+esc(t[0])+'</strong><span>'+esc(t[1])+'</span></div>'); v+='</div>'; }
@@ -956,8 +1049,8 @@ function visApp(n){
 		'<figcaption>'+esc(a.video.tekst)+'</figcaption></figure>'; }
 
 	const sk=a.live?'<iframe id="simFrame" src="'+a.sim+'" title="Simulator"></iframe>':'<img src="'+a.skaerm+'" alt="">';
-	const bad=a.live?'<span class="phone__tag">Live prototype</span>':'<span class="phone__tag" style="background:var(--line)">Statisk</span>';
-	const kn=a.live?'<button class="phone__btn" id="simReset">Start forfra</button>':'';
+	const bad=a.live?'<span class="phone__tag">'+(sprog==="en"?"Live prototype":"Live prototype")+'</span>':'<span class="phone__tag" style="background:var(--line)">'+(sprog==="en"?"Static":"Statisk")+'</span>';
+	const kn=a.live?'<button class="phone__btn" id="simReset">'+(sprog==="en"?"Restart":"Start forfra")+'</button>':'';
 
 	appBody.innerHTML='<div class="appview"><div class="appview__txt">'+v+'</div>'+
 		'<div class="phone"><div class="phone__frame"><span class="phone__notch"></span>'+
@@ -1047,8 +1140,11 @@ const CASES={
 
 const caseBody=document.getElementById("caseBody"),caseAccent=document.getElementById("caseAccent"),caseBarTitle=document.getElementById("caseBarTitle");
 
+let sidsteCase=null, sidsteApp=null;
 function visCase(n){
-	const c=CASES[n]; if(!c) return;
+	sidsteCase=n;
+	let c=CASES[n]; if(!c) return;
+	if(sprog==="en") c=flet(c,(window.CASES_EN||{})[n]);
 	let h='<div class="case__hero"><img src="'+c.hero+'" alt=""><span class="case__badge" style="background:'+c.farve+'">'+esc(c.mappe)+'</span></div>';
 	h+='<h2 class="case__title">'+esc(c.titel)+'</h2><p class="case__lead">'+esc(c.lead)+'</p>';
 	if(c.fakta.length){ h+='<dl class="case__facts">'; c.fakta.forEach(f=>h+='<div><dt>'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>'); h+='</dl>'; }
@@ -1058,7 +1154,7 @@ function visCase(n){
 	if(c.efter) h+='<h3 class="case__h">'+esc(c.efter[0])+'</h3><p class="case__p">'+esc(c.efter[1])+'</p>';
 	if(c.shots.length){ h+='<div class="case__shots">'; c.shots.forEach(s=>h+='<img src="'+s+'" alt="" loading="lazy">'); h+='</div>'; }
 	if(c.link) h+='<p style="margin-top:18px"><a href="'+c.link.url+'" target="_blank" rel="noopener" style="color:'+c.farve+';font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px">'+esc(c.link.tekst)+'</a></p>';
-	h+='<button class="case__back" type="button" id="caseBack">← luk</button>';
+	h+='<button class="case__back" type="button" id="caseBack">'+(sprog==="en"?"← close":"← luk")+'</button>';
 
 	caseBody.innerHTML=h; caseBody.scrollTop=0;
 	caseAccent.style.background=c.farve;
