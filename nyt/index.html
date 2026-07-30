@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Arbejdsversion af nyt design til Klein Design. Ikke færdig.">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
 	--ink:#141414;
@@ -25,6 +25,7 @@
 
 	--f-d:"Bricolage Grotesque",system-ui,sans-serif;
 	--f-m:"IBM Plex Mono",monospace;
+	--f-l:"Inter",system-ui,sans-serif;
 	--ease:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -126,7 +127,7 @@ button{font-family:inherit}
 .nyt__dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
 .nyt__dato{font-size:11px;color:var(--ink-3)}
 .nyt h5{font-family:var(--f-d);font-weight:600;font-size:14.5px;letter-spacing:-.02em;line-height:1.25;margin-bottom:3px}
-.nyt p{font-size:12.5px;line-height:1.6;color:var(--ink-2)}
+.nyt p{font-family:var(--f-l);font-size:13.5px;line-height:1.6;color:var(--ink-2)}
 
 /* ── Vinduer ── */
 .window{position:absolute;z-index:100;background:var(--win);border-radius:11px;box-shadow:0 28px 70px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.16);display:none;flex-direction:column;overflow:hidden;min-width:340px;min-height:260px}
@@ -137,7 +138,9 @@ button{font-family:inherit}
 .titlebar{height:40px;flex:0 0 40px;background:var(--win-bar);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 13px;gap:8px;cursor:grab;user-select:none;position:relative}
 .titlebar:active{cursor:grabbing}
 .lights{display:flex;gap:7px;z-index:2}
-.light{width:12px;height:12px;border-radius:50%;border:none;cursor:pointer;padding:0}
+.light{width:12px;height:12px;border-radius:50%;border:none;cursor:pointer;padding:0;position:relative}
+.light::after{content:"";position:absolute;inset:-11px -7px;border-radius:50%}
+.lights{padding:6px 4px;margin:-6px -4px}
 .light--r{background:#FF5F57}.light--y{background:#FEBC2E}.light--g{background:#28C840}
 .titlebar__t{position:absolute;left:0;right:0;text-align:center;font-size:13px;color:var(--ink-2);pointer-events:none}
 .titlebar__accent{width:8px;height:8px;border-radius:50%;margin-left:6px;z-index:2}
@@ -145,7 +148,7 @@ button{font-family:inherit}
 .winbody{flex:1;overflow-y:auto;padding:26px 30px 34px}
 .winbody__head{margin-bottom:26px;max-width:64ch}
 .winbody__head h2{font-family:var(--f-d);font-weight:800;font-size:32px;letter-spacing:-.035em;line-height:1.02;margin-bottom:9px}
-.winbody__head p{color:var(--ink-2);font-size:14.5px;line-height:1.7}
+.winbody__head p{font-family:var(--f-l);color:var(--ink-2);font-size:15.5px;line-height:1.65}
 
 .grip{position:absolute;z-index:6}
 .grip--e{top:40px;right:0;bottom:0;width:8px;cursor:ew-resize}
@@ -161,7 +164,7 @@ button{font-family:inherit}
 .thing__m img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
 .thing:hover .thing__m img{transform:scale(1.045)}
 .thing__t{font-family:var(--f-d);font-weight:600;font-size:19px;letter-spacing:-.025em;margin-top:13px;line-height:1.2}
-.thing__s{font-size:13px;color:var(--ink-2);margin-top:4px;display:flex;align-items:center;gap:8px}
+.thing__s{font-family:var(--f-l);font-size:13.5px;color:var(--ink-2);margin-top:4px;display:flex;align-items:center;gap:8px}
 .thing__s i{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
 .thing__wip{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:var(--neon-lime);color:#141414;padding:3px 9px;border-radius:20px;margin-bottom:9px;font-weight:500}
 .thing__go{font-size:12.5px;color:var(--neon-blue);margin-top:7px;opacity:0;transform:translateX(-4px);transition:all .3s var(--ease)}
@@ -169,7 +172,7 @@ button{font-family:inherit}
 
 .thing--wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px;align-items:center}
 .thing--wide .thing__t{font-size:26px;margin-top:0;letter-spacing:-.035em}
-.thing--wide .thing__d{font-size:14px;color:var(--ink-2);line-height:1.7;margin-top:10px;max-width:44ch}
+.thing--wide .thing__d{font-family:var(--f-l);font-size:15px;color:var(--ink-2);line-height:1.7;margin-top:10px;max-width:44ch}
 
 .ar-16-10 .thing__m{aspect-ratio:16/10}
 .ar-1 .thing__m{aspect-ratio:1}
@@ -188,16 +191,18 @@ button{font-family:inherit}
 .case__hero img{width:100%;aspect-ratio:21/9;object-fit:cover}
 .case__badge{position:absolute;left:30px;bottom:18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 13px;border-radius:20px;color:#fff;font-weight:500}
 .case__title{font-family:var(--f-d);font-weight:800;font-size:38px;letter-spacing:-.04em;line-height:1;margin-bottom:12px}
-.case__lead{font-size:15.5px;line-height:1.75;color:var(--ink-2);max-width:60ch;margin-bottom:24px}
+.case__lead{font-family:var(--f-l);font-size:16.5px;line-height:1.75;color:var(--ink-2);max-width:60ch;margin-bottom:24px}
 .case__facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:26px;border-radius:5px;overflow:hidden}
 .case__facts > div{background:var(--win);padding:13px 15px}
 .case__facts dt{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
-.case__facts dd{font-size:13.5px;line-height:1.45}
+.case__facts dd{font-family:var(--f-l);font-size:14.5px;line-height:1.45}
 .case__h{font-family:var(--f-d);font-weight:800;font-size:21px;letter-spacing:-.03em;margin:30px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
-.case__p{font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:64ch;margin-bottom:14px}
+.case__p{font-family:var(--f-l);font-size:16px;line-height:1.8;color:var(--ink-2);max-width:64ch;margin-bottom:14px}
 .case__quote{font-family:var(--f-d);font-weight:600;font-size:21px;line-height:1.4;letter-spacing:-.02em;border-left:4px solid var(--neon-pink);padding:4px 0 4px 18px;margin:22px 0}
-.case__quote span{display:block;font-family:var(--f-m);font-weight:400;font-size:12.5px;color:var(--ink-3);margin-top:9px;letter-spacing:0}
-.case__shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin:20px 0 6px}
+.case__quote span{display:block;font-family:var(--f-l);font-weight:400;font-size:13px;color:var(--ink-3);margin-top:9px;letter-spacing:0}
+.case__midt{margin:18px 0 4px}
+.case__midt img{width:100%;height:auto;border-radius:8px;background:#EFEBE2}
+.case__shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin:20px 0 6px}
 .case__shots img{width:100%;height:auto;border-radius:5px}
 .case__video{margin:20px 0 6px;max-width:300px}
 .case__video video{width:100%;border-radius:12px;display:block;background:#000}
@@ -222,7 +227,7 @@ button{font-family:inherit}
 .phone__btn{font-family:var(--f-m);font-size:12px;background:var(--ink);color:#fff;border:none;border-radius:20px;padding:6px 13px;cursor:pointer}
 .phone__btn:hover{background:var(--neon-blue)}
 .phone__tag{background:var(--neon-lime);color:#141414;padding:4px 11px;border-radius:20px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
-.phone__note{margin-top:11px;font-size:12.5px;color:var(--ink-2);line-height:1.6}
+.phone__note{font-family:var(--f-l);margin-top:11px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
 
 /* Skitser */
 .sketches{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px}
@@ -234,14 +239,14 @@ button{font-family:inherit}
 .me__port{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px}
 .me h3{font-family:var(--f-d);font-weight:800;font-size:34px;letter-spacing:-.04em;line-height:1.04;margin-bottom:16px}
 .me h3 em{font-style:normal;color:var(--neon-violet)}
-.me p{color:var(--ink-2);font-size:14.5px;line-height:1.85;margin-bottom:14px;max-width:54ch}
+.me p{font-family:var(--f-l);color:var(--ink-2);font-size:16px;line-height:1.8;margin-bottom:14px;max-width:54ch}
 .me__strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:24px 0}
 .me__strip figure{border-radius:5px;overflow:hidden;background:#EFEBE2}
 .me__strip img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .me__strip figcaption{font-size:12px;color:var(--ink-3);padding:7px 2px 0}
 .me__h{font-family:var(--f-d);font-weight:800;font-size:21px;letter-spacing:-.03em;margin:28px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
 .me dl{margin-top:6px;border-top:1px solid var(--line)}
-.me dl > div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.me dl > div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-family:var(--f-l);font-size:14.5px}
 .me dt{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px}
 
 /* Tegnebræt */
@@ -561,17 +566,7 @@ button{font-family:inherit}
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
 	</section>
 
-	<section class="window" id="w-case" style="left:200px;top:56px;width:840px;height:630px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" id="caseAccent" style="background:var(--neon-blue)"></span><span class="titlebar__t" id="caseBarTitle">Projekt</span></header>
-		<div class="winbody" id="caseBody"></div>
-		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
-	</section>
 
-	<section class="window" id="w-app" style="left:120px;top:44px;width:1000px;height:720px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" id="appAccent" style="background:var(--neon-blue)"></span><span class="titlebar__t" id="appBarTitle">App</span></header>
-		<div class="winbody" id="appBody"></div>
-		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
-	</section>
 
 	<div class="toolsheet" id="toolsheet">
 		<h4>Værktøjer jeg arbejder i</h4>
@@ -707,8 +702,8 @@ document.getElementById("sprogknap").addEventListener("click", () => {
 	tick();
 
 	/* Genindlæs åbne case- og appvinduer på det nye sprog */
-	if(document.getElementById("w-case").classList.contains("open") && sidsteCase) visCase(sidsteCase);
-	if(document.getElementById("w-app").classList.contains("open") && sidsteApp) visApp(sidsteApp);
+	if(sidsteCase) visCase(sidsteCase);
+	else if(sidsteApp) visApp(sidsteApp);
 });
 
 
@@ -760,9 +755,8 @@ function opdaterDock(){
 		const w=document.getElementById(d.dataset.w);
 		d.classList.toggle("running", !!w && w.classList.contains("open"));
 	});
-	const aw=document.getElementById("w-app");
 	document.querySelectorAll(".dockitem[data-app]").forEach(d=>{
-		d.classList.toggle("running", aw.classList.contains("open") && aw.dataset.app===d.dataset.app);
+		d.classList.toggle("running", false);
 	});
 }
 
@@ -932,12 +926,7 @@ function tegnFoto(){
 document.getElementById("visNext").addEventListener("click",()=>{ vi=(vi+1)%BAG.length; tegnFoto(); });
 document.getElementById("visBack").addEventListener("click",()=>{ vi=(vi-1+BAG.length)%BAG.length; tegnFoto(); });
 
-document.querySelectorAll("[data-foto]").forEach(el=>{
-	el.addEventListener("click",e=>{
-		e.preventDefault();
-		visFoto(el.dataset.foto, el.dataset.tekst||"");
-	});
-});
+kobl(document);
 
 /* ── Billedwidget ── */
 const G=(window.GALLERI||[]);
@@ -989,25 +978,94 @@ nytBox.innerHTML="";
 }
 tegnNyheder();
 
+
+/* ── Vis en case inde i den mappe man kom fra ── */
+let aktivMappe = null;
+const GEMT = new Map();   // vindue-id -> { html, titel, farve }
+
+function visIVindue(html, farve, titel){
+	const w = aktivMappe || document.getElementById("w-case");
+	const krop = w.querySelector(".winbody");
+
+	if(!GEMT.has(w.id)){
+		GEMT.set(w.id, {
+			html: krop.innerHTML,
+			titel: w.querySelector(".titlebar__t").textContent,
+			farve: w.querySelector(".titlebar__accent").style.background
+		});
+	}
+
+	krop.innerHTML = html;
+	krop.scrollTop = 0;
+	w.querySelector(".titlebar__accent").style.background = farve;
+	w.querySelector(".titlebar__t").textContent = titel;
+
+	const tilbage = krop.querySelector("#caseBack");
+	if(tilbage) tilbage.addEventListener("click", () => tilbageTilMappe(w));
+
+	const reset = krop.querySelector("#simReset");
+	if(reset) reset.addEventListener("click", () => {
+		const f = krop.querySelector("#simFrame");
+		if(f) f.src = f.src;
+	});
+
+	aabn(w.id);
+}
+
+function tilbageTilMappe(w){
+	const g = GEMT.get(w.id);
+	if(!g){ luk(w); return; }
+	const krop = w.querySelector(".winbody");
+	krop.innerHTML = g.html;
+	krop.scrollTop = 0;
+	w.querySelector(".titlebar__accent").style.background = g.farve;
+	w.querySelector(".titlebar__t").textContent = g.titel;
+	GEMT.delete(w.id);
+	sidsteCase = null; sidsteApp = null;
+	kobl(krop);
+}
+
+/* Genkobl klik på projektkort efter at indholdet er sat tilbage */
+function kobl(rod){
+	rod.querySelectorAll(".thing[data-case]").forEach(t=>{
+		t.addEventListener("click",e=>{ e.preventDefault(); aktivMappe=t.closest(".window"); visCase(t.dataset.case); });
+	});
+	rod.querySelectorAll(".thing[data-app]").forEach(t=>{
+		t.addEventListener("click",e=>{ e.preventDefault(); aktivMappe=t.closest(".window"); visApp(t.dataset.app); });
+	});
+	rod.querySelectorAll("[data-foto]").forEach(el=>{
+		el.addEventListener("click",e=>{ e.preventDefault(); visFoto(el.dataset.foto, el.dataset.tekst||""); });
+	});
+}
+
 /* ── Apps ── */
 const APPS={
 	koeberguiden:{titel:"KøberGuiden",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:"app-koeberguiden/index.html",live:true,
 		hint:"Log ind med hvad som helst — knappen fører videre. Prøv Vidensbase, Profil og Chat i bunden.",
 		lead:"En app der gør boligkøb overskueligt for førstegangskøbere. Bygget på én sætning fra brugertesten, der væltede vores oprindelige antagelse.",
-		fakta:[["Klient","Benedikte Brechmann Ejendomsmægler"],["Min rolle","Visuel identitet, UI, SoMe & flyer"],["Team","3 personer · UCL"],["Værktøjer","Figma · Illustrator · Photoshop"]],
-		afsnit:[["Opgaven","Benedikte driver et lille mæglerfirma i Kerteminde og konkurrerer mod EDC og Nybolig på nærhed frem for volumen. Hendes køberrådgivning er den stærkeste ydelse, men også den mest usynlige — mange fravælger den, fordi de tror de kan klare det selv."],["Vendepunktet","Vi antog, at folk manglede viden, og byggede efter et opslagsværk. Behovsundersøgelsen pegede et helt andet sted hen: barrieren var social, ikke faglig."]],
+		fakta:[["Klient","Benedikte Brechmann Ejendomsmægler"],["Min rolle","Visuel identitet, UI, ikoner, SoMe & flyer"],["Team","3 personer · UCL"],["Værktøjer","Figma · Illustrator · Photoshop"]],
+		afsnit:[
+			["Opgaven","Benedikte driver et lille mæglerfirma i Kerteminde og konkurrerer mod EDC og Nybolig på nærhed frem for volumen. Hendes køberrådgivning er den stærkeste ydelse, men også den mest usynlige — mange fravælger den, fordi de tror de kan klare det selv.",null],
+			["Vendepunktet","Vi antog, at folk manglede viden, og byggede efter et opslagsværk. Behovsundersøgelsen pegede et helt andet sted hen: barrieren var social, ikke faglig.","img/p5-persona.webp"],
+			["Ikonerne har jeg tegnet selv","Benedikte havde i forvejen et håndtegnet hus med rødt tag som mærke. I stedet for at hente et standard-ikonsæt tegnede jeg alle ikoner i appen selv, i samme streg. Det betyder at bundnavigationen, kategorierne i vidensbasen og de små markeringer i profilen hører til hendes univers frem for at ligne enhver anden app.","img/p5-mockup-alt.webp"],
+			["Flowet","Chat sidder yderst til højre i bundnavigationen, hvor tommelfingeren når den — netop fordi den lave barriere for at skrive var hele pointen. I profilen kan brugeren se sin egen købsrejse som en tidslinje. Den kom ud af testrunde to.","img/p5-userflow.webp"]
+		],
 		citat:["„Jeg ville aldrig ringe til en mægler bare fordi jeg har et spørgsmål. Men skrive en besked — det tør jeg godt.“","Deltager, behovsundersøgelse"],
-		efter:["Løsningen","Chat sidder yderst til højre i bundnavigationen, hvor tommelfingeren når den. Vidensbasen samler alt det, folk ellers googler. I profilen kan man se sin egen købsrejse som en tidslinje — den kom ud af testrunde to."],
+		efter:["Ud over appen","En indholdsstrategi med fire SoMe-produkter og en trykklar flyer. Story-serien åbner med et spørgsmål frem for et tilbud, og opslaget vender den klassiske mæglerannonce på hovedet: i stedet for at Benedikte sælger sig selv, svæver kundernes egne ord rundt om hende som app-notifikationer."],
 		tal:[["3","testrunder"],["4","SoMe-produkter"],["8","ugers forløb"]],
-		shots:["img/p5-opslag.webp","img/p5-flyer-front.webp","img/p5-flyer-back.webp","img/p5-persona.webp"],
+		shots:["img/p5-opslag.webp","img/p5-flyer-front.webp","img/p5-flyer-back.webp","img/p5-story-1.webp","img/p5-story-2.webp","img/p5-story-3.webp","img/p5-cover.webp","img/p5-mockup-duo.webp"],
 		video:{fil:"video/qa-video.mp4",poster:"img/qa-poster.webp",tekst:"Q&A-produktion til Instagram. Optaget hjemme i en stue med gimbal på en flyttekasse — formatet skulle være til at gentage, ikke til at producere én gang."}},
 	wordfestival:{titel:"Word Festival",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:"app-wordfestival/index.html",live:true,
 		hint:"Gem oplæg med hjertet og gå til Mit program. Prøv at gemme både Helen Fielding og Ulrik Langen — begge ligger kl. 16, og appen siger det til dig.",
 		lead:"En app til Word Festival i Odense, hvor gæsten kan sætte sit eget program sammen blandt over hundrede oplæg — uden at miste overblikket over hvad der overlapper.",
-		fakta:[["Klient","Word Festival, Odense"],["Type","Installationsprojekt"],["Min rolle","UX-research, UI-design, prototyping"],["Værktøj","Figma"]],
-		afsnit:[["Problemet","Over hundrede oplæg fordelt på Borgernes Hus, Odeon og DIAS-scenen over få dage. Brugerresearchen pegede på tre ting: man mister overblikket, man opdager for sent at to oplæg ligger oven i hinanden, og man er usikker på om man nu har fået det bedste med. Festivalens egne værdier handler om ro og fordybelse — det stod i skarp kontrast til stresset ved at vælge."],["Løsningen","Programmet kan filtreres på dag, interesse og spillested. Funktionen „Mit program“ samler det man har gemt, så man kan se sin egen dag som en tidslinje frem for som en liste. Hvert oplæg har sin egen side med foredragsholderen, så man kan læse sig frem til et valg."],["Hvordan det ser ud","Fredag den 21. november: fællessang med Thomas Bach i Borgernes Hus klokken 10, Morten Pape om vejen fra Amager til bestseller klokken 11, Helen Fielding om Bridget Jones i Odeon klokken 16, og Ulrik Langen om pudderparykker og borgerlige frontkæmpere på DIAS-scenen. Fire meget forskellige oplæg på fire spillesteder — det er præcis det, appen skal gøre til at overskue."]],
+		fakta:[["Klient","Word Festival, Odense"],["Type","Installationsprojekt"],["Min rolle","Alene: research, UI, farvevalg, prototype"],["Værktøj","Figma"]],
+		afsnit:[
+			["Problemet","Over hundrede oplæg fordelt på Borgernes Hus, Odeon og DIAS-scenen over få dage. Researchen pegede på tre ting: man mister overblikket, man opdager for sent at to oplæg ligger oven i hinanden, og man er usikker på om man nu har fået det bedste med.",null],
+			["Jeg valgte at gå væk fra deres eget udtryk","Jeg har arbejdet videre med projektet alene, og undervejs traf jeg en beslutning der ikke var oplagt: at skifte farver og hele udtrykket ud i forhold til det festivalen brugte i forvejen. Researchen viste, at målgruppen ikke aflæste det gamle udtryk som noget der var til dem. Det er ikke en beslutning man tager for at gøre det pænere — det er en man tager fordi tallene siger, at det nuværende ikke virker på dem, det skal virke på.",null],
+			["Løsningen","Programmet kan filtreres på dag, interesse og spillested. Funktionen „Mit program“ samler det man har gemt, så man kan se sin egen dag som en tidslinje frem for som en liste. Hvert oplæg har sin egen side med foredragsholderen, så man kan læse sig frem til et valg.",null]
+		],
 		citat:null,
-		efter:["Hvad jeg lærte","Populariteten på hvert oplæg vises med farvekoder, så man hurtigt ser hvad der fyldes op. Det var ikke i den første version — det kom først, da vi forstod at problemet ikke kun var overblik, men også frygten for at gå glip."],
+		efter:["Det jeg lærte","Populariteten på hvert oplæg vises med farvekoder, så man hurtigt ser hvad der fyldes op. Det var ikke i den første version — det kom først, da jeg forstod at problemet ikke kun var overblik, men også frygten for at gå glip."],
 		tal:[["100+","oplæg"],["3","spillesteder"],["4","faneblade"]],shots:[]},
 	friendfinder:{titel:"Friend Finder",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:"app-friendfinder/index.html",live:true,
 		hint:"Log ind med hvad som helst. Prøv Events, Venner og en profil — bundnavigationen virker.",
@@ -1019,8 +1077,7 @@ const APPS={
 		tal:[["6","skærme"],["2","veje ind"]],shots:[]}
 };
 
-const appBody=document.getElementById("appBody"),appAccent=document.getElementById("appAccent"),
-	appBarTitle=document.getElementById("appBarTitle"),appWin=document.getElementById("w-app");
+const appWin={dataset:{}};
 
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
 
@@ -1031,10 +1088,13 @@ function visApp(n){
 	let v='<h2>'+esc(a.titel)+'</h2><p class="case__lead">'+esc(a.lead)+'</p>';
 	if(a.fakta.length){ v+='<dl class="case__facts">'; a.fakta.forEach(f=>v+='<div><dt>'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>'); v+='</dl>'; }
 	if(a.tal.length){ v+='<div class="case__stats">'; a.tal.forEach(t=>v+='<div><strong>'+esc(t[0])+'</strong><span>'+esc(t[1])+'</span></div>'); v+='</div>'; }
-	a.afsnit.forEach(s=>v+='<h3 class="case__h">'+esc(s[0])+'</h3><p class="case__p">'+esc(s[1])+'</p>');
+	a.afsnit.forEach(s=>{
+		v+='<h3 class="case__h">'+esc(s[0])+'</h3><p class="case__p">'+esc(s[1])+'</p>';
+		if(s[2]) v+='<figure class="case__midt"><img src="'+s[2]+'" alt="" loading="lazy"></figure>';
+	});
 	if(a.citat) v+='<blockquote class="case__quote">'+esc(a.citat[0])+'<span>'+esc(a.citat[1])+'</span></blockquote>';
 	if(a.efter) v+='<h3 class="case__h">'+esc(a.efter[0])+'</h3><p class="case__p">'+esc(a.efter[1])+'</p>';
-	if(a.shots.length){ v+='<div class="case__shots">'; a.shots.forEach(s=>v+='<img src="'+s+'" alt="" loading="lazy">'); v+='</div>'; }
+	if(a.shots.length){ v+='<h3 class="case__h">'+(sprog==="en"?"Everything else":"Alt det andet")+'</h3><div class="case__shots">'; a.shots.forEach(s=>v+='<img src="'+s+'" alt="" loading="lazy">'); v+='</div>'; }
 	if(a.video){ v+='<figure class="case__video"><video controls preload="none" poster="'+a.video.poster+'">'+
 		'<source src="'+a.video.fil+'" type="video/mp4"></video>'+
 		'<figcaption>'+esc(a.video.tekst)+'</figcaption></figure>'; }
@@ -1043,32 +1103,23 @@ function visApp(n){
 	const bad=a.live?'<span class="phone__tag">'+(sprog==="en"?"Live prototype":"Live prototype")+'</span>':'<span class="phone__tag" style="background:var(--line)">'+(sprog==="en"?"Static":"Statisk")+'</span>';
 	const kn=a.live?'<button class="phone__btn" id="simReset">'+(sprog==="en"?"Restart":"Start forfra")+'</button>':'';
 
-	appBody.innerHTML='<div class="appview"><div class="appview__txt">'+v+'</div>'+
+	const html='<button class="case__back" type="button" id="caseBack" style="margin:0 0 20px">'+
+		(sprog==="en"?"← Back to the folder":"← Tilbage til mappen")+'</button>'+
+		'<div class="appview"><div class="appview__txt">'+v+'</div>'+
 		'<div class="phone"><div class="phone__frame"><span class="phone__notch"></span>'+
 		'<div class="phone__screen">'+sk+'<span class="phone__bar"></span></div></div>'+
 		'<div class="phone__foot">'+bad+kn+'</div><p class="phone__note">'+esc(a.hint)+'</p></div></div>';
+	visIVindue(html, a.farve, a.titel+" — "+a.mappe);
 
-	appBody.scrollTop=0;
-	appAccent.style.background=a.farve;
-	appBarTitle.textContent=a.titel+" — "+a.mappe;
 	appWin.dataset.app=n;
 
-	/* Sørg for at hele telefonen kan ses */
-	if(!appWin.classList.contains("max")){
-		const maxH=window.innerHeight-70;
-		const maxW=window.innerWidth-60;
-		appWin.style.height=Math.min(760,maxH)+"px";
-		appWin.style.width=Math.min(1020,maxW)+"px";
-		appWin.style.top="40px";
-		appWin.style.left=Math.max(20,(window.innerWidth-Math.min(1020,maxW))/2)+"px";
-	}
 
 	const r=document.getElementById("simReset");
 	if(r) r.addEventListener("click",()=>{ const f=document.getElementById("simFrame"); if(f) f.src=a.sim; });
 	aabn("w-app");
 }
 
-document.querySelectorAll(".thing[data-app]").forEach(t=>t.addEventListener("click",e=>{e.preventDefault();visApp(t.dataset.app);}));
+
 
 /* ── Cases ── */
 const CASES={
@@ -1142,7 +1193,7 @@ const CASES={
 		citat:null,efter:null,shots:["img/foe-01.webp","img/foe-02.webp","img/foe-03.webp","img/foe-04.webp","img/foe-06.webp"],tal:[["27","billeder"]]}
 };
 
-const caseBody=document.getElementById("caseBody"),caseAccent=document.getElementById("caseAccent"),caseBarTitle=document.getElementById("caseBarTitle");
+
 
 let sidsteCase=null, sidsteApp=null;
 function visCase(n){
@@ -1153,20 +1204,19 @@ function visCase(n){
 	h+='<h2 class="case__title">'+esc(c.titel)+'</h2><p class="case__lead">'+esc(c.lead)+'</p>';
 	if(c.fakta.length){ h+='<dl class="case__facts">'; c.fakta.forEach(f=>h+='<div><dt>'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>'); h+='</dl>'; }
 	if(c.tal.length){ h+='<div class="case__stats">'; c.tal.forEach(t=>h+='<div><strong>'+esc(t[0])+'</strong><span>'+esc(t[1])+'</span></div>'); h+='</div>'; }
-	c.afsnit.forEach(a=>h+='<h3 class="case__h">'+esc(a[0])+'</h3><p class="case__p">'+esc(a[1])+'</p>');
+	c.afsnit.forEach(a=>{
+		h+='<h3 class="case__h">'+esc(a[0])+'</h3><p class="case__p">'+esc(a[1])+'</p>';
+		if(a[2]) h+='<figure class="case__midt"><img src="'+a[2]+'" alt="" loading="lazy"></figure>';
+	});
 	if(c.citat) h+='<blockquote class="case__quote">'+esc(c.citat[0])+'<span>'+esc(c.citat[1])+'</span></blockquote>';
 	if(c.efter) h+='<h3 class="case__h">'+esc(c.efter[0])+'</h3><p class="case__p">'+esc(c.efter[1])+'</p>';
-	if(c.shots.length){ h+='<div class="case__shots">'; c.shots.forEach(s=>h+='<img src="'+s+'" alt="" loading="lazy">'); h+='</div>'; }
+	if(c.shots.length){ h+='<h3 class="case__h">'+(sprog==="en"?"More":"Flere")+'</h3><div class="case__shots">'; c.shots.forEach(s=>h+='<img src="'+s+'" alt="" loading="lazy">'); h+='</div>'; }
 	if(c.link) h+='<p style="margin-top:18px"><a href="'+c.link.url+'" target="_blank" rel="noopener" style="color:'+c.farve+';font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px">'+esc(c.link.tekst)+'</a></p>';
-	h+='<button class="case__back" type="button" id="caseBack">'+(sprog==="en"?"← close":"← luk")+'</button>';
+	h+='<button class="case__back" type="button" id="caseBack">'+(sprog==="en"?"← Back to the folder":"← Tilbage til mappen")+'</button>';
 
-	caseBody.innerHTML=h; caseBody.scrollTop=0;
-	caseAccent.style.background=c.farve;
-	caseBarTitle.textContent=c.titel+" — "+c.mappe;
-	document.getElementById("caseBack").addEventListener("click",()=>luk(document.getElementById("w-case")));
-	aabn("w-case");
+	visIVindue(h, c.farve, c.titel+" — "+c.mappe);
 }
-document.querySelectorAll(".thing[data-case]").forEach(t=>t.addEventListener("click",e=>{e.preventDefault();visCase(t.dataset.case);}));
+
 
 /* ── Tegnebræt ── */
 const pad=document.getElementById("pad"),ctxP=pad.getContext("2d"),cnote=document.getElementById("cnote");

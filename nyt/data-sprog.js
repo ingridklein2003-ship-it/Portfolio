@@ -27,6 +27,7 @@ window.OVERSAT = {
 	"Foto — 2 serier": "Photography — 2 series",
 	"Om mig": "About me",
 	"Bag om arbejdet": "Behind the work",
+	"← Tilbage til mappen": "← Back to the folder",
 	"Tegn en streg": "Draw something",
 	"Kontakt": "Contact",
 
@@ -227,22 +228,28 @@ window.APPS_EN = {
 	koeberguiden: {
 		hint: "Log in with anything — the button takes you through. Try Knowledge base, Profile and Chat at the bottom.",
 		lead: "An app that makes buying a home comprehensible for first-time buyers. Built on one sentence from user testing that overturned our original assumption.",
-		fakta: [["Client","Benedikte Brechmann Estate Agency"],["My role","Visual identity, UI, social & flyer"],["Team","3 people · UCL"],["Tools","Figma · Illustrator · Photoshop"]],
-		afsnit: [["The brief","Benedikte runs a small estate agency in Kerteminde and competes with the national chains on closeness rather than volume. Her buyer advice is her strongest service and also her most invisible — many people skip it because they think they can manage on their own."],
-			["The turning point","We assumed people lacked knowledge and built towards a reference work. The needs study pointed somewhere else entirely: the barrier was social, not factual."]],
-		citat: ["„I'd never call an estate agent just because I have a question. But writing a message — that I dare do.“","Participant, needs study"],
-		efter: ["The solution","Chat sits at the far right of the bottom navigation, where the thumb reaches it — precisely because the low barrier to writing was the whole point. The knowledge base collects everything people otherwise google. In the profile you can see your own buying journey as a timeline; that came out of the second round of testing."],
+		fakta: [["Client","Benedikte Brechmann Estate Agency"],["My role","Visual identity, UI, icons, social & flyer"],["Team","3 people · UCL"],["Tools","Figma · Illustrator · Photoshop"]],
+		afsnit: [
+			["The brief","Benedikte runs a small estate agency in Kerteminde and competes with the national chains on closeness rather than volume. Her buyer advice is her strongest service and also her most invisible — many people skip it because they think they can manage on their own.",null],
+			["The turning point","We assumed people lacked knowledge and built towards a reference work. The needs study pointed somewhere else entirely: the barrier was social, not factual.","img/p5-persona.webp"],
+			["I drew every icon myself","Benedikte already had a hand-drawn house with a red roof as her mark. Rather than pulling in a standard icon set, I drew every icon in the app myself, in the same line. It means the bottom navigation, the knowledge base categories and the small markers in the profile belong to her world instead of looking like any other app.","img/p5-mockup-alt.webp"],
+			["The flow","Chat sits at the far right of the bottom navigation, where the thumb reaches it — precisely because the low barrier to writing was the whole point. In the profile you can see your own buying journey as a timeline. That came out of the second round of testing.","img/p5-userflow.webp"]
+		],
+		citat: ["„I would never ring an estate agent just to ask a question. But sending a message — that I can do.“","Participant, needs study"],
+		efter: ["Beyond the app","A content strategy with four social media pieces and a print-ready flyer. The story series opens with a question rather than an offer, and the post turns the classic agent advert on its head: instead of Benedikte selling herself, her clients' own words float around her as app notifications."],
 		tal: [["3","test rounds"],["4","social media pieces"],["8","week project"]],
 		video: {tekst:"Q&A production for Instagram. Shot in a living room with the gimbal on a moving box — the format had to be repeatable, not a one-off production."}
 	},
 	wordfestival: {
 		hint: "Save talks with the heart and go to My programme. Try saving both Helen Fielding and Ulrik Langen — they're both at 16.00, and the app tells you.",
 		lead: "An app for Word Festival in Odense where the visitor can build their own programme from over a hundred talks — without losing track of what overlaps.",
-		fakta: [["Client","Word Festival, Odense"],["Type","Installation project"],["My role","UX research, UI design, prototyping"],["Tool","Figma"]],
-		afsnit: [["The problem","Over a hundred talks across three venues in a few days. The research pointed at three things: you lose the overview, you realise too late that two talks clash, and you're unsure whether you got the best of it. The festival's own values are about calm and depth — which stood in sharp contrast to the stress of choosing."],
-			["The solution","The programme can be filtered by day, interest and venue. „My programme“ collects what you've saved so you can see your own day as a timeline rather than a list. Every talk has its own page with the speaker, so you can read your way to a decision."],
-			["What it looks like","Friday 21 November: communal singing with Thomas Bach at Borgernes Hus at 10, Morten Pape on the road from Amager to bestseller at 11, Helen Fielding on Bridget Jones at Odeon at 16, and Ulrik Langen on powdered wigs and bourgeois front-line fighters on the DIAS stage. Four very different talks at four venues — which is exactly what the app has to make manageable."]],
-		efter: ["What I learned","How full each talk is shows as a colour code, so you can see fast what's filling up. That wasn't in the first version — it arrived once we understood the problem wasn't only overview, but the fear of missing out."],
+		fakta: [["Client","Word Festival, Odense"],["Type","Installation project"],["My role","Solo: research, UI, colour, prototype"],["Tool","Figma"]],
+		afsnit: [
+			["The problem","Over a hundred talks across Borgernes Hus, Odeon and the DIAS stage in a few days. The research pointed at three things: you lose the overview, you realise too late that two talks clash, and you're unsure whether you got the best of it.",null],
+			["I chose to move away from their existing look","I carried this project on alone, and along the way I made a decision that wasn't obvious: to replace the colours and the whole expression the festival had been using. The research showed that the audience didn't read the old look as something meant for them. That isn't a decision you make to prettify something — it's one you make because the findings say the current look doesn't land with the people it needs to land with.",null],
+			["The solution","The programme filters by day, interest and venue. „My programme“ collects what you've saved so you can see your own day as a timeline rather than a list. Every talk has its own page with the speaker, so you can read your way to a decision.",null]
+		],
+		efter: ["What I learned","How full each talk is shows as a colour code, so you can see fast what's filling up. That wasn't in the first version — it arrived once I understood the problem wasn't only overview, but the fear of missing out."],
 		tal: [["100+","talks"],["3","venues"],["4","tabs"]]
 	},
 	friendfinder: {
