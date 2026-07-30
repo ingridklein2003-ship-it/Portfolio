@@ -158,28 +158,29 @@ button{font-family:inherit}
 .grip--sw{left:0;bottom:0;width:18px;height:18px;cursor:nesw-resize}
 
 /* ── Projektvisning ── */
-.things{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:34px 26px}
+.things{columns:3 190px;column-gap:22px;padding-bottom:4px}
+.things > *{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin:0 0 26px}
 .thing{display:block;cursor:pointer;text-decoration:none;color:inherit}
-.thing__m{position:relative;overflow:hidden;border-radius:6px;background:#EFEBE2;box-shadow:0 3px 12px rgba(20,18,15,.09)}
-.thing__m img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.thing__m{position:relative;overflow:hidden;border-radius:6px;background:#EFEBE2;box-shadow:0 3px 12px rgba(20,18,15,.09);display:block}
+.thing__m img{width:100%;height:auto;display:block;transition:transform .5s var(--ease)}
 .thing:hover .thing__m img{transform:scale(1.045)}
-.thing__t{font-family:var(--f-d);font-weight:600;font-size:19px;letter-spacing:-.025em;margin-top:13px;line-height:1.2}
-.thing__s{font-family:var(--f-l);font-size:13.5px;color:var(--ink-2);margin-top:4px;display:flex;align-items:center;gap:8px}
+.thing__t{font-family:var(--f-d);font-weight:600;font-size:17px;letter-spacing:-.025em;margin-top:11px;line-height:1.2}
+.thing__s{font-family:var(--f-l);font-size:12.5px;color:var(--ink-2);margin-top:4px;display:flex;align-items:center;gap:8px}
 .thing__s i{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
 .thing__wip{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:var(--neon-lime);color:#141414;padding:3px 9px;border-radius:20px;margin-bottom:9px;font-weight:500}
 .thing__go{font-size:12.5px;color:var(--neon-blue);margin-top:7px;opacity:0;transform:translateX(-4px);transition:all .3s var(--ease)}
 .thing:hover .thing__go{opacity:1;transform:none}
 
-.thing--wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px;align-items:center}
+.thing--wide{column-span:all;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px;align-items:center;margin-bottom:30px}
 .thing--wide .thing__t{font-size:26px;margin-top:0;letter-spacing:-.035em}
 .thing--wide .thing__d{font-family:var(--f-l);font-size:15px;color:var(--ink-2);line-height:1.7;margin-top:10px;max-width:44ch}
 
-.ar-16-10 .thing__m{aspect-ratio:16/10}
-.ar-1 .thing__m{aspect-ratio:1}
-.ar-3-2 .thing__m{aspect-ratio:3/2}
-.ar-a4 .thing__m{aspect-ratio:1/1.414;background:#fff}
-.fit .thing__m{background:#fff;display:grid;place-items:center;padding:13%}
-.fit .thing__m img{object-fit:contain}
+
+
+
+
+.fit .thing__m{background:#fff}
+
 
 .laptop__screen{background:#1B1B1B;border-radius:9px 9px 2px 2px;padding:8px 8px 9px}
 .laptop__screen span{display:block;border-radius:3px;overflow:hidden;aspect-ratio:16/10;background:#000}
@@ -187,9 +188,9 @@ button{font-family:inherit}
 .laptop__base::after{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:16%;height:3px;background:rgba(0,0,0,.22);border-radius:0 0 4px 4px}
 
 /* Case */
-.case__hero{margin:-26px -30px 24px;position:relative}
-.case__hero img{width:100%;aspect-ratio:21/9;object-fit:cover}
-.case__badge{position:absolute;left:30px;bottom:18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 13px;border-radius:20px;color:#fff;font-weight:500}
+.case__hero{margin:0 -30px 24px;position:relative;background:#EDE9E0;display:grid;place-items:center;padding:18px 30px}
+.case__hero img{max-width:100%;max-height:min(52vh,430px);width:auto;height:auto;object-fit:contain;border-radius:4px}
+.case__badge{position:absolute;left:30px;bottom:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 13px;border-radius:20px;color:#fff;font-weight:500}
 .case__title{font-family:var(--f-d);font-weight:800;font-size:38px;letter-spacing:-.04em;line-height:1;margin-bottom:12px}
 .case__lead{font-family:var(--f-l);font-size:16.5px;line-height:1.75;color:var(--ink-2);max-width:60ch;margin-bottom:24px}
 .case__facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:26px;border-radius:5px;overflow:hidden}
@@ -202,16 +203,17 @@ button{font-family:inherit}
 .case__quote span{display:block;font-family:var(--f-l);font-weight:400;font-size:13px;color:var(--ink-3);margin-top:9px;letter-spacing:0}
 .case__midt{margin:18px 0 4px}
 .case__midt img{width:100%;height:auto;border-radius:8px;background:#EFEBE2}
-.case__shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin:20px 0 6px}
-.case__shots img{width:100%;height:auto;border-radius:5px}
+.case__shots{columns:3 175px;column-gap:16px;margin:20px 0 6px}
+.case__shots img{break-inside:avoid;margin-bottom:16px}
+.case__shots img{width:100%;height:auto;border-radius:5px;background:#EFEBE2}
 .case__video{margin:20px 0 6px;max-width:300px}
 .case__video video{width:100%;border-radius:12px;display:block;background:#000}
 .case__video figcaption{font-size:12.5px;color:var(--ink-3);margin-top:9px;line-height:1.6}
 .case__stats{display:flex;gap:34px;flex-wrap:wrap;margin:22px 0 8px}
 .case__stats div strong{display:block;font-family:var(--f-d);font-weight:800;font-size:32px;letter-spacing:-.03em;line-height:1}
 .case__stats div span{font-size:12.5px;color:var(--ink-3)}
-.case__back{display:inline-block;margin-top:26px;font-size:13px;color:var(--ink-2);border:none;border-bottom:1px solid var(--line);padding-bottom:3px;cursor:pointer;background:none;font-family:var(--f-m)}
-.case__back:hover{color:var(--ink)}
+.case__back{display:inline-flex;align-items:center;margin:0 0 18px;font-size:13px;color:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:7px 15px;cursor:pointer;background:var(--win-bar);font-family:var(--f-m);transition:all .18s}
+.case__back:hover{color:var(--ink);border-color:var(--ink-2);background:#fff}
 
 /* App-vindue */
 .appview{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:34px;align-items:start}
@@ -231,7 +233,7 @@ button{font-family:inherit}
 
 /* Skitser */
 .sketches{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px}
-.sketches img{aspect-ratio:1;object-fit:cover;border-radius:5px;transition:transform .4s var(--ease);background:#fff}
+.sketches img{border-radius:5px;transition:transform .4s var(--ease);background:#fff}
 .sketches img:hover{transform:scale(1.06)}
 
 /* ── Om mig ── */
@@ -389,10 +391,10 @@ button{font-family:inherit}
 						<span class="thing__go" style="opacity:1">Prøv prototypen →</span>
 					</span>
 				</a>
-				<a class="thing ar-16-10" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Programplanlægger · Figma</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-16-10" data-case="hosted" href="#"><span class="thing__m"><img src="img/hosted-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">HOSTED</span><span class="thing__s"><i style="background:#CFF70E"></i>Eget produkt · app under udvikling</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-16-10" data-case="dualitet" href="#"><span class="thing__m"><img src="img/dualitet-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">Dualitet</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Podcast · under optagelse</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-16-10 fit" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.webp" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Prototype · workshop</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Programplanlægger · Figma</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="hosted" href="#"><span class="thing__m"><img src="img/hosted-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">HOSTED</span><span class="thing__s"><i style="background:#CFF70E"></i>Eget produkt · app under udvikling</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="dualitet" href="#"><span class="thing__m"><img src="img/dualitet-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">Dualitet</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Podcast · under optagelse</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.webp" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Prototype · workshop</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -403,9 +405,9 @@ button{font-family:inherit}
 		<div class="winbody">
 			<div class="winbody__head"><h2>Branding</h2><p>Visuelle universer der skal kunne holde til mange formater og stadig ligne sig selv.</p></div>
 			<div class="things">
-				<a class="thing ar-1" data-case="gaasetorvet" href="#"><span class="thing__m"><img src="img/gaasen.webp" alt=""></span><span class="thing__t">Gåsetorvet</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Identitet · 2023–24</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-1 fit" data-case="hverdagshjaelp" href="#"><span class="thing__m"><img src="img/hverdagshjaelp-logo.webp" alt=""></span><span class="thing__t">Hverdagshjælp</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Logo · 2025</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-1 fit" data-case="illustration" href="#"><span class="thing__m"><img src="img/Figur_haandbold.webp" alt=""></span><span class="thing__t">Illustration</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>18 motiver · iPad &amp; Illustrator</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="gaasetorvet" href="#"><span class="thing__m"><img src="img/gaasen.webp" alt=""></span><span class="thing__t">Gåsetorvet</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Identitet · 2023–24</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="hverdagshjaelp" href="#"><span class="thing__m"><img src="img/hverdagshjaelp-logo.webp" alt=""></span><span class="thing__t">Hverdagshjælp</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Logo · 2025</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="illustration" href="#"><span class="thing__m"><img src="img/Figur_haandbold.webp" alt=""></span><span class="thing__t">Illustration</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>18 motiver · iPad &amp; Illustrator</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -416,11 +418,11 @@ button{font-family:inherit}
 		<div class="winbody">
 			<div class="winbody__head"><h2>Print &amp; SoMe</h2><p>Alt vises i sit rigtige format — intet er beskåret for at passe i et gitter.</p></div>
 			<div class="things">
-				<a class="thing ar-a4" data-case="sanghaefter" href="#"><span class="thing__m"><img src="img/sanghaefte-cover.webp" alt=""></span><span class="thing__t">Sanghæfter</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>A4 · InDesign · 2024</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-a4" data-case="likeamovie" href="#"><span class="thing__m"><img src="img/plakat-likeamovie.webp" alt=""></span><span class="thing__t">Like a movie</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Plakat · 2026</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-a4" data-case="stayalive" href="#"><span class="thing__m"><img src="img/plakat-stayalive.webp" alt=""></span><span class="thing__t">Stay Alive</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Magasinforside · 2026</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-1" data-case="kamppost" href="#"><span class="thing__m"><img src="img/instagram-kamp-post.webp" alt=""></span><span class="thing__t">Kamp-post</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>1:1 · Instagram</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing ar-1" data-case="nytaar" href="#"><span class="thing__m"><img src="img/gaas-illustration.webp" alt=""></span><span class="thing__t">Nytårspost</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>1:1 · Instagram</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="sanghaefter" href="#"><span class="thing__m"><img src="img/sanghaefte-cover.webp" alt=""></span><span class="thing__t">Sanghæfter</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>A4 · InDesign · 2024</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="likeamovie" href="#"><span class="thing__m"><img src="img/plakat-likeamovie.webp" alt=""></span><span class="thing__t">Like a movie</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Plakat · 2026</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="stayalive" href="#"><span class="thing__m"><img src="img/plakat-stayalive.webp" alt=""></span><span class="thing__t">Stay Alive</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Magasinforside · 2026</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="kamppost" href="#"><span class="thing__m"><img src="img/instagram-kamp-post.webp" alt=""></span><span class="thing__t">Kamp-post</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>1:1 · Instagram</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="nytaar" href="#"><span class="thing__m"><img src="img/gaas-illustration.webp" alt=""></span><span class="thing__t">Nytårspost</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>1:1 · Instagram</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -440,7 +442,7 @@ button{font-family:inherit}
 						<span class="thing__go" style="opacity:1">Se serien →</span>
 					</span>
 				</a>
-				<a class="thing ar-3-2" data-case="nordatlanten" href="#"><span class="thing__m"><img src="img/foe-05.webp" alt=""></span><span class="thing__t">Nordatlanten</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Serie · 27 billeder</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="nordatlanten" href="#"><span class="thing__m"><img src="img/foe-05.webp" alt=""></span><span class="thing__t">Nordatlanten</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Serie · 27 billeder</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -1200,7 +1202,8 @@ function visCase(n){
 	sidsteCase=n;
 	let c=CASES[n]; if(!c) return;
 	if(sprog==="en") c=flet(c,(window.CASES_EN||{})[n]);
-	let h='<div class="case__hero"><img src="'+c.hero+'" alt=""><span class="case__badge" style="background:'+c.farve+'">'+esc(c.mappe)+'</span></div>';
+	let h='<button class="case__back" type="button" id="caseBack">'+(sprog==="en"?"← Back to the folder":"← Tilbage til mappen")+'</button>'+
+		'<div class="case__hero"><img src="'+c.hero+'" alt=""><span class="case__badge" style="background:'+c.farve+'">'+esc(c.mappe)+'</span></div>';
 	h+='<h2 class="case__title">'+esc(c.titel)+'</h2><p class="case__lead">'+esc(c.lead)+'</p>';
 	if(c.fakta.length){ h+='<dl class="case__facts">'; c.fakta.forEach(f=>h+='<div><dt>'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>'); h+='</dl>'; }
 	if(c.tal.length){ h+='<div class="case__stats">'; c.tal.forEach(t=>h+='<div><strong>'+esc(t[0])+'</strong><span>'+esc(t[1])+'</span></div>'); h+='</div>'; }
@@ -1212,7 +1215,6 @@ function visCase(n){
 	if(c.efter) h+='<h3 class="case__h">'+esc(c.efter[0])+'</h3><p class="case__p">'+esc(c.efter[1])+'</p>';
 	if(c.shots.length){ h+='<h3 class="case__h">'+(sprog==="en"?"More":"Flere")+'</h3><div class="case__shots">'; c.shots.forEach(s=>h+='<img src="'+s+'" alt="" loading="lazy">'); h+='</div>'; }
 	if(c.link) h+='<p style="margin-top:18px"><a href="'+c.link.url+'" target="_blank" rel="noopener" style="color:'+c.farve+';font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px">'+esc(c.link.tekst)+'</a></p>';
-	h+='<button class="case__back" type="button" id="caseBack">'+(sprog==="en"?"← Back to the folder":"← Tilbage til mappen")+'</button>';
 
 	visIVindue(h, c.farve, c.titel+" — "+c.mappe);
 }
