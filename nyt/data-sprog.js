@@ -22,11 +22,9 @@ window.OVERSAT = {
 	"Branding": "Branding",
 	"Branding — 3 emner": "Branding — 3 items",
 	"Print & SoMe": "Print & social",
-	"Print & SoMe — 3 emner": "Print & social — 3 items",
+	"Print & SoMe — 5 emner": "Print & social — 5 items",
 	"Foto": "Photography",
 	"Foto — 2 serier": "Photography — 2 series",
-	"Skitsebøger": "Sketchbooks",
-	"Skitsebøger — 33 sider": "Sketchbooks — 33 pages",
 	"Om mig": "About me",
 	"Bag om arbejdet": "Behind the work",
 	"Tegn en streg": "Draw something",
@@ -41,8 +39,6 @@ window.OVERSAT = {
 		"Everything is shown in its real format — nothing is cropped to fit a grid.",
 	"To serier. Nordatlantisk gråvejr og rå reportage med blitz.":
 		"Two series. North Atlantic grey weather and raw flash reportage.",
-	"Det uperfekte, det ufærdige og det der aldrig blev til noget. Nogle af dem blev senere til rigtige projekter.":
-		"The imperfect, the unfinished and the ones that never became anything. Some of them later turned into real projects.",
 	"Sådan ser det ud, mens det bliver til. Optagelser, gruppearbejde og alt det rod, der ikke kommer med i den færdige case.":
 		"What it looks like while it's being made. Filming, group work and all the mess that never makes it into the finished case.",
 	"Det er dit papir nu. Hent tegningen ned med pilen, så er den din.":
@@ -67,7 +63,11 @@ window.OVERSAT = {
 	"Prototype · workshop": "Prototype · workshop",
 	"Identitet · 2023–24": "Identity · 2023–24",
 	"Logo · 2025": "Logo · 2025",
-	"Figurer og karakterer · iPad": "Figures and characters · iPad",
+	"18 motiver · iPad & Illustrator": "18 pieces · iPad & Illustrator",
+	"Plakat · 2026": "Poster · 2026",
+	"Magasinforside · 2026": "Magazine cover · 2026",
+	"Like a movie": "Like a movie",
+	"Stay Alive": "Stay Alive",
 	"A4 · InDesign · 2024": "A4 · InDesign · 2024",
 	"1:1 · Instagram": "1:1 · Instagram",
 	"Reportage · 15 billeder": "Reportage · 15 photographs",
