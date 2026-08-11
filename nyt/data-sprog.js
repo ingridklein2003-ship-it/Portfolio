@@ -105,12 +105,13 @@ window.OVERSAT = {
 	"Undervisning og formidling": "Teaching and outreach",
 	"Kort fortalt": "In short",
 	"Udsigten hjemmefra": "The view from home",
+	"Bygden set fra fjeldet": "The village from the mountain",
+	"Får midt på vejen": "Sheep in the middle of the road",
+	"Havnen": "The harbour",
+	"Gråvejr, som det skal være": "Grey weather, as it should be",
 	"Fårene der altid kigger": "The sheep that always stare",
-	"Ude i det": "Out in it",
-	"Hverdag": "Everyday",
 	"På banen": "On the court",
 	"Holdet": "The team",
-	"Bag kameraet": "Behind the camera",
 	"Selvportræt, blyant": "Self-portrait, pencil",
 
 	"Jeg voksede op mellem rå natur, gamle huse og moderne byliv. Det sidder i måden jeg ser på ting — kontrasten mellem det rolige og det rå går igen i næsten alt, jeg laver.":
