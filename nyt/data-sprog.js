@@ -165,6 +165,7 @@ window.OVERSAT = {
 	"Sprog": "Languages",
 	"Ved siden af": "Alongside",
 	"Base": "Based in",
+	"Find mig": "Find me",
 	"Identitet, digitalt design, foto": "Identity, digital design, photography",
 	"Roligt og råt, med små legende detaljer": "Calm and raw, with small playful details",
 	"Illustrator, Photoshop, InDesign, Premiere, Figma": "Illustrator, Photoshop, InDesign, Premiere, Figma",
