@@ -262,6 +262,7 @@ window.APPS_EN = {
 		citat: ["„I would never ring an estate agent just to ask a question. But sending a message — that I can do.“","Participant, needs study"],
 		efter: ["Beyond the app","A content strategy with four social media pieces and a print-ready flyer. The story series opens with a question rather than an offer, and the post turns the classic agent advert on its head: instead of Benedikte selling herself, her clients' own words float around her as app notifications."],
 		tal: [["3","test rounds"],["4","social media pieces"],["8","week project"]],
+		yt: {tekst:"Documentation video from the exam project. It walks through how we worked — from the company visit and needs study to user testing and delivery."},
 		video: {tekst:"Q&A production for Instagram. Shot in a living room with the gimbal on a moving box — the format had to be repeatable, not a one-off production."}
 	},
 	wordfestival: {

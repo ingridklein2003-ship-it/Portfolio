@@ -62,6 +62,8 @@ button{font-family:inherit}
 .icon{background:none;border:none;cursor:pointer;padding:8px 3px 7px;border-radius:9px;display:flex;flex-direction:column;align-items:center;gap:7px;transition:background .15s,transform .2s var(--ease)}
 .icon:hover{background:rgba(255,255,255,.16)}
 .icon:active{transform:scale(.95)}
+@keyframes ikonhop{0%{transform:translateY(0)}30%{transform:translateY(-14px)}60%{transform:translateY(0)}80%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.icon.hopper .icon__art{animation:ikonhop .6s cubic-bezier(.3,.7,.4,1)}
 .icon.sel{background:rgba(46,107,255,.45)}
 .icon__art{width:68px;height:56px;display:grid;place-items:center;filter:drop-shadow(0 4px 7px rgba(0,0,0,.45))}
 .icon__art.mappe{width:74px;height:60px;filter:none;display:block}
@@ -235,6 +237,10 @@ button{font-family:inherit}
 .case__shots{columns:3 175px;column-gap:16px;margin:20px 0 6px}
 .case__shots img{break-inside:avoid;margin-bottom:16px}
 .case__shots img{width:100%;height:auto;border-radius:5px;background:#EFEBE2}
+.case__yt{margin:22px 0 6px}
+.case__yt .ramme{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000}
+.case__yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.case__yt figcaption{font-family:var(--f-l);font-size:13px;color:var(--ink-3);margin-top:10px;line-height:1.6}
 .case__video{margin:20px 0 6px;max-width:300px}
 .case__video video{width:100%;border-radius:12px;display:block;background:#000}
 .case__video figcaption{font-size:12.5px;color:var(--ink-3);margin-top:9px;line-height:1.6}
@@ -300,14 +306,17 @@ button{font-family:inherit}
 
 /* ── Dock ── */
 .dock{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:880;background:rgba(16,18,22,.55);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:9px 11px;display:flex;gap:9px;align-items:flex-end;box-shadow:0 18px 44px rgba(0,0,0,.48)}
-.dockitem{width:52px;height:52px;border:none;border-radius:15px;cursor:pointer;display:grid;place-items:center;position:relative;transition:transform .28s var(--ease);color:#fff;overflow:hidden}
-.dockitem:hover{transform:translateY(-11px) scale(1.13)}
+.dockitem{width:52px;height:52px;border:none;border-radius:15px;cursor:pointer;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden;flex:0 0 auto;transform-origin:bottom center;transition:transform .22s cubic-bezier(.2,.9,.3,1.2)}
+
 .dockitem svg{width:24px;height:24px}
 .dockitem img{width:100%;height:100%;object-fit:contain;padding:8px;background:#fff}
 .dockitem::after{content:attr(data-tip);position:absolute;bottom:64px;left:50%;transform:translateX(-50%);background:rgba(20,20,20,.92);color:#fff;font-family:var(--f-m);font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
 .dockitem:hover::after{opacity:1}
+@keyframes hop{0%{transform:translateY(0) scale(var(--s,1))}28%{transform:translateY(-22px) scale(calc(var(--s,1)*1.06))}55%{transform:translateY(0) scale(var(--s,1))}72%{transform:translateY(-9px) scale(var(--s,1))}100%{transform:translateY(0) scale(var(--s,1))}}
+.dockitem.hopper{animation:hop .72s cubic-bezier(.3,.7,.4,1)}
 .dockdot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.9);position:absolute;bottom:2px;left:50%;transform:translateX(-50%);opacity:0}
-.dockitem.running .dockdot{opacity:1}
+.dockitem.running .dockdot{opacity:1;animation:aande 2.6s ease-in-out infinite}
+@keyframes aande{0%,100%{opacity:1}50%{opacity:.4}}
 .docksep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);margin:5px 3px}
 .dockfolder{background:rgba(255,255,255,.24);display:grid;grid-template-columns:repeat(2,1fr);gap:3px;padding:5px}
 .dockfolder i{
@@ -334,6 +343,7 @@ button{font-family:inherit}
 	transition:opacity .5s;pointer-events:none;
 }
 .hint.vaek{opacity:0}
+
 
 /* ── Fordøren ── */
 .dor{
@@ -926,9 +936,15 @@ function aabn(id){
 		w.dataset.placeret = "1";
 	}
 
+	const nyt = !w.classList.contains("open");
 	w.classList.add("open");
 	zTop+=1; w.style.zIndex=zTop;
 	opdaterDock();
+
+	if(nyt){
+		hop(document.querySelector('.dockitem[data-w="'+id+'"]'));
+		hop(document.querySelector('.icon[data-w="'+id+'"]'));
+	}
 }
 function luk(w){ w.classList.remove("open","max"); opdaterDock(); }
 
@@ -945,6 +961,7 @@ function opdaterDock(){
 document.querySelectorAll(".icon").forEach(icon=>{
 	icon.addEventListener("click",()=>{
 		document.querySelectorAll(".icon").forEach(i=>i.classList.toggle("sel",i===icon));
+		hop(icon);
 		if(icon.dataset.app){
 			aktivMappe = document.getElementById("w-digital");
 			visApp(icon.dataset.app);
@@ -1085,6 +1102,54 @@ document.querySelectorAll(".widget").forEach(wg=>{
 		["pointerup","pointercancel"].forEach(ev=>g.addEventListener(ev,()=>{s=null;}));
 	});
 });
+
+/* ── Docken: bølge under markøren, som på en Mac ── */
+const dock = document.querySelector(".dock");
+const dockIkoner = Array.from(dock.querySelectorAll(".dockitem"));
+
+function boelge(mx){
+	dockIkoner.forEach(ik => {
+		const r = ik.getBoundingClientRect();
+		const midte = r.left + r.width / 2;
+		const afstand = Math.abs(mx - midte);
+		const raekkevidde = 150;
+
+		if(afstand > raekkevidde){
+			ik.style.setProperty("--s", 1);
+			ik.style.transform = "";
+			return;
+		}
+
+		/* Blød klokkekurve — tættest på markøren løftes mest */
+		const t = 1 - afstand / raekkevidde;
+		const skala = 1 + 0.55 * t * t;
+		const loeft = 16 * t * t;
+
+		ik.style.setProperty("--s", skala.toFixed(3));
+		ik.style.transform = "translateY(" + (-loeft).toFixed(1) + "px) scale(" + skala.toFixed(3) + ")";
+	});
+}
+
+function roDock(){
+	dockIkoner.forEach(ik => {
+		ik.style.setProperty("--s", 1);
+		ik.style.transform = "";
+	});
+}
+
+if(!window.matchMedia("(pointer: coarse)").matches){
+	dock.addEventListener("pointermove", e => boelge(e.clientX));
+	dock.addEventListener("pointerleave", roDock);
+}
+
+/* Hop når noget åbnes */
+function hop(el){
+	if(!el) return;
+	el.classList.remove("hopper");
+	void el.offsetWidth;
+	el.classList.add("hopper");
+	setTimeout(() => el.classList.remove("hopper"), 800);
+}
 
 /* ── Fordøren ── */
 const dor = document.getElementById("dor");
@@ -1306,6 +1371,7 @@ const APPS={
 		efter:["Ud over appen","En indholdsstrategi med fire SoMe-produkter og en trykklar flyer. Story-serien åbner med et spørgsmål frem for et tilbud, og opslaget vender den klassiske mæglerannonce på hovedet: i stedet for at Benedikte sælger sig selv, svæver kundernes egne ord rundt om hende som app-notifikationer."],
 		tal:[["3","testrunder"],["4","SoMe-produkter"],["8","ugers forløb"]],
 		shots:["img/p5-opslag.webp","img/p5-flyer-front.webp","img/p5-flyer-back.webp","img/p5-story-1.webp","img/p5-story-2.webp","img/p5-story-3.webp","img/p5-cover.webp","img/p5-mockup-duo.webp"],
+		yt:{id:"-qmP6AekqRM",tekst:"Dokumentationsvideo fra eksamensprojektet. Den gennemgår hvordan vi arbejdede — fra virksomhedsbesøg og behovsundersøgelse til brugertest og aflevering."},
 		video:{fil:"video/qa-video.mp4",poster:"img/qa-poster.webp",tekst:"Q&A-produktion til Instagram. Optaget hjemme i en stue med gimbal på en flyttekasse — formatet skulle være til at gentage, ikke til at producere én gang."}},
 	wordfestival:{titel:"Word Festival",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:"app-wordfestival/index.html",live:true,
 		hint:"Gem oplæg med hjertet og gå til Mit program. Prøv at gemme både Helen Fielding og Ulrik Langen — begge ligger kl. 16, og appen siger det til dig.",
@@ -1344,6 +1410,11 @@ function visApp(n){
 		v+='<h3 class="case__h">'+esc(s[0])+'</h3><p class="case__p">'+esc(s[1])+'</p>';
 		if(s[2]) v+='<figure class="case__midt"><img src="'+s[2]+'" alt="" loading="lazy"></figure>';
 	});
+	if(a.yt) v+='<h3 class="case__h">'+(sprog==="en"?"How we worked":"Sådan arbejdede vi")+'</h3>'+
+		'<figure class="case__yt"><div class="ramme"><iframe src="https://www.youtube-nocookie.com/embed/'+a.yt.id+'" '+
+		'title="Dokumentationsvideo" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" '+
+		'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'+
+		'<figcaption>'+esc(a.yt.tekst)+'</figcaption></figure>';
 	if(a.citat) v+='<blockquote class="case__quote">'+esc(a.citat[0])+'<span>'+esc(a.citat[1])+'</span></blockquote>';
 	if(a.efter) v+='<h3 class="case__h">'+esc(a.efter[0])+'</h3><p class="case__p">'+esc(a.efter[1])+'</p>';
 	if(a.shots.length){ v+='<h3 class="case__h">'+(sprog==="en"?"Everything else":"Alt det andet")+'</h3><div class="case__shots">'; a.shots.forEach(s=>v+='<img src="'+s+'" alt="" loading="lazy">'); v+='</div>'; }
