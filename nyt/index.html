@@ -275,7 +275,7 @@ button{font-family:inherit}
 .dockitem:hover{transform:translateY(-11px) scale(1.13)}
 .dockitem svg{width:24px;height:24px}
 .dockitem img{width:100%;height:100%;object-fit:contain;padding:8px;background:#fff}
-.dockitem::after{content:attr(data-tip);position:absolute;bottom:62px;left:50%;transform:translateX(-50%);background:rgba(20,20,20,.92);color:#fff;font-family:var(--f-m);font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+.dockitem::after{content:attr(data-tip);position:absolute;bottom:64px;left:50%;transform:translateX(-50%);background:rgba(20,20,20,.92);color:#fff;font-family:var(--f-m);font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
 .dockitem:hover::after{opacity:1}
 .dockdot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.9);position:absolute;bottom:2px;left:50%;transform:translateX(-50%);opacity:0}
 .dockitem.running .dockdot{opacity:1}
@@ -295,6 +295,60 @@ button{font-family:inherit}
 .toolapp{display:flex;flex-direction:column;align-items:center;gap:7px;background:none;border:none;color:#fff}
 .toolapp span:first-child{width:52px;height:52px;border-radius:13px;display:grid;place-items:center;font-family:var(--f-d);font-weight:800;font-size:18px;letter-spacing:-.02em;box-shadow:0 5px 12px rgba(0,0,0,.32)}
 .toolapp span:last-child{font-size:11.5px;opacity:.9}
+
+
+.hint{
+	position:absolute;left:26px;bottom:104px;z-index:11;
+	font-family:var(--f-m);font-size:12px;color:rgba(255,255,255,.85);
+	background:rgba(10,12,16,.5);backdrop-filter:blur(8px);
+	border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:7px 15px;
+	transition:opacity .5s;pointer-events:none;
+}
+.hint.vaek{opacity:0}
+
+/* ── Fordøren ── */
+.dor{
+	position:absolute;inset:0;z-index:700;
+	display:grid;place-items:center;padding:24px;
+	background:rgba(10,12,16,.72);backdrop-filter:blur(14px);
+	transition:opacity .5s var(--ease),visibility .5s;
+}
+.dor.vaek{opacity:0;visibility:hidden;pointer-events:none}
+.dor__kort{
+	width:min(680px,100%);background:var(--win);border-radius:18px;
+	padding:clamp(26px,4vw,44px);box-shadow:0 40px 90px rgba(0,0,0,.5);
+	animation:dorInd .6s var(--ease) both;
+}
+@keyframes dorInd{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+.dor__top{display:flex;gap:20px;align-items:center;margin-bottom:22px}
+.dor__foto{width:76px;height:76px;border-radius:50%;object-fit:cover;flex:0 0 76px}
+.dor h1{font-family:var(--f-d);font-weight:800;font-size:clamp(26px,4.4vw,38px);letter-spacing:-.04em;line-height:1.04}
+.dor__und{font-family:var(--f-l);font-size:15px;color:var(--ink-2);margin-top:5px}
+.dor__brod{font-family:var(--f-l);font-size:16px;line-height:1.7;color:var(--ink-2);margin-bottom:24px;max-width:56ch}
+.dor__valg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.dor__valg button{
+	background:var(--win-bar);border:1px solid var(--line);border-radius:14px;
+	padding:18px 16px;text-align:left;transition:all .2s var(--ease);
+}
+.dor__valg button:hover{background:#fff;border-color:var(--ink-2);transform:translateY(-3px)}
+.dor__valg b{display:block;font-family:var(--f-d);font-weight:600;font-size:17px;letter-spacing:-.02em;margin-bottom:4px}
+.dor__valg span{font-family:var(--f-l);font-size:13px;color:var(--ink-2);line-height:1.5}
+.dor__valg i{display:block;font-style:normal;font-size:22px;margin-bottom:9px}
+.dor__bund{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.dor__udforsk{background:none;border:none;font-family:var(--f-m);font-size:13px;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.dor__udforsk:hover{color:var(--ink)}
+.dor__sprog{display:flex;gap:6px}
+.dor__sprog button{background:none;border:1px solid var(--line);border-radius:20px;padding:5px 13px;font-family:var(--f-m);font-size:12px;color:var(--ink-2);cursor:pointer}
+.dor__sprog button.on{background:var(--ink);border-color:var(--ink);color:var(--win)}
+
+/* Hjem-knap i menulinjen */
+.hjemknap{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);color:#fff;font-family:var(--f-m);font-size:11px;letter-spacing:.06em;border-radius:20px;padding:3px 12px;cursor:pointer;transition:background .2s}
+.hjemknap:hover{background:rgba(255,255,255,.3)}
+
+@media(max-width:720px){
+	.dor__valg{grid-template-columns:1fr}
+	.dor__top{flex-direction:column;align-items:flex-start;gap:12px}
+}
 
 /* Højreklik-menu */
 .ctx{position:absolute;z-index:950;min-width:270px;background:rgba(248,246,241,.96);backdrop-filter:blur(20px);border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:6px;box-shadow:0 18px 40px rgba(0,0,0,.34);display:none}
@@ -335,7 +389,7 @@ button{font-family:inherit}
 			<span class="menubar__ur"><b id="urTid">–</b><i id="urDato">–</i></span>
 			<span>Arkiv</span><span>Rediger</span><span>Vis</span>
 		</div>
-		<div class="menubar__r"><span>Færøerne</span><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
+		<div class="menubar__r"><button class="hjemknap" id="hjemknap" data-da="Forfra" data-en="Start over">Forfra</button><button class="hjemknap" id="bgknap" data-da="Baggrund" data-en="Wallpaper">Baggrund</button><span>Færøerne</span><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
 	</div>
 
 	<div class="icons" id="icons">
@@ -607,6 +661,53 @@ button{font-family:inherit}
 		<button class="dockitem" data-w="w-kontakt" data-tip="Kontakt" style="background:#4A4A4A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="dockdot"></span></button>
 	</div>
 
+
+
+	<p class="hint" id="hint">
+		<span data-da="Dobbeltklik ikke nødvendigt — ét klik åbner en mappe" data-en="No double-click needed — one click opens a folder"></span>
+	</p>
+
+	<!-- FORDØR -->
+	<div class="dor" id="dor">
+		<div class="dor__kort">
+			<div class="dor__top">
+				<img class="dor__foto" src="img/hero-portrait.webp" alt="">
+				<div>
+					<h1 data-da="Hej, jeg er Ingrid" data-en="Hi, I'm Ingrid">Hej, jeg er Ingrid</h1>
+					<p class="dor__und" data-da="Multimediedesigner — identitet, digitalt design og foto" data-en="Multimedia designer — identity, digital design and photography">Multimediedesigner — identitet, digitalt design og foto</p>
+				</div>
+			</div>
+
+			<p class="dor__brod" data-da="Det her er mit skrivebord. Du kan åbne mapperne og kigge dig omkring — eller bare vælge en af de tre nedenfor, så tager jeg dig direkte derhen." data-en="This is my desktop. You can open the folders and look around — or just pick one of the three below and I'll take you straight there.">Det her er mit skrivebord. Du kan åbne mapperne og kigge dig omkring — eller bare vælge en af de tre nedenfor, så tager jeg dig direkte derhen.</p>
+
+			<div class="dor__valg">
+				<button data-doraabn="w-digital">
+					<i>📁</i>
+					<b data-da="Se mit arbejde" data-en="See my work">Se mit arbejde</b>
+					<span data-da="Apps, branding, print og foto" data-en="Apps, branding, print and photography">Apps, branding, print og foto</span>
+				</button>
+				<button data-doraabn="w-mig">
+					<i>👋</i>
+					<b data-da="Læs om mig" data-en="About me">Læs om mig</b>
+					<span data-da="Hvem jeg er, og hvordan jeg arbejder" data-en="Who I am and how I work">Hvem jeg er, og hvordan jeg arbejder</span>
+				</button>
+				<button data-doraabn="w-tegn">
+					<i>✏️</i>
+					<b data-da="Tegn noget" data-en="Draw something">Tegn noget</b>
+					<span data-da="Der ligger et stykke papir klar til dig" data-en="There's a sheet of paper waiting for you">Der ligger et stykke papir klar til dig</span>
+				</button>
+			</div>
+
+			<div class="dor__bund">
+				<button class="dor__udforsk" id="dorLuk" data-da="Eller lad mig selv kigge rundt" data-en="Or let me look around myself">Eller lad mig selv kigge rundt</button>
+				<div class="dor__sprog">
+					<button class="on" data-dorsprog="da">Dansk</button>
+					<button data-dorsprog="en">English</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="ctx" id="ctx">
 		<p class="ctx__t">Skift baggrund</p>
 		<div class="ctx__grid" id="ctxGrid"></div>
@@ -686,6 +787,7 @@ function skiftTekst(){
 	});
 
 	document.querySelectorAll(".ctx__gruppe").forEach(h=>{ h.textContent = sprog==="en" ? h.dataset.en : h.dataset.da; });
+	dorSprog();
 	document.documentElement.lang = sprog;
 	const k = document.getElementById("sprogknap");
 	k.classList.toggle("en", sprog === "en");
@@ -869,6 +971,8 @@ desktop.addEventListener("pointerdown",e=>{
 	if(e.target===desktop) document.querySelectorAll(".icon").forEach(i=>i.classList.remove("sel"));
 });
 
+dorSprog();
+
 /* ── Widgets: flyt og skalér ── */
 document.querySelectorAll(".widget").forEach(wg=>{
 	wg.addEventListener("pointerdown",()=>{ zTop+=1; wg.style.zIndex=zTop; });
@@ -917,6 +1021,63 @@ document.querySelectorAll(".widget").forEach(wg=>{
 		["pointerup","pointercancel"].forEach(ev=>g.addEventListener(ev,()=>{s=null;}));
 	});
 });
+
+/* ── Fordøren ── */
+const dor = document.getElementById("dor");
+
+function lukDor(){
+	dor.classList.add("vaek");
+}
+
+function aabnHjem(){
+	document.querySelectorAll(".window.open").forEach(w=>{
+		if(GEMT.has(w.id)) tilbageTilMappe(w);
+		luk(w);
+	});
+	dor.classList.remove("vaek");
+}
+
+document.querySelectorAll("[data-doraabn]").forEach(k=>{
+	k.addEventListener("click",()=>{
+		lukDor();
+		aabn(k.dataset.doraabn);
+		if(k.dataset.doraabn==="w-tegn") setTimeout(fitCanvas,320);
+	});
+});
+
+document.getElementById("dorLuk").addEventListener("click",lukDor);
+
+/* Hintet forsvinder når man har åbnet noget */
+const hint=document.getElementById("hint");
+document.querySelectorAll(".icon, .dockitem").forEach(el=>{
+	el.addEventListener("click",()=>hint.classList.add("vaek"),{once:true});
+});
+document.getElementById("hjemknap").addEventListener("click",aabnHjem);
+
+document.getElementById("bgknap").addEventListener("click",e=>{
+	e.stopPropagation();
+	const r=e.currentTarget.getBoundingClientRect();
+	ctx2.style.left=Math.min(r.left-120,window.innerWidth-290)+"px";
+	ctx2.style.top=(r.bottom+8)+"px";
+	ctx2.classList.toggle("on");
+});
+
+/* Sprogknapperne i fordøren */
+document.querySelectorAll("[data-dorsprog]").forEach(k=>{
+	k.addEventListener("click",()=>{
+		if(k.dataset.dorsprog !== sprog) document.getElementById("sprogknap").click();
+	});
+});
+
+/* Fordørens egne tekster skal med i sprogskiftet */
+function dorSprog(){
+	document.querySelectorAll("[data-da]").forEach(el=>{
+		el.textContent = sprog==="en" ? el.dataset.en : el.dataset.da;
+	});
+	document.querySelectorAll("[data-dorsprog]").forEach(k=>{
+		k.classList.toggle("on", k.dataset.dorsprog === sprog);
+	});
+}
 
 /* ── Fotofremviser ── */
 const BAG=[
@@ -1289,7 +1450,6 @@ document.getElementById("t-save").addEventListener("click",()=>{
 });
 window.addEventListener("resize",()=>{ if(document.getElementById("w-tegn").classList.contains("open")) fitCanvas(); });
 
-aabn("w-digital");
 </script>
 
 </body>
