@@ -1343,7 +1343,11 @@ function tegn(){
 	const py = laerred.height - 22;
 	sc.fillStyle = "#F2F0EA";
 	sc.beginPath();
-	sc.roundRect(museX - pladeBredde / 2, py, pladeBredde, 8, 4);
+	if(sc.roundRect){
+		sc.roundRect(museX - pladeBredde / 2, py, pladeBredde, 8, 4);
+	} else {
+		sc.rect(museX - pladeBredde / 2, py, pladeBredde, 8);
+	}
 	sc.fill();
 }
 
