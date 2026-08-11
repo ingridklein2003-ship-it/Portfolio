@@ -301,6 +301,8 @@ button{font-family:inherit}
 .ctx.on{display:block}
 .ctx__t{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding:6px 10px 8px}
 .ctx__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 6px 6px}
+.ctx__gruppe{grid-column:1/-1;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:8px 2px 1px}
+.ctx__gruppe:first-child{margin-top:2px}
 .ctx__grid button{border:2px solid transparent;border-radius:6px;overflow:hidden;cursor:pointer;padding:0;background:none;line-height:0}
 .ctx__grid button.on{border-color:var(--neon-blue)}
 .ctx__grid img{width:100%;aspect-ratio:3/2;object-fit:cover}
@@ -683,6 +685,7 @@ function skiftTekst(){
 		el.innerHTML = sprog === "en" ? window.OVERSAT_HTML[id] : ORIGINAL_HTML.get(id);
 	});
 
+	document.querySelectorAll(".ctx__gruppe").forEach(h=>{ h.textContent = sprog==="en" ? h.dataset.en : h.dataset.da; });
 	document.documentElement.lang = sprog;
 	const k = document.getElementById("sprogknap");
 	k.classList.toggle("en", sprog === "en");
@@ -713,8 +716,11 @@ const desktop=document.getElementById("desktop");
 let zTop=100;
 
 /* ── Baggrunde ── */
-const BAGGRUNDE=["img/bg/bg-1.webp","img/bg/bg-2.webp","img/bg/bg-3.webp","img/bg/bg-4.webp","img/bg/bg-5.webp",
-	"img/bg/bg-6.webp","img/bg/bg-7.webp","img/bg/bg-8.webp","img/bg/bg-9.webp","img/bg/bg-10.webp"];
+/* c = dyb flade med et værk i hjørnet · a = duotone · b = sløret */
+const BAGGRUNDE=[
+	"img/bg/c-1.webp","img/bg/c-2.webp","img/bg/c-3.webp","img/bg/c-4.webp","img/bg/c-5.webp",
+	"img/bg/a-1.webp","img/bg/a-2.webp","img/bg/a-3.webp","img/bg/a-4.webp",
+	"img/bg/b-1.webp","img/bg/b-2.webp","img/bg/b-3.webp"];
 let bgValgt=0;
 
 function saetBg(i){
@@ -725,11 +731,22 @@ function saetBg(i){
 
 const ctx2=document.getElementById("ctx");
 const ctxGrid=document.getElementById("ctxGrid");
-BAGGRUNDE.forEach((b,i)=>{
-	const btn=document.createElement("button");
-	btn.innerHTML='<img src="'+b.replace(".webp","-min.webp")+'" alt="">';
-	btn.addEventListener("click",()=>{ saetBg(i); ctx2.classList.remove("on"); });
-	ctxGrid.appendChild(btn);
+const GRUPPER=[["c","Værk i hjørnet","Work in the corner"],["a","Duotone","Duotone"],["b","Sløret","Blurred"]];
+
+GRUPPER.forEach(([praefix,da,en])=>{
+	const h=document.createElement("p");
+	h.className="ctx__gruppe";
+	h.dataset.da=da; h.dataset.en=en;
+	h.textContent=da;
+	ctxGrid.appendChild(h);
+
+	BAGGRUNDE.forEach((b,i)=>{
+		if(!b.includes("/"+praefix+"-")) return;
+		const btn=document.createElement("button");
+		btn.innerHTML='<img src="'+b.replace(".webp","-min.webp")+'" alt="">';
+		btn.addEventListener("click",()=>{ saetBg(i); ctx2.classList.remove("on"); });
+		ctxGrid.appendChild(btn);
+	});
 });
 saetBg(Math.floor(Math.random()*BAGGRUNDE.length));
 
