@@ -29,6 +29,15 @@ window.OVERSAT = {
 	"Bag om arbejdet": "Behind the work",
 	"← Tilbage til mappen": "← Back to the folder",
 	"Tegn en streg": "Draw something",
+	"Kodeværkstedet": "The code workshop",
+	"Et lille spil på tolv linjer kode. Skru på tallene til venstre — koden til højre lyser op, og spillet ændrer sig med det samme. Det er sådan jeg forklarer kode til folk, der aldrig har prøvet det.":
+		"A small game in twelve lines of code. Turn the dials on the left — the code on the right lights up, and the game changes straight away. This is how I explain code to people who have never tried it.",
+	"Fang prikkerne": "Catch the dots",
+	"Flyt musen. Tre forbier, så er det slut.": "Move the mouse. Three misses and it's over.",
+	"Point:": "Score:",
+	"Liv:": "Lives:",
+	"Spillet kører seksti gange i sekundet. Hver gang gøres det samme: flyt prikkerne lidt ned, tjek om nogen rammer pladen, tegn det hele igen. Alt andet er detaljer.":
+		"The game runs sixty times a second. Each time it does the same thing: move the dots down a little, check whether any hit the bar, draw it all again. Everything else is detail.",
 	"Kontakt": "Contact",
 
 	/* ── Mappebeskrivelser ── */

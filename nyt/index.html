@@ -309,6 +309,8 @@ button{font-family:inherit}
 .dockitem{width:52px;height:52px;border:none;border-radius:15px;cursor:pointer;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden;flex:0 0 auto;transform-origin:bottom center;transition:transform .22s cubic-bezier(.2,.9,.3,1.2)}
 
 .dockitem svg{width:24px;height:24px}
+.dockitem .streg{width:78%;height:78%;background:#12100E;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.dockitem.moerk .streg{background:#F2F0EA}
 .dockitem img{width:100%;height:100%;object-fit:contain;padding:8px;background:#fff}
 .dockitem::after{content:attr(data-tip);position:absolute;bottom:64px;left:50%;transform:translateX(-50%);background:rgba(20,20,20,.92);color:#fff;font-family:var(--f-m);font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
 .dockitem:hover::after{opacity:1}
@@ -344,6 +346,41 @@ button{font-family:inherit}
 }
 .hint.vaek{opacity:0}
 
+
+
+/* ── Kodeværkstedet ── */
+.kode{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px;align-items:start}
+.spil__ramme{background:#0F1114;border-radius:14px;padding:12px;position:relative}
+#spil{display:block;width:100%;border-radius:8px;background:#0F1114;cursor:none;touch-action:none}
+.spil__hud{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-family:var(--f-m);font-size:12px;color:rgba(240,238,233,.7)}
+.spil__hud b{color:#CFF70E;font-weight:500}
+.spil__start{position:absolute;inset:12px;border-radius:8px;background:rgba(15,17,20,.86);display:grid;place-items:center;text-align:center;padding:20px;cursor:pointer}
+.spil__start.vaek{display:none}
+.spil__start p{font-family:var(--f-d);font-weight:600;font-size:19px;color:#F2F0EA;margin-bottom:6px}
+.spil__start span{font-family:var(--f-l);font-size:13px;color:rgba(240,238,233,.6)}
+
+.skruer{margin-top:18px;display:grid;gap:14px}
+.skrue{display:grid;grid-template-columns:118px 1fr 52px;gap:12px;align-items:center}
+.skrue label{font-family:var(--f-m);font-size:12px;color:var(--ink-2)}
+.skrue input{width:100%;accent-color:var(--neon-pink)}
+.skrue output{font-family:var(--f-m);font-size:12.5px;color:var(--ink);text-align:right}
+
+.kodeboks{background:#14161A;border-radius:12px;overflow:hidden;font-family:var(--f-m);font-size:12.5px;line-height:1.75}
+.kodeboks__top{display:flex;justify-content:space-between;padding:10px 14px;background:#1B1E23;color:rgba(240,238,233,.5);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.kodeboks pre{margin:0;padding:14px 16px;overflow-x:auto;color:#D8D5CD}
+.kodeboks .l{display:block;padding:1px 6px;margin:0 -6px;border-radius:3px;transition:background .25s}
+.kodeboks .l.frem{background:rgba(255,46,136,.22)}
+.k-n{color:#7C8794}          /* linjenummer */
+.k-o{color:#8B5CF6}          /* nøgleord */
+.k-f{color:#00CFE8}          /* funktion */
+.k-t{color:#CFF70E}          /* tal */
+.k-s{color:#FF8FB8}          /* streng */
+.k-k{color:#6B7280;font-style:italic} /* kommentar */
+
+.kode__note{font-family:var(--f-l);font-size:14px;line-height:1.75;color:var(--ink-2);margin-top:16px;max-width:56ch}
+.kode__note b{color:var(--ink);font-weight:500}
+
+@media(max-width:900px){ .kode{grid-template-columns:1fr} }
 
 /* ── Fordøren ── */
 .dor{
@@ -438,6 +475,7 @@ button{font-family:inherit}
 		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><img class="mappe__kig" src="img/plakat-likeamovie.webp" alt=""><span class="mappe__front"></span></span><span>Print &amp; SoMe</span></button>
 		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><img class="mappe__kig" src="img/druk-03.webp" alt=""><span class="mappe__front"></span></span><span>Foto</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><img class="mappe__kig" src="img/hero-portrait.webp" alt=""><span class="mappe__front"></span></span><span>Om mig</span></button>
+		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><img class="mappe__kig" src="img/skitse-tavle.webp" alt=""><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
 		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><img class="mappe__kig" src="img/bag/bag-01-min.webp" alt=""><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
 
 		<span class="icons__skel"></span>
@@ -633,6 +671,70 @@ button{font-family:inherit}
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
 	</section>
 
+
+	<section class="window" id="w-kode" style="left:220px;top:70px;width:900px;height:640px">
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Kodeværkstedet</span></header>
+		<div class="winbody">
+			<div class="winbody__head">
+				<h2>Kodeværkstedet</h2>
+				<p>Et lille spil på tolv linjer kode. Skru på tallene til venstre — koden til højre lyser op, og spillet ændrer sig med det samme. Det er sådan jeg forklarer kode til folk, der aldrig har prøvet det.</p>
+			</div>
+
+			<div class="kode">
+				<div>
+					<div class="spil__ramme">
+						<canvas id="spil" width="520" height="380"></canvas>
+						<div class="spil__start" id="spilStart">
+							<div>
+								<p>Fang prikkerne</p>
+								<span>Flyt musen. Tre forbier, så er det slut.</span>
+							</div>
+						</div>
+					</div>
+					<div class="spil__hud">
+						<span>Point: <b id="point">0</b></span>
+						<span>Liv: <b id="liv">3</b></span>
+					</div>
+
+					<div class="skruer">
+						<div class="skrue">
+							<label for="sTyngde">tyngde</label>
+							<input type="range" id="sTyngde" min="0.05" max="0.6" step="0.05" value="0.18">
+							<output id="uTyngde">0.18</output>
+						</div>
+						<div class="skrue">
+							<label for="sBredde">pladeBredde</label>
+							<input type="range" id="sBredde" min="30" max="200" step="10" value="90">
+							<output id="uBredde">90</output>
+						</div>
+						<div class="skrue">
+							<label for="sTakt">nyPrikHvert</label>
+							<input type="range" id="sTakt" min="20" max="140" step="10" value="70">
+							<output id="uTakt">70</output>
+						</div>
+					</div>
+
+					<p class="kode__note">
+						<b>Tyngde</b> lægges til farten hvert billede — derfor falder prikken hurtigere og hurtigere i stedet for med jævn fart.
+						<b>PladeBredde</b> afgør hvor stort et område der tæller som et træf.
+						<b>NyPrikHvert</b> er hvor mange billeder der går, før der kommer en ny — lavere tal giver flere prikker.
+					</p>
+				</div>
+
+				<div>
+					<div class="kodeboks">
+						<div class="kodeboks__top"><span>spil.js</span><span>JavaScript</span></div>
+						<pre id="kodePre"></pre>
+					</div>
+					<p class="kode__note">
+						Spillet kører seksti gange i sekundet. Hver gang gøres det samme: flyt prikkerne lidt ned, tjek om nogen rammer pladen, tegn det hele igen. Alt andet er detaljer.
+					</p>
+				</div>
+			</div>
+		</div>
+		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
+	</section>
+
 	<section class="window" id="w-kontakt" style="left:420px;top:150px;width:520px;height:390px">
 		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-cyan)"></span><span class="titlebar__t">Kontakt</span></header>
 		<div class="winbody">
@@ -702,10 +804,10 @@ button{font-family:inherit}
 	</div>
 
 	<div class="dock">
-		<button class="dockitem" data-w="w-digital" data-tip="Digitalt design" style="background:var(--neon-blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="13" rx="1.6"/><path d="M8 21h8"/></svg><span class="dockdot"></span></button>
-		<button class="dockitem" data-w="w-brand" data-tip="Branding" style="background:var(--neon-pink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/></svg><span class="dockdot"></span></button>
-		<button class="dockitem" data-w="w-print" data-tip="Print &amp; SoMe" style="background:var(--neon-lime);color:#141414"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="1.6"/><path d="M6 15h12v6H6z"/></svg><span class="dockdot"></span></button>
-		<button class="dockitem" data-w="w-foto" data-tip="Foto" style="background:var(--neon-green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="14" rx="2"/><circle cx="12" cy="13" r="3.6"/><path d="M8 6l1.6-2.4h4.8L16 6"/></svg><span class="dockdot"></span></button>
+		<button class="dockitem moerk" data-w="w-digital" data-tip="Digitalt design" style="background:var(--neon-blue)"><span class="streg" style="-webkit-mask-image:url(img/dock/ikon-digital.png);mask-image:url(img/dock/ikon-digital.png)"></span><span class="dockdot"></span></button>
+		<button class="dockitem moerk" data-w="w-brand" data-tip="Branding" style="background:var(--neon-pink)"><span class="streg" style="-webkit-mask-image:url(img/dock/ikon-brand.png);mask-image:url(img/dock/ikon-brand.png)"></span><span class="dockdot"></span></button>
+		<button class="dockitem" data-w="w-print" data-tip="Print &amp; SoMe" style="background:var(--neon-lime)"><span class="streg" style="-webkit-mask-image:url(img/dock/ikon-print.png);mask-image:url(img/dock/ikon-print.png)"></span><span class="dockdot"></span></button>
+		<button class="dockitem moerk" data-w="w-foto" data-tip="Foto" style="background:var(--neon-green)"><span class="streg" style="-webkit-mask-image:url(img/dock/ikon-foto.png);mask-image:url(img/dock/ikon-foto.png)"></span><span class="dockdot"></span></button>
 		<span class="docksep"></span>
 		<button class="dockitem dockfolder" id="toolsBtn" aria-label="Værktøjer">
 			<i style="background:#330000;color:#FF9A00">Ai</i>
@@ -713,9 +815,10 @@ button{font-family:inherit}
 			<i style="background:linear-gradient(150deg,#FF7262,#A259FF);color:#fff">Fi</i>
 			<i style="background:#1E1E1E;color:#fff;font-size:9px">&lt;/&gt;</i>
 		</button>
-		<button class="dockitem" data-w="w-tegn" data-tip="Tegn en streg" style="background:#141414"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><path d="M2 2l7.6 7.6"/></svg><span class="dockdot"></span></button>
-		<button class="dockitem" data-w="w-mig" data-tip="Om mig" style="background:var(--neon-violet)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg><span class="dockdot"></span></button>
-		<button class="dockitem" data-w="w-kontakt" data-tip="Kontakt" style="background:#4A4A4A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="dockdot"></span></button>
+		<button class="dockitem moerk" data-w="w-kode" data-tip="Kodeværkstedet" style="background:var(--neon-pink)"><span class="streg" style="-webkit-mask-image:url(img/dock/ikon-kode.png);mask-image:url(img/dock/ikon-kode.png)"></span><span class="dockdot"></span></button>
+		<button class="dockitem" data-w="w-tegn" data-tip="Tegn en streg" style="background:#F2F0EA;color:#12100E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><path d="M2 2l7.6 7.6"/></svg><span class="dockdot"></span></button>
+		<button class="dockitem moerk" data-w="w-mig" data-tip="Om mig" style="background:var(--neon-violet)"><span class="streg" style="-webkit-mask-image:url(img/dock/ikon-mig.png);mask-image:url(img/dock/ikon-mig.png)"></span><span class="dockdot"></span></button>
+		<button class="dockitem" data-w="w-kontakt" data-tip="Kontakt" style="background:#E8E4DA"><span class="streg" style="-webkit-mask-image:url(img/dock/ikon-kontakt.png);mask-image:url(img/dock/ikon-kontakt.png)"></span><span class="dockdot"></span></button>
 	</div>
 
 
@@ -1150,6 +1253,155 @@ function hop(el){
 	el.classList.add("hopper");
 	setTimeout(() => el.classList.remove("hopper"), 800);
 }
+
+/* ── Kodeværkstedet ── */
+const KODE = [
+	['<span class="k-k">// Indstillinger — dem du kan skrue på</span>', null],
+	['<span class="k-o">let</span> tyngde      = <span class="k-t">0.18</span>;', 'tyngde'],
+	['<span class="k-o">let</span> pladeBredde = <span class="k-t">90</span>;', 'bredde'],
+	['<span class="k-o">let</span> nyPrikHvert = <span class="k-t">70</span>;', 'takt'],
+	['', null],
+	['<span class="k-k">// Kaldes 60 gange i sekundet</span>', null],
+	['<span class="k-o">function</span> <span class="k-f">tegnBillede</span>() {', null],
+	['  <span class="k-o">for</span> (<span class="k-o">const</span> p <span class="k-o">of</span> prikker) {', null],
+	['    p.fart += tyngde;      <span class="k-k">// falder hurtigere</span>', 'tyngde'],
+	['    p.y    += p.fart;      <span class="k-k">// flyt den ned</span>', 'tyngde'],
+	['  }', null],
+	['  <span class="k-f">tjekTraef</span>(pladeBredde);', 'bredde'],
+	['  <span class="k-o">if</span> (billede % nyPrikHvert === <span class="k-t">0</span>) <span class="k-f">nyPrik</span>();', 'takt'],
+	['}', null]
+];
+
+const kodePre = document.getElementById("kodePre");
+
+function tegnKode(){
+	kodePre.innerHTML = KODE.map((r,i) =>
+		'<span class="l" data-n="'+(r[1]||'')+'">' +
+		'<span class="k-n">'+String(i+1).padStart(2," ")+'</span>  ' + r[0] + '</span>'
+	).join("\n");
+}
+tegnKode();
+
+function fremhaev(navn){
+	kodePre.querySelectorAll(".l").forEach(l => l.classList.toggle("frem", l.dataset.n === navn));
+	clearTimeout(fremhaev.t);
+	fremhaev.t = setTimeout(() => {
+		kodePre.querySelectorAll(".l").forEach(l => l.classList.remove("frem"));
+	}, 1600);
+}
+
+const laerred = document.getElementById("spil");
+const sc = laerred.getContext("2d");
+
+let tyngde = 0.18, pladeBredde = 90, nyPrikHvert = 70;
+let prikker = [], billede = 0, point = 0, liv = 3, koerer = false, museX = 260;
+
+const SPILFARVER = ["#CFF70E","#FF2E88","#00CFE8","#8B5CF6","#00C46F"];
+
+function nyPrik(){
+	prikker.push({
+		x: 24 + Math.random() * (laerred.width - 48),
+		y: -14,
+		fart: 0,
+		r: 8 + Math.random() * 6,
+		farve: SPILFARVER[Math.floor(Math.random() * SPILFARVER.length)]
+	});
+}
+
+function tjekTraef(bredde){
+	const py = laerred.height - 26;
+	prikker = prikker.filter(p => {
+		if(p.y > py - 6 && p.y < py + 14){
+			if(Math.abs(p.x - museX) < bredde / 2 + p.r){
+				point += 1;
+				document.getElementById("point").textContent = point;
+				return false;
+			}
+		}
+		if(p.y > laerred.height + 20){
+			liv -= 1;
+			document.getElementById("liv").textContent = Math.max(0, liv);
+			if(liv <= 0) slut();
+			return false;
+		}
+		return true;
+	});
+}
+
+function tegn(){
+	sc.clearRect(0, 0, laerred.width, laerred.height);
+
+	/* prikkerne */
+	for(const p of prikker){
+		sc.beginPath();
+		sc.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+		sc.fillStyle = p.farve;
+		sc.fill();
+	}
+
+	/* pladen */
+	const py = laerred.height - 22;
+	sc.fillStyle = "#F2F0EA";
+	sc.beginPath();
+	sc.roundRect(museX - pladeBredde / 2, py, pladeBredde, 8, 4);
+	sc.fill();
+}
+
+function loop(){
+	if(!koerer) return;
+	billede += 1;
+
+	for(const p of prikker){
+		p.fart += tyngde;
+		p.y += p.fart;
+	}
+	tjekTraef(pladeBredde);
+	if(billede % nyPrikHvert === 0) nyPrik();
+
+	tegn();
+	requestAnimationFrame(loop);
+}
+
+function start(){
+	prikker = []; billede = 0; point = 0; liv = 3; koerer = true;
+	document.getElementById("point").textContent = "0";
+	document.getElementById("liv").textContent = "3";
+	document.getElementById("spilStart").classList.add("vaek");
+	nyPrik();
+	loop();
+}
+
+function slut(){
+	koerer = false;
+	const boks = document.getElementById("spilStart");
+	boks.querySelector("p").textContent = sprog === "en" ? "Score: " + point : "Point: " + point;
+	boks.querySelector("span").textContent = sprog === "en" ? "Click to play again" : "Klik for at spille igen";
+	boks.classList.remove("vaek");
+}
+
+document.getElementById("spilStart").addEventListener("click", start);
+
+laerred.addEventListener("pointermove", e => {
+	const r = laerred.getBoundingClientRect();
+	museX = (e.clientX - r.left) * (laerred.width / r.width);
+});
+
+/* Skruerne ændrer både spillet og fremhæver linjen i koden */
+function skrue(id, ud, saet, navn){
+	const el = document.getElementById(id);
+	el.addEventListener("input", () => {
+		const v = Number(el.value);
+		document.getElementById(ud).textContent = v;
+		saet(v);
+		fremhaev(navn);
+		if(!koerer) tegn();
+	});
+}
+skrue("sTyngde", "uTyngde", v => tyngde = v, "tyngde");
+skrue("sBredde", "uBredde", v => { pladeBredde = v; tegn(); }, "bredde");
+skrue("sTakt",   "uTakt",   v => nyPrikHvert = v, "takt");
+
+tegn();
 
 /* ── Fordøren ── */
 const dor = document.getElementById("dor");
