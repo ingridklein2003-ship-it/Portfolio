@@ -113,6 +113,14 @@ window.OVERSAT = {
 	"På banen": "On the court",
 	"Holdet": "The team",
 	"Selvportræt, blyant": "Self-portrait, pencil",
+	"Ved standen til åbent hus": "At the stand on open day",
+	"Et hold i gang med opgaven": "A class working on the brief",
+	"Elevernes eget storyboard": "The students' own storyboard",
+	"Kameravinkler på post-its": "Camera angles on post-its",
+	"Lokalet fuldt": "A full room",
+	"Åbent hus på UCL": "Open day at UCL",
+	"På en brobygningsdag får eleverne en rigtig opgave: de skal lave et storyboard til en video. De tegner selv rammerne, skriver kameravinkler på post-its og finder ud af, at rækkefølgen betyder noget. De fleste har aldrig prøvet det før — og de fleste går derfra med noget, de er stolte af.":
+		"On an outreach day the students get a real brief: build a storyboard for a video. They draw the frames themselves, write camera angles on post-its, and work out that the order matters. Most have never tried it before — and most leave with something they're proud of.",
 
 	"Jeg voksede op mellem rå natur, gamle huse og moderne byliv. Det sidder i måden jeg ser på ting — kontrasten mellem det rolige og det rå går igen i næsten alt, jeg laver.":
 		"I grew up between raw nature, old houses and modern city life. It sits in the way I look at things — the contrast between the calm and the rough runs through nearly everything I make.",

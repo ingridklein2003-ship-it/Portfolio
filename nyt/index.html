@@ -174,7 +174,7 @@ button{font-family:inherit}
 .titlebar__t{position:absolute;left:0;right:0;text-align:center;font-size:13px;color:var(--ink-2);pointer-events:none}
 .titlebar__accent{width:8px;height:8px;border-radius:50%;margin-left:6px;z-index:2}
 
-.winbody{flex:1;overflow-y:auto;padding:26px 30px 34px}
+.winbody{flex:1;overflow-y:auto;padding:28px clamp(28px,4vw,52px) 40px}
 .winbody__head{margin-bottom:26px;max-width:64ch}
 .winbody__head h2{font-family:var(--f-d);font-weight:800;font-size:32px;letter-spacing:-.035em;line-height:1.02;margin-bottom:9px}
 .winbody__head p{font-family:var(--f-l);color:var(--ink-2);font-size:15.5px;line-height:1.65}
@@ -187,7 +187,7 @@ button{font-family:inherit}
 .grip--sw{left:0;bottom:0;width:18px;height:18px;cursor:nesw-resize}
 
 /* ── Projektvisning ── */
-.things{columns:3 190px;column-gap:22px;padding-bottom:4px}
+.things{columns:4 210px;column-gap:24px;padding-bottom:4px}
 .things > *{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin:0 0 26px}
 .thing{display:block;cursor:pointer;text-decoration:none;color:inherit}
 .thing__m{position:relative;overflow:hidden;border-radius:6px;background:#EFEBE2;box-shadow:0 3px 12px rgba(20,18,15,.09);display:block}
@@ -218,7 +218,7 @@ button{font-family:inherit}
 
 /* Case */
 .case__hero{margin:0 -30px 24px;position:relative;background:#EDE9E0;display:grid;place-items:center;padding:18px 30px}
-.case__hero img{max-width:100%;max-height:min(52vh,430px);width:auto;height:auto;object-fit:contain;border-radius:4px}
+.case__hero img{max-width:100%;max-height:min(58vh,520px);width:auto;height:auto;object-fit:contain;border-radius:4px}
 .case__badge{position:absolute;left:30px;bottom:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 13px;border-radius:20px;color:#fff;font-weight:500}
 .case__title{font-family:var(--f-d);font-weight:800;font-size:38px;letter-spacing:-.04em;line-height:1;margin-bottom:12px}
 .case__lead{font-family:var(--f-l);font-size:16.5px;line-height:1.75;color:var(--ink-2);max-width:60ch;margin-bottom:24px}
@@ -266,12 +266,12 @@ button{font-family:inherit}
 .sketches img:hover{transform:scale(1.06)}
 
 /* ── Om mig ── */
-.me__top{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:34px;align-items:start;margin-bottom:30px}
+.me__top{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:40px;align-items:start;margin-bottom:30px}
 .me__port{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px}
 .me h3{font-family:var(--f-d);font-weight:800;font-size:34px;letter-spacing:-.04em;line-height:1.04;margin-bottom:16px}
 .me h3 em{font-style:normal;color:var(--neon-violet)}
 .me p{font-family:var(--f-l);color:var(--ink-2);font-size:16px;line-height:1.8;margin-bottom:14px;max-width:54ch}
-.me__strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:24px 0}
+.me__strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;margin:24px 0}
 .me__strip figure{border-radius:5px;overflow:hidden;background:#EFEBE2}
 .me__strip img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .me__strip figcaption{font-size:12px;color:var(--ink-3);padding:7px 2px 0}
@@ -396,6 +396,7 @@ button{font-family:inherit}
 	.icon__art,.icon__art svg{width:60px;height:50px}
 	.appicon .icon__art{width:54px;height:54px}
 	.window{left:8px !important;top:38px !important;width:calc(100% - 16px) !important;height:calc(100% - 136px) !important}
+	.things{columns:1}
 	.grip{display:none}
 	.appview{grid-template-columns:1fr}
 	.phone{position:static;max-width:310px;margin:0 auto}
@@ -569,7 +570,17 @@ button{font-family:inherit}
 				<h4 class="me__h">Undervisning og formidling</h4>
 				<p id="om-underv-1">Jeg har undervist flere gange på <strong>brobygning</strong>, hvor gymnasie- og HF-elever kommer ud og prøver multimediedesign af. Jeg står for undervisningen og er den, der forklarer faget for folk, der aldrig har rørt det før.</p>
 				<p id="om-underv-2">Derudover har jeg repræsenteret uddannelsen ved <strong>åbent hus</strong>, og fra september er jeg <strong>tutor</strong> for de nye studerende.</p>
+				<p>På en brobygningsdag får eleverne en rigtig opgave: de skal lave et storyboard til en video. De tegner selv rammerne, skriver kameravinkler på post-its og finder ud af, at rækkefølgen betyder noget. De fleste har aldrig prøvet det før — og de fleste går derfra med noget, de er stolte af.</p>
 				<p>Det er den del af mit arbejde, der ikke kan vises som et billede: at kunne forklare noget fagligt for nogen, der ikke kan det endnu, og gøre det så de får lyst til at prøve.</p>
+
+				<div class="me__strip">
+					<figure><img src="img/underv/stand-1.webp" alt=""><figcaption>Ved standen til åbent hus</figcaption></figure>
+					<figure><img src="img/underv/hold-1.webp" alt=""><figcaption>Et hold i gang med opgaven</figcaption></figure>
+					<figure><img src="img/underv/storyboard-1.webp" alt=""><figcaption>Elevernes eget storyboard</figcaption></figure>
+					<figure><img src="img/underv/storyboard-2.webp" alt=""><figcaption>Kameravinkler på post-its</figcaption></figure>
+					<figure><img src="img/underv/hold-2.webp" alt=""><figcaption>Lokalet fuldt</figcaption></figure>
+					<figure><img src="img/underv/atrium.webp" alt=""><figcaption>Åbent hus på UCL</figcaption></figure>
+				</div>
 
 				<h4 class="me__h">Kort fortalt</h4>
 				<dl>
@@ -895,6 +906,20 @@ document.addEventListener("click",e=>{ if(!ctx2.contains(e.target)) ctx2.classLi
 function aabn(id){
 	const w=document.getElementById(id);
 	if(!w) return;
+
+	/* Første gang: giv vinduet en størrelse der passer til skærmen */
+	if(!w.dataset.placeret && !w.classList.contains("max")){
+		const raadigB = window.innerWidth - 60;
+		const raadigH = window.innerHeight - 130;
+		const b = Math.min(1240, Math.max(560, raadigB * 0.78));
+		const h = Math.min(880, Math.max(420, raadigH * 0.90));
+		w.style.width = b + "px";
+		w.style.height = h + "px";
+		w.style.left = Math.max(24, (window.innerWidth - b) / 2 + 60) + "px";
+		w.style.top = Math.max(40, (window.innerHeight - h) / 2 - 10) + "px";
+		w.dataset.placeret = "1";
+	}
+
 	w.classList.add("open");
 	zTop+=1; w.style.zIndex=zTop;
 	opdaterDock();
