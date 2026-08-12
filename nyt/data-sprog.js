@@ -39,8 +39,8 @@ window.OVERSAT = {
 	"Spillet kører seksti gange i sekundet. Hver gang gøres det samme: flyt prikkerne lidt ned, tjek om nogen rammer pladen, tegn det hele igen. Alt andet er detaljer.":
 		"The game runs sixty times a second. Each time it does the same thing: move the dots down a little, check whether any hit the bar, draw it all again. Everything else is detail.",
 	"Kontakt": "Contact",
-	"Egne optagelser": "My own shots",
-	"Mine fotos": "My photographs",
+	"Odense Havn": "Odense harbour",
+	"Venner": "Friends",
 	"KøberGuiden — prøv appen": "KøberGuiden — try the app",
 	"Word Festival": "Word Festival",
 	"Friend Finder": "Friend Finder",
