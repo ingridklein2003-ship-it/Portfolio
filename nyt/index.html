@@ -994,11 +994,11 @@ const desktop=document.getElementById("desktop");
 let zTop=100;
 
 /* ── Baggrunde ── */
-/* f = mine egne fotos · d = samme fotos i duotone · c = et værk i hjørnet */
+/* c = dyb flade med et værk i hjørnet · a = duotone · b = sløret */
 const BAGGRUNDE=[
-	"img/bg/f-1.webp","img/bg/f-2.webp","img/bg/f-3.webp","img/bg/f-4.webp","img/bg/f-5.webp","img/bg/f-6.webp",
-	"img/bg/d-1.webp","img/bg/d-2.webp","img/bg/d-3.webp","img/bg/d-4.webp",
-	"img/bg/c-1.webp","img/bg/c-2.webp","img/bg/c-3.webp","img/bg/c-4.webp","img/bg/c-5.webp"];
+	"img/bg/c-1.webp","img/bg/c-2.webp","img/bg/c-3.webp","img/bg/c-4.webp","img/bg/c-5.webp",
+	"img/bg/a-1.webp","img/bg/a-2.webp","img/bg/a-3.webp","img/bg/a-4.webp",
+	"img/bg/b-1.webp","img/bg/b-2.webp","img/bg/b-3.webp"];
 let bgValgt=0;
 
 function saetBg(i){
@@ -1009,7 +1009,7 @@ function saetBg(i){
 
 const ctx2=document.getElementById("ctx");
 const ctxGrid=document.getElementById("ctxGrid");
-const GRUPPER=[["f","Mine fotos","My photographs"],["d","Duotone","Duotone"],["c","Værk i hjørnet","Work in the corner"]];
+const GRUPPER=[["c","Værk i hjørnet","Work in the corner"],["a","Duotone","Duotone"],["b","Sløret","Blurred"]];
 
 GRUPPER.forEach(([praefix,da,en])=>{
 	const h=document.createElement("p");
@@ -1530,11 +1530,11 @@ const shot=document.getElementById("shot");
 let gi=0, gTimer=null;
 
 if(G.length){
-	G.forEach((g,i)=>{
+	for(let i=G.length-1;i>=0;i--){
 		const im=document.createElement("img");
-		im.src=g.fil; im.alt=""; im.loading = i<3 ? "eager" : "lazy";
+		im.src=G[i].fil; im.alt=""; im.loading = i<3 ? "eager" : "lazy";
 		shot.insertBefore(im,shot.firstChild);
-	});
+	}
 	const billeder=shot.querySelectorAll("img");
 
 	function visBillede(i){
@@ -1552,7 +1552,11 @@ if(G.length){
 	shot.addEventListener("mouseenter",()=>clearInterval(gTimer));
 	shot.addEventListener("mouseleave",nulstilTimer);
 	visBillede(0); nulstilTimer();
-	document.getElementById("shotFoot").textContent=G.length+" billeder fra Færøerne og DRUk.";
+	const serier=[...new Set(G.map(g=>g.serie))];
+	const foden=document.getElementById("shotFoot");
+	foden.dataset.da=G.length+" billeder — "+serier.join(", ")+".";
+	foden.dataset.en=G.length+" photographs — "+serier.map(x=>(window.OVERSAT&&window.OVERSAT[x])||x).join(", ")+".";
+	foden.textContent=foden.dataset[sprog];
 }
 document.getElementById("fotoAlle").addEventListener("click",()=>aabn("w-foto"));
 
