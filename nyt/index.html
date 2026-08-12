@@ -994,11 +994,11 @@ const desktop=document.getElementById("desktop");
 let zTop=100;
 
 /* ── Baggrunde ── */
-/* c = dyb flade med et værk i hjørnet · a = duotone · b = sløret */
+/* f = mine egne fotos · d = samme fotos i duotone · c = et værk i hjørnet */
 const BAGGRUNDE=[
-	"img/bg/c-1.webp","img/bg/c-2.webp","img/bg/c-3.webp","img/bg/c-4.webp","img/bg/c-5.webp",
-	"img/bg/a-1.webp","img/bg/a-2.webp","img/bg/a-3.webp","img/bg/a-4.webp",
-	"img/bg/b-1.webp","img/bg/b-2.webp","img/bg/b-3.webp"];
+	"img/bg/f-1.webp","img/bg/f-2.webp","img/bg/f-3.webp","img/bg/f-4.webp","img/bg/f-5.webp","img/bg/f-6.webp",
+	"img/bg/d-1.webp","img/bg/d-2.webp","img/bg/d-3.webp","img/bg/d-4.webp",
+	"img/bg/c-1.webp","img/bg/c-2.webp","img/bg/c-3.webp","img/bg/c-4.webp","img/bg/c-5.webp"];
 let bgValgt=0;
 
 function saetBg(i){
@@ -1009,7 +1009,7 @@ function saetBg(i){
 
 const ctx2=document.getElementById("ctx");
 const ctxGrid=document.getElementById("ctxGrid");
-const GRUPPER=[["c","Værk i hjørnet","Work in the corner"],["a","Duotone","Duotone"],["b","Sløret","Blurred"]];
+const GRUPPER=[["f","Mine fotos","My photographs"],["d","Duotone","Duotone"],["c","Værk i hjørnet","Work in the corner"]];
 
 GRUPPER.forEach(([praefix,da,en])=>{
 	const h=document.createElement("p");

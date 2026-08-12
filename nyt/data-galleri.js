@@ -2,6 +2,38 @@
 
 window.GALLERI = [
  {
+  "fil": "img/galleri/vis-01.webp",
+  "serie": "Egne optagelser"
+ },
+ {
+  "fil": "img/galleri/vis-02.webp",
+  "serie": "Egne optagelser"
+ },
+ {
+  "fil": "img/galleri/vis-03.webp",
+  "serie": "Egne optagelser"
+ },
+ {
+  "fil": "img/galleri/vis-04.webp",
+  "serie": "Egne optagelser"
+ },
+ {
+  "fil": "img/galleri/vis-05.webp",
+  "serie": "Egne optagelser"
+ },
+ {
+  "fil": "img/galleri/vis-06.webp",
+  "serie": "Egne optagelser"
+ },
+ {
+  "fil": "img/galleri/vis-07.webp",
+  "serie": "Egne optagelser"
+ },
+ {
+  "fil": "img/galleri/vis-08.webp",
+  "serie": "Egne optagelser"
+ },
+ {
   "fil": "img/galleri/foe-01.webp",
   "serie": "Færøerne"
  },
