@@ -1,4 +1,4 @@
-/* Billedgalleri — genereres automatisk. */
+/* Billedgalleri. Genereres automatisk. */
 
 window.GALLERI = [
  {

@@ -10,7 +10,7 @@ document.querySelector("#faqList");
 const faqItems = [
     { question: "Hvad er køberrådgivning?", answer: "Køberrådgivning er professionel hjælp til dig som boligkøber, så du undgår dyre fejl." },
     { question: "Hvad koster det at bruge en køberrådgiver?", answer: "Prisen afhænger af opgavens omfang. Kontakt os for et uforpligtende tilbud." },
-    { question: "Hvornår i processen skal jeg kontakte jer?", answer: "Jo tidligere jo bedre — gerne inden du begynder at kigge på boliger." },
+    { question: "Hvornår i processen skal jeg kontakte jer?", answer: "Jo tidligere jo bedre, gerne inden du begynder at kigge på boliger." },
     { question: "Kan I hjælpe med budgetlægning?", answer: "Ja, vi hjælper dig med at lægge et realistisk budget inden boligkøbet." },
     { question: "Hvad sker der ved et boligtjek?", answer: "Vi gennemgår boligen og alle dokumenter, så du ved præcist hvad du køber." }
 ];

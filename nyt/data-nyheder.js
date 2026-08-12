@@ -1,4 +1,4 @@
-/* Nyheder — ret i denne fil. Nyeste opslag øverst.
+/* Nyheder. Ret i denne fil. Nyeste opslag øverst.
    type: "projekt" | "karriere" | "note"  ·  dato: ÅÅÅÅ-MM-DD
    titel_en og tekst_en er den engelske udgave. */
 
@@ -6,10 +6,10 @@ window.NYHEDER = [
   {
     "dato": "2026-07-28",
     "type": "projekt",
-    "titel": "Ny app under opbygning — hosting er sat op",
+    "titel": "Ny app under opbygning, hosting er sat op",
     "tekst": "Er i gang med et større app-projekt. Hostingen er på plads, og der bygges på den nu. Mere om den når der er noget at klikke på.",
     "link": null,
-    "titel_en": "New app in the works — hosting is set up",
+    "titel_en": "New app in the works, hosting is set up",
     "tekst_en": "Building a bigger app project. Hosting is in place and work is underway. More about it when there's something to click on."
   },
   {

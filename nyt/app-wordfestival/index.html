@@ -203,18 +203,18 @@ h2{font-family:var(--f-d);font-weight:600;font-size:15px;letter-spacing:-.02em;m
 const PROGRAM = [
 	{id:1, tid:"10.00", navn:"Thomas Bach", rolle:"Forfatter og sanger",
 	 titel:"Fællessang med Thomas Bach", sted:"Borgernes Hus", fyldt:"mid", init:"TB",
-	 tekst:"Vi synger sammen. Ingen forventning om at kunne noderne — det handler om at fylde rummet med stemmer."},
+	 tekst:"Vi synger sammen. Ingen forventning om at kunne noderne. Det handler om at fylde rummet med stemmer."},
 	{id:2, tid:"11.00", navn:"Morten Pape", rolle:"Forfatter",
 	 titel:"Fra Amager til bestseller", sted:"Borgernes Hus", fyldt:"fuld", init:"MP",
 	 tekst:"En samtale om at skrive sig ud af Urbanplanen, om klasserejsen der fulgte, og om hvad der sker med et menneske når bogen bliver læst af alle."},
 	{id:3, tid:"12.00", navn:"Thomas Bach", rolle:"Forfatter",
-	 titel:"BUNKER — en fabulerende fortælling fra Danmarks yderste vestkyst", sted:"Borgernes Hus", fyldt:"god", init:"TB",
+	 titel:"BUNKER: en fabulerende fortælling fra Danmarks yderste vestkyst", sted:"Borgernes Hus", fyldt:"god", init:"TB",
 	 tekst:"Om beton, hav og historier der bliver hængende i landskabet længe efter at menneskene er gået."},
 	{id:4, tid:"14.00", navn:"DIAS × Word", rolle:"Pre-event",
 	 titel:"PRE-EVENT: DIAS × Word Festival", sted:"DIAS-scenen", fyldt:"god", init:"DW",
 	 tekst:"Optakt til festivalen på DIAS-scenen. Kort format, flere stemmer."},
 	{id:5, tid:"16.00", navn:"Helen Fielding", rolle:"Forfatter til Bridget Jones",
-	 titel:"En samtale om Bridget Jones — og om tro, håb og den kærlighed vi ikke kan styre", sted:"Odeon", fyldt:"fuld", init:"HF",
+	 titel:"En samtale om Bridget Jones, og om tro, håb og den kærlighed vi ikke kan styre", sted:"Odeon", fyldt:"fuld", init:"HF",
 	 tekst:"Anne-Marie Mai og Simona Zetterberg-Nielsen i samtale med Helen Fielding om en figur der har fulgt læserne i tre årtier."},
 	{id:6, tid:"16.00", navn:"Ulrik Langen", rolle:"Historiker",
 	 titel:"Pudderparykker, unge kvinder og borgerlige frontkæmpere: tro, håb og kærlighed i 1700-tallet", sted:"DIAS-scenen", fyldt:"god", init:"UL",
@@ -263,7 +263,7 @@ function tegnMit(){
 	let h = "";
 	if(dubletter.length){
 		h += '<div class="konflikt"><span>⚠</span><span>To af dine oplæg ligger kl. '+dubletter[0]+
-		     '. Du kan ikke nå begge — vælg et af dem.</span></div>';
+		     '. Du kan ikke nå begge, så vælg et af dem.</span></div>';
 	}
 
 	h += '<div class="tidslinje">' + valgt.map(o =>

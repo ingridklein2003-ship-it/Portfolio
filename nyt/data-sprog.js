@@ -1,4 +1,4 @@
-/* Oversættelser — dansk til engelsk.
+/* Oversættelser fra dansk til engelsk.
    Ret frit i teksterne til højre. Nøglen til venstre skal matche
    den danske tekst i index.html præcist, ellers bliver den ikke skiftet. */
 
@@ -18,20 +18,19 @@ window.OVERSAT = {
 
 	/* ── Mapper ── */
 	"Digitalt design": "Digital design",
-	"Digitalt design — 5 emner": "Digital design — 5 items",
+	"Digitalt design · 5 emner": "Digital design · 5 items",
 	"Branding": "Branding",
-	"Branding — 3 emner": "Branding — 3 items",
+	"Branding · 3 emner": "Branding · 3 items",
 	"Print & SoMe": "Print & social",
-	"Print & SoMe — 5 emner": "Print & social — 5 items",
+	"Print & SoMe · 5 emner": "Print & social · 5 items",
 	"Foto": "Photography",
-	"Foto — 2 serier": "Photography — 2 series",
-	"Om mig": "About me",
+		"Om mig": "About me",
 	"Bag om arbejdet": "Behind the work",
 	"← Tilbage til mappen": "← Back to the folder",
 	"Tegn en streg": "Draw something",
 	"Kodeværkstedet": "The code workshop",
-	"Et lille spil på tolv linjer kode. Skru på tallene til venstre — koden til højre lyser op, og spillet ændrer sig med det samme. Det er sådan jeg forklarer kode til folk, der aldrig har prøvet det.":
-		"A small game in twelve lines of code. Turn the dials on the left — the code on the right lights up, and the game changes straight away. This is how I explain code to people who have never tried it.",
+	"Et lille spil på tolv linjer kode. Skru på tallene til venstre. Koden til højre lyser op, og spillet ændrer sig med det samme. Det er sådan jeg forklarer kode til folk, der aldrig har prøvet det.":
+		"A small game in twelve lines of code. Turn the dials on the left. The code on the right lights up, and the game changes straight away. This is how I explain code to people who have never tried it.",
 	"Fang prikkerne": "Catch the dots",
 	"Flyt musen. Tre forbier, så er det slut.": "Move the mouse. Three misses and it's over.",
 	"Point:": "Score:",
@@ -42,24 +41,24 @@ window.OVERSAT = {
 	"Færøerne": "Faroe Islands",
 	"Odense Havn": "Odense harbour",
 	"Venner": "Friends",
-	"Foto — 3 serier": "Photography — 3 series",
+	"Foto · 3 serier": "Photography · 3 series",
 	"Landskab · 42 billeder": "Landscape · 42 photographs",
 	"Reportage · 5 billeder": "Reportage · 5 photographs",
 	"Portræt · 15 billeder": "Portrait · 15 photographs",
 	"Odense Havn": "Odense harbour",
 	"Venner": "Friends",
-	"KøberGuiden — prøv appen": "KøberGuiden — try the app",
+	"KøberGuiden · prøv appen": "KøberGuiden · try the app",
 	"Word Festival": "Word Festival",
 	"Friend Finder": "Friend Finder",
 	"Værktøjer": "Tools",
 
 	/* ── Mappebeskrivelser ── */
-	"Apps og prototyper hvor research kom før form. Klik på et projekt — så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.":
+	"Apps og prototyper hvor research kom før form. Klik på et projekt. Så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.":
 		"Apps and prototypes where research came before form. Click a project and the write-up opens with a phone beside it you can actually tap around in.",
 	"Visuelle universer der skal kunne holde til mange formater og stadig ligne sig selv.":
 		"Visual identities that have to survive many formats and still look like themselves.",
-	"Alt vises i sit rigtige format — intet er beskåret for at passe i et gitter.":
-		"Everything is shown in its real format — nothing is cropped to fit a grid.",
+	"Alt vises i sit rigtige format. Intet er beskåret for at passe i et gitter.":
+		"Everything is shown in its real format. Nothing is cropped to fit a grid.",
 	"To serier. Nordatlantisk gråvejr og rå reportage med blitz.":
 		"Two series. North Atlantic grey weather and raw flash reportage.",
 	"Sådan ser det ud, mens det bliver til. Optagelser, gruppearbejde og alt det rod, der ikke kommer med i den færdige case.":
@@ -108,7 +107,7 @@ window.OVERSAT = {
 	"Illustration": "Illustration",
 
 	/* ── Bag om arbejdet ── */
-	"Bag om arbejdet — 12 billeder": "Behind the work — 12 photographs",
+	"Bag om arbejdet · 12 billeder": "Behind the work · 12 photographs",
 	"Sådan ser det ud, mens det bliver til. Papirprototyper, optagelser, værksted og alt det rod, der ikke kommer med i den færdige case.":
 		"What it looks like while it's being made. Paper prototypes, filming, workshop and all the mess that never makes it into the finished case.",
 	"Papir før pixels": "Paper before pixels",
@@ -159,14 +158,14 @@ window.OVERSAT = {
 	"Lokalet fuldt": "A full room",
 	"Åbent hus på UCL": "Open day at UCL",
 
-	"Jeg voksede op mellem rå natur, gamle huse og moderne byliv. Det sidder i måden jeg ser på ting — kontrasten mellem det rolige og det rå går igen i næsten alt, jeg laver.":
-		"I grew up between raw nature, old houses and modern city life. It sits in the way I look at things — the contrast between the calm and the rough runs through nearly everything I make.",
+	"Jeg voksede op mellem rå natur, gamle huse og moderne byliv. Det sidder i måden jeg ser på ting. Kontrasten mellem det rolige og det rå går igen i næsten alt, jeg laver.":
+		"I grew up between raw nature, old houses and modern city life. It sits in the way I look at things. The contrast between the calm and the rough runs through nearly everything I make.",
 	"Jeg arbejder bedst, når der er tid til at tænke, teste og justere. I stedet for at haste mod en løsning går jeg i dybden med idéen og målgruppen, så designet ikke bare virker visuelt, men også siger noget klart.":
 		"I work best when there's time to think, test and adjust. Instead of rushing towards a solution I go deep on the idea and the audience, so the design doesn't just look right but says something clearly.",
-	"Færøerne er ikke bare et sted på et kort for mig — det er der, mit blik for farver, kontrast og vejr er formet. Gråt lys, sorte får, røde tage og hav i alle retninger.":
-		"The Faroes aren't just a place on a map to me — they're where my eye for colour, contrast and weather was formed. Grey light, black sheep, red roofs and sea in every direction.",
-	"Jeg er vokset op med håndbold, hvor tempo, fokus og samarbejde er afgørende. Den tilgang tager jeg med ind i designarbejdet: hurtige beslutninger, klare prioriteringer og at aflevere til tiden — også når det går stærkt.":
-		"I grew up playing handball, where pace, focus and teamwork decide everything. I bring that into design work: quick decisions, clear priorities, and delivering on time — even when things move fast.",
+	"Færøerne er ikke bare et sted på et kort for mig. Det er der, mit blik for farver, kontrast og vejr er formet. Gråt lys, sorte får, røde tage og hav i alle retninger.":
+		"The Faroes aren't just a place on a map to me. They're where my eye for colour, contrast and weather was formed. Grey light, black sheep, red roofs and sea in every direction.",
+	"Jeg er vokset op med håndbold, hvor tempo, fokus og samarbejde er afgørende. Den tilgang tager jeg med ind i designarbejdet: hurtige beslutninger, klare prioriteringer og at aflevere til tiden, også når det går stærkt.":
+		"I grew up playing handball, where pace, focus and teamwork decide everything. I bring that into design work: quick decisions, clear priorities, and delivering on time, even when things move fast.",
 	"Det er den del af mit arbejde, der ikke kan vises som et billede: at kunne forklare noget fagligt for nogen, der ikke kan det endnu, og gøre det så de får lyst til at prøve.":
 		"It's the part of my work that can't be shown as an image: explaining something technical to someone who can't do it yet, in a way that makes them want to try.",
 
@@ -189,8 +188,8 @@ window.OVERSAT = {
 
 	/* ── Kontakt ── */
 	"Skal vi lave noget sammen?": "Shall we make something together?",
-	"Skriv endelig — også hvis det bare er en idé, du gerne vil vende.":
-		"Do write — even if it's just an idea you want to think out loud about.",
+	"Skriv endelig, også hvis det bare er en idé, du gerne vil vende.":
+		"Do write, even if it's just an idea you want to think out loud about.",
 	"E-mail": "Email",
 	"Telefon": "Phone",
 	"Sted": "Location",
@@ -201,7 +200,7 @@ window.OVERSAT = {
 	"Værktøjer jeg arbejder i": "Tools I work in"
 };
 
-/* Afsnit med fed skrift indeni — hele afsnittet skiftes ud */
+/* Afsnit med fed skrift indeni. Hele afsnittet skiftes ud */
 window.OVERSAT_HTML = {
 	"om-underv-1": 'I have taught several <strong>outreach programmes</strong> where upper-secondary students come in and try multimedia design. I run the teaching myself and I\'m the one explaining the field to people who have never touched it.',
 	"om-underv-2": 'I have also represented the programme at <strong>open days</strong>, and from September I\'m a <strong>tutor</strong> for the new students.'
@@ -210,11 +209,11 @@ window.OVERSAT_HTML = {
 /* ── Engelske udgaver af casene ── */
 window.CASES_EN = {
 	hosted: {
-		lead: "A party app where the host creates the party, guests join with one link in the browser, and everyone plays together from their own phone. My own product — in development.",
+		lead: "A party app where the host creates the party, guests join with one link in the browser, and everyone plays together from their own phone. My own product, still in development.",
 		fakta: [["Type","Own product · iOS app and web"],["Status","Beta · in development"],["My role","Concept, brand, design and frontend"],["Brand","Black, white caps, lime #CFF70E"]],
-		afsnit: [["The idea","Five games — Impostor, Most Likely To, Do You Know X, Tournament and card games — all of which start in under thirty seconds. The host hits start, the guests follow live. Nobody has to download anything: you open a link, type your name, and you're in."],
-			["The brand","Black background, heavy white caps and a single lime accent. It had to look like something you want to open at eleven at night — not an app for meetings. Each game has its own colour so you know it from across the room: lime for Impostor, orange for Most Likely To, cyan for Tournament."],
-			["The choice I'm proudest of","Every game has a drinking setting per player. Opt out and you get no sips, but you're still a hundred percent in the game. There are also packs with no alcohol at all — conversation cards, catch-up questions and games that work for a family evening. A party app that doesn't force anyone into anything."]],
+		afsnit: [["The idea","Five games: Impostor, Most Likely To, Do You Know X, Tournament and card games. They all start in under thirty seconds. The host hits start, the guests follow live. Nobody has to download anything: you open a link, type your name, and you're in."],
+			["The brand","Black background, heavy white caps and a single lime accent. It had to look like something you want to open at eleven at night, not an app for meetings. Each game has its own colour so you know it from across the room: lime for Impostor, orange for Most Likely To, cyan for Tournament."],
+			["The choice I'm proudest of","Every game has a drinking setting per player. Opt out and you get no sips, but you're still a hundred percent in the game. There are also packs with no alcohol at all: conversation cards, catch-up questions and games that work for a family evening. A party app that doesn't force anyone into anything."]],
 		efter: ["Where it is now","The app runs in the simulator with home, games, parties and profile. The landing page is live with a waiting list and copy in both Danish and English. I'll update this case when there's a beta you can try."],
 		tal: [["5","games"],["0","downloads for guests"],["4","tabs"]],
 		link: {tekst:"Visit the website →"}
@@ -232,7 +231,7 @@ window.CASES_EN = {
 		tal: [["4","sub-projects"],["2","years"]]
 	},
 	hverdagshjaelp: {
-		lead: "Logo and visual identity for a new home-help service. The goal was something friendly and welcoming — not clinical.",
+		lead: "Logo and visual identity for a new home-help service. The goal was something friendly and welcoming, not clinical.",
 		fakta: [["Year","2025"],["My role","Concept, logo, colours"],["Tool","Illustrator"]],
 		afsnit: [["Process","Sketches → simplification → refinement, until it felt warm and recognisable. A logo for a help service has to read fast and feel safe, even at small sizes."]]
 	},
@@ -243,7 +242,7 @@ window.CASES_EN = {
 			["The handball figure","Made as a mascot for a project world about sport. It has to feel like it's moving, even standing still."]]
 	},
 	sanghaefter: {
-		lead: "A warm, personal print design for a 60th birthday — festive without becoming cluttered.",
+		lead: "A warm, personal print design for a 60th birthday, festive without becoming cluttered.",
 		fakta: [["Year","2024"],["Tool","InDesign"],["Format","A4 · print"]],
 		afsnit: [["Process","Typographic hierarchy → grid → consistent style across pages → refinement. With that many songs the setting has to be disciplined enough that you're never lost."]]
 	},
@@ -272,46 +271,46 @@ window.CASES_EN = {
 	venner: {
 		lead: "Portraits and evenings at home. Warm light and people who aren't posing.",
 		fakta: [["Type","Portrait"],["Extent","15 photographs"],["Light","Only what was in the room"]],
-		afsnit: [["About the series","None of these were set up. I brought the camera along and then it just stayed on the table for the rest of the evening. That's why the light is uneven — nothing was switched on that wasn't already on."]],
+		afsnit: [["About the series","None of these were set up. I brought the camera along and then it just stayed on the table for the rest of the evening. That's why the light is uneven. Nothing was switched on that wasn't already on."]],
 		tal: [["15","photographs"]]
 	}
 };
 
 window.APPS_EN = {
 	koeberguiden: {
-		hint: "Log in with anything — the button takes you through. Try Knowledge base, Profile and Chat at the bottom.",
+		hint: "Log in with anything. The button takes you through. Try Knowledge base, Profile and Chat at the bottom.",
 		lead: "An app that makes buying a home comprehensible for first-time buyers. Built on one sentence from user testing that overturned our original assumption.",
 		fakta: [["Client","Benedikte Brechmann Estate Agency"],["My role","Visual identity, UI, icons, social & flyer"],["Team","3 people · UCL"],["Tools","Figma · Illustrator · Photoshop"]],
 		afsnit: [
-			["The brief","Benedikte runs a small estate agency in Kerteminde and competes with the national chains on closeness rather than volume. Her buyer advice is her strongest service and also her most invisible — many people skip it because they think they can manage on their own.",null],
+			["The brief","Benedikte runs a small estate agency in Kerteminde and competes with the national chains on closeness rather than volume. Her buyer advice is her strongest service and also her most invisible. Many people skip it because they think they can manage on their own.",null],
 			["The turning point","We assumed people lacked knowledge and built towards a reference work. The needs study pointed somewhere else entirely: the barrier was social, not factual.","img/p5-persona.webp"],
 			["I drew every icon myself","Benedikte already had a hand-drawn house with a red roof as her mark. Rather than pulling in a standard icon set, I drew every icon in the app myself, in the same line. It means the bottom navigation, the knowledge base categories and the small markers in the profile belong to her world instead of looking like any other app.","img/p5-mockup-alt.webp"],
-			["The flow","Chat sits at the far right of the bottom navigation, where the thumb reaches it — precisely because the low barrier to writing was the whole point. In the profile you can see your own buying journey as a timeline. That came out of the second round of testing.","img/p5-userflow.webp"]
+			["The flow","Chat sits at the far right of the bottom navigation, where the thumb reaches it, precisely because the low barrier to writing was the whole point. In the profile you can see your own buying journey as a timeline. That came out of the second round of testing.","img/p5-userflow.webp"]
 		],
-		citat: ["„I would never ring an estate agent just to ask a question. But sending a message — that I can do.“","Participant, needs study"],
+		citat: ["„I would never ring an estate agent just to ask a question. But sending a message, that I can do.“","Participant, needs study"],
 		efter: ["Beyond the app","A content strategy with four social media pieces and a print-ready flyer. The story series opens with a question rather than an offer, and the post turns the classic agent advert on its head: instead of Benedikte selling herself, her clients' own words float around her as app notifications."],
 		tal: [["3","test rounds"],["4","social media pieces"],["8","week project"]],
-		yt: {tekst:"Documentation video from the exam project. It walks through how we worked — from the company visit and needs study to user testing and delivery."},
-		video: {tekst:"Q&A production for Instagram. Shot in a living room with the gimbal on a moving box — the format had to be repeatable, not a one-off production."}
+		yt: {tekst:"Documentation video from the exam project. It walks through how we worked, from the company visit and needs study to user testing and delivery."},
+		video: {tekst:"Q&A production for Instagram. Shot in a living room with the gimbal on a moving box. The format had to be repeatable, not a one-off production."}
 	},
 	wordfestival: {
-		hint: "Save talks with the heart and go to My programme. Try saving both Helen Fielding and Ulrik Langen — they're both at 16.00, and the app tells you.",
-		lead: "An app for Word Festival in Odense where the visitor can build their own programme from over a hundred talks — without losing track of what overlaps.",
+		hint: "Save talks with the heart and go to My programme. Try saving both Helen Fielding and Ulrik Langen. They're both at 16.00, and the app tells you.",
+		lead: "An app for Word Festival in Odense where the visitor can build their own programme from over a hundred talks, without losing track of what overlaps.",
 		fakta: [["Client","Word Festival, Odense"],["Type","Installation project"],["My role","Solo: research, UI, colour, prototype"],["Tool","Figma"]],
 		afsnit: [
 			["The problem","Over a hundred talks across Borgernes Hus, Odeon and the DIAS stage in a few days. The research pointed at three things: you lose the overview, you realise too late that two talks clash, and you're unsure whether you got the best of it.",null],
-			["I chose to move away from their existing look","I carried this project on alone, and along the way I made a decision that wasn't obvious: to replace the colours and the whole expression the festival had been using. The research showed that the audience didn't read the old look as something meant for them. That isn't a decision you make to prettify something — it's one you make because the findings say the current look doesn't land with the people it needs to land with.",null],
+			["I chose to move away from their existing look","I carried this project on alone, and along the way I made a decision that wasn't obvious: to replace the colours and the whole expression the festival had been using. The research showed that the audience didn't read the old look as something meant for them. That isn't a decision you make to prettify something. It's one you make because the findings say the current look doesn't land with the people it needs to land with.",null],
 			["The solution","The programme filters by day, interest and venue. „My programme“ collects what you've saved so you can see your own day as a timeline rather than a list. Every talk has its own page with the speaker, so you can read your way to a decision.",null]
 		],
-		efter: ["What I learned","How full each talk is shows as a colour code, so you can see fast what's filling up. That wasn't in the first version — it arrived once I understood the problem wasn't only overview, but the fear of missing out."],
+		efter: ["What I learned","How full each talk is shows as a colour code, so you can see fast what's filling up. That wasn't in the first version. It arrived once I understood the problem wasn't only overview, but the fear of missing out."],
 		tal: [["100+","talks"],["3","venues"],["4","tabs"]]
 	},
 	friendfinder: {
-		hint: "Log in with anything. Try Events, Friends and a profile — the bottom navigation works.",
+		hint: "Log in with anything. Try Events, Friends and a profile. The bottom navigation works.",
 		lead: "An app for finding someone to do something with. It started as a greyscale wireframe in a workshop and has since been built out into a finished design.",
 		fakta: [["Type","App · clickable prototype"],["Design","Group work, 3 students"],["Code","Built out by me"],["Tools","Figma · HTML, CSS, JS"]],
 		afsnit: [["The idea","It's easy to move to a new city and hard to find someone to do things with. The app offers two routes into the same thing: either you find an event someone has already made, or you find people with the same interests."],
-			["From wireframe to design","The original project was a greyscale wireframe in Figma — six screens without colour. I built it out with an identity taken from the warm orange in the logo, and added bottom navigation so you can move freely instead of only back and forth."]],
+			["From wireframe to design","The original project was a greyscale wireframe in Figma with six screens without colour. I built it out with an identity taken from the warm orange in the logo, and added bottom navigation so you can move freely instead of only back and forth."]],
 		efter: ["The most important decision","The events are written by the users themselves, not by the app. „I'd like to invite five nice girls over for a cosy evening with good food and wine“ sounds like a person. That's the whole difference between an app you dare use and one you scroll past."],
 		tal: [["6","screens"],["2","routes in"]]
 	}

@@ -1,23 +1,23 @@
-# Nyt design — arbejdsversion
+# Nyt design, arbejdsversion
 
 Åbn `index.html`. Det er skrivebordsversionen.
 
 ## Sådan retter du indhold uden at røre koden
 
-**Nyheder** — `data-nyheder.js`
+**Nyheder** ligger i `data-nyheder.js`
 Nyeste opslag øverst. `type` kan være `projekt`, `karriere` eller `note`
 (det styrer prikkens farve). `dato` skrives som ÅÅÅÅ-MM-DD.
 
-**Billedwidget** — `data-galleri.js`
+**Billedwidget** ligger i `data-galleri.js`
 Listen over billeder der ruller på skrivebordet.
 
-**CV** — `Ingrid-Klein-CV-UDKAST.pdf`
+**CV** ligger i `Ingrid-Klein-CV-UDKAST.pdf`
 Erstat filen med dit rigtige CV, samme filnavn.
 
-**App-ikoner** — `img/ikon-word.png`, `img/ikon-friendfinder.png`,
+**App-ikoner** ligger i `img/ikon-word.png`, `img/ikon-friendfinder.png`,
 `img/ikon-koeberguiden.png`. Erstat med dine egne, 512×512 px.
 
-**Baggrunde** — `img/bg/bg-1.webp` til `bg-6.webp`
+**Baggrunde** ligger i `img/bg/bg-1.webp` til `bg-6.webp`
 plus en `-min.webp` udgave af hver til vælgeren (højreklik på skrivebordet).
 
 ## Hvad der virker
