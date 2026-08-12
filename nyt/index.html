@@ -79,7 +79,7 @@ button{font-family:inherit}
 .icon__art.mig{width:64px;height:64px;background:#8B5CF6;border-radius:17px;overflow:hidden;display:block;box-shadow:0 6px 16px rgba(0,0,0,.42);filter:none}
 .icon__art.mig img{width:100%;height:100%;object-fit:cover;display:block}
 .dokmig{width:38px;height:38px;border-radius:10px;overflow:hidden;display:block}
-.dokmig img{width:100%;height:100%;object-fit:cover;display:block}
+.dokmig img{width:100%;height:100%;object-fit:cover;display:block;background:none;padding:0}
 
 .dockitem[data-app="koeberguiden"] img{padding:4px}
 .dockitem[data-app="wordfestival"]{background:none}
@@ -103,18 +103,12 @@ button{font-family:inherit}
 .viewer__bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 18px;background:#1C1C1C;color:#D8D3C9;font-size:13px;border-top:1px solid #2A2A2A}
 
 
-/* ── Mapper: egen farve + et glimt af indholdet ── */
+/* ── Mapper: egen farve, ingen billeder ovenpå ── */
 .mappe{position:relative;width:78px;height:64px;filter:drop-shadow(0 5px 10px rgba(0,0,0,.45))}
 .mappe__bag{
 	position:absolute;inset:0;border-radius:6px 6px 7px 7px;
 	background:var(--f);
 	clip-path:polygon(0 14%,0 6%,3% 0,33% 0,42% 9%,97% 9%,100% 15%,100% 94%,97% 100%,3% 100%,0 94%);
-}
-.mappe__kig{
-	position:absolute;left:11%;right:11%;top:20%;height:52%;
-	object-fit:cover;border-radius:3px 3px 0 0;
-	box-shadow:0 -1px 0 rgba(255,255,255,.5);
-	width:78%;
 }
 .mappe__front{
 	position:absolute;left:0;right:0;bottom:0;height:66%;
@@ -126,8 +120,6 @@ button{font-family:inherit}
 	content:"";position:absolute;left:0;right:0;top:0;height:1px;
 	background:rgba(255,255,255,.45);
 }
-.icon:hover .mappe__kig{top:12%}
-.mappe__kig{transition:top .3s var(--ease)}
 
 /* ── Widgets ── */
 .widget{position:absolute;right:26px;z-index:12;width:300px;background:rgba(16,18,22,.62);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.14);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.45);overflow:hidden;display:flex;flex-direction:column;min-width:220px;min-height:160px;color:#F0EEE9}
@@ -486,13 +478,13 @@ button{font-family:inherit}
 	</div>
 
 	<div class="icons" id="icons">
-		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><img class="mappe__kig" src="img/p5-mockup-duo.webp" alt=""><span class="mappe__front"></span></span><span>Digitalt design</span></button>
-		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><img class="mappe__kig" src="img/gaasen.webp" alt=""><span class="mappe__front"></span></span><span>Branding</span></button>
-		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><img class="mappe__kig" src="img/plakat-likeamovie.webp" alt=""><span class="mappe__front"></span></span><span>Print &amp; SoMe</span></button>
-		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><img class="mappe__kig" src="img/galleri/vis-07.webp" alt=""><span class="mappe__front"></span></span><span>Foto</span></button>
+		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Digitalt design</span></button>
+		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Branding</span></button>
+		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Print &amp; SoMe</span></button>
+		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Foto</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art mig"><img src="img/tegning-mig-lys.png" alt="Tegning Ingrid har lavet af sig selv"></span><span>Om mig</span></button>
-		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><img class="mappe__kig" src="img/skitse-tavle.webp" alt=""><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
-		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><img class="mappe__kig" src="img/bag/bag-01-min.webp" alt=""><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
+		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
+		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
 
 		<span class="icons__skel"></span>
 		<span class="icons__mrk">Apps jeg har bygget</span>
@@ -837,7 +829,7 @@ button{font-family:inherit}
 		</button><span class="dokplads__navn" data-da="Værktøjer" data-en="Tools">Værktøjer</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-kode" data-tip="Kodeværkstedet"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 7.5L4 12l4.5 4.5"/><path d="M15.5 7.5L20 12l-4.5 4.5"/><path d="M13.4 5.2l-2.8 13.6"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Kodeværkstedet</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-tegn" data-tip="Tegn en streg"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c3-1 5-3 7-6s4-6 6-8"/><path d="M14.5 4.5l3.6 3.6"/><path d="M3.6 20.4l3.1-.9-2.2-2.2z"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Tegn en streg</span></span>
-		<span class="dokplads"><button class="dockitem" data-w="w-mig" data-tip="Om mig" style="background:#8B5CF6"><span class="dokmig"><img src="img/tegning-mig-lys.png" alt=""></span><span class="dockdot"></span></button><span class="dokplads__navn">Om mig</span></span>
+		<span class="dokplads"><button class="dockitem" data-w="w-mig" data-tip="Om mig" style="background:#8B5CF6"><span class="dokmig"><img src="img/tegning-mig-dok.png" alt=""></span><span class="dockdot"></span></button><span class="dokplads__navn">Om mig</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-kontakt" data-tip="Kontakt"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.8 7l8.2 6 8.2-6"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Kontakt</span></span>
 	</div>
 
