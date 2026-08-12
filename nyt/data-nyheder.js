@@ -22,15 +22,6 @@ window.NYHEDER = [
     "tekst_en": "The exam project has been delivered to Benedikte Brechmann Estate Agency: a clickable app prototype, a content strategy with four social media pieces, and a print-ready flyer."
   },
   {
-    "dato": "2026-06-14",
-    "type": "note",
-    "titel": "DRUk — ny fotoserie",
-    "tekst": "15 billeder fra en studenterfest. Blitz, ølborde og ansigter der ikke poserer. Ligger nu i Foto-mappen.",
-    "link": null,
-    "titel_en": "DRUk — new photo series",
-    "tekst_en": "15 photographs from a student party. Flash, beer tables and faces that aren't posing. Now in the Photography folder."
-  },
-  {
     "dato": "2026-05-29",
     "type": "karriere",
     "titel": "2. semester afsluttet på UCL",

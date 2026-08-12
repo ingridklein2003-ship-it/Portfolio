@@ -39,6 +39,13 @@ window.OVERSAT = {
 	"Spillet kører seksti gange i sekundet. Hver gang gøres det samme: flyt prikkerne lidt ned, tjek om nogen rammer pladen, tegn det hele igen. Alt andet er detaljer.":
 		"The game runs sixty times a second. Each time it does the same thing: move the dots down a little, check whether any hit the bar, draw it all again. Everything else is detail.",
 	"Kontakt": "Contact",
+	"Færøerne": "Faroe Islands",
+	"Odense Havn": "Odense harbour",
+	"Venner": "Friends",
+	"Foto — 3 serier": "Photography — 3 series",
+	"Landskab · 42 billeder": "Landscape · 42 photographs",
+	"Reportage · 5 billeder": "Reportage · 5 photographs",
+	"Portræt · 15 billeder": "Portrait · 15 photographs",
 	"Odense Havn": "Odense harbour",
 	"Venner": "Friends",
 	"KøberGuiden — prøv appen": "KøberGuiden — try the app",
@@ -97,7 +104,7 @@ window.OVERSAT = {
 	"Sanghæfter": "Song booklets",
 	"Kamp-post": "Match day post",
 	"Nytårspost": "New Year post",
-	"Nordatlanten": "The North Atlantic",
+	
 	"Illustration": "Illustration",
 
 	/* ── Bag om arbejdet ── */
@@ -250,17 +257,23 @@ window.CASES_EN = {
 		fakta: [["Format","1:1"],["Tool","Photoshop"],["Year","2024"]],
 		afsnit: [["Process","Composition → contrast and typography → export for social."]]
 	},
-	druk: {
-		lead: "A student party from the inside. Flash, beer tables and faces that aren't posing.",
-		fakta: [["Type","Reportage"],["Extent","15 photographs"],["Approach","Documentary"]],
-		afsnit: [["About the series","The series isn't about making the party look pretty. It's about being close enough that you can feel the room — the noise, the heat and the slightly too harsh flash."]],
-		tal: [["15","photographs"]]
-	},
 	nordatlanten: {
 		lead: "Sheep, mountains and fjords in grey weather. Where my visual eye comes from.",
-		fakta: [["Place","Faroe Islands"],["Extent","27 photographs"]],
+		fakta: [["Place","Faroe Islands"],["Extent","42 photographs"]],
 		afsnit: [["About the series","I was born and raised in the Faroe Islands. That North Atlantic mix of raw nature, old houses and modern city life shaped how I see colour, contrast and atmosphere."]],
-		tal: [["27","photographs"]]
+		tal: [["42","photographs"]]
+	},
+	odensehavn: {
+		lead: "Containers, graffiti and skaters on a grey afternoon at the harbour.",
+		fakta: [["Place","Odense harbour"],["Extent","5 photographs"],["Type","Reportage"]],
+		afsnit: [["About the series","The harbour is a place where people keep painting over each other. I went down to photograph surfaces and ended up photographing people. Those are the frames that stayed."]],
+		tal: [["5","photographs"]]
+	},
+	venner: {
+		lead: "Portraits and evenings at home. Warm light and people who aren't posing.",
+		fakta: [["Type","Portrait"],["Extent","15 photographs"],["Light","Only what was in the room"]],
+		afsnit: [["About the series","None of these were set up. I brought the camera along and then it just stayed on the table for the rest of the evening. That's why the light is uneven — nothing was switched on that wasn't already on."]],
+		tal: [["15","photographs"]]
 	}
 };
 

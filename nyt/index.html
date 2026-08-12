@@ -485,7 +485,7 @@ button{font-family:inherit}
 		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><img class="mappe__kig" src="img/p5-mockup-duo.webp" alt=""><span class="mappe__front"></span></span><span>Digitalt design</span></button>
 		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><img class="mappe__kig" src="img/gaasen.webp" alt=""><span class="mappe__front"></span></span><span>Branding</span></button>
 		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><img class="mappe__kig" src="img/plakat-likeamovie.webp" alt=""><span class="mappe__front"></span></span><span>Print &amp; SoMe</span></button>
-		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><img class="mappe__kig" src="img/druk-03.webp" alt=""><span class="mappe__front"></span></span><span>Foto</span></button>
+		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><img class="mappe__kig" src="img/galleri/vis-07.webp" alt=""><span class="mappe__front"></span></span><span>Foto</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><img class="mappe__kig" src="img/hero-portrait.webp" alt=""><span class="mappe__front"></span></span><span>Om mig</span></button>
 		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><img class="mappe__kig" src="img/skitse-tavle.webp" alt=""><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
 		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><img class="mappe__kig" src="img/bag/bag-01-min.webp" alt=""><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
@@ -575,20 +575,21 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-foto" style="left:220px;top:70px;width:800px;height:600px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-green)"></span><span class="titlebar__t">Foto — 2 serier</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-green)"></span><span class="titlebar__t">Foto — 3 serier</span></header>
 		<div class="winbody">
-			<div class="winbody__head"><h2>Foto</h2><p>To serier. Nordatlantisk gråvejr og rå reportage med blitz.</p></div>
+			<div class="winbody__head"><h2>Foto</h2><p>Tre serier. Nordatlantisk gråvejr, havnen i Odense og folk jeg holder af.</p></div>
 			<div class="things">
-				<a class="thing thing--wide" data-case="druk" href="#">
-					<span class="thing__m" style="aspect-ratio:3/2"><img src="img/druk-03.webp" alt=""></span>
+				<a class="thing thing--wide" data-case="nordatlanten" href="#">
+					<span class="thing__m" style="aspect-ratio:3/2"><img src="img/galleri/vis-07.webp" alt=""></span>
 					<span>
-						<span class="thing__t">DRUk</span>
-						<span class="thing__d">Studenterfest set indefra. Blitz, ølborde og ansigter der ikke poserer.</span>
-						<span class="thing__s"><i style="background:var(--neon-green)"></i>Reportage · 15 billeder</span>
+						<span class="thing__t">Færøerne</span>
+						<span class="thing__d">Får, fjelde og fjorde i gråvejr. Der hvor mit visuelle blik kommer fra.</span>
+						<span class="thing__s"><i style="background:var(--neon-green)"></i>Landskab · 42 billeder</span>
 						<span class="thing__go" style="opacity:1">Se serien →</span>
 					</span>
 				</a>
-				<a class="thing" data-case="nordatlanten" href="#"><span class="thing__m"><img src="img/foe-05.webp" alt=""></span><span class="thing__t">Nordatlanten</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Serie · 27 billeder</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="odensehavn" href="#"><span class="thing__m"><img src="img/galleri/vis-19.webp" alt=""></span><span class="thing__t">Odense Havn</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Reportage · 5 billeder</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="venner" href="#"><span class="thing__m"><img src="img/galleri/vis-28.webp" alt=""></span><span class="thing__t">Venner</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Portræt · 15 billeder</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -1787,16 +1788,21 @@ const CASES={
 		fakta:[["Format","1:1"],["Værktøj","Photoshop"],["År","2024"]],
 		afsnit:[["Proces","Komposition → kontrast og typografi → eksport til SoMe-format."]],
 		citat:null,efter:null,shots:[],tal:[]},
-	druk:{farve:"var(--neon-green)",mappe:"Foto",hero:"img/druk-03.webp",titel:"DRUk",
-		lead:"Studenterfest set indefra. Blitz, ølborde og ansigter der ikke poserer.",
-		fakta:[["Type","Reportage"],["Omfang","15 billeder"],["Tilgang","Dokumentar"]],
-		afsnit:[["Om serien","Serien handler ikke om at få festen til at se pæn ud. Den handler om at være tæt nok på, at man kan mærke rummet — lyden, varmen og det lidt for skarpe blitzlys."]],
-		citat:null,efter:null,shots:["img/druk-01.webp","img/druk-02.webp","img/druk-04.webp","img/druk-05.webp","img/druk-06.webp"],tal:[["15","billeder"]]},
-	nordatlanten:{farve:"var(--neon-green)",mappe:"Foto",hero:"img/foe-05.webp",titel:"Nordatlanten",
+	nordatlanten:{farve:"var(--neon-green)",mappe:"Foto",hero:"img/galleri/vis-07.webp",titel:"Færøerne",
 		lead:"Får, fjelde og fjorde i gråvejr. Der hvor mit visuelle blik kommer fra.",
-		fakta:[["Sted","Færøerne"],["Omfang","27 billeder"]],
+		fakta:[["Sted","Færøerne"],["Omfang","42 billeder"]],
 		afsnit:[["Om serien","Jeg er født og opvokset på Færøerne. Den nordatlantiske blanding af rå natur, gamle huse og moderne byliv har haft stor betydning for, hvordan jeg ser på farver, kontrast og stemning."]],
-		citat:null,efter:null,shots:["img/foe-01.webp","img/foe-02.webp","img/foe-03.webp","img/foe-04.webp","img/foe-06.webp"],tal:[["27","billeder"]]}
+		citat:null,efter:null,shots:["img/galleri/vis-01.webp","img/galleri/vis-03.webp","img/galleri/vis-08.webp","img/galleri/vis-11.webp","img/galleri/vis-12.webp","img/galleri/vis-13.webp","img/galleri/vis-15.webp","img/foe-02.webp","img/foe-04.webp"],tal:[["42","billeder"]]},
+	odensehavn:{farve:"var(--neon-green)",mappe:"Foto",hero:"img/galleri/vis-19.webp",titel:"Odense Havn",
+		lead:"Containere, graffiti og skatere en grå eftermiddag på havnen.",
+		fakta:[["Sted","Odense Havn"],["Omfang","5 billeder"],["Type","Reportage"]],
+		afsnit:[["Om serien","Havnen er et sted hvor der hele tiden bliver malet over hinanden. Jeg gik derned for at fotografere flader og endte med at fotografere folk. Det er de billeder, der blev tilbage."]],
+		citat:null,efter:null,shots:["img/galleri/vis-16.webp","img/galleri/vis-17.webp","img/galleri/vis-18.webp","img/galleri/vis-20.webp"],tal:[["5","billeder"]]},
+	venner:{farve:"var(--neon-green)",mappe:"Foto",hero:"img/galleri/vis-28.webp",titel:"Venner",
+		lead:"Portrætter og aftener hjemme. Varmt lys og folk der ikke poserer.",
+		fakta:[["Type","Portræt"],["Omfang","15 billeder"],["Lys","Kun det der var i rummet"]],
+		afsnit:[["Om serien","Ingen af billederne er sat op. Jeg havde kameraet med, og så blev det stående på bordet resten af aftenen. Det er derfor de er skæve i lyset — der blev ikke tændt andet end det, der allerede var tændt."]],
+		citat:null,efter:null,shots:["img/galleri/vis-22.webp","img/galleri/vis-25.webp","img/galleri/vis-26.webp","img/galleri/vis-30.webp","img/galleri/vis-31.webp","img/galleri/vis-33.webp"],tal:[["15","billeder"]]}
 };
 
 
