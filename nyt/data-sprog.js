@@ -39,6 +39,10 @@ window.OVERSAT = {
 	"Spillet kører seksti gange i sekundet. Hver gang gøres det samme: flyt prikkerne lidt ned, tjek om nogen rammer pladen, tegn det hele igen. Alt andet er detaljer.":
 		"The game runs sixty times a second. Each time it does the same thing: move the dots down a little, check whether any hit the bar, draw it all again. Everything else is detail.",
 	"Kontakt": "Contact",
+	"KøberGuiden — prøv appen": "KøberGuiden — try the app",
+	"Word Festival": "Word Festival",
+	"Friend Finder": "Friend Finder",
+	"Værktøjer": "Tools",
 
 	/* ── Mappebeskrivelser ── */
 	"Apps og prototyper hvor research kom før form. Klik på et projekt — så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.":

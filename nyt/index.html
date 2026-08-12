@@ -306,21 +306,28 @@ button{font-family:inherit}
 
 /* ── Dock ── */
 .dock{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:880;background:rgba(16,18,22,.55);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:9px 11px;display:flex;gap:9px;align-items:flex-end;box-shadow:0 18px 44px rgba(0,0,0,.48)}
-.dockitem{width:52px;height:52px;border:none;border-radius:15px;cursor:pointer;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden;flex:0 0 auto;transform-origin:bottom center;transition:transform .22s cubic-bezier(.2,.9,.3,1.2)}
+.dokmappe{position:relative;width:34px;height:28px;display:block}
+.dokmappe b{pointer-events:none;position:absolute;inset:5px 0 0;background:var(--f);border-radius:3px 5px 5px 5px;display:block}
+.dokmappe b::before{content:"";position:absolute;top:-5px;left:0;width:15px;height:6px;background:var(--f);border-radius:3px 4px 0 0}
+.dokmappe u{text-decoration:none;position:absolute;inset:9px 0 0;background:color-mix(in srgb,var(--f) 78%,#fff);border-radius:4px;display:block;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.dokplads{display:flex;flex-direction:column;align-items:center;gap:5px;flex:0 0 auto}
+.dokplads__navn{font-family:var(--f-m);font-size:10px;letter-spacing:.03em;color:rgba(240,238,233,.7);white-space:nowrap;max-width:74px;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.dokplads:hover .dokplads__navn{color:#fff}
+.dockitem{width:52px;height:52px;border:none;border-radius:15px;background:rgba(255,255,255,.09);cursor:pointer;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden;flex:0 0 auto;transform-origin:bottom center;transition:transform .22s cubic-bezier(.2,.9,.3,1.2)}
 
 .dockitem svg{width:24px;height:24px}
 .dockitem .mrk{font-family:var(--f-d);font-weight:800;font-size:23px;letter-spacing:-.05em;line-height:1;color:#12100E;display:block}
 .dockitem.moerk .mrk{color:#F4F2ED}
 .dockitem .mrk.lille{font-size:17px;letter-spacing:-.02em}
 .dockitem img{width:100%;height:100%;object-fit:contain;padding:8px;background:#fff}
-.dockitem::after{content:attr(data-tip);position:absolute;bottom:64px;left:50%;transform:translateX(-50%);background:rgba(20,20,20,.92);color:#fff;font-family:var(--f-m);font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+.dockitem::after{content:none;position:absolute;bottom:64px;left:50%;transform:translateX(-50%);background:rgba(20,20,20,.92);color:#fff;font-family:var(--f-m);font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
 .dockitem:hover::after{opacity:1}
 @keyframes hop{0%{transform:translateY(0) scale(var(--s,1))}28%{transform:translateY(-22px) scale(calc(var(--s,1)*1.06))}55%{transform:translateY(0) scale(var(--s,1))}72%{transform:translateY(-9px) scale(var(--s,1))}100%{transform:translateY(0) scale(var(--s,1))}}
 .dockitem.hopper{animation:hop .72s cubic-bezier(.3,.7,.4,1)}
 .dockdot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.9);position:absolute;bottom:2px;left:50%;transform:translateX(-50%);opacity:0}
 .dockitem.running .dockdot{opacity:1;animation:aande 2.6s ease-in-out infinite}
 @keyframes aande{0%,100%{opacity:1}50%{opacity:.4}}
-.docksep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);margin:5px 3px}
+.docksep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);margin:5px 4px 22px}
 .dockfolder{background:rgba(255,255,255,.24);display:grid;grid-template-columns:repeat(2,1fr);gap:3px;padding:5px}
 .dockfolder i{
 	border-radius:5px;display:grid;place-items:center;
@@ -812,21 +819,21 @@ button{font-family:inherit}
 	</div>
 
 	<div class="dock">
-		<button class="dockitem moerk" data-w="w-digital" data-tip="Digitalt design" style="background:var(--neon-blue)"><span class="mrk">D</span><span class="dockdot"></span></button>
-		<button class="dockitem moerk" data-w="w-brand" data-tip="Branding" style="background:var(--neon-pink)"><span class="mrk">B</span><span class="dockdot"></span></button>
-		<button class="dockitem" data-w="w-print" data-tip="Print &amp; SoMe" style="background:var(--neon-lime)"><span class="mrk">P</span><span class="dockdot"></span></button>
-		<button class="dockitem moerk" data-w="w-foto" data-tip="Foto" style="background:var(--neon-green)"><span class="mrk">F</span><span class="dockdot"></span></button>
+		<span class="dokplads"><button class="dockitem" data-w="w-digital" data-tip="Digitalt design"><span class="dokmappe" style="--f:#2E6BFF"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Digitalt design</span></span>
+		<span class="dokplads"><button class="dockitem" data-w="w-brand" data-tip="Branding"><span class="dokmappe" style="--f:#FF2E88"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Branding</span></span>
+		<span class="dokplads"><button class="dockitem" data-w="w-print" data-tip="Print &amp; SoMe"><span class="dokmappe" style="--f:#A8D400"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Print & SoMe</span></span>
+		<span class="dokplads"><button class="dockitem" data-w="w-foto" data-tip="Foto"><span class="dokmappe" style="--f:#00C46F"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Foto</span></span>
 		<span class="docksep"></span>
-		<button class="dockitem dockfolder" id="toolsBtn" aria-label="Værktøjer">
+		<span class="dokplads"><button class="dockitem dockfolder" id="toolsBtn" aria-label="Værktøjer">
 			<i style="background:#330000;color:#FF9A00">Ai</i>
 			<i style="background:#001E36;color:#31A8FF">Ps</i>
 			<i style="background:linear-gradient(150deg,#FF7262,#A259FF);color:#fff">Fi</i>
 			<i style="background:#1E1E1E;color:#fff;font-size:9px">&lt;/&gt;</i>
-		</button>
-		<button class="dockitem moerk" data-w="w-kode" data-tip="Kodeværkstedet" style="background:var(--neon-pink)"><span class="mrk lille">{ }</span><span class="dockdot"></span></button>
-		<button class="dockitem" data-w="w-tegn" data-tip="Tegn en streg" style="background:#F2F0EA"><span class="mrk">/</span><span class="dockdot"></span></button>
-		<button class="dockitem moerk" data-w="w-mig" data-tip="Om mig" style="background:var(--neon-violet)"><span class="mrk">I</span><span class="dockdot"></span></button>
-		<button class="dockitem" data-w="w-kontakt" data-tip="Kontakt" style="background:#E8E4DA"><span class="mrk">@</span><span class="dockdot"></span></button>
+		</button><span class="dokplads__navn" data-da="Værktøjer" data-en="Tools">Værktøjer</span></span>
+		<span class="dokplads"><button class="dockitem" data-w="w-kode" data-tip="Kodeværkstedet"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 7.5L4 12l4.5 4.5"/><path d="M15.5 7.5L20 12l-4.5 4.5"/><path d="M13.4 5.2l-2.8 13.6"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Kodeværkstedet</span></span>
+		<span class="dokplads"><button class="dockitem" data-w="w-tegn" data-tip="Tegn en streg"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c3-1 5-3 7-6s4-6 6-8"/><path d="M14.5 4.5l3.6 3.6"/><path d="M3.6 20.4l3.1-.9-2.2-2.2z"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Tegn en streg</span></span>
+		<span class="dokplads"><button class="dockitem" data-w="w-mig" data-tip="Om mig"><span class="dokmappe" style="--f:#8B5CF6"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Om mig</span></span>
+		<span class="dokplads"><button class="dockitem" data-w="w-kontakt" data-tip="Kontakt"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.8 7l8.2 6 8.2-6"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Kontakt</span></span>
 	</div>
 
 
@@ -1218,6 +1225,7 @@ document.querySelectorAll(".widget").forEach(wg=>{
 /* ── Docken: bølge under markøren, som på en Mac ── */
 const dock = document.querySelector(".dock");
 const dockIkoner = Array.from(dock.querySelectorAll(".dockitem"));
+const dockPladser = Array.from(dock.querySelectorAll(".dokplads"));
 
 function boelge(mx){
 	dockIkoner.forEach(ik => {
@@ -1465,6 +1473,12 @@ document.querySelectorAll("[data-dorsprog]").forEach(k=>{
 
 /* Fordørens egne tekster skal med i sprogskiftet */
 function dorSprog(){
+	document.querySelectorAll(".dokplads__navn").forEach(n=>{
+		if(n.dataset.en) return;
+		if(!n.dataset.dok) n.dataset.dok=n.textContent;
+		const O=window.OVERSAT||{};
+		n.textContent = sprog==="en" && O[n.dataset.dok] ? O[n.dataset.dok] : n.dataset.dok;
+	});
 	document.querySelectorAll("[data-da]").forEach(el=>{
 		el.textContent = sprog==="en" ? el.dataset.en : el.dataset.da;
 	});
