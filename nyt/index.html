@@ -390,7 +390,6 @@ button{font-family:inherit}
 	background:#A8D400;border:2px solid #12100E;display:none;
 }
 .guide.sover .guide__prik{display:block}
-@media (max-width:780px){ .guide{left:12px;bottom:96px} .guide__boble{max-width:210px} }
 .hint{
 	position:absolute;left:26px;bottom:60px;z-index:11;
 	font-family:var(--f-m);font-size:12px;color:rgba(255,255,255,.85);
@@ -479,11 +478,6 @@ button{font-family:inherit}
 .hjemknap{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);color:#fff;font-family:var(--f-m);font-size:11px;letter-spacing:.06em;border-radius:20px;padding:3px 12px;cursor:pointer;transition:background .2s}
 .hjemknap:hover{background:rgba(255,255,255,.3)}
 
-@media(max-width:720px){
-	.dor__valg{grid-template-columns:1fr}
-	.dor__top{flex-direction:column;align-items:flex-start;gap:12px}
-}
-
 /* Højreklik-menu */
 .ctx{position:absolute;z-index:950;min-width:270px;background:rgba(248,246,241,.96);backdrop-filter:blur(20px);border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:6px;box-shadow:0 18px 40px rgba(0,0,0,.34);display:none}
 .ctx.on{display:block}
@@ -495,22 +489,148 @@ button{font-family:inherit}
 .ctx__grid button.on{border-color:var(--neon-blue)}
 .ctx__grid img{width:100%;aspect-ratio:3/2;object-fit:cover}
 
-@media(max-width:1000px){
-	.widget{display:none}
-	.icons{grid-template-columns:repeat(3,96px);left:12px;top:40px;gap:5px;max-height:calc(100% - 150px)}
-	.icon__art,.icon__art svg{width:60px;height:50px}
-	.appicon .icon__art{width:54px;height:54px}
-	.window{left:8px !important;top:38px !important;width:calc(100% - 16px) !important;height:calc(100% - 136px) !important}
-	.things{columns:1}
+.kun-tlf{display:none !important}
+
+/* ══════════ iPad: skrivebordet bliver, bare tættere ══════════ */
+@media(min-width:701px) and (max-width:1100px){
+	.widget{display:flex;width:250px;right:14px}
+	#wg-nyt{height:250px !important}
+	.icons{grid-template-columns:repeat(3,100px);left:14px;max-height:calc(100% - 160px)}
+	.window{left:14px !important;top:42px !important;width:calc(100% - 288px) !important;height:calc(100% - 150px) !important}
+	.things{columns:2 200px}
+	.light{width:15px;height:15px}
+	.dockitem{width:46px;height:46px}
+	.dokplads__navn{font-size:9px;max-width:58px}
+	.guide__boble{max-width:260px}
+}
+
+/* ══════════ Telefon: hjemmeskærm ══════════ */
+@media(max-width:700px){
+	.kun-tlf{display:flex !important}
+	.desktop{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+	.desktop::after{position:fixed}
+
+	/* Statuslinje */
+	.menubar{position:fixed;height:46px;padding:0 18px;background:none;backdrop-filter:none;border:none}
+	.menubar__l{gap:0}
+	.menubar__brand,.menubar__l span:not(.menubar__ur){display:none}
+	.menubar__ur{border:none;padding:0}
+	.menubar__ur b{font-size:15px;font-weight:600;letter-spacing:0}
+	.menubar__ur i{display:none}
+	.menubar__r{gap:10px}
+	.menubar__r>span,#hjemknap{display:none}
+	#bgknap{display:none}
+	.sprogknap{transform:scale(.95)}
+
+	/* Ikongitteret */
+	.icons{
+		position:static;display:grid;grid-template-columns:repeat(4,1fr);
+		gap:20px 6px;max-height:none;overflow:visible;
+		padding:70px 14px 4px;margin:0;
+	}
+	.icons__skel{margin:12px 4px 2px}
+	.icons__mrk{margin-top:2px}
+	.fileicon .icon__art{width:60px;height:60px}
+	.icon{padding:0;gap:7px}
+	.icon span{font-size:11px;max-width:78px;text-shadow:0 1px 3px rgba(0,0,0,.9)}
+	.icon:hover{background:none}
+
+	/* Mapper bliver til afrundede felter, som på en iPhone */
+	.icon__art.mappe{width:60px;height:60px;position:relative;border-radius:15px;overflow:hidden;
+		filter:drop-shadow(0 5px 12px rgba(0,0,0,.45))}
+	.mappe__bag{inset:0 !important;clip-path:none !important;border-radius:15px}
+	.mappe__front{display:none}
+	.icon__art.mappe::after{
+		content:"";position:absolute;left:17px;right:17px;top:20px;bottom:19px;
+		border-radius:2px 4px 4px 4px;background:rgba(255,255,255,.92);
+	}
+	.icon__art.mappe::before{
+		content:"";position:absolute;left:17px;top:15px;width:11px;height:6px;
+		border-radius:2px 3px 0 0;background:rgba(255,255,255,.92);z-index:1;
+	}
+	.appicon .icon__art{width:60px;height:60px;border-radius:15px}
+	.icon__art.tlfapp{width:60px;height:60px;border-radius:15px;display:grid;place-items:center;
+		box-shadow:0 5px 12px rgba(0,0,0,.45)}
+	.icon__art.tlfapp svg{width:30px;height:30px}
+
+	/* Widgets som rigtige hjemmeskærms-widgets */
+	.widget{
+		display:flex !important;position:static;width:auto;height:auto !important;
+		margin:20px 14px 0;border-radius:22px;
+	}
+	#wg-foto .shot{min-height:190px}
+	#wg-nyt{height:330px !important}
+	.widget__foot{padding-bottom:16px}
+	.wgrip{display:none}
+	.widget__h{cursor:default}
+	.shot__nav button{opacity:1;width:36px;height:36px}
+
+	/* Dock: fire punkter, ingen navne */
+	.dock{
+		position:fixed;bottom:0;left:0;right:0;transform:none;width:100%;
+		border-radius:26px 26px 0 0;border-left:none;border-right:none;border-bottom:none;
+		padding:12px 8px calc(14px + env(safe-area-inset-bottom));
+		gap:0;justify-content:space-around;align-items:center;
+	}
+	.dokplads:not(.dokplads--4){display:none}
+	.docksep{display:none}
+	.dokplads__navn{display:none}
+	.dockitem{width:56px;height:56px;border-radius:16px;transform:none !important}
+	.dokmappe{width:36px;height:30px}
+
+	/* Vinduer bliver til ark der glider op */
+	.window{
+		position:fixed;left:0 !important;right:0;top:0 !important;
+		width:100% !important;height:100% !important;
+		border-radius:0;min-width:0;min-height:0;
+		display:flex !important;visibility:hidden;
+		transform:translateY(100%);transition:transform .34s cubic-bezier(.2,.85,.25,1),visibility .34s;
+	}
+	.window.open{visibility:visible;transform:none;z-index:930 !important}
+	.window.max{top:0 !important;height:100% !important}
 	.grip{display:none}
-	.appview{grid-template-columns:1fr}
-	.phone{position:static;max-width:310px;margin:0 auto}
-	.me__top{grid-template-columns:1fr}
+	.titlebar{height:52px;padding:0 12px;position:relative}
+	.titlebar__t{font-size:14px}
+	.lights{gap:0}
+	.light--y,.light--g{display:none}
+	.light--r{
+		width:38px;height:38px;border-radius:50%;background:rgba(20,20,20,.08) !important;
+		position:relative;flex:0 0 38px;
+	}
+	.light--r:active{background:rgba(20,20,20,.18) !important}
+	.light--r::after{
+		content:"";position:absolute;left:14px;top:12px;width:12px;height:12px;
+		border-left:2.2px solid #12100E;border-bottom:2.2px solid #12100E;
+		transform:rotate(45deg);border-radius:0 0 0 2px;
+	}
+	.light--r span{display:none}
+	.winbody{padding:20px 18px calc(46px + env(safe-area-inset-bottom))}
+	.things{columns:1}
 	.thing--wide{grid-template-columns:1fr}
+	.appview{grid-template-columns:1fr}
+	.phone{position:static;max-width:100%;margin:0 auto}
+	.me__top{grid-template-columns:1fr}
 	.draw{grid-template-columns:1fr}
+	.kode{grid-template-columns:1fr}
 	.tools{flex-direction:row;flex-wrap:wrap;justify-content:center}
 	.sizes{flex-direction:row;width:auto;border:none;padding:0}
 	.toolgrid{grid-template-columns:repeat(3,1fr)}
+	.case__shots{columns:1}
+
+	/* Guiden */
+	.guide{position:fixed;left:12px;right:12px;bottom:calc(104px + env(safe-area-inset-bottom));align-items:flex-end}
+	.guide__mig{width:52px;height:52px;flex:0 0 52px;border-radius:15px}
+	.guide__boble{max-width:none;flex:1}
+	.guide__tekst{font-size:14px}
+
+	.hint{display:none}
+	.toolsheet{bottom:calc(100px + env(safe-area-inset-bottom));width:calc(100% - 24px)}
+	.ctx{position:fixed;left:12px !important;right:12px;top:auto !important;bottom:calc(100px + env(safe-area-inset-bottom));min-width:0;width:auto;max-height:52vh;overflow-y:auto}
+	.ctx__grid{grid-template-columns:repeat(3,1fr)}
+	.dor{position:fixed;padding:14px;align-items:start;overflow-y:auto}
+	.dor__kort{padding:24px 18px;margin:14px 0}
+	.dor__valg{grid-template-columns:1fr}
+	.dor__top{flex-direction:column;align-items:flex-start;gap:12px}
 }
 </style>
 </head>
@@ -534,6 +654,7 @@ button{font-family:inherit}
 		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Foto</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Om mig</span></button>
 		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
+		<button class="icon kun-tlf" id="bgIkon"><span class="icon__art tlfapp" style="background:linear-gradient(160deg,#5B6472,#2A303A)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.6v2.3M12 19.1v2.3M21.4 12h-2.3M4.9 12H2.6M18.6 5.4l-1.6 1.6M7 17l-1.6 1.6M18.6 18.6L17 17M7 7L5.4 5.4"/></svg></span><span data-da="Baggrund" data-en="Wallpaper">Baggrund</span></button>
 		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
 
 		<span class="icons__skel"></span>
@@ -866,10 +987,10 @@ button{font-family:inherit}
 	</div>
 
 	<div class="dock">
-		<span class="dokplads"><button class="dockitem" data-w="w-digital" data-tip="Digitalt design"><span class="dokmappe" style="--f:#2E6BFF"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Digitalt design</span></span>
+		<span class="dokplads dokplads--4"><button class="dockitem dok4" data-w="w-digital" data-tip="Digitalt design"><span class="dokmappe" style="--f:#2E6BFF"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Digitalt design</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-brand" data-tip="Branding"><span class="dokmappe" style="--f:#FF2E88"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Branding</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-print" data-tip="Print &amp; SoMe"><span class="dokmappe" style="--f:#A8D400"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Print & SoMe</span></span>
-		<span class="dokplads"><button class="dockitem" data-w="w-foto" data-tip="Foto"><span class="dokmappe" style="--f:#00C46F"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Foto</span></span>
+		<span class="dokplads dokplads--4"><button class="dockitem dok4" data-w="w-foto" data-tip="Foto"><span class="dokmappe" style="--f:#00C46F"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Foto</span></span>
 		<span class="docksep"></span>
 		<span class="dokplads"><button class="dockitem dockfolder" id="toolsBtn" aria-label="Værktøjer">
 			<i style="background:#330000;color:#FF9A00">Ai</i>
@@ -879,8 +1000,8 @@ button{font-family:inherit}
 		</button><span class="dokplads__navn" data-da="Værktøjer" data-en="Tools">Værktøjer</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-kode" data-tip="Kodeværkstedet"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 7.5L4 12l4.5 4.5"/><path d="M15.5 7.5L20 12l-4.5 4.5"/><path d="M13.4 5.2l-2.8 13.6"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Kodeværkstedet</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-tegn" data-tip="Tegn en streg"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c3-1 5-3 7-6s4-6 6-8"/><path d="M14.5 4.5l3.6 3.6"/><path d="M3.6 20.4l3.1-.9-2.2-2.2z"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Tegn en streg</span></span>
-		<span class="dokplads"><button class="dockitem" data-w="w-mig" data-tip="Om mig" style="background:#8B5CF6"><span class="dokmig"><img src="img/tegning-mig-lys.png" alt=""></span><span class="dockdot"></span></button><span class="dokplads__navn">Om mig</span></span>
-		<span class="dokplads"><button class="dockitem" data-w="w-kontakt" data-tip="Kontakt"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.8 7l8.2 6 8.2-6"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Kontakt</span></span>
+		<span class="dokplads dokplads--4"><button class="dockitem dok4" data-w="w-mig" data-tip="Om mig" style="background:#8B5CF6"><span class="dokmig"><img src="img/tegning-mig-lys.png" alt=""></span><span class="dockdot"></span></button><span class="dokplads__navn">Om mig</span></span>
+		<span class="dokplads dokplads--4"><button class="dockitem dok4" data-w="w-kontakt" data-tip="Kontakt"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.8 7l8.2 6 8.2-6"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Kontakt</span></span>
 	</div>
 
 
@@ -1100,7 +1221,8 @@ function aabn(id){
 	if(!w) return;
 
 	/* Første gang: giv vinduet en størrelse der passer til skærmen */
-	if(!w.dataset.placeret && !w.classList.contains("max")){
+	const telefon = window.matchMedia("(max-width:700px)").matches;
+	if(!telefon && !w.dataset.placeret && !w.classList.contains("max")){
 		const raadigB = window.innerWidth - 60;
 		const raadigH = window.innerHeight - 130;
 		const b = Math.min(1240, Math.max(560, raadigB * 0.78));
@@ -1187,6 +1309,7 @@ document.querySelectorAll(".window").forEach(w=>{
 	let t=null;
 	bar.addEventListener("pointerdown",e=>{
 		if(e.target.closest(".light")||w.classList.contains("max")) return;
+		if(window.matchMedia("(max-width:700px)").matches) return;
 		const r=w.getBoundingClientRect();
 		t={dx:e.clientX-r.left,dy:e.clientY-r.top};
 		bar.setPointerCapture(e.pointerId);
@@ -1239,6 +1362,7 @@ document.querySelectorAll(".widget").forEach(wg=>{
 	let t=null;
 	h.addEventListener("pointerdown",e=>{
 		if(e.target.tagName==="BUTTON") return;
+		if(window.matchMedia("(max-width:700px)").matches) return;
 		const r=wg.getBoundingClientRect();
 		t={dx:e.clientX-r.left,dy:e.clientY-r.top};
 		wg.style.right="auto";
@@ -1615,13 +1739,18 @@ document.querySelectorAll(".icon, .dockitem").forEach(el=>{
 });
 document.getElementById("hjemknap").addEventListener("click",aabnHjem);
 
-document.getElementById("bgknap").addEventListener("click",e=>{
+function aabnBaggrundsvalg(e){
 	e.stopPropagation();
-	const r=e.currentTarget.getBoundingClientRect();
-	ctx2.style.left=Math.min(r.left-120,window.innerWidth-290)+"px";
-	ctx2.style.top=(r.bottom+8)+"px";
+	const telefon = window.matchMedia("(max-width:700px)").matches;
+	if(!telefon){
+		const r=e.currentTarget.getBoundingClientRect();
+		ctx2.style.left=Math.min(r.left-120,window.innerWidth-290)+"px";
+		ctx2.style.top=(r.bottom+8)+"px";
+	}
 	ctx2.classList.toggle("on");
-});
+}
+document.getElementById("bgknap").addEventListener("click",aabnBaggrundsvalg);
+document.getElementById("bgIkon").addEventListener("click",aabnBaggrundsvalg);
 
 /* Sprogknapperne i fordøren */
 document.querySelectorAll("[data-dorsprog]").forEach(k=>{
