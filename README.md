@@ -1,30 +1,35 @@
-# Klein Design — portfolio
+# Klein Design, portfolio
 
 Kildekoden til [kleindesign.dk](https://www.kleindesign.dk).
-Statisk site i HTML, CSS og JavaScript. Hostes på Vercel, som bygger
-automatisk ved push.
+Statisk site i HTML, CSS og JavaScript uden byggetrin. Hostes på Vercel,
+som bygger automatisk ved push til `main`.
+
+Siden er bygget som et skrivebord på computer og som en hjemmeskærm på telefon.
+Mapperne åbner i vinduer, og projekterne vises inde i samme vindue med en
+tilbageknap.
 
 ## Struktur
 
 ```
-index.html              Forside
-projekter.html          Projektoversigt med filtre og modaler
-case-koeberguiden.html  Dedikeret case-side
-univers.html            Skitsebøgerne
-priser.html             Prisliste
-css/style.css           Alt styling
-js/main.js              Navigation, mobilmenu, scroll-tilstand
+index.html              Hele siden: skrivebord, vinduer, cases, tegnebræt, spil
+data-sprog.js           Alle engelske oversættelser
+data-nyheder.js         Nyhedswidgeten
+data-galleri.js         Billedwidgeten
 img/                    Billeder (webp)
+img/bg/b-3.webp         Baggrunden
 video/                  Video
+app-koeberguiden/       Klikbar prototype, kører i en ramme på casen
+app-wordfestival/       Klikbar prototype
+app-friendfinder/       Klikbar prototype
+Ingrid-Klein-CV-UDKAST.pdf
+gemt-til-senere/        Kode der er taget ud, men skal bruges igen
 ```
 
-## Branches
+## Sådan retter du indhold uden at røre koden
 
-- `main` — det der ligger live på kleindesign.dk
-- `nyt-design` — arbejde på det nye udtryk, ligger under `/nyt/`
+Se `LÆS-MIG.md`.
 
-## Bemærk om billeder
+## Grene
 
-Billederne i `img/` er tunge — flere er over 5 MB. Det bør optimeres,
-før der lægges mere til. Ingen billeder på et site behøver overstige
-ca. 300 kB.
+`main` er det der ligger på kleindesign.dk.
+Lav nye ting på en gren og flet ind i `main`, når det er klar.
