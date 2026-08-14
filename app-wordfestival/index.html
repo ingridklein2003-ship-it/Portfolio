@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<title>Word Festival</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+	--ink:#16162B;
+	--ink-2:#5F5F78;
+	--paper:#FDFCF9;
+	--card:#FFFFFF;
+	--line:#E6E4EE;
+	--word:#1F225C;
+	--pink:#FF2E88;
+	--cyan:#00B8D4;
+	--lime:#A8D400;
+	--f-d:"Bricolage Grotesque",system-ui,sans-serif;
+	--f-b:"Inter",system-ui,sans-serif;
+	--e:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--f-b);background:var(--paper);color:var(--ink);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow:hidden}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+.app{height:100%;display:flex;flex-direction:column}
+.status{flex:0 0 auto;display:flex;justify-content:space-between;padding:9px 20px 2px;font-size:11.5px;font-weight:600}
+
+.top{flex:0 0 auto;padding:6px 20px 12px;border-bottom:1px solid var(--line);background:var(--paper)}
+.mark{font-family:var(--f-d);font-weight:800;font-size:22px;letter-spacing:-.04em;color:var(--word)}
+.mark span{color:var(--pink)}
+.top p{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:2px}
+
+.screen{display:none;flex:1;overflow-y:auto;padding:16px 20px 24px}
+.screen.on{display:block;animation:ind .3s var(--e) both}
+@keyframes ind{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+
+h1{font-family:var(--f-d);font-weight:800;font-size:25px;letter-spacing:-.035em;line-height:1.06;margin-bottom:5px}
+h2{font-family:var(--f-d);font-weight:600;font-size:15px;letter-spacing:-.02em;margin-bottom:10px}
+.sub{color:var(--ink-2);font-size:13px;margin-bottom:16px}
+
+/* Filtre */
+.filtre{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none}
+.filtre::-webkit-scrollbar{display:none}
+.f{flex:0 0 auto;border:1.4px solid var(--line);background:#fff;border-radius:20px;padding:6px 13px;font-size:12.5px;color:var(--ink-2);font-weight:500;white-space:nowrap}
+.f.on{background:var(--word);border-color:var(--word);color:#fff}
+
+/* Oplæg */
+.dag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:20px 0 10px;display:flex;align-items:center;gap:10px}
+.dag::after{content:"";flex:1;height:1px;background:var(--line)}
+.dag:first-of-type{margin-top:0}
+
+.oplaeg{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:11px;display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:13px;align-items:start;width:100%;text-align:left}
+.oplaeg__tid{font-family:var(--f-d);font-weight:600;font-size:15px;letter-spacing:-.02em;line-height:1.15;color:var(--word)}
+.oplaeg__tid small{display:block;font-family:var(--f-b);font-weight:400;font-size:10px;color:var(--ink-2);letter-spacing:0;margin-top:2px}
+.oplaeg__navn{font-weight:600;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--pink);margin-bottom:3px}
+.oplaeg__titel{font-family:var(--f-d);font-weight:600;font-size:15px;letter-spacing:-.02em;line-height:1.25;margin-bottom:5px}
+.oplaeg__sted{font-size:11.5px;color:var(--ink-2)}
+.gem{border:none;background:none;font-size:20px;line-height:1;color:var(--line);padding:2px;align-self:center}
+.gem.on{color:var(--pink)}
+
+.fyldt{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;margin-top:6px;color:var(--ink-2)}
+.fyldt i{width:6px;height:6px;border-radius:50%}
+.i-god{background:var(--lime)}.i-mid{background:#F5A623}.i-fuld{background:var(--pink)}
+
+/* Mit program */
+.tom{text-align:center;padding:44px 20px;color:var(--ink-2)}
+.tom__ikon{font-size:38px;margin-bottom:12px}
+.tom p{font-size:13px;max-width:26ch;margin:0 auto}
+.tidslinje{position:relative;padding-left:22px}
+.tidslinje::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tp{position:relative;margin-bottom:14px}
+.tp::before{content:"";position:absolute;left:-22px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--pink);border:2.5px solid var(--paper)}
+.konflikt{background:#FFF0F5;border:1px solid #FFD0E2;border-radius:12px;padding:11px 13px;font-size:12px;color:#9A1247;margin-bottom:13px;display:flex;gap:9px}
+
+/* Speaker */
+.sp__top{margin-bottom:18px}
+.sp__foto{width:100%;aspect-ratio:3/2;border-radius:16px;background:linear-gradient(135deg,var(--word),#3A3F8F);display:grid;place-items:center;color:#fff;font-family:var(--f-d);font-weight:800;font-size:52px;margin-bottom:14px}
+.sp__navn{font-family:var(--f-d);font-weight:800;font-size:26px;letter-spacing:-.04em;line-height:1.04}
+.sp__rolle{color:var(--ink-2);font-size:13px;margin-top:3px}
+.blok{margin-bottom:18px}
+.blok label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:7px}
+.blok p{font-size:13.5px;line-height:1.7;color:var(--ink-2)}
+.fakta{border-top:1px solid var(--line)}
+.fakta div{display:grid;grid-template-columns:86px 1fr;gap:11px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+.fakta dt{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);padding-top:2px}
+.btn{display:block;width:100%;border:none;border-radius:14px;padding:14px;font-size:14.5px;font-weight:600;background:var(--word);color:#fff}
+.btn:hover{background:#2C3175}
+.btn--ude{background:var(--pink)}
+.tilbage{background:none;border:none;color:var(--ink-2);font-size:13px;padding:0 0 12px;display:flex;align-items:center;gap:6px}
+
+/* Forside */
+.kort-stor{border-radius:20px;padding:20px;background:var(--word);color:#fff;margin-bottom:12px;width:100%;text-align:left;border:none}
+.kort-stor h3{font-family:var(--f-d);font-weight:800;font-size:20px;letter-spacing:-.03em}
+.kort-stor p{font-size:12.5px;opacity:.86;margin-top:4px;max-width:28ch}
+.kort-stor span{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;color:var(--lime)}
+.naeste{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px}
+.naeste__mrk{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:6px}
+
+/* Nav */
+.nav{flex:0 0 auto;display:flex;border-top:1px solid var(--line);background:#fff;padding:7px 4px 14px}
+.nav button{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;color:var(--ink-2);font-size:9.5px;font-weight:500}
+.nav button svg{width:20px;height:20px}
+.nav button.on{color:var(--word)}
+.nav button .badge{position:absolute;transform:translate(13px,-4px);background:var(--pink);color:#fff;font-size:8.5px;border-radius:10px;padding:1px 5px;font-weight:600}
+</style>
+</head>
+<body>
+<div class="app">
+	<div class="status"><span id="klok">9:41</span><span>5G ▪ 78%</span></div>
+
+	<header class="top">
+		<div class="mark">word<span>.</span></div>
+		<p>Festival · Odense · 21.–23. november</p>
+	</header>
+
+	<!-- FORSIDE -->
+	<section class="screen on" id="s-forside">
+		<h1>Din festival,<br>dit program.</h1>
+		<p class="sub">Over hundrede oplæg. Gem dem du vil se, så samler vi din dag.</p>
+
+		<button class="kort-stor" data-gaa="program">
+			<h3>Se hele programmet</h3>
+			<p>Filtrér på dag, interesse og spillested.</p>
+			<span>104 oplæg →</span>
+		</button>
+
+		<h2 style="margin-top:20px">Næste op</h2>
+		<div class="naeste">
+			<p class="naeste__mrk">Om 40 minutter</p>
+			<div style="font-family:var(--f-d);font-weight:600;font-size:15.5px;letter-spacing:-.02em;margin-bottom:4px">Fællessang med Thomas Bach</div>
+			<div style="font-size:11.5px;color:var(--ink-2)">Borgernes Hus · fredag kl. 10.00</div>
+		</div>
+		<div class="naeste">
+			<p class="naeste__mrk" style="color:var(--cyan)">Senere i dag</p>
+			<div style="font-family:var(--f-d);font-weight:600;font-size:15.5px;letter-spacing:-.02em;margin-bottom:4px">Fra Amager til bestseller</div>
+			<div style="font-size:11.5px;color:var(--ink-2)">Morten Pape · Borgernes Hus · kl. 11.00</div>
+		</div>
+	</section>
+
+	<!-- PROGRAM -->
+	<section class="screen" id="s-program">
+		<h1>Program</h1>
+		<p class="sub">Tryk på hjertet for at gemme et oplæg til dit eget program.</p>
+
+		<div class="filtre">
+			<button class="f on">Fredag</button><button class="f">Lørdag</button><button class="f">Søndag</button>
+			<button class="f">Alle steder</button><button class="f">Litteratur</button><button class="f">Historie</button>
+		</div>
+
+		<p class="dag">Fredag 21. november</p>
+		<div id="liste"></div>
+	</section>
+
+	<!-- MIT PROGRAM -->
+	<section class="screen" id="s-mit">
+		<h1>Mit program</h1>
+		<p class="sub" id="mitSub">Fredag 21. november</p>
+		<div id="mitIndhold"></div>
+	</section>
+
+	<!-- SPEAKER -->
+	<section class="screen" id="s-speaker">
+		<button class="tilbage" data-gaa="program">← Tilbage til programmet</button>
+		<div class="sp__top">
+			<div class="sp__foto" id="spInit">MP</div>
+			<div class="sp__navn" id="spNavn">Morten Pape</div>
+			<div class="sp__rolle" id="spRolle">Forfatter</div>
+		</div>
+		<div class="blok"><label>Oplægget</label>
+			<p id="spTitel" style="font-family:var(--f-d);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.02em">Fra Amager til bestseller</p>
+			<p id="spTekst" style="margin-top:7px">En samtale om at skrive sig ud af Urbanplanen, om klassrejsen der fulgte, og om hvad der sker med et menneske når bogen bliver læst af alle.</p>
+		</div>
+		<dl class="fakta" id="spFakta"></dl>
+		<button class="btn" id="spGem" style="margin-top:18px">Gem til mit program</button>
+	</section>
+
+	<!-- PROFIL -->
+	<section class="screen" id="s-profil">
+		<h1>Profil</h1>
+		<p class="sub">Dine interesser styrer hvad der bliver foreslået.</p>
+		<div class="blok"><label>Interesser</label>
+			<div class="filtre" style="flex-wrap:wrap;overflow:visible">
+				<button class="f on">Litteratur</button><button class="f on">Historie</button><button class="f">Politik</button>
+				<button class="f on">Samtaler</button><button class="f">Poesi</button><button class="f">Debat</button>
+			</div>
+		</div>
+		<div class="blok"><label>Påmindelser</label><p>Du får en besked tyve minutter før et oplæg, du har gemt.</p></div>
+		<div class="blok"><label>Gemte oplæg</label><p id="antalGemte">0 oplæg i dit program.</p></div>
+	</section>
+
+	<nav class="nav">
+		<button data-gaa="forside" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/></svg>Forside</button>
+		<button data-gaa="program"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="16" rx="2.4"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Program</button>
+		<button data-gaa="mit" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20.8 8.6a5 5 0 0 0-8.8-2.6A5 5 0 0 0 3.2 8.6c0 5 8.8 10.4 8.8 10.4s8.8-5.4 8.8-10.4z"/></svg>Mit program<span class="badge" id="badge" hidden>0</span></button>
+		<button data-gaa="profil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>Profil</button>
+	</nav>
+</div>
+
+<script>
+const PROGRAM = [
+	{id:1, tid:"10.00", navn:"Thomas Bach", rolle:"Forfatter og sanger",
+	 titel:"Fællessang med Thomas Bach", sted:"Borgernes Hus", fyldt:"mid", init:"TB",
+	 tekst:"Vi synger sammen. Ingen forventning om at kunne noderne. Det handler om at fylde rummet med stemmer."},
+	{id:2, tid:"11.00", navn:"Morten Pape", rolle:"Forfatter",
+	 titel:"Fra Amager til bestseller", sted:"Borgernes Hus", fyldt:"fuld", init:"MP",
+	 tekst:"En samtale om at skrive sig ud af Urbanplanen, om klasserejsen der fulgte, og om hvad der sker med et menneske når bogen bliver læst af alle."},
+	{id:3, tid:"12.00", navn:"Thomas Bach", rolle:"Forfatter",
+	 titel:"BUNKER: en fabulerende fortælling fra Danmarks yderste vestkyst", sted:"Borgernes Hus", fyldt:"god", init:"TB",
+	 tekst:"Om beton, hav og historier der bliver hængende i landskabet længe efter at menneskene er gået."},
+	{id:4, tid:"14.00", navn:"DIAS × Word", rolle:"Pre-event",
+	 titel:"PRE-EVENT: DIAS × Word Festival", sted:"DIAS-scenen", fyldt:"god", init:"DW",
+	 tekst:"Optakt til festivalen på DIAS-scenen. Kort format, flere stemmer."},
+	{id:5, tid:"16.00", navn:"Helen Fielding", rolle:"Forfatter til Bridget Jones",
+	 titel:"En samtale om Bridget Jones, og om tro, håb og den kærlighed vi ikke kan styre", sted:"Odeon", fyldt:"fuld", init:"HF",
+	 tekst:"Anne-Marie Mai og Simona Zetterberg-Nielsen i samtale med Helen Fielding om en figur der har fulgt læserne i tre årtier."},
+	{id:6, tid:"16.00", navn:"Ulrik Langen", rolle:"Historiker",
+	 titel:"Pudderparykker, unge kvinder og borgerlige frontkæmpere: tro, håb og kærlighed i 1700-tallet", sted:"DIAS-scenen", fyldt:"god", init:"UL",
+	 tekst:"Om et århundrede der var vildere end sit ry, fortalt af en historiker der hellere går efter det pinlige end det pæne."},
+	{id:7, tid:"18.00", navn:"Anne-Cathrine Riebnitzsky", rolle:"Forfatter",
+	 titel:"At skrive om krig uden at gøre den smuk", sted:"Borgernes Hus", fyldt:"god", init:"AR",
+	 tekst:"Om at have været der selv, og om hvad man skylder de mennesker man skriver om."},
+	{id:8, tid:"18.00", navn:"Isabel Bramsen", rolle:"Forsker i fredsforskning",
+	 titel:"Hvordan slutter en krig?", sted:"Odeon", fyldt:"mid", init:"IB",
+	 tekst:"En gennemgang af hvad forskningen faktisk ved om forhandlinger, våbenhviler og det der kommer bagefter."}
+];
+
+const FYLDT = {god:["God plads","i-god"], mid:["Halvt fyldt","i-mid"], fuld:["Næsten fyldt","i-fuld"]};
+let gemte = new Set();
+let aktivSpeaker = PROGRAM[1];
+
+const liste = document.getElementById("liste");
+
+function tegnListe(){
+	liste.innerHTML = PROGRAM.map(o => {
+		const f = FYLDT[o.fyldt];
+		return '<button class="oplaeg" data-id="'+o.id+'">'+
+			'<span class="oplaeg__tid">'+o.tid+'<small>kl.</small></span>'+
+			'<span><span class="oplaeg__navn">'+o.navn+'</span>'+
+			'<span class="oplaeg__titel">'+o.titel+'</span>'+
+			'<span class="oplaeg__sted">'+o.sted+'</span>'+
+			'<span class="fyldt"><i class="'+f[1]+'"></i>'+f[0]+'</span></span>'+
+			'<span class="gem'+(gemte.has(o.id)?' on':'')+'" data-gem="'+o.id+'">'+(gemte.has(o.id)?'♥':'♡')+'</span>'+
+		'</button>';
+	}).join("");
+}
+
+function tegnMit(){
+	const valgt = PROGRAM.filter(o => gemte.has(o.id));
+	const boks = document.getElementById("mitIndhold");
+
+	if(!valgt.length){
+		boks.innerHTML = '<div class="tom"><div class="tom__ikon">♡</div>'+
+			'<p>Du har ikke gemt noget endnu. Gå til programmet og tryk på hjertet ved de oplæg du vil se.</p></div>';
+		return;
+	}
+
+	const tider = valgt.map(o => o.tid);
+	const dubletter = tider.filter((t,i) => tider.indexOf(t) !== i);
+
+	let h = "";
+	if(dubletter.length){
+		h += '<div class="konflikt"><span>⚠</span><span>To af dine oplæg ligger kl. '+dubletter[0]+
+		     '. Du kan ikke nå begge, så vælg et af dem.</span></div>';
+	}
+
+	h += '<div class="tidslinje">' + valgt.map(o =>
+		'<div class="tp"><button class="oplaeg" data-id="'+o.id+'" style="margin:0">'+
+		'<span class="oplaeg__tid">'+o.tid+'<small>kl.</small></span>'+
+		'<span><span class="oplaeg__navn">'+o.navn+'</span>'+
+		'<span class="oplaeg__titel">'+o.titel+'</span>'+
+		'<span class="oplaeg__sted">'+o.sted+'</span></span>'+
+		'<span class="gem on" data-gem="'+o.id+'">♥</span></button></div>'
+	).join("") + '</div>';
+
+	boks.innerHTML = h;
+}
+
+function opdaterTal(){
+	const b = document.getElementById("badge");
+	b.textContent = gemte.size;
+	b.hidden = gemte.size === 0;
+	document.getElementById("antalGemte").textContent =
+		gemte.size === 0 ? "0 oplæg i dit program." : gemte.size + " oplæg i dit program.";
+}
+
+function visSpeaker(o){
+	aktivSpeaker = o;
+	document.getElementById("spInit").textContent = o.init;
+	document.getElementById("spNavn").textContent = o.navn;
+	document.getElementById("spRolle").textContent = o.rolle;
+	document.getElementById("spTitel").textContent = o.titel;
+	document.getElementById("spTekst").textContent = o.tekst;
+	document.getElementById("spFakta").innerHTML =
+		'<div><dt>Tid</dt><dd>Fredag kl. '+o.tid+'</dd></div>'+
+		'<div><dt>Sted</dt><dd>'+o.sted+'</dd></div>'+
+		'<div><dt>Plads</dt><dd>'+FYLDT[o.fyldt][0]+'</dd></div>';
+	const k = document.getElementById("spGem");
+	const har = gemte.has(o.id);
+	k.textContent = har ? "Fjern fra mit program" : "Gem til mit program";
+	k.classList.toggle("btn--ude", har);
+	gaaTil("speaker");
+}
+
+function gaaTil(navn){
+	document.querySelectorAll(".screen").forEach(s => s.classList.toggle("on", s.id === "s-" + navn));
+	document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("on", b.dataset.gaa === navn));
+	if(navn === "mit") tegnMit();
+	const a = document.getElementById("s-" + navn);
+	if(a) a.scrollTop = 0;
+}
+
+document.addEventListener("click", e => {
+	const g = e.target.closest("[data-gem]");
+	if(g){
+		e.stopPropagation();
+		const id = Number(g.dataset.gem);
+		if(gemte.has(id)) gemte.delete(id); else gemte.add(id);
+		tegnListe(); tegnMit(); opdaterTal();
+		return;
+	}
+
+	const o = e.target.closest(".oplaeg");
+	if(o){ visSpeaker(PROGRAM.find(x => x.id === Number(o.dataset.id))); return; }
+
+	const n = e.target.closest("[data-gaa]");
+	if(n){ gaaTil(n.dataset.gaa); return; }
+
+	const f = e.target.closest(".f");
+	if(f && !f.closest("#s-profil")){
+		f.parentElement.querySelectorAll(".f").forEach(x => x.classList.remove("on"));
+		f.classList.add("on");
+	} else if(f){
+		f.classList.toggle("on");
+	}
+});
+
+document.getElementById("spGem").addEventListener("click", () => {
+	const id = aktivSpeaker.id;
+	if(gemte.has(id)) gemte.delete(id); else gemte.add(id);
+	tegnListe(); opdaterTal();
+	visSpeaker(aktivSpeaker);
+});
+
+function ur(){
+	const d = new Date();
+	document.getElementById("klok").textContent = d.getHours() + ":" + String(d.getMinutes()).padStart(2,"0");
+}
+ur(); setInterval(ur, 20000);
+
+tegnListe(); tegnMit(); opdaterTal();
+</script>
+</body>
+</html>

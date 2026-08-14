@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Profil</title>
+</head>
+
+<!-- Denne side er udviklet med assistance fra Claude (Anthropic)
+og efterfølgende tilpasset til projektets behov. -->
+
+<body>
+
+<div class="app">
+
+
+    <!-- Profil header -->
+
+    <header class="app-header">
+        <img src="billeder/logo.webp"
+        alt="Logo"
+        class="app-logo">
+    </header>
+
+
+    <!-- Profil info -->
+
+    <div class="profil-header">
+
+        <div class="profil-avatar">
+            <img src="ikoner/profil_tyk_roed.svg" alt="">
+        </div>
+
+        <div class="profil-text">
+            <h2 class="profil-name">Louise Hansen</h2>
+            <small>29 år, Odense</small>
+        </div>
+
+    </div>
+
+    <a href="bogmaerker.html" class="link">Se bogmærkede artikler</a>
+
+
+    <!-- Købsrejse -->
+
+    <section class="journey-card">
+
+        <h2 class="journey-card-title">Din købsrejse</h2>
+        <p class="journey-card-subtitle">Du er godt på vej!</p>
+
+        <div class="journey-progress">
+
+            <div class="journey-step journey-step--done">
+                <span class="journey-step-label journey-step-label--below">1. overblik</span>
+                <span class="journey-step-dot"></span>
+            </div>
+
+            <div class="journey-step journey-step--done">
+                <span class="journey-step-label journey-step-label--above">2. budget</span>
+                <span class="journey-step-dot"></span>
+            </div>
+
+            <div class="journey-step journey-step--active">
+                <span class="journey-step-label journey-step-label--below">3. boligsøgning</span>
+                <span class="journey-step-dot"></span>
+            </div>
+
+            <div class="journey-step">
+                <span class="journey-step-label journey-step-label--above">4. gennemgang</span>
+                <span class="journey-step-dot"></span>
+            </div>
+
+            <div class="journey-step">
+                <span class="journey-step-label journey-step-label--below">5. handel</span>
+                <span class="journey-step-dot"></span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Næste møde -->
+
+    <section class="meeting-card">
+
+        <h2 class="meeting-card-title">Næste møde</h2>
+        <p class="meeting-card-subtitle">Online rådgivning</p>
+        <p class="meeting-date">15. juni, kl. 10:00</p>
+        <button type="button" class="btn">Se detaljer</button>
+
+    </section>
+
+    
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <a href="vidensbase.html" class="navbar-item">
+            <img src="ikoner/vidensbasen_tyk.svg" alt="Vidensbasen" class="navbar-icon">
+        </a>
+
+        <a href="profil.html" class="navbar-item">
+            <img src="ikoner/profil_tyk_roed.svg" alt="Profil" class="navbar-icon">
+        </a>
+
+        <a href="chat.html" class="navbar-item active">
+            <img src="ikoner/chat_tyk.svg" alt="Chat" class="navbar-icon">
+        </a>
+
+    </nav>
+    
+</div>
+
+</body>
+</html>
