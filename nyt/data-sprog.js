@@ -11,14 +11,13 @@ window.OVERSAT = {
 	"Færøerne": "Faroe Islands",
 	"Apps jeg har bygget": "Apps I've built",
 	"Dokumenter": "Documents",
-	"Skift baggrund": "Change wallpaper",
 	"CV.pdf": "CV.pdf",
 	"Billede": "Image",
 	"Projekt": "Project",
 
 	/* ── Mapper ── */
 	"Digitalt design": "Digital design",
-	"Digitalt design · 5 emner": "Digital design · 5 items",
+	"Digitalt design · 3 emner": "Digital design · 3 items",
 	"Branding": "Branding",
 	"Branding · 3 emner": "Branding · 3 items",
 	"Print & SoMe": "Print & social",
@@ -208,21 +207,6 @@ window.OVERSAT_HTML = {
 
 /* ── Engelske udgaver af casene ── */
 window.CASES_EN = {
-	hosted: {
-		lead: "A party app where the host creates the party, guests join with one link in the browser, and everyone plays together from their own phone. My own product, still in development.",
-		fakta: [["Type","Own product · iOS app and web"],["Status","Beta · in development"],["My role","Concept, brand, design and frontend"],["Brand","Black, white caps, lime #CFF70E"]],
-		afsnit: [["The idea","Five games: Impostor, Most Likely To, Do You Know X, Tournament and card games. They all start in under thirty seconds. The host hits start, the guests follow live. Nobody has to download anything: you open a link, type your name, and you're in."],
-			["The brand","Black background, heavy white caps and a single lime accent. It had to look like something you want to open at eleven at night, not an app for meetings. Each game has its own colour so you know it from across the room: lime for Impostor, orange for Most Likely To, cyan for Tournament."],
-			["The choice I'm proudest of","Every game has a drinking setting per player. Opt out and you get no sips, but you're still a hundred percent in the game. There are also packs with no alcohol at all: conversation cards, catch-up questions and games that work for a family evening. A party app that doesn't force anyone into anything."]],
-		efter: ["Where it is now","The app runs in the simulator with home, games, parties and profile. The landing page is live with a waiting list and copy in both Danish and English. I'll update this case when there's a beta you can try."],
-		tal: [["5","games"],["0","downloads for guests"],["4","tabs"]],
-		link: {tekst:"Visit the website →"}
-	},
-	dualitet: {
-		lead: "A podcast I'm working on. More about it when there's something to listen to.",
-		fakta: [["Type","Podcast"],["Status","In production"],["Name","Dualitet"]],
-		afsnit: [["Coming","This case is deliberately empty. I'll fill it in when the first episodes are done."]]
-	},
 	gaasetorvet: {
 		lead: "A local place with personality, humour and a sense of community. The job was visual elements that could work across seasons and formats without losing the warmth of the place.",
 		fakta: [["Period","2023–2024"],["My role","Graphic design & illustration"],["Focus","Branding, atmosphere"],["Tools","Illustrator · Photoshop"]],

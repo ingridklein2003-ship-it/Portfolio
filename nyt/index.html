@@ -339,57 +339,6 @@ button{font-family:inherit}
 .toolapp span:last-child{font-size:11.5px;opacity:.9}
 
 
-/* ── Guiden: Ingrid i hjørnet der viser vej ── */
-.guide{
-	position:absolute;left:26px;bottom:112px;z-index:900;
-	display:flex;align-items:flex-end;gap:12px;
-	opacity:0;transform:translateY(14px);pointer-events:none;
-	transition:opacity .34s var(--ease),transform .34s var(--ease);
-}
-.guide.paa{opacity:1;transform:none;pointer-events:auto}
-.guide__mig{
-	width:66px;height:66px;flex:0 0 66px;border-radius:19px;overflow:hidden;
-	background:#8B5CF6;border:none;padding:0;cursor:pointer;
-	box-shadow:0 10px 26px rgba(0,0,0,.5);
-	transition:transform .25s var(--ease);
-}
-.guide__mig img{width:100%;height:100%;object-fit:cover;display:block}
-.guide__mig:hover{transform:translateY(-4px) rotate(-3deg)}
-.guide.vinker .guide__mig{animation:vink 1.5s ease-in-out 2}
-@keyframes vink{0%,100%{transform:rotate(0)}25%{transform:rotate(-9deg)}60%{transform:rotate(7deg)}}
-.guide__boble{
-	position:relative;max-width:330px;
-	background:#F7F5F0;color:var(--ink);
-	border-radius:16px 16px 16px 4px;padding:15px 17px 14px;
-	box-shadow:0 14px 34px rgba(0,0,0,.4);
-}
-.guide__boble::after{
-	content:"";position:absolute;left:-7px;bottom:11px;
-	width:14px;height:14px;background:#F7F5F0;transform:rotate(45deg);border-radius:2px;
-}
-.guide__tekst{font-family:var(--f-l);font-size:14.5px;line-height:1.55;margin:0 0 11px;position:relative}
-.guide__knapper{display:flex;gap:8px;flex-wrap:wrap;position:relative}
-.guide__knapper button{
-	font-family:var(--f-m);font-size:12.5px;letter-spacing:.01em;
-	border:1px solid var(--ink);background:var(--ink);color:#F7F5F0;
-	padding:7px 13px;border-radius:20px;cursor:pointer;transition:all .2s var(--ease);
-}
-.guide__knapper button:hover{background:#8B5CF6;border-color:#8B5CF6}
-.guide__knapper button.blid{background:none;color:var(--ink-2);border-color:var(--line)}
-.guide__knapper button.blid:hover{background:none;color:var(--ink);border-color:var(--ink-2)}
-.guide__luk{
-	position:absolute;top:6px;right:7px;width:22px;height:22px;border-radius:50%;
-	border:none;background:none;color:var(--ink-3);cursor:pointer;font-size:15px;line-height:1;
-	display:grid;place-items:center;padding:0;
-}
-.guide__luk:hover{background:rgba(20,20,20,.09);color:var(--ink)}
-.guide.sover .guide__boble{display:none}
-.guide.sover{pointer-events:auto;opacity:1;transform:none}
-.guide__prik{
-	position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;
-	background:#A8D400;border:2px solid #12100E;display:none;
-}
-.guide.sover .guide__prik{display:block}
 .hint{
 	position:absolute;left:26px;bottom:60px;z-index:11;
 	font-family:var(--f-m);font-size:12px;color:rgba(255,255,255,.85);
@@ -478,16 +427,6 @@ button{font-family:inherit}
 .hjemknap{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);color:#fff;font-family:var(--f-m);font-size:11px;letter-spacing:.06em;border-radius:20px;padding:3px 12px;cursor:pointer;transition:background .2s}
 .hjemknap:hover{background:rgba(255,255,255,.3)}
 
-/* Højreklik-menu */
-.ctx{position:absolute;z-index:950;min-width:270px;background:rgba(248,246,241,.96);backdrop-filter:blur(20px);border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:6px;box-shadow:0 18px 40px rgba(0,0,0,.34);display:none}
-.ctx.on{display:block}
-.ctx__t{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding:6px 10px 8px}
-.ctx__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 6px 6px}
-.ctx__gruppe{grid-column:1/-1;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:8px 2px 1px}
-.ctx__gruppe:first-child{margin-top:2px}
-.ctx__grid button{border:2px solid transparent;border-radius:6px;overflow:hidden;cursor:pointer;padding:0;background:none;line-height:0}
-.ctx__grid button.on{border-color:var(--neon-blue)}
-.ctx__grid img{width:100%;aspect-ratio:3/2;object-fit:cover}
 
 .kun-tlf{display:none !important}
 
@@ -501,7 +440,6 @@ button{font-family:inherit}
 	.light{width:15px;height:15px}
 	.dockitem{width:46px;height:46px}
 	.dokplads__navn{font-size:9px;max-width:58px}
-	.guide__boble{max-width:260px}
 }
 
 /* ══════════ Telefon: hjemmeskærm ══════════ */
@@ -519,7 +457,6 @@ button{font-family:inherit}
 	.menubar__ur i{display:none}
 	.menubar__r{gap:10px}
 	.menubar__r>span,#hjemknap{display:none}
-	#bgknap{display:none}
 	.sprogknap{transform:scale(.95)}
 
 	/* Ikongitteret */
@@ -617,16 +554,8 @@ button{font-family:inherit}
 	.toolgrid{grid-template-columns:repeat(3,1fr)}
 	.case__shots{columns:1}
 
-	/* Guiden */
-	.guide{position:fixed;left:12px;right:12px;bottom:calc(104px + env(safe-area-inset-bottom));align-items:flex-end}
-	.guide__mig{width:52px;height:52px;flex:0 0 52px;border-radius:15px}
-	.guide__boble{max-width:none;flex:1}
-	.guide__tekst{font-size:14px}
-
 	.hint{display:none}
 	.toolsheet{bottom:calc(100px + env(safe-area-inset-bottom));width:calc(100% - 24px)}
-	.ctx{position:fixed;left:12px !important;right:12px;top:auto !important;bottom:calc(100px + env(safe-area-inset-bottom));min-width:0;width:auto;max-height:52vh;overflow-y:auto}
-	.ctx__grid{grid-template-columns:repeat(3,1fr)}
 	.dor{position:fixed;padding:14px;align-items:start;overflow-y:auto}
 	.dor__kort{padding:24px 18px;margin:14px 0}
 	.dor__valg{grid-template-columns:1fr}
@@ -644,7 +573,7 @@ button{font-family:inherit}
 			<span class="menubar__ur"><b id="urTid">–</b><i id="urDato">–</i></span>
 			<span>Arkiv</span><span>Rediger</span><span>Vis</span>
 		</div>
-		<div class="menubar__r"><button class="hjemknap" id="hjemknap" data-da="Forfra" data-en="Start over">Forfra</button><button class="hjemknap" id="bgknap" data-da="Baggrund" data-en="Wallpaper">Baggrund</button><span>Færøerne</span><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
+		<div class="menubar__r"><button class="hjemknap" id="hjemknap" data-da="Forfra" data-en="Start over">Forfra</button><span>Færøerne</span><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
 	</div>
 
 	<div class="icons" id="icons">
@@ -654,7 +583,6 @@ button{font-family:inherit}
 		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Foto</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Om mig</span></button>
 		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
-		<button class="icon kun-tlf" id="bgIkon"><span class="icon__art tlfapp" style="background:linear-gradient(160deg,#5B6472,#2A303A)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.6v2.3M12 19.1v2.3M21.4 12h-2.3M4.9 12H2.6M18.6 5.4l-1.6 1.6M7 17l-1.6 1.6M18.6 18.6L17 17M7 7L5.4 5.4"/></svg></span><span data-da="Baggrund" data-en="Wallpaper">Baggrund</span></button>
 		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
 
 		<span class="icons__skel"></span>
@@ -691,7 +619,7 @@ button{font-family:inherit}
 	<!-- MAPPEVINDUER -->
 
 	<section class="window" id="w-digital" style="left:300px;top:80px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 5 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 3 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Digitalt design</h2><p>Apps og prototyper hvor research kom før form. Klik på et projekt. Så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.</p></div>
 			<div class="things">
@@ -705,8 +633,6 @@ button{font-family:inherit}
 					</span>
 				</a>
 				<a class="thing" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Programplanlægger · Figma</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="hosted" href="#"><span class="thing__m"><img src="img/hosted-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">HOSTED</span><span class="thing__s"><i style="background:#CFF70E"></i>Eget produkt · app under udvikling</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="dualitet" href="#"><span class="thing__m"><img src="img/dualitet-cover.webp" alt=""></span><span class="thing__wip">I gang</span><span class="thing__t">Dualitet</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Podcast · under optagelse</span><span class="thing__go">Åbn →</span></a>
 				<a class="thing" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.png" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Prototype · workshop</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
@@ -818,7 +744,7 @@ button{font-family:inherit}
 					<div><dt>Sprog</dt><dd>Færøsk (modersmål), dansk, engelsk</dd></div>
 					<div><dt>Ved siden af</dt><dd>Underviser på brobygning · tutor fra september 2026</dd></div>
 					<div><dt>Base</dt><dd>Færøerne &amp; Danmark</dd></div>
-					<div><dt>Find mig</dt><dd><a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener" style="color:var(--neon-blue)">LinkedIn</a> · <a href="https://www.instagram.com/kleindesign.dk/" target="_blank" rel="noopener" style="color:var(--neon-blue)">Instagram</a></dd></div>
+					<div><dt>Find mig</dt><dd><a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener" style="color:var(--neon-blue)">LinkedIn</a> · <a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener" style="color:var(--neon-blue)">Instagram</a></dd></div>
 				</dl>
 			</div>
 		</div>
@@ -924,7 +850,7 @@ button{font-family:inherit}
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">E-mail</dt><dd><a href="mailto:KleinDesignGrafik@gmail.com" style="color:var(--neon-blue)">KleinDesignGrafik@gmail.com</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Telefon</dt><dd><a href="tel:+4553398230" style="color:var(--neon-blue)">+45 53 39 82 30</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener" style="color:var(--neon-blue)">Ingrid Mariannardóttir Klein ↗</a></dd></div>
-				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Instagram</dt><dd><a href="https://www.instagram.com/kleindesign.dk/" target="_blank" rel="noopener" style="color:var(--neon-blue)">@kleindesign.dk ↗</a></dd></div>
+				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Instagram</dt><dd><a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener" style="color:var(--neon-blue)">@kleindesign.grafik ↗</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">CV</dt><dd><a href="Ingrid-Klein-CV-UDKAST.pdf" download style="color:var(--neon-blue)">Hent som PDF ↓</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Sted</dt><dd>Færøerne &amp; Danmark</dd></div>
 			</dl>
@@ -1010,16 +936,6 @@ button{font-family:inherit}
 		<span data-da="Dobbeltklik ikke nødvendigt. Ét klik åbner en mappe" data-en="No double-click needed. One click opens a folder"></span>
 	</p>
 
-	<!-- GUIDE -->
-	<div class="guide" id="guide">
-		<button class="guide__mig" id="guideMig" aria-label="Ingrid viser vej"><img src="img/tegning-mig-lys.png" alt=""><span class="guide__prik"></span></button>
-		<div class="guide__boble">
-			<button class="guide__luk" id="guideLuk" aria-label="Skjul">×</button>
-			<p class="guide__tekst" id="guideTekst"></p>
-			<div class="guide__knapper" id="guideKnapper"></div>
-		</div>
-	</div>
-
 	<!-- FORDØR -->
 	<div class="dor" id="dor">
 		<div class="dor__kort">
@@ -1052,7 +968,7 @@ button{font-family:inherit}
 			</div>
 
 			<div class="dor__bund">
-				<span class="dor__soc"><a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://www.instagram.com/kleindesign.dk/" target="_blank" rel="noopener">Instagram ↗</a><a href="mailto:KleinDesignGrafik@gmail.com">E-mail ↗</a></span>
+				<span class="dor__soc"><a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener">Instagram ↗</a><a href="mailto:KleinDesignGrafik@gmail.com">E-mail ↗</a></span>
 				<button class="dor__udforsk" id="dorLuk" data-da="Eller lad mig selv kigge rundt" data-en="Or let me look around myself">Eller lad mig selv kigge rundt</button>
 				<div class="dor__sprog">
 					<button class="on" data-dorsprog="da">Dansk</button>
@@ -1060,11 +976,6 @@ button{font-family:inherit}
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="ctx" id="ctx">
-		<p class="ctx__t">Skift baggrund</p>
-		<div class="ctx__grid" id="ctxGrid"></div>
 	</div>
 
 </div>
@@ -1140,7 +1051,6 @@ function skiftTekst(){
 		el.innerHTML = sprog === "en" ? window.OVERSAT_HTML[id] : ORIGINAL_HTML.get(id);
 	});
 
-	document.querySelectorAll(".ctx__gruppe").forEach(h=>{ h.textContent = sprog==="en" ? h.dataset.en : h.dataset.da; });
 	dorSprog();
 	document.documentElement.lang = sprog;
 	const k = document.getElementById("sprogknap");
@@ -1171,49 +1081,8 @@ document.getElementById("sprogknap").addEventListener("click", () => {
 const desktop=document.getElementById("desktop");
 let zTop=100;
 
-/* ── Baggrunde ── */
-/* c = dyb flade med et værk i hjørnet · a = duotone · b = sløret */
-const BAGGRUNDE=[
-	"img/bg/c-1.webp","img/bg/c-2.webp","img/bg/c-3.webp","img/bg/c-4.webp","img/bg/c-5.webp",
-	"img/bg/a-1.webp","img/bg/a-2.webp","img/bg/a-3.webp","img/bg/a-4.webp",
-	"img/bg/b-1.webp","img/bg/b-2.webp","img/bg/b-3.webp"];
-let bgValgt=0;
-
-function saetBg(i){
-	bgValgt=i;
-	desktop.style.backgroundImage='url("'+BAGGRUNDE[i]+'")';
-	document.querySelectorAll("#ctxGrid button").forEach((b,n)=>b.classList.toggle("on",n===i));
-}
-
-const ctx2=document.getElementById("ctx");
-const ctxGrid=document.getElementById("ctxGrid");
-const GRUPPER=[["c","Værk i hjørnet","Work in the corner"],["a","Duotone","Duotone"],["b","Sløret","Blurred"]];
-
-GRUPPER.forEach(([praefix,da,en])=>{
-	const h=document.createElement("p");
-	h.className="ctx__gruppe";
-	h.dataset.da=da; h.dataset.en=en;
-	h.textContent=da;
-	ctxGrid.appendChild(h);
-
-	BAGGRUNDE.forEach((b,i)=>{
-		if(!b.includes("/"+praefix+"-")) return;
-		const btn=document.createElement("button");
-		btn.innerHTML='<img src="'+b.replace(".webp","-min.webp")+'" alt="">';
-		btn.addEventListener("click",()=>{ saetBg(i); ctx2.classList.remove("on"); });
-		ctxGrid.appendChild(btn);
-	});
-});
-saetBg(Math.floor(Math.random()*BAGGRUNDE.length));
-
-desktop.addEventListener("contextmenu",e=>{
-	if(e.target.closest(".window")||e.target.closest(".dock")||e.target.closest(".widget")) return;
-	e.preventDefault();
-	ctx2.style.left=Math.min(e.clientX,window.innerWidth-290)+"px";
-	ctx2.style.top=Math.min(e.clientY,window.innerHeight-230)+"px";
-	ctx2.classList.add("on");
-});
-document.addEventListener("click",e=>{ if(!ctx2.contains(e.target)) ctx2.classList.remove("on"); });
+/* ── Baggrund ── */
+desktop.style.backgroundImage='url("img/bg/b-3.webp")';
 
 /* ── Vinduer ── */
 function aabn(id){
@@ -1610,7 +1479,6 @@ const dor = document.getElementById("dor");
 
 function lukDor(){
 	dor.classList.add("vaek");
-	setTimeout(()=>{ if(typeof guideOpdater==="function"){ guide.classList.add("vinker"); guideOpdater(null); setTimeout(()=>guide.classList.remove("vinker"),3200); } },900);
 }
 
 function aabnHjem(){
@@ -1619,7 +1487,6 @@ function aabnHjem(){
 		luk(w);
 	});
 	dor.classList.remove("vaek");
-	guide.classList.remove("paa","sover");
 }
 
 document.querySelectorAll("[data-doraabn]").forEach(k=>{
@@ -1632,106 +1499,6 @@ document.querySelectorAll("[data-doraabn]").forEach(k=>{
 
 document.getElementById("dorLuk").addEventListener("click",lukDor);
 
-/* ── Guiden: holder styr på hvad man har set og foreslår det næste ── */
-const guide       = document.getElementById("guide");
-const guideTekst  = document.getElementById("guideTekst");
-const guideKnapper= document.getElementById("guideKnapper");
-const RUTE = [
-	{id:"w-digital", da:"Digitalt design", en:"Digital design"},
-	{id:"w-brand",   da:"Branding",        en:"Branding"},
-	{id:"w-print",   da:"Print & SoMe",    en:"Print & social"},
-	{id:"w-foto",    da:"Foto",            en:"Foto"},
-	{id:"w-bag",     da:"Bag om arbejdet", en:"Behind the work"},
-	{id:"w-kode",    da:"Kodeværkstedet",  en:"The code workshop"},
-	{id:"w-tegn",    da:"Tegn en streg",   en:"Draw something"},
-	{id:"w-mig",     da:"Om mig",          en:"About me"}
-];
-const SET = new Set();
-let guideVaekvalgt = false;
-
-function navn(p){ return sprog==="en" ? p.en : p.da; }
-
-function guideVis(tekst, knapper){
-	guide.classList.remove("sover");
-	guideTekst.textContent = tekst;
-	guideKnapper.innerHTML = "";
-	knapper.forEach(k=>{
-		const b=document.createElement("button");
-		b.textContent=k.tekst;
-		if(k.blid) b.className="blid";
-		b.addEventListener("click",k.gør);
-		guideKnapper.appendChild(b);
-	});
-	guide.classList.add("paa");
-	const h=document.getElementById("hint"); if(h) h.classList.add("vaek");
-}
-
-function guideSov(){
-	guide.classList.add("sover","paa");
-}
-
-function guideNæste(){
-	return RUTE.filter(p=>!SET.has(p.id) && document.getElementById(p.id));
-}
-
-function guideOpdater(sidst){
-	if(guideVaekvalgt || !dor.classList.contains("vaek")) return;
-	const mgl = guideNæste();
-	const set = RUTE.length - mgl.length;
-
-	if(mgl.length === 0){
-		guideVis(
-			sprog==="en"
-				? "That's everything. If any of it fits what you need, I'd like to hear from you."
-				: "Så har du set det hele. Hvis noget af det passer på det du står og mangler, hører jeg gerne fra dig.",
-			[{tekst: sprog==="en"?"Get in touch":"Skriv til mig", gør:()=>{ aabn("w-kontakt"); guideSov(); }},
-			 {tekst: sprog==="en"?"Start over":"Forfra", blid:true, gør:()=>{ SET.clear(); aabnHjem(); guideSov(); }}]
-		);
-		return;
-	}
-
-	const a = mgl[0], b = mgl[1];
-	const lukket = sidst ? RUTE.find(p=>p.id===sidst) : null;
-	let indled;
-	if(lukket) indled = sprog==="en"
-		? "You've seen "+navn(lukket)+". "+set+" of "+RUTE.length+" done. Where to now?"
-		: "Du har set "+navn(lukket)+". "+set+" ud af "+RUTE.length+". Hvor skal vi hen nu?";
-	else indled = sprog==="en"
-		? "There are "+RUTE.length+" folders. Want me to pick one for you?"
-		: "Der er "+RUTE.length+" mapper. Skal jeg vælge en for dig?";
-
-	const knapper=[{tekst:navn(a), gør:()=>{ aabn(a.id); if(a.id==="w-tegn") setTimeout(fitCanvas,320); guideSov(); }}];
-	if(b) knapper.push({tekst:navn(b), blid:true, gør:()=>{ aabn(b.id); if(b.id==="w-tegn") setTimeout(fitCanvas,320); guideSov(); }});
-	guideVis(indled, knapper);
-}
-
-document.getElementById("guideMig").addEventListener("click",()=>{
-	if(guide.classList.contains("sover") || !guide.classList.contains("paa")){
-		guideVaekvalgt=false; guideOpdater(null);
-	} else guideSov();
-});
-document.getElementById("guideLuk").addEventListener("click",()=>{ guideSov(); });
-
-/* Registrér hvad der bliver åbnet og lukket */
-const aabnUdenGuide = aabn;
-aabn = function(id){
-	aabnUdenGuide(id);
-	if(RUTE.some(p=>p.id===id)) SET.add(id);
-	if(guide.classList.contains("paa") && !guide.classList.contains("sover")) guideSov();
-};
-
-const lukUdenGuide = luk;
-luk = function(w){
-	const var_aaben = w.classList.contains("open");
-	lukUdenGuide(w);
-	if(!var_aaben) return;
-	if(!RUTE.some(p=>p.id===w.id)) return;
-	setTimeout(()=>{
-		const nogenAabne = document.querySelectorAll(".window.open").length > 0;
-		if(!nogenAabne) guideOpdater(w.id);
-	},360);
-};
-
 /* Hintet forsvinder når man har åbnet noget */
 const hint=document.getElementById("hint");
 document.querySelectorAll(".icon, .dockitem").forEach(el=>{
@@ -1739,18 +1506,6 @@ document.querySelectorAll(".icon, .dockitem").forEach(el=>{
 });
 document.getElementById("hjemknap").addEventListener("click",aabnHjem);
 
-function aabnBaggrundsvalg(e){
-	e.stopPropagation();
-	const telefon = window.matchMedia("(max-width:700px)").matches;
-	if(!telefon){
-		const r=e.currentTarget.getBoundingClientRect();
-		ctx2.style.left=Math.min(r.left-120,window.innerWidth-290)+"px";
-		ctx2.style.top=(r.bottom+8)+"px";
-	}
-	ctx2.classList.toggle("on");
-}
-document.getElementById("bgknap").addEventListener("click",aabnBaggrundsvalg);
-document.getElementById("bgIkon").addEventListener("click",aabnBaggrundsvalg);
 
 /* Sprogknapperne i fordøren */
 document.querySelectorAll("[data-dorsprog]").forEach(k=>{
@@ -2026,20 +1781,6 @@ const CASES={
 		lead:"En magasinforside med stregtegning ovenpå foto. Titlen skæres af figuren, så billede og typografi ligger i samme lag.",
 		fakta:[["Type","Magasinforside"],["År","2026"],["Teknik","Foto + stregtegning"],["Detalje","Stregkode som datering"]],
 		afsnit:[["Idéen","En hverdagssituation ved havet, tegnet op i streg oven på fotoet. Det gør motivet til noget mellem et minde og en illustration. Man kan se det er sket, men det er ikke længere et fotografi."],["Typografien","Titlen ligger bag figuren i stedet for over den. Det er en lille ting, men det er den der får forsiden til at føles som ét billede frem for tekst lagt ovenpå."]],
-		citat:null,efter:null,shots:[],tal:[]},
-	hosted:{farve:"#CFF70E",mappe:"Digitalt design",hero:"img/hosted-cover.webp",titel:"HOSTED",
-		lead:"En fest-app hvor værten opretter festen, gæsterne joiner med ét link i browseren, og alle spiller sammen fra deres egen telefon. Mit eget produkt, stadig under udvikling.",
-		fakta:[["Type","Eget produkt · iOS-app og web"],["Status","Beta · under udvikling"],["Min rolle","Idé, brand, design og frontend"],["Brand","Sort, hvid versal, lime #CFF70E"]],
-		afsnit:[["Idéen","Fem spil: Impostor, Most Likely To, Kender du X, Turnering og kortspil. De starter alle på under tredive sekunder. Værten trykker start, gæsterne følger med live. Ingen skal downloade noget: man åbner et link, skriver sit navn, og er med."],["Brandet","Sort baggrund, hvid fed versaltypografi og én limegrøn accent. Det skulle ligne noget man har lyst til at åbne klokken elleve om aftenen, ikke en app til møder. Hvert spil har sin egen farve, så man kender dem på afstand: lime til Impostor, orange til Most Likely To, cyan til Turnering."],["Det valg jeg er mest stolt af","Hvert spil har en drikke-indstilling per spiller. Vælger du fra, får du ingen slurke, men er stadig hundrede procent med i spillet. Der er også pakker helt uden alkohol: samtalekort, catch-up spørgsmål og lege der virker til familieaften. En festapp der ikke tvinger nogen til noget."]],
-		citat:null,
-		efter:["Hvor den er nu","Appen kører i simulator med hjem, spil, fester og profil. Landingssiden er live med venteliste og tekst på både dansk og engelsk. Jeg opdaterer casen, når der er en beta man kan prøve."],
-		shots:["img/hosted-01.webp","img/hosted-02.webp"],
-		tal:[["5","spil"],["0","downloads for gæster"],["4","faneblade"]],
-		link:{url:"https://hosted-web-five.vercel.app/",tekst:"Se den første version af websitet →"}},
-	dualitet:{farve:"var(--neon-green)",mappe:"Digitalt design",hero:"img/dualitet-cover.webp",titel:"Dualitet",
-		lead:"En podcast jeg er i gang med. Mere om den, når der er noget at høre.",
-		fakta:[["Type","Podcast"],["Status","Under optagelse"],["Navn","Dualitet"]],
-		afsnit:[["Kommer","Casen er tom med vilje. Jeg lægger den ind, når de første afsnit er i hus."]],
 		citat:null,efter:null,shots:[],tal:[]},
 	gaasetorvet:{farve:"var(--neon-pink)",mappe:"Branding",hero:"img/gaasen.webp",titel:"Gåsetorvet",
 		lead:"Et lokalt sted med personlighed, humor og fællesskab. Opgaven var visuelle elementer der kunne bruges på tværs af sæsoner og formater uden at miste stedets varme.",
