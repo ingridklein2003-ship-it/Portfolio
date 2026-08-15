@@ -324,10 +324,11 @@ button{font-family:inherit}
 .docksep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);margin:5px 4px 22px}
 .dockfolder{background:rgba(255,255,255,.24);display:grid;grid-template-columns:repeat(2,1fr);gap:3px;padding:5px}
 .dockfolder i{
-	border-radius:5px;display:grid;place-items:center;
+	border-radius:5px;display:grid;place-items:center;overflow:hidden;
 	font-family:var(--f-d);font-weight:800;font-size:11px;font-style:normal;
 	letter-spacing:-.02em;line-height:1;
 }
+.dockfolder i svg{width:11px;height:11px;display:block}
 .dockfolder::after{content:none}
 
 .toolsheet{position:absolute;left:50%;bottom:88px;transform:translateX(-50%) scale(.92);z-index:885;width:min(470px,92vw);background:rgba(28,30,34,.7);backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.2);border-radius:24px;padding:20px;opacity:0;pointer-events:none;transition:opacity .26s var(--ease),transform .3s var(--ease)}
@@ -335,7 +336,10 @@ button{font-family:inherit}
 .toolsheet h4{font-family:var(--f-d);font-weight:500;font-size:15px;color:#fff;text-align:center;margin-bottom:18px}
 .toolgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 12px}
 .toolapp{display:flex;flex-direction:column;align-items:center;gap:7px;background:none;border:none;color:#fff}
-.toolapp span:first-child{width:52px;height:52px;border-radius:13px;display:grid;place-items:center;font-family:var(--f-d);font-weight:800;font-size:18px;letter-spacing:-.02em;box-shadow:0 5px 12px rgba(0,0,0,.32)}
+.toolapp span:first-child{width:52px;height:52px;border-radius:13px;display:grid;place-items:center;font-family:var(--f-d);font-weight:800;font-size:18px;letter-spacing:-.02em;box-shadow:0 5px 12px rgba(0,0,0,.32);overflow:hidden;position:relative}
+.toolapp svg{width:26px;height:26px;display:block}
+.toolapp .adobe{border:1.5px solid currentColor;border-radius:13px}
+.toolapp .fyld svg{width:100%;height:100%}
 .toolapp span:last-child{font-size:11.5px;opacity:.9}
 
 
@@ -897,18 +901,18 @@ button{font-family:inherit}
 	<div class="toolsheet" id="toolsheet">
 		<h4>Værktøjer jeg arbejder i</h4>
 		<div class="toolgrid">
-			<button class="toolapp"><span style="background:linear-gradient(150deg,#FF7262,#A259FF)">Fi</span><span>Figma</span></button>
-			<button class="toolapp"><span style="background:#330000;color:#FF9A00">Ai</span><span>Illustrator</span></button>
-			<button class="toolapp"><span style="background:#001E36;color:#31A8FF">Ps</span><span>Photoshop</span></button>
-			<button class="toolapp"><span style="background:#49021F;color:#FF3366">Id</span><span>InDesign</span></button>
-			<button class="toolapp"><span style="background:#2A001E;color:#9999FF">Pr</span><span>Premiere</span></button>
-			<button class="toolapp"><span style="background:#000;color:#fff;font-size:14px">Ink</span><span>Inkscape</span></button>
-			<button class="toolapp"><span style="background:#1E1E1E;color:#fff;font-size:14px">&lt;/&gt;</span><span>VS Code</span></button>
-			<button class="toolapp"><span style="background:#161B22;color:#fff;font-size:14px">Git</span><span>GitHub</span></button>
-			<button class="toolapp"><span style="background:#fff;color:#111;font-size:14px">No</span><span>Notion</span></button>
-			<button class="toolapp"><span style="background:#000;color:#fff;font-size:15px">▲</span><span>Vercel</span></button>
-			<button class="toolapp"><span style="background:#E1306C;color:#fff;font-size:14px">IG</span><span>Instagram</span></button>
-			<button class="toolapp"><span style="background:#4A4A4A;color:#fff;font-size:13px">Pro</span><span>Procreate</span></button>
+			<button class="toolapp"><span style="background:#fff"><svg viewBox="0 0 38 57" aria-hidden="true"><path fill="#0ACF83" d="M9.5 57c5.25 0 9.5-4.25 9.5-9.5V38H9.5C4.25 38 0 42.25 0 47.5S4.25 57 9.5 57z"/><path fill="#A259FF" d="M0 28.5C0 23.25 4.25 19 9.5 19H19v19H9.5C4.25 38 0 33.75 0 28.5z"/><path fill="#F24E1E" d="M0 9.5C0 4.25 4.25 0 9.5 0H19v19H9.5C4.25 19 0 14.75 0 9.5z"/><path fill="#FF7262" d="M19 0h9.5C33.75 0 38 4.25 38 9.5S33.75 19 28.5 19H19V0z"/><path fill="#1ABCFE" d="M38 28.5c0 5.25-4.25 9.5-9.5 9.5S19 33.75 19 28.5s4.25-9.5 9.5-9.5 9.5 4.25 9.5 9.5z"/></svg></span><span>Figma</span></button>
+			<button class="toolapp"><span class="adobe" style="background:#310000;color:#FF9A00">Ai</span><span>Illustrator</span></button>
+			<button class="toolapp"><span class="adobe" style="background:#001E36;color:#31A8FF">Ps</span><span>Photoshop</span></button>
+			<button class="toolapp"><span class="adobe" style="background:#49021F;color:#FF3366">Id</span><span>InDesign</span></button>
+			<button class="toolapp"><span class="adobe" style="background:#2A001E;color:#9999FF">Pr</span><span>Premiere</span></button>
+			<button class="toolapp"><span style="background:#F2F2F2"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round" d="M16.6 6.1c-1.6-1.6-6.6-2-7.9.5-1.2 2.3 1.4 3.6 3.4 4.6 2.2 1.1 4.6 2.3 3.4 4.7-1.3 2.6-6.4 2.2-8.1.5"/><circle cx="17.4" cy="5.4" r="2" fill="#111"/><circle cx="6.6" cy="17.3" r="2" fill="#111"/></svg></span><span>Inkscape</span></button>
+			<button class="toolapp"><span style="background:#1E1E1E"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#22A0EA" d="M23.15 2.587 18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a1 1 0 0 0-1.276.057L.327 7.261a1 1 0 0 0-.001 1.479L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a1 1 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg></span><span>VS Code</span></button>
+			<button class="toolapp"><span style="background:#161B22"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span><span>GitHub</span></button>
+			<button class="toolapp"><span style="background:#fff"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#111" d="M6.4 5.2v13.1l2.6-.3V9.7l6.1 8.1 2.9-.3V4.6l-2.7.3v7.8L9.5 4.9z"/><path fill="none" stroke="#111" stroke-width="1.3" d="M4.3 3.6 15.6 2.6c1-.1 1.4.1 2 .6l2.3 1.7c.5.4.6.6.6 1.1v12.4c0 .8-.3 1.2-1.3 1.3L7.4 22.4c-.8.1-1.2 0-1.6-.5l-1.8-2.3c-.4-.6-.6-1-.6-1.6V4.9c0-.7.3-1.2 1-1.3z"/></svg></span><span>Notion</span></button>
+			<button class="toolapp"><span style="background:#000"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2.5 22.5 21H1.5z"/></svg></span><span>Vercel</span></button>
+			<button class="toolapp"><span class="fyld"><svg viewBox="0 0 24 24" aria-hidden="true" class="fyld"><defs><linearGradient id="igfarve" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFDD55"/><stop offset=".35" stop-color="#FF543E"/><stop offset=".7" stop-color="#C837AB"/><stop offset="1" stop-color="#3771C8"/></linearGradient></defs><rect width="24" height="24" fill="url(#igfarve)"/><rect x="6.2" y="6.2" width="11.6" height="11.6" rx="3.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="16.1" cy="7.9" r="1.05" fill="#fff"/></svg></span><span>Instagram</span></button>
+			<button class="toolapp"><span style="background:#0E0E10"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="prfarve" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFC93C"/><stop offset=".38" stop-color="#FF5E5B"/><stop offset=".72" stop-color="#D64EE0"/><stop offset="1" stop-color="#6C5CE7"/></linearGradient></defs><path fill="none" stroke="url(#prfarve)" stroke-width="4.2" stroke-linecap="round" d="M4.6 17.2c1.1-6.4 4.4-10.2 8.2-10.2 2.6 0 4.1 1.6 4.1 3.6 0 2.3-1.9 3.9-4 3.9-1.1 0-1.8-.4-1.8-1"/><path fill="none" stroke="url(#prfarve)" stroke-width="4.2" stroke-linecap="round" d="M11.1 13.5c-.6 2.4.5 4.1 3.1 4.1 2.4 0 4.4-1.3 5.4-3"/></svg></span><span>Procreate</span></button>
 		</div>
 	</div>
 
@@ -919,10 +923,10 @@ button{font-family:inherit}
 		<span class="dokplads dokplads--4"><button class="dockitem dok4" data-w="w-foto" data-tip="Foto"><span class="dokmappe" style="--f:#00C46F"><b></b><u></u></span><span class="dockdot"></span></button><span class="dokplads__navn">Foto</span></span>
 		<span class="docksep"></span>
 		<span class="dokplads"><button class="dockitem dockfolder" id="toolsBtn" aria-label="Værktøjer">
-			<i style="background:#330000;color:#FF9A00">Ai</i>
+			<i style="background:#310000;color:#FF9A00">Ai</i>
 			<i style="background:#001E36;color:#31A8FF">Ps</i>
-			<i style="background:linear-gradient(150deg,#FF7262,#A259FF);color:#fff">Fi</i>
-			<i style="background:#1E1E1E;color:#fff;font-size:9px">&lt;/&gt;</i>
+			<i style="background:#fff"><svg viewBox="0 0 38 57" aria-hidden="true"><path fill="#0ACF83" d="M9.5 57c5.25 0 9.5-4.25 9.5-9.5V38H9.5C4.25 38 0 42.25 0 47.5S4.25 57 9.5 57z"/><path fill="#A259FF" d="M0 28.5C0 23.25 4.25 19 9.5 19H19v19H9.5C4.25 38 0 33.75 0 28.5z"/><path fill="#F24E1E" d="M0 9.5C0 4.25 4.25 0 9.5 0H19v19H9.5C4.25 19 0 14.75 0 9.5z"/><path fill="#FF7262" d="M19 0h9.5C33.75 0 38 4.25 38 9.5S33.75 19 28.5 19H19V0z"/><path fill="#1ABCFE" d="M38 28.5c0 5.25-4.25 9.5-9.5 9.5S19 33.75 19 28.5s4.25-9.5 9.5-9.5 9.5 4.25 9.5 9.5z"/></svg></i>
+			<i style="background:#1E1E1E"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#22A0EA" d="M23.15 2.587 18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a1 1 0 0 0-1.276.057L.327 7.261a1 1 0 0 0-.001 1.479L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a1 1 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg></i>
 		</button><span class="dokplads__navn" data-da="Værktøjer" data-en="Tools">Værktøjer</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-kode" data-tip="Kodeværkstedet"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 7.5L4 12l4.5 4.5"/><path d="M15.5 7.5L20 12l-4.5 4.5"/><path d="M13.4 5.2l-2.8 13.6"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Kodeværkstedet</span></span>
 		<span class="dokplads"><button class="dockitem" data-w="w-tegn" data-tip="Tegn en streg"><svg viewBox="0 0 24 24" fill="none" stroke="#F4F2ED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c3-1 5-3 7-6s4-6 6-8"/><path d="M14.5 4.5l3.6 3.6"/><path d="M3.6 20.4l3.1-.9-2.2-2.2z"/></svg><span class="dockdot"></span></button><span class="dokplads__navn">Tegn en streg</span></span>
