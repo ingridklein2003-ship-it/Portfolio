@@ -41,9 +41,9 @@ window.OVERSAT = {
 	"Odense Havn": "Odense harbour",
 	"Venner": "Friends",
 	"Foto · 3 serier": "Photography · 3 series",
-	"Landskab · 42 billeder": "Landscape · 42 photographs",
-	"Reportage · 5 billeder": "Reportage · 5 photographs",
-	"Portræt · 15 billeder": "Portrait · 15 photographs",
+	"Eget arbejde · landskab · 42 billeder": "Own work · landscape · 42 photographs",
+	"Eget arbejde · reportage · 5 billeder": "Own work · reportage · 5 photographs",
+	"Eget arbejde · portræt · 15 billeder": "Own work · portrait · 15 photographs",
 	"Odense Havn": "Odense harbour",
 	"Venner": "Friends",
 	"KøberGuiden · prøv appen": "KøberGuiden · try the app",
@@ -74,22 +74,24 @@ window.OVERSAT = {
 
 	/* ── Projektkort ── */
 	"I gang": "In progress",
-	"App · klient · brugertest · 2026": "App · client · user testing · 2026",
+	"Klient · gruppe på 3 — UI, identitet & ikoner · Figma · 2026": "Client · group of 3 — UI, identity & icons · Figma · 2026",
 	"En app der gør boligkøb overskueligt. Bygget på én sætning fra brugertesten, der væltede vores oprindelige antagelse.":
 		"An app that makes buying a home comprehensible. Built on one sentence from user testing that overturned our original assumption.",
 	"Prøv prototypen →": "Try the prototype →",
 	"Eget produkt · app under udvikling": "Own product · app in development",
 	"Podcast · under optagelse": "Podcast · in production",
-	"Programplanlægger · Figma": "Programme planner · Figma",
-	"Prototype · workshop": "Prototype · workshop",
-	"Identitet · 2023–24": "Identity · 2023–24",
-	"Logo · 2025": "Logo · 2025",
-	"18 motiver · iPad & Illustrator": "18 pieces · iPad & Illustrator",
-	"Plakat · 2026": "Poster · 2026",
-	"Magasinforside · 2026": "Magazine cover · 2026",
+	"Skoleprojekt · gruppe på 4, videreført alene · Figma": "Student project · group of 4, carried on alone · Figma",
+	"Skoleprojekt · design i gruppe, kode af mig · Figma & kode": "Student project · designed in a group, coded by me · Figma & code",
+	"Klient · design & illustration · Illustrator, Photoshop · 2023–24": "Client · design & illustration · Illustrator, Photoshop · 2023–24",
+	"Klient · logo & identitet, alene · Illustrator · 2025": "Client · logo & identity, solo · Illustrator · 2025",
+	"Eget arbejde · 18 motiver · iPad, Procreate & Illustrator": "Own work · 18 pieces · iPad, Procreate & Illustrator",
+	"Eget arbejde · fritidsprojekt · Photoshop · 2026": "Own work · made in my own time · Photoshop · 2026",
+	"Eget arbejde · fritidsprojekt · Photoshop · 2026": "Own work · made in my own time · Photoshop · 2026",
 	"Like a movie": "Like a movie",
 	"Stay Alive": "Stay Alive",
-	"A4 · InDesign · 2024": "A4 · InDesign · 2024",
+	"Privat opgave · layout & sats, alene · InDesign · 2024": "Private commission · layout & typesetting, solo · InDesign · 2024",
+	"Eget arbejde · fritidsprojekt · Photoshop": "Own work · made in my own time · Photoshop",
+	"Klient · Gåsetorvet · Photoshop · 2024": "Client · Gåsetorvet · Photoshop · 2024",
 	"1:1 · Instagram": "1:1 · Instagram",
 	"Reportage · 15 billeder": "Reportage · 15 photographs",
 	"Serie · 27 billeder": "Series · 27 photographs",
@@ -177,6 +179,10 @@ window.OVERSAT = {
 	"Ved siden af": "Alongside",
 	"Base": "Based in",
 	"Find mig": "Find me",
+	"Praktik": "Internship",
+	"Søger praktikplads 4. januar – 2. april 2027 · UI/UX og frontend": "Looking for an internship 4 January – 2 April 2027 · UI/UX and frontend",
+	"Søger praktikplads 4. januar – 2. april 2027 · UI/UX-design og frontend": "Looking for an internship 4 January – 2 April 2027 · UI/UX design and frontend",
+	"UI/UX, visuel identitet, frontend, foto": "UI/UX, visual identity, frontend, photography",
 	"Identitet, digitalt design, foto": "Identity, digital design, photography",
 	"Roligt og råt, med små legende detaljer": "Calm and raw, with small playful details",
 	"Illustrator, Photoshop, InDesign, Premiere, Figma": "Illustrator, Photoshop, InDesign, Premiere, Figma",
@@ -207,54 +213,66 @@ window.OVERSAT_HTML = {
 
 /* ── Engelske udgaver af casene ── */
 window.CASES_EN = {
+	likeamovie: {
+		lead: "A poster about a night you don't want to forget. Black, red and grainy, built like a contact sheet rather than a tidy piece of publicity.",
+		fakta: [["Context","Own work · made in my own time"],["My role","Concept, photography and layout, solo"],["Year","2026"],["Format","Portrait · print"],["Tool","Photoshop"]],
+		afsnit: [["The idea","Three images stacked like negatives on a contact sheet, with the title set vertically down the side. The format makes you read the images in order, as clips from one night rather than three loose photos."],
+			["The craft","The images are pushed to black and white with heavy grain, so they look developed rather than shot on a phone. The red is used only for the frame and the type, never inside the images."]]
+	},
+	stayalive: {
+		lead: "A magazine cover with line drawing on top of photography. The title is cut by the figure, so image and type sit in the same layer.",
+		fakta: [["Context","Own work · made in my own time"],["My role","Concept, photography, drawing and typography, solo"],["Year","2026"],["Technique","Photo + line drawing"],["Tool","Photoshop"]],
+		afsnit: [["The idea","An everyday moment by the sea, drawn over in line on top of the photo. It turns the subject into something between a memory and an illustration. You can tell it happened, but it's no longer a photograph."],
+			["The typography","The title sits behind the figure instead of over it. It's a small thing, but it's what makes the cover feel like one image rather than text laid on top."]]
+	},
 	gaasetorvet: {
 		lead: "A local place with personality, humour and a sense of community. The job was visual elements that could work across seasons and formats without losing the warmth of the place.",
-		fakta: [["Period","2023–2024"],["My role","Graphic design & illustration"],["Focus","Branding, atmosphere"],["Tools","Illustrator · Photoshop"]],
+		fakta: [["Context","Client work · Gåsetorvet"],["Period","2023–2024"],["My role","Graphic design & illustration, solo"],["Tools","Illustrator · Photoshop"]],
 		afsnit: [["The work","I worked with illustration, image editing, layout and animation to build one coherent look. It had to carry a Christmas card, a New Year post and a physical wooden piece for the bar."]],
 		efter: ["Sub-projects","Christmas card · The goose in the bar (animation) · „Drink status“ wooden design · New Year post. They belong under one identity rather than sitting as four loose projects."],
 		tal: [["4","sub-projects"],["2","years"]]
 	},
 	hverdagshjaelp: {
 		lead: "Logo and visual identity for a new home-help service. The goal was something friendly and welcoming, not clinical.",
-		fakta: [["Year","2025"],["My role","Concept, logo, colours"],["Tool","Illustrator"]],
+		fakta: [["Context","Client work · a new home-help service"],["My role","Concept, logo and colours, solo"],["Year","2025"],["Tool","Illustrator"]],
 		afsnit: [["Process","Sketches → simplification → refinement, until it felt warm and recognisable. A logo for a help service has to read fast and feel safe, even at small sizes."]]
 	},
 	illustration: {
 		lead: "Figures and characters drawn on iPad and cleaned up in Illustrator. They have to read fast, work in motion and hold up small.",
-		fakta: [["Tools","iPad · Illustrator"],["Use","Mascots, merch, project worlds"],["Look","Simple, graphic, with humour"]],
+		fakta: [["Context","Own work · ongoing since 2023"],["My role","Everything, solo"],["Use","Mascots, merch, posters, print"],["Tools","iPad · Procreate · Illustrator"]],
 		afsnit: [["Process","Sketch → shapes → simplification → adjusting proportion and energy. The hard part isn't drawing the figure, it's removing enough lines that it still feels alive."],
 			["The handball figure","Made as a mascot for a project world about sport. It has to feel like it's moving, even standing still."]]
 	},
 	sanghaefter: {
 		lead: "A warm, personal print design for a 60th birthday, festive without becoming cluttered.",
-		fakta: [["Year","2024"],["Tool","InDesign"],["Format","A4 · print"]],
+		fakta: [["Context","Private commission · song booklet for a 60th birthday"],["My role","Layout and typesetting, solo"],["Year","2024"],["Tool","InDesign"]],
 		afsnit: [["Process","Typographic hierarchy → grid → consistent style across pages → refinement. With that many songs the setting has to be disciplined enough that you're never lost."]]
 	},
 	kamppost: {
 		lead: "A match day post that has to catch attention fast and work in a feed.",
-		fakta: [["Format","1:1 · Instagram"],["Tool","Photoshop"]],
+		fakta: [["Context","Own work · made in my own time"],["My role","Concept, layout and typography, solo"],["Format","1:1 · Instagram"],["Tool","Photoshop"]],
 		afsnit: [["Process","Sketch the composition → typography and contrast → refine for mobile. A feed post has under a second to stop a thumb."]]
 	},
 	nytaar: {
 		lead: "A New Year greeting for Gåsetorvet that matches the tone of the place and works fast in a feed.",
-		fakta: [["Format","1:1"],["Tool","Photoshop"],["Year","2024"]],
+		fakta: [["Context","Client work · Gåsetorvet"],["My role","Concept and execution, solo"],["Format","1:1 · Instagram"],["Tool","Photoshop"],["Year","2024"]],
 		afsnit: [["Process","Composition → contrast and typography → export for social."]]
 	},
 	nordatlanten: {
 		lead: "Sheep, mountains and fjords in grey weather. Where my visual eye comes from.",
-		fakta: [["Place","Faroe Islands"],["Extent","42 photographs"]],
+		fakta: [["Context","Own work"],["My role","Photography and edit, solo"],["Place","Faroe Islands"],["Extent","42 photographs"]],
 		afsnit: [["About the series","I was born and raised in the Faroe Islands. That North Atlantic mix of raw nature, old houses and modern city life shaped how I see colour, contrast and atmosphere."]],
 		tal: [["42","photographs"]]
 	},
 	odensehavn: {
 		lead: "Containers, graffiti and skaters on a grey afternoon at the harbour.",
-		fakta: [["Place","Odense harbour"],["Extent","5 photographs"],["Type","Reportage"]],
+		fakta: [["Context","Own work"],["My role","Photography and edit, solo"],["Place","Odense harbour"],["Extent","5 photographs"]],
 		afsnit: [["About the series","The harbour is a place where people keep painting over each other. I went down to photograph surfaces and ended up photographing people. Those are the frames that stayed."]],
 		tal: [["5","photographs"]]
 	},
 	venner: {
 		lead: "Portraits and evenings at home. Warm light and people who aren't posing.",
-		fakta: [["Type","Portrait"],["Extent","15 photographs"],["Light","Only what was in the room"]],
+		fakta: [["Context","Own work"],["My role","Photography and edit, solo"],["Extent","15 photographs"],["Light","Only what was in the room"]],
 		afsnit: [["About the series","None of these were set up. I brought the camera along and then it just stayed on the table for the rest of the evening. That's why the light is uneven. Nothing was switched on that wasn't already on."]],
 		tal: [["15","photographs"]]
 	}
@@ -280,7 +298,7 @@ window.APPS_EN = {
 	wordfestival: {
 		hint: "Save talks with the heart and go to My programme. Try saving both Helen Fielding and Ulrik Langen. They're both at 16.00, and the app tells you.",
 		lead: "An app for Word Festival in Odense where the visitor can build their own programme from over a hundred talks, without losing track of what overlaps.",
-		fakta: [["Client","Word Festival, Odense"],["Type","Installation project"],["My role","Solo: research, UI, colour, prototype"],["Tool","Figma"]],
+		fakta: [["Context","Student project · UCL · Word Festival, Odense"],["Team","Group of 4 — carried on alone by me"],["My role","Research, UI, colour, prototype"],["Tool","Figma"]],
 		afsnit: [
 			["The problem","Over a hundred talks across Borgernes Hus, Odeon and the DIAS stage in a few days. The research pointed at three things: you lose the overview, you realise too late that two talks clash, and you're unsure whether you got the best of it.",null],
 			["I chose to move away from their existing look","I carried this project on alone, and along the way I made a decision that wasn't obvious: to replace the colours and the whole expression the festival had been using. The research showed that the audience didn't read the old look as something meant for them. That isn't a decision you make to prettify something. It's one you make because the findings say the current look doesn't land with the people it needs to land with.",null],
@@ -291,11 +309,14 @@ window.APPS_EN = {
 	},
 	friendfinder: {
 		hint: "Log in with anything. Try Events, Friends and a profile. The bottom navigation works.",
-		lead: "An app for finding someone to do something with. It started as a greyscale wireframe in a workshop and has since been built out into a finished design.",
-		fakta: [["Type","App · clickable prototype"],["Design","Group work, 3 students"],["Code","Built out by me"],["Tools","Figma · HTML, CSS, JS"]],
-		afsnit: [["The idea","It's easy to move to a new city and hard to find someone to do things with. The app offers two routes into the same thing: either you find an event someone has already made, or you find people with the same interests."],
-			["From wireframe to design","The original project was a greyscale wireframe in Figma with six screens without colour. I built it out with an identity taken from the warm orange in the logo, and added bottom navigation so you can move freely instead of only back and forth."]],
-		efter: ["The most important decision","The events are written by the users themselves, not by the app. „I'd like to invite five nice girls over for a cosy evening with good food and wine“ sounds like a person. That's the whole difference between an app you dare use and one you scroll past."],
-		tal: [["6","screens"],["2","routes in"]]
+		lead: "An app for finding someone to do something with when you've just moved to a new city. It started as a greyscale wireframe from a workshop. I designed it out and built it in code, so you can click your way through it.",
+		fakta: [["Context","Student project · UCL"],["My role","Wireframe in a group of 3 — identity, UI and frontend by me alone"],["Type","Clickable prototype, built in code"],["Tools","Figma · HTML, CSS, JavaScript"]],
+		afsnit: [
+			["The problem","You move to a new city, you know nobody, and the apps that exist for meeting people are either about dating or about joining a club. There's nothing in between: wanting to do something tonight with someone who feels like the same. That was the starting point at the workshop, and it also turned out to be the hard part to design. You have to be able to take the first step without feeling like you're asking for something."],
+			["The process","There were three of us on the first wireframe. Six screens in Figma, greyscale, no colour and no navigation — you could only go back and forth. It showed the flow, but it didn't show whether it would feel good to use. I took the project further on my own and did two things: gave it an identity built from the warm orange in the logo, and added bottom navigation so you can move freely between the four parts instead of following one route."],
+			["The result","There are two routes in, and they sit side by side on the home screen rather than being a choice you have to make first: find an event someone has already made, or find people with the same interests. I built the finished prototype in hand-written HTML, CSS and JavaScript instead of clicking screens together in Figma. That means the one you can tap around in here on the site is the real thing — not a video of it."]],
+		citat: ["„I'd like to invite five nice girls over for a cosy evening with good food and wine.“","An example of an event, written the way a person would write it"],
+		efter: ["What I took with me","That the most important decision in the project wasn't a visual one. It was deciding to let users write their own invitations instead of having the app do it for them. An app that says „Communal dinner · 5 places“ is a calendar. An app that says „I'll take care of the food, so just bring your favourite drink“ is an invitation. That's the whole difference between something you dare use and something you scroll past."],
+		tal: [["6","screens"],["2","routes in"],["3","in the group"]]
 	}
 };

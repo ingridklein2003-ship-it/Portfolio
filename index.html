@@ -2,10 +2,35 @@
 <html lang="da">
 <head>
 <meta charset="UTF-8">
-<title>Klein Design · skrivebordet</title>
+<title>Ingrid Klein · Multimediedesigner — UI/UX &amp; frontend</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Arbejdsversion af nyt design til Klein Design. Ikke færdig.">
+<meta name="description" content="Ingrid Klein — multimediedesigner i Odense. UI/UX, visuel identitet og frontend. Søger praktikplads forår 2027.">
+<meta name="author" content="Ingrid Mariannardóttir Klein">
+<link rel="canonical" href="https://kleindesign.dk/">
+
+<!-- Open Graph / LinkedIn / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:site_name" content="Klein Design">
+<meta property="og:url" content="https://kleindesign.dk/">
+<meta property="og:title" content="Ingrid Klein · Multimediedesigner — UI/UX &amp; frontend">
+<meta property="og:description" content="Multimediedesigner i Odense. UI/UX, visuel identitet og frontend. Søger praktikplads 4. januar – 2. april 2027.">
+<meta property="og:image" content="https://kleindesign.dk/img/og-forside.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ingrid Klein, multimediedesigner — UI/UX, visuel identitet og frontend.">
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ingrid Klein · Multimediedesigner — UI/UX &amp; frontend">
+<meta name="twitter:description" content="Multimediedesigner i Odense. UI/UX, visuel identitet og frontend. Søger praktikplads forår 2027.">
+<meta name="twitter:image" content="https://kleindesign.dk/img/og-forside.png">
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#141414">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -405,6 +430,8 @@ button{font-family:inherit}
 .dor__foto{width:76px;height:76px;border-radius:50%;object-fit:cover;flex:0 0 76px}
 .dor h1{font-family:var(--f-d);font-weight:800;font-size:clamp(26px,4.4vw,38px);letter-spacing:-.04em;line-height:1.04}
 .dor__und{font-family:var(--f-l);font-size:15px;color:var(--ink-2);margin-top:5px}
+.dor__praktik{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:6px 12px;border:1px solid var(--ink);border-radius:999px;background:#fff;font-family:var(--f-m);font-size:12.5px;letter-spacing:.01em;color:var(--ink);line-height:1.35}
+.dor__praktik::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--neon-green);flex:none}
 .dor__brod{font-family:var(--f-l);font-size:16px;line-height:1.7;color:var(--ink-2);margin-bottom:24px;max-width:56ch}
 .dor__valg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .dor__valg button{
@@ -581,11 +608,11 @@ button{font-family:inherit}
 
 	<div class="icons" id="icons">
 		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Digitalt design</span></button>
+		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
 		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Branding</span></button>
 		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Print &amp; SoMe</span></button>
 		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Foto</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Om mig</span></button>
-		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
 		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
 
 		<span class="icons__skel"></span>
@@ -596,7 +623,7 @@ button{font-family:inherit}
 
 		<span class="icons__skel"></span>
 		<span class="icons__mrk">Dokumenter</span>
-		<a class="icon fileicon" href="Ingrid-Klein-CV-UDKAST.pdf" download><span class="icon__art"><b>PDF</b></span><span>CV.pdf</span></a>
+		<a class="icon fileicon" href="Ingrid-Klein-CV.pdf" download><span class="icon__art"><b>PDF</b></span><span>CV.pdf</span></a>
 
 
 
@@ -631,12 +658,12 @@ button{font-family:inherit}
 					<span>
 						<span class="thing__t">KøberGuiden</span>
 						<span class="thing__d">En app der gør boligkøb overskueligt. Bygget på én sætning fra brugertesten, der væltede vores oprindelige antagelse.</span>
-						<span class="thing__s"><i style="background:var(--neon-blue)"></i>App · klient · brugertest · 2026</span>
+						<span class="thing__s"><i style="background:var(--neon-blue)"></i>Klient · gruppe på 3 — UI, identitet &amp; ikoner · Figma · 2026</span>
 						<span class="thing__go" style="opacity:1">Prøv prototypen →</span>
 					</span>
 				</a>
-				<a class="thing" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Programplanlægger · Figma</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.png" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Prototype · workshop</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Skoleprojekt · gruppe på 4, videreført alene · Figma</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.png" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Skoleprojekt · design i gruppe, kode af mig · Figma &amp; kode</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -647,9 +674,9 @@ button{font-family:inherit}
 		<div class="winbody">
 			<div class="winbody__head"><h2>Branding</h2><p>Visuelle universer der skal kunne holde til mange formater og stadig ligne sig selv.</p></div>
 			<div class="things">
-				<a class="thing" data-case="gaasetorvet" href="#"><span class="thing__m"><img src="img/gaasen.webp" alt=""></span><span class="thing__t">Gåsetorvet</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Identitet · 2023–24</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="hverdagshjaelp" href="#"><span class="thing__m"><img src="img/hverdagshjaelp-logo.webp" alt=""></span><span class="thing__t">Hverdagshjælp</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Logo · 2025</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="illustration" href="#"><span class="thing__m"><img src="img/Figur_haandbold.webp" alt=""></span><span class="thing__t">Illustration</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>18 motiver · iPad &amp; Illustrator</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="gaasetorvet" href="#"><span class="thing__m"><img src="img/gaasen.webp" alt=""></span><span class="thing__t">Gåsetorvet</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Klient · design &amp; illustration · Illustrator, Photoshop · 2023–24</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="hverdagshjaelp" href="#"><span class="thing__m"><img src="img/hverdagshjaelp-logo.webp" alt=""></span><span class="thing__t">Hverdagshjælp</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Klient · logo &amp; identitet, alene · Illustrator · 2025</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="illustration" href="#"><span class="thing__m"><img src="img/Figur_haandbold.webp" alt=""></span><span class="thing__t">Illustration</span><span class="thing__s"><i style="background:var(--neon-pink)"></i>Eget arbejde · 18 motiver · iPad, Procreate &amp; Illustrator</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -660,11 +687,11 @@ button{font-family:inherit}
 		<div class="winbody">
 			<div class="winbody__head"><h2>Print &amp; SoMe</h2><p>Alt vises i sit rigtige format. Intet er beskåret for at passe i et gitter.</p></div>
 			<div class="things">
-				<a class="thing" data-case="sanghaefter" href="#"><span class="thing__m"><img src="img/sanghaefte-cover.webp" alt=""></span><span class="thing__t">Sanghæfter</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>A4 · InDesign · 2024</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="likeamovie" href="#"><span class="thing__m"><img src="img/plakat-likeamovie.webp" alt=""></span><span class="thing__t">Like a movie</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Plakat · 2026</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="stayalive" href="#"><span class="thing__m"><img src="img/plakat-stayalive.webp" alt=""></span><span class="thing__t">Stay Alive</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Magasinforside · 2026</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="kamppost" href="#"><span class="thing__m"><img src="img/instagram-kamp-post.webp" alt=""></span><span class="thing__t">Kamp-post</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>1:1 · Instagram</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="nytaar" href="#"><span class="thing__m"><img src="img/gaas-illustration.webp" alt=""></span><span class="thing__t">Nytårspost</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>1:1 · Instagram</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="sanghaefter" href="#"><span class="thing__m"><img src="img/sanghaefte-cover.webp" alt=""></span><span class="thing__t">Sanghæfter</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Privat opgave · layout &amp; sats, alene · InDesign · 2024</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="likeamovie" href="#"><span class="thing__m"><img src="img/plakat-likeamovie.webp" alt=""></span><span class="thing__t">Like a movie</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Eget arbejde · fritidsprojekt · Photoshop · 2026</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="stayalive" href="#"><span class="thing__m"><img src="img/plakat-stayalive.webp" alt=""></span><span class="thing__t">Stay Alive</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Eget arbejde · fritidsprojekt · Photoshop · 2026</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="kamppost" href="#"><span class="thing__m"><img src="img/instagram-kamp-post.webp" alt=""></span><span class="thing__t">Kamp-post</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Eget arbejde · fritidsprojekt · Photoshop</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="nytaar" href="#"><span class="thing__m"><img src="img/gaas-illustration.webp" alt=""></span><span class="thing__t">Nytårspost</span><span class="thing__s"><i style="background:var(--neon-lime)"></i>Klient · Gåsetorvet · Photoshop · 2024</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -680,12 +707,12 @@ button{font-family:inherit}
 					<span>
 						<span class="thing__t">Færøerne</span>
 						<span class="thing__d">Får, fjelde og fjorde i gråvejr. Der hvor mit visuelle blik kommer fra.</span>
-						<span class="thing__s"><i style="background:var(--neon-green)"></i>Landskab · 42 billeder</span>
+						<span class="thing__s"><i style="background:var(--neon-green)"></i>Eget arbejde · landskab · 42 billeder</span>
 						<span class="thing__go" style="opacity:1">Se serien →</span>
 					</span>
 				</a>
-				<a class="thing" data-case="odensehavn" href="#"><span class="thing__m"><img src="img/galleri/vis-19.webp" alt=""></span><span class="thing__t">Odense Havn</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Reportage · 5 billeder</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-case="venner" href="#"><span class="thing__m"><img src="img/galleri/vis-28.webp" alt=""></span><span class="thing__t">Venner</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Portræt · 15 billeder</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="odensehavn" href="#"><span class="thing__m"><img src="img/galleri/vis-19.webp" alt=""></span><span class="thing__t">Odense Havn</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Eget arbejde · reportage · 5 billeder</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-case="venner" href="#"><span class="thing__m"><img src="img/galleri/vis-28.webp" alt=""></span><span class="thing__t">Venner</span><span class="thing__s"><i style="background:var(--neon-green)"></i>Eget arbejde · portræt · 15 billeder</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -740,7 +767,8 @@ button{font-family:inherit}
 
 				<h4 class="me__h">Kort fortalt</h4>
 				<dl>
-					<div><dt>Fokus</dt><dd>Identitet, digitalt design, foto</dd></div>
+					<div><dt>Praktik</dt><dd>Søger praktikplads 4. januar – 2. april 2027 · UI/UX og frontend</dd></div>
+					<div><dt>Fokus</dt><dd>UI/UX, visuel identitet, frontend, foto</dd></div>
 					<div><dt>Stil</dt><dd>Roligt og råt, med små legende detaljer</dd></div>
 					<div><dt>Værktøjer</dt><dd>Illustrator, Photoshop, InDesign, Premiere, Figma</dd></div>
 					<div><dt>Proces</dt><dd>Idé → skitser → test → iteration</dd></div>
@@ -850,11 +878,12 @@ button{font-family:inherit}
 		<div class="winbody">
 			<div class="winbody__head"><h2>Skal vi lave noget sammen?</h2><p>Skriv endelig, også hvis det bare er en idé, du gerne vil vende.</p></div>
 			<dl style="border-top:1px solid var(--line)">
+				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Praktik</dt><dd>Søger praktikplads 4. januar – 2. april 2027 · UI/UX-design og frontend</dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">E-mail</dt><dd><a href="mailto:KleinDesignGrafik@gmail.com" style="color:var(--neon-blue)">KleinDesignGrafik@gmail.com</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Telefon</dt><dd><a href="tel:+4553398230" style="color:var(--neon-blue)">+45 53 39 82 30</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener" style="color:var(--neon-blue)">Ingrid Mariannardóttir Klein ↗</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Instagram</dt><dd><a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener" style="color:var(--neon-blue)">@kleindesign.grafik ↗</a></dd></div>
-				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">CV</dt><dd><a href="Ingrid-Klein-CV-UDKAST.pdf" download style="color:var(--neon-blue)">Hent som PDF ↓</a></dd></div>
+				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">CV</dt><dd><a href="Ingrid-Klein-CV.pdf" download style="color:var(--neon-blue)">Hent som PDF ↓</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Sted</dt><dd>Færøerne &amp; Danmark</dd></div>
 			</dl>
 		</div>
@@ -946,11 +975,12 @@ button{font-family:inherit}
 				<img class="dor__foto" src="img/hero-portrait.webp" alt="">
 				<div>
 					<h1 data-da="Hej, jeg er Ingrid" data-en="Hi, I'm Ingrid">Hej, jeg er Ingrid</h1>
-					<p class="dor__und" data-da="Multimediedesigner · identitet, digitalt design og foto" data-en="Multimedia designer · identity, digital design and photography">Multimediedesigner · identitet, digitalt design og foto</p>
+					<p class="dor__und" data-da="Multimediedesigner · UI/UX, visuel identitet og frontend" data-en="Multimedia designer · UI/UX, visual identity and frontend">Multimediedesigner · UI/UX, visuel identitet og frontend</p>
+					<p class="dor__praktik" data-da="Søger praktikplads 4. januar – 2. april 2027" data-en="Looking for an internship 4 January – 2 April 2027">Søger praktikplads 4. januar – 2. april 2027</p>
 				</div>
 			</div>
 
-			<p class="dor__brod" data-da="Det her er mit skrivebord. Du kan åbne mapperne og kigge dig omkring, eller bare vælge en af de tre nedenfor, så tager jeg dig direkte derhen." data-en="This is my desktop. You can open the folders and look around, or just pick one of the three below and I'll take you straight there.">Det her er mit skrivebord. Du kan åbne mapperne og kigge dig omkring, eller bare vælge en af de tre nedenfor, så tager jeg dig direkte derhen.</p>
+			<p class="dor__brod" data-da="Det her er mit skrivebord. Jeg designer i Figma og bygger det selv i kode — sitet her er håndskrevet HTML, CSS og JavaScript. Du kan åbne mapperne og kigge dig omkring, eller bare vælge en af de tre nedenfor, så tager jeg dig direkte derhen." data-en="This is my desktop. I design in Figma and build it myself in code — this site is hand-written HTML, CSS and JavaScript. You can open the folders and look around, or just pick one of the three below and I'll take you straight there.">Det her er mit skrivebord. Jeg designer i Figma og bygger det selv i kode — sitet her er håndskrevet HTML, CSS og JavaScript. Du kan åbne mapperne og kigge dig omkring, eller bare vælge en af de tre nedenfor, så tager jeg dig direkte derhen.</p>
 
 			<div class="dor__valg">
 				<button data-doraabn="w-digital">
@@ -1705,7 +1735,7 @@ const APPS={
 	wordfestival:{titel:"Word Festival",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:"app-wordfestival/index.html",live:true,
 		hint:"Gem oplæg med hjertet og gå til Mit program. Prøv at gemme både Helen Fielding og Ulrik Langen. Begge ligger kl. 16, og appen siger det til dig.",
 		lead:"En app til Word Festival i Odense, hvor gæsten kan sætte sit eget program sammen blandt over hundrede oplæg, uden at miste overblikket over hvad der overlapper.",
-		fakta:[["Klient","Word Festival, Odense"],["Type","Installationsprojekt"],["Min rolle","Alene: research, UI, farvevalg, prototype"],["Værktøj","Figma"]],
+		fakta:[["Kontekst","Skoleprojekt · UCL · Word Festival, Odense"],["Team","Gruppe på 4 — videreført alene af mig"],["Min rolle","Research, UI, farvevalg, prototype"],["Værktøj","Figma"]],
 		afsnit:[
 			["Problemet","Over hundrede oplæg fordelt på Borgernes Hus, Odeon og DIAS-scenen over få dage. Researchen pegede på tre ting: man mister overblikket, man opdager for sent at to oplæg ligger oven i hinanden, og man er usikker på om man nu har fået det bedste med.",null],
 			["Jeg valgte at gå væk fra deres eget udtryk","Jeg har arbejdet videre med projektet alene, og undervejs traf jeg en beslutning der ikke var oplagt: at skifte farver og hele udtrykket ud i forhold til det festivalen brugte i forvejen. Researchen viste, at målgruppen ikke aflæste det gamle udtryk som noget der var til dem. Det er ikke en beslutning man tager for at gøre det pænere. Det er en man tager fordi tallene siger, at det nuværende ikke virker på dem, det skal virke på.",null],
@@ -1716,12 +1746,17 @@ const APPS={
 		tal:[["100+","oplæg"],["3","spillesteder"],["4","faneblade"]],shots:[]},
 	friendfinder:{titel:"Friend Finder",mappe:"Digitalt design",farve:"var(--neon-blue)",sim:"app-friendfinder/index.html",live:true,
 		hint:"Log ind med hvad som helst. Prøv Events, Venner og en profil. Bundnavigationen virker.",
-		lead:"En app til at finde nogen at lave noget med. Startede som en gråtonet wireframe på en workshop og er siden bygget færdig som et rigtigt design.",
-		fakta:[["Type","App · klikbar prototype"],["Design","Gruppearbejde, 3 studerende"],["Kode","Bygget færdig af mig"],["Værktøjer","Figma · HTML, CSS, JS"]],
-		afsnit:[["Idéen","Det er nemt at flytte til en ny by og svært at finde nogen at lave noget med. Appen samler to veje ind i det samme: enten finder du en begivenhed, nogen allerede har lavet, eller også finder du personer med samme interesser."],["Fra wireframe til design","Det oprindelige projekt var en gråtonet wireframe i Figma med seks skærme uden farver. Jeg har bygget den færdig med en identitet der tager udgangspunkt i logoets varme orange, og tilføjet en bundnavigation, så man kan bevæge sig frit i stedet for kun frem og tilbage."]],
-		citat:null,
-		efter:["Det vigtigste valg","Begivenhederne er skrevet af brugerne selv, ikke af appen. „Jeg vil gerne invitere fem søde piger til en hyggelig aften med god mad og vin“ lyder som et menneske. Det er hele forskellen på en app man tør bruge, og en man scroller forbi."],
-		tal:[["6","skærme"],["2","veje ind"]],shots:[]}
+		lead:"En app til at finde nogen at lave noget med, når man lige er flyttet til en ny by. Den startede som en gråtonet wireframe fra en workshop. Jeg har designet den færdig og bygget den i kode, så den kan trykkes igennem.",
+		fakta:[["Kontekst","Skoleprojekt · UCL"],["Min rolle","Wireframe i gruppe på 3 — identitet, UI og frontend af mig alene"],["Type","Klikbar prototype, bygget i kode"],["Værktøjer","Figma · HTML, CSS, JavaScript"]],
+		afsnit:[
+			["Problemet","Man flytter til en ny by, kender ingen, og de apps der findes til at møde folk handler enten om at date eller om at melde sig ind i en forening. Der er ikke noget imellem: at have lyst til at lave noget i aften sammen med nogen, der har lyst til det samme. Det var udgangspunktet på workshoppen, og det viste sig også at være det svære at designe. Man skal kunne tage det første skridt uden at føle, at man beder om noget.",null],
+			["Processen","Vi var tre om den første wireframe. Seks skærme i Figma, gråtonet, uden farver og uden navigation — man kunne kun gå frem og tilbage. Den viste flowet, men den viste ikke om det ville føles rart at bruge. Jeg tog projektet videre alene og gjorde to ting: gav det en identitet ud fra den varme orange i logoet, og lagde en bundnavigation ind, så man kan bevæge sig frit mellem de fire dele i stedet for at følge én rute.","img/ff-case-veje.webp"],
+			["Resultatet","Der er to veje ind, og de ligger side om side på forsiden i stedet for at være et valg, man skal træffe først: find en begivenhed, nogen allerede har lavet, eller find personer med samme interesser. Jeg byggede den færdige prototype i håndskrevet HTML, CSS og JavaScript frem for at klikke skærme sammen i Figma. Det betyder, at den du kan trykke rundt i her på siden, er den rigtige — ikke en video af den.","img/ff-case-match.webp"]
+		],
+		citat:["„Jeg vil gerne invitere fem søde piger til en hyggelig aften med god mad og vin.“","Eksempel på en begivenhed, skrevet som et menneske ville skrive den"],
+		efter:["Det jeg tog med","At det vigtigste valg i projektet ikke var visuelt. Det var beslutningen om at lade brugerne skrive deres egne invitationer, i stedet for at appen gjorde det for dem. En app hvor der står „Fællesspisning · 5 pladser“ er en kalender. En app hvor der står „Jeg sørger for maden, så tag bare din yndlingsdrik med“ er en invitation. Det er hele forskellen på noget man tør bruge, og noget man scroller forbi."],
+		tal:[["6","skærme"],["2","veje ind"],["3","i gruppen"]],
+		shots:["img/ff-skaerm-hjem.webp","img/ff-skaerm-events.webp","img/ff-skaerm-venner.webp","img/ff-skaerm-person.webp","img/ff-skaerm-profil.webp"]}
 };
 
 const appWin={dataset:{}};
@@ -1777,28 +1812,28 @@ function visApp(n){
 const CASES={
 	likeamovie:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/plakat-likeamovie.webp",titel:"Like a movie",
 		lead:"En plakat om en aften der ikke skal glemmes. Sort, rød og kornet, bygget som en kontaktkopi frem for et pænt opslag.",
-		fakta:[["Type","Plakat"],["År","2026"],["Format","Højformat · print"],["Udtryk","Sort, rød, kornet"]],
+		fakta:[["Kontekst","Eget arbejde · lavet i fritiden"],["Min rolle","Idé, foto og layout, alene"],["År","2026"],["Format","Højformat · print"],["Værktøj","Photoshop"]],
 		afsnit:[["Idéen","Tre billeder stablet som negativer på en kontaktkopi, med titlen sat lodret ned ad siden. Formatet gør at man læser billederne i rækkefølge, som klip fra en aften frem for tre løsrevne fotos."],["Håndværket","Billederne er kørt ned i sort-hvid med kraftigt korn, så de ligner noget der er fremkaldt frem for noget der er taget på en telefon. Den røde er kun brugt til ramme og tekst, aldrig i billederne."]],
 		citat:null,efter:null,shots:[],tal:[["3","billeder"],["2","farver"]]},
 	stayalive:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/plakat-stayalive.webp",titel:"Stay Alive",
 		lead:"En magasinforside med stregtegning ovenpå foto. Titlen skæres af figuren, så billede og typografi ligger i samme lag.",
-		fakta:[["Type","Magasinforside"],["År","2026"],["Teknik","Foto + stregtegning"],["Detalje","Stregkode som datering"]],
+		fakta:[["Kontekst","Eget arbejde · lavet i fritiden"],["Min rolle","Idé, foto, tegning og typografi, alene"],["År","2026"],["Teknik","Foto + stregtegning"],["Værktøj","Photoshop"]],
 		afsnit:[["Idéen","En hverdagssituation ved havet, tegnet op i streg oven på fotoet. Det gør motivet til noget mellem et minde og en illustration. Man kan se det er sket, men det er ikke længere et fotografi."],["Typografien","Titlen ligger bag figuren i stedet for over den. Det er en lille ting, men det er den der får forsiden til at føles som ét billede frem for tekst lagt ovenpå."]],
 		citat:null,efter:null,shots:[],tal:[]},
 	gaasetorvet:{farve:"var(--neon-pink)",mappe:"Branding",hero:"img/gaasen.webp",titel:"Gåsetorvet",
 		lead:"Et lokalt sted med personlighed, humor og fællesskab. Opgaven var visuelle elementer der kunne bruges på tværs af sæsoner og formater uden at miste stedets varme.",
-		fakta:[["Periode","2023–2024"],["Min rolle","Grafisk design & illustration"],["Fokus","Branding, stemning"],["Værktøjer","Illustrator · Photoshop"]],
+		fakta:[["Kontekst","Kundeopgave · Gåsetorvet"],["Periode","2023–2024"],["Min rolle","Grafisk design & illustration, alene"],["Værktøjer","Illustrator · Photoshop"]],
 		afsnit:[["Arbejdet","Jeg arbejdede med illustration, billedbehandling, layout og animation for at skabe et sammenhængende udtryk. Det skulle kunne bære både et julekort, et nytårsopslag og et fysisk trædesign til baren."]],
 		efter:["Delprojekter","Julekort · Gåsen i baren (animation) · „Drik-status“ trædesign · Nytårspost. De hører under samme identitet frem for at ligge som fire løse projekter."],
 		shots:["img/julekort.webp","img/gaas-illustration.webp","img/drikstatus-1.webp"],tal:[["4","delprojekter"],["2","år"]],citat:null},
 	hverdagshjaelp:{farve:"var(--neon-pink)",mappe:"Branding",hero:"img/hverdagshjaelp-logo.webp",titel:"Hverdagshjælp",
 		lead:"Logo og visuel identitet til en nystartet hjælpeservice. Målet var noget venligt og imødekommende, ikke klinisk.",
-		fakta:[["År","2025"],["Min rolle","Idéudvikling, logo, farver"],["Værktøj","Illustrator"]],
+		fakta:[["Kontekst","Kundeopgave · nystartet hjælpeservice"],["Min rolle","Idéudvikling, logo og farver, alene"],["År","2025"],["Værktøj","Illustrator"]],
 		afsnit:[["Proces","Skitser → simplificering → finpudsning, indtil det føltes varmt og genkendeligt. Et logo til en hjælpeservice skal kunne læses hurtigt og virke trygt, også i lille størrelse."]],
 		citat:null,efter:null,shots:[],tal:[]},
 	illustration:{farve:"var(--neon-pink)",mappe:"Branding",hero:"img/Figur_haandbold.webp",titel:"Illustration",
 		lead:"Figurer, karakterer og tegninger, fra hurtige streger på iPad til færdige motiver i Illustrator. Fælles for dem er, at de skal kunne læses hurtigt og virke i lille størrelse.",
-		fakta:[["Værktøj","iPad · Illustrator · Procreate"],["Anvendelse","Maskotter, merch, plakater, tryk"],["Udtryk","Enkelt, grafisk, med humor"],["Omfang","Løbende siden 2023"]],
+		fakta:[["Kontekst","Eget arbejde · løbende siden 2023"],["Min rolle","Alt, alene"],["Anvendelse","Maskotter, merch, plakater, tryk"],["Værktøjer","iPad · Procreate · Illustrator"]],
 		afsnit:[["Håndbold\u00adfiguren","Lavet som maskot til et projektunivers om sport. Den skal virke i bevægelse, også når den står stille, og det er dér arbejdet ligger. Skitse → former → simplificering → finjustering af proportioner og energi."],["Det svære","Det er ikke at tegne figuren. Det er at fjerne nok linjer til at den stadig er levende. En figur der skal fungere som logo, klistermærke og tryk på en t-shirt kan ikke have detaljer, der forsvinder under fem centimeter."],["Farvelægning","Nogle motiver findes i to udgaver: rå streg og farvelagt. Jeg beholder begge, fordi den rå ofte er den stærkeste, mens den farvelagte er den, der kan bruges."]],
 		citat:null,
 		efter:["Hvor de bliver brugt","T-shirts, klistermærker, plakater og som elementer i større identiteter. Gåsen til Gåsetorvet startede som en tegning i samme bunke."],
@@ -1806,32 +1841,32 @@ const CASES={
 		tal:[["18","motiver"],["3","værktøjer"]]},
 	sanghaefter:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/sanghaefte-cover.webp",titel:"Sanghæfter",
 		lead:"Et varmt og personligt print-design til en 60 års fødselsdag, festligt uden at blive rodet.",
-		fakta:[["År","2024"],["Værktøj","InDesign"],["Format","A4 · print"]],
+		fakta:[["Kontekst","Privat opgave · sanghæfte til en 60-års fødselsdag"],["Min rolle","Layout og sats, alene"],["År","2024"],["Værktøj","InDesign"]],
 		afsnit:[["Proces","Typografisk hierarki → grid → ensartet stil på tværs af sider → finjustering. Med mange sange skal opsætningen være så disciplineret, at man aldrig er i tvivl om hvor man er."]],
 		citat:null,efter:null,shots:[],tal:[]},
 	kamppost:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/instagram-kamp-post.webp",titel:"Kamp-post",
 		lead:"En kamp-post der skal fange opmærksomhed hurtigt og fungere i feed-format.",
-		fakta:[["Format","1:1 · Instagram"],["Værktøj","Photoshop"]],
+		fakta:[["Kontekst","Eget arbejde · lavet i fritiden"],["Min rolle","Idé, layout og typografi, alene"],["Format","1:1 · Instagram"],["Værktøj","Photoshop"]],
 		afsnit:[["Proces","Skitse af komposition → typografi og kontrast → finjustering til mobilvisning. Et feed-opslag har under et sekund til at stoppe tommelfingeren."]],
 		citat:null,efter:null,shots:[],tal:[]},
 	nytaar:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/gaas-illustration.webp",titel:"Nytårspost",
 		lead:"Nytårshilsen til Gåsetorvet, der matcher stedets tone og virker hurtigt i feedet.",
-		fakta:[["Format","1:1"],["Værktøj","Photoshop"],["År","2024"]],
+		fakta:[["Kontekst","Kundeopgave · Gåsetorvet"],["Min rolle","Idé og udførelse, alene"],["Format","1:1 · Instagram"],["Værktøj","Photoshop"],["År","2024"]],
 		afsnit:[["Proces","Komposition → kontrast og typografi → eksport til SoMe-format."]],
 		citat:null,efter:null,shots:[],tal:[]},
 	nordatlanten:{farve:"var(--neon-green)",mappe:"Foto",hero:"img/galleri/vis-07.webp",titel:"Færøerne",
 		lead:"Får, fjelde og fjorde i gråvejr. Der hvor mit visuelle blik kommer fra.",
-		fakta:[["Sted","Færøerne"],["Omfang","42 billeder"]],
+		fakta:[["Kontekst","Eget arbejde"],["Min rolle","Foto og udvalg, alene"],["Sted","Færøerne"],["Omfang","42 billeder"]],
 		afsnit:[["Om serien","Jeg er født og opvokset på Færøerne. Den nordatlantiske blanding af rå natur, gamle huse og moderne byliv har haft stor betydning for, hvordan jeg ser på farver, kontrast og stemning."]],
 		citat:null,efter:null,shots:["img/galleri/vis-01.webp","img/galleri/vis-03.webp","img/galleri/vis-08.webp","img/galleri/vis-11.webp","img/galleri/vis-12.webp","img/galleri/vis-13.webp","img/galleri/vis-15.webp","img/foe-02.webp","img/foe-04.webp"],tal:[["42","billeder"]]},
 	odensehavn:{farve:"var(--neon-green)",mappe:"Foto",hero:"img/galleri/vis-19.webp",titel:"Odense Havn",
 		lead:"Containere, graffiti og skatere en grå eftermiddag på havnen.",
-		fakta:[["Sted","Odense Havn"],["Omfang","5 billeder"],["Type","Reportage"]],
+		fakta:[["Kontekst","Eget arbejde"],["Min rolle","Foto og udvalg, alene"],["Sted","Odense Havn"],["Omfang","5 billeder"]],
 		afsnit:[["Om serien","Havnen er et sted hvor der hele tiden bliver malet over hinanden. Jeg gik derned for at fotografere flader og endte med at fotografere folk. Det er de billeder, der blev tilbage."]],
 		citat:null,efter:null,shots:["img/galleri/vis-16.webp","img/galleri/vis-17.webp","img/galleri/vis-18.webp","img/galleri/vis-20.webp"],tal:[["5","billeder"]]},
 	venner:{farve:"var(--neon-green)",mappe:"Foto",hero:"img/galleri/vis-28.webp",titel:"Venner",
 		lead:"Portrætter og aftener hjemme. Varmt lys og folk der ikke poserer.",
-		fakta:[["Type","Portræt"],["Omfang","15 billeder"],["Lys","Kun det der var i rummet"]],
+		fakta:[["Kontekst","Eget arbejde"],["Min rolle","Foto og udvalg, alene"],["Omfang","15 billeder"],["Lys","Kun det der var i rummet"]],
 		afsnit:[["Om serien","Ingen af billederne er sat op. Jeg havde kameraet med, og så blev det stående på bordet resten af aftenen. Det er derfor de er skæve i lyset. Der blev ikke tændt andet end det, der allerede var tændt."]],
 		citat:null,efter:null,shots:["img/galleri/vis-22.webp","img/galleri/vis-25.webp","img/galleri/vis-26.webp","img/galleri/vis-30.webp","img/galleri/vis-31.webp","img/galleri/vis-33.webp"],tal:[["15","billeder"]]}
 };
