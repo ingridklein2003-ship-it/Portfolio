@@ -532,6 +532,8 @@ button{font-family:inherit}
 .desktop.klar .icons__mrk,
 .desktop.klar .icons__skel{animation:ikonInd .48s var(--ease) both;animation-delay:calc(var(--i,0) * .034s)}
 .desktop.klar .widget{animation:glidInd .55s var(--ease) both}
+@keyframes hilsenInd{from{opacity:0;transform:translateY(-50%) scale(.965)}to{opacity:1;transform:translateY(-50%)}}
+.desktop.klar .hilsen{animation:hilsenInd .6s var(--ease) both;animation-delay:.1s}
 .desktop.klar #wg-nyt{animation-delay:.14s}
 .desktop.klar .dock{animation:dokInd .5s var(--ease) both;animation-delay:.22s}
 
@@ -552,6 +554,50 @@ button{font-family:inherit}
 	.icon:hover .icon__art,.dokplads:hover .dockitem,
 	.dokplads:hover + .dokplads .dockitem{transform:none}
 }
+
+/* ══════════ Hilsen: et rigtigt billede af mig, direkte på skrivebordet ══════════ */
+.hilsen{position:absolute;left:414px;right:290px;top:50%;transform:translateY(-50%);z-index:9;
+	display:flex;align-items:center;gap:clamp(20px,2.4vw,34px);
+	background:rgba(255,255,255,.30);backdrop-filter:blur(22px) saturate(1.5);
+	-webkit-backdrop-filter:blur(22px) saturate(1.5);
+	border:1px solid rgba(255,255,255,.42);border-radius:26px;
+	padding:clamp(20px,2vw,30px) clamp(22px,2.4vw,34px);
+	box-shadow:0 18px 46px rgba(10,20,30,.18);
+	text-align:left;cursor:pointer;
+	transition:background .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease)}
+.hilsen:hover{background:rgba(255,255,255,.42);transform:translateY(-50%) scale(1.012);
+	box-shadow:0 22px 54px rgba(10,20,30,.24)}
+.hilsen__foto{flex:0 0 auto;width:clamp(120px,13vw,186px);aspect-ratio:1;border-radius:50%;
+	overflow:hidden;box-shadow:0 10px 26px rgba(10,20,30,.28)}
+.hilsen__foto img{width:100%;height:100%;object-fit:cover;display:block}
+.hilsen__txt{min-width:0}
+.hilsen__navn{font-family:var(--f-d);font-weight:800;font-size:clamp(24px,2.5vw,34px);
+	letter-spacing:-.035em;line-height:1;color:#101B24;margin-bottom:7px}
+.hilsen__rolle{font-family:var(--f-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+	color:#2E4353;margin-bottom:11px}
+.hilsen p{font-family:var(--f-l);font-size:clamp(13px,1.05vw,14.5px);line-height:1.6;
+	color:#1B2C38;margin-bottom:8px;max-width:44ch}
+.hilsen__praktik{display:inline-flex;align-items:center;gap:8px;margin-top:5px;
+	background:rgba(255,255,255,.62);border:1px solid rgba(16,27,36,.22);border-radius:999px;
+	padding:5px 13px;font-family:var(--f-m);font-size:11.5px;color:#101B24}
+.hilsen__praktik::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--neon-green);flex:none}
+.hilsen__go{display:inline-flex;align-items:center;gap:7px;margin-top:13px;
+	font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+	color:#101B24;border-bottom:1.5px solid rgba(16,27,36,.4);padding-bottom:3px;
+	transition:gap .2s var(--ease)}
+.hilsen:hover .hilsen__go{gap:12px}
+@media(max-width:1180px){ .hilsen{display:none} }
+@media(prefers-reduced-motion:reduce){ .hilsen:hover{transform:translateY(-50%)} }
+
+/* ══════════ iOS: vinduerne er gennemsigtige ══════════ */
+.window{background:rgba(250,248,243,.86);
+	backdrop-filter:blur(46px) saturate(1.8);-webkit-backdrop-filter:blur(46px) saturate(1.8);
+	border-radius:18px}
+.titlebar{background:linear-gradient(180deg,rgba(255,255,255,.46),rgba(233,229,221,.40));
+	border-bottom:1px solid rgba(214,208,195,.66)}
+.lukknap{background:rgba(255,255,255,.72)}
+.mer{background:linear-gradient(180deg,rgba(250,248,243,0) 0%,rgba(250,248,243,.86) 55%,rgba(250,248,243,.99) 100%)}
+.case__back{background:rgba(255,255,255,.5)}
 
 .kun-tlf{display:none !important}
 
@@ -722,6 +768,19 @@ button{font-family:inherit}
 
 
 
+	</div>
+
+	<!-- HILSEN -->
+	<div class="hilsen" id="hilsen" role="button" tabindex="0">
+		<span class="hilsen__foto"><img src="img/mig-rund.webp" alt="Ingrid Klein"></span>
+		<div class="hilsen__txt">
+			<div class="hilsen__navn">Ingrid Klein</div>
+			<div class="hilsen__rolle">Multimediedesigner</div>
+			<p>Jeg designer i Figma og bygger det selv i kode. Identitet, UI og frontend.</p>
+			<p>Jeg arbejder bedst når der er tid til at tænke, teste og justere, så designet ikke bare virker visuelt, men også siger noget klart.</p>
+			<span class="hilsen__praktik">Søger praktikplads 4. januar – 2. april 2027</span>
+			<span class="hilsen__go">Mere om mig →</span>
+		</div>
 	</div>
 
 	<!-- WIDGETS -->
@@ -1660,6 +1719,11 @@ document.querySelectorAll("[data-doraabn]").forEach(k=>{
 });
 
 document.getElementById("dorLuk").addEventListener("click",lukDor);
+
+/* Hilsenen på skrivebordet åbner Om mig */
+const hilsen=document.getElementById("hilsen");
+hilsen.addEventListener("click",()=>aabn("w-mig"));
+hilsen.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); aabn("w-mig"); } });
 
 /* Hintet forsvinder når man har åbnet noget */
 const hint=document.getElementById("hint");

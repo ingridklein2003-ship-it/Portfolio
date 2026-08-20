@@ -10,6 +10,13 @@ window.OVERSAT = {
 	"Vis": "View",
 	"Færøerne": "Faroe Islands",
 	"Apps jeg har bygget": "Apps I've built",
+	"Multimediedesigner": "Multimedia designer",
+	"Jeg designer i Figma og bygger det selv i kode. Identitet, UI og frontend.":
+		"I design in Figma and build it myself in code. Identity, UI and frontend.",
+	"Jeg arbejder bedst når der er tid til at tænke, teste og justere, så designet ikke bare virker visuelt, men også siger noget klart.":
+		"I work best when there is time to think, test and adjust, so the design doesn't just look right but says something clearly.",
+	"Søger praktikplads 4. januar – 2. april 2027": "Looking for an internship 4 January – 2 April 2027",
+	"Mere om mig →": "More about me →",
 	"Bag om arbejdet · 15 billeder": "Behind the work · 15 photographs",
 	"Kassen som stativ": "The box as a tripod",
 	"Q&A · improviseret rig": "Q&A · improvised rig",
