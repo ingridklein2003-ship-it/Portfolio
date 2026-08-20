@@ -82,10 +82,11 @@ button{font-family:inherit}
 /* Ikoner */
 .icons{position:static;width:var(--kolonne);display:flex;flex-direction:column;gap:20px;
 	max-height:none;overflow:visible;scrollbar-width:none}
-.ikonrk--mapper{display:flex;flex-wrap:wrap;gap:2px 0}
-.ikonrk--bund{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
+.ikonrk--mapper{display:flex;flex-wrap:wrap;gap:20px 14px}
+.ikonrk--mapper .icon,.ikongr__rk .icon{width:112px}
+.ikonrk--bund{display:flex;gap:38px;flex-wrap:wrap;align-items:flex-start}
 .ikongr{display:flex;flex-direction:column;gap:3px}
-.ikongr__rk{display:flex;flex-wrap:wrap;gap:2px 0}
+.ikongr__rk{display:flex;flex-wrap:wrap;gap:20px 14px}
 .icons::-webkit-scrollbar{display:none}
 .icons__skel{display:none}
 .icons__mrk{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.85);text-shadow:0 1px 4px rgba(0,0,0,.95);padding:0 6px 1px}
@@ -788,7 +789,6 @@ button{font-family:inherit}
 
 			<div class="ikonrk ikonrk--bund">
 				<div class="ikongr">
-					<span class="icons__mrk">Apps jeg har bygget</span>
 					<div class="ikongr__rk">
 						<button class="icon appicon" data-app="koeberguiden"><span class="icon__art"><img src="img/ikon-koeberguiden.png" alt=""></span><span>KøberGuiden</span></button>
 						<button class="icon appicon" data-app="wordfestival"><span class="icon__art"><img src="img/ikon-word.png" alt=""></span><span>Word Festival</span></button>
@@ -796,7 +796,6 @@ button{font-family:inherit}
 					</div>
 				</div>
 				<div class="ikongr">
-					<span class="icons__mrk">Dokumenter</span>
 					<div class="ikongr__rk">
 						<a class="icon fileicon" href="Ingrid-Klein-CV.pdf" download><span class="icon__art"><b>PDF</b></span><span>CV.pdf</span></a>
 					</div>
@@ -817,8 +816,8 @@ button{font-family:inherit}
 		<span class="wgrip wgrip--w"></span><span class="wgrip wgrip--e"></span><span class="wgrip wgrip--s"></span><span class="wgrip wgrip--se"></span><span class="wgrip wgrip--sw"></span>
 	</aside>
 
-	<aside class="widget" id="wg-nyt" style="height:252px">
-		<div class="widget__h"><span>Nyt fra værkstedet</span></div>
+	<aside class="widget" id="wg-nyt" style="height:430px">
+		<div class="widget__h"><span>Nyt fra KleinDesign</span></div>
 		<div class="nyt" id="nyt"></div>
 		<span class="wgrip wgrip--w"></span><span class="wgrip wgrip--e"></span><span class="wgrip wgrip--s"></span><span class="wgrip wgrip--se"></span><span class="wgrip wgrip--sw"></span>
 	</aside>
@@ -2251,6 +2250,18 @@ aabn = function(id){
 	const boks = document.getElementById("nyt");
 	const wg   = document.getElementById("wg-nyt");
 	if(!boks || !wg) return;
+
+	/* Nyhederne fylder det der er plads til, ned mod docken */
+	let egenHoejde = false;
+	wg.querySelectorAll(".wgrip").forEach(g=>g.addEventListener("pointerdown",()=>{ egenHoejde = true; }));
+	function passHoejde(){
+		if(egenHoejde || window.matchMedia("(max-width:1100px)").matches) return;
+		const top = wg.getBoundingClientRect().top;
+		const h = Math.max(240, Math.min(620, Math.round(window.innerHeight - top - 96)));
+		wg.style.height = h + "px";
+	}
+	passHoejde();
+	window.addEventListener("resize", passHoejde);
 	const f = document.createElement("span");
 	f.className = "widget__fade";
 	wg.appendChild(f);

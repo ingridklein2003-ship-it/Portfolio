@@ -96,7 +96,7 @@ window.OVERSAT = {
 	"Mine billeder": "My photographs",
 	"Åbn alle →": "Open all →",
 	"Skiftende udvalg fra mine egne serier.": "A rotating selection from my own series.",
-	"Nyt fra værkstedet": "From the workshop",
+	"Nyt fra KleinDesign": "News from KleinDesign",
 
 	/* ── Projektkort ── */
 	"I gang": "In progress",
