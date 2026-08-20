@@ -13,8 +13,8 @@ window.OVERSAT = {
 	"Multimediedesigner": "Multimedia designer",
 	"Jeg designer i Figma og bygger det selv i kode. Identitet, UI og frontend.":
 		"I design in Figma and build it myself in code. Identity, UI and frontend.",
-	"Jeg arbejder bedst når der er tid til at tænke, teste og justere, så designet ikke bare virker visuelt, men også siger noget klart.":
-		"I work best when there is time to think, test and adjust, so the design doesn't just look right but says something clearly.",
+	"Jeg arbejder bedst når der er tid til at tænke, teste og rette til. Ellers bliver det bare pænt.":
+		"I work best when there is time to think, test and adjust. Otherwise it just ends up pretty.",
 	"Søger praktikplads 4. januar – 2. april 2027": "Looking for an internship 4 January – 2 April 2027",
 	"Mere om mig →": "More about me →",
 	"Bag om arbejdet · 15 billeder": "Behind the work · 15 photographs",
@@ -248,8 +248,8 @@ window.CASES_EN = {
 		lead: "A poster about a night you don't want to forget. Black, red and grainy, built like a contact sheet rather than a tidy piece of publicity.",
 		fakta: [["Context","Own work · made in my own time"],["My role","Concept, photography and layout, solo"],["Year","2026"],["Format","Portrait · print"],["Tool","Photoshop"]],
 		tal: [["3","images"],["2","colours"],["2","versions"]],
-		afsnit: [["The idea","Three images stacked like negatives on a contact sheet, with the title set vertically down the side. The format makes you read the images in order, as clips from one night rather than three loose photos."],
-			["The craft","The images are pushed to black and white with heavy grain, so they look developed rather than shot on a phone. The red is used only for the frame and the type, never inside the images."]]
+		afsnit: [["The idea","Three images stacked like negatives on a contact sheet, with the title set vertically down the side. The format makes you read the images in order, as clips from one night and not as three loose photos."],
+			["The craft","The images are pushed to black and white with heavy grain, so they look developed, not shot on a phone. The red is used only for the frame and the type, never inside the images."]]
 	},
 	stayalive: {
 		lead: "A magazine cover with line drawing on top of photography. The title is cut by the figure, so image and type sit in the same layer.",
@@ -262,7 +262,7 @@ window.CASES_EN = {
 		fakta: [["Context","Client work · Gåsetorvet"],["Period","2023–2024"],["My role","Graphic design & illustration, solo"],["Tools","Illustrator · Photoshop"]],
 		afsnit: [["The work","I worked with illustration, image editing, layout and animation to build one coherent look. It had to carry a Christmas card, a New Year post and a physical wooden piece for the bar."]],
 		efter: ["Sub-projects","Christmas card · The goose in the bar (animation) · „Drink status“ wooden design · New Year post. They belong under one identity rather than sitting as four loose projects."],
-		video: {tekst:"The goose in the bar. The animation runs on the venue's social media, where the two geese sit at the counter with a beer each."},
+		video: {tekst:"The goose in the bar. Two geese at the counter with a beer each. Made for Gåsetorvet's social media."},
 		tal: [["4","sub-projects"],["2","years"]]
 	},
 	hverdagshjaelp: {
@@ -331,7 +331,7 @@ window.APPS_EN = {
 	wordfestival: {
 		hint: "Save talks with the heart and go to My programme. Try saving both Helen Fielding and Ulrik Langen. They're both at 16.00, and the app tells you.",
 		lead: "An app for Word Festival in Odense where the visitor can build their own programme from over a hundred talks, without losing track of what overlaps.",
-		fakta: [["Context","Student project · UCL · Word Festival, Odense"],["Team","Group of 4 — carried on alone by me"],["My role","Research, UI, colour, prototype"],["Tool","Figma"]],
+		fakta: [["Context","Student project · UCL · Word Festival, Odense"],["Team","Group of 4. Carried on alone by me"],["My role","Research, UI, colour, prototype"],["Tool","Figma"]],
 		afsnit: [
 			["The problem","Over a hundred talks across Borgernes Hus, Odeon and the DIAS stage in a few days. The research pointed at three things: you lose the overview, you realise too late that two talks clash, and you're unsure whether you got the best of it.",null],
 			["I chose to move away from their existing look","I carried this project on alone, and along the way I made a decision that wasn't obvious: to replace the colours and the whole expression the festival had been using. The research showed that the audience didn't read the old look as something meant for them. That isn't a decision you make to prettify something. It's one you make because the findings say the current look doesn't land with the people it needs to land with.",null],
@@ -342,14 +342,14 @@ window.APPS_EN = {
 	},
 	friendfinder: {
 		hint: "Log in with anything. Try Events, Friends and a profile. The bottom navigation works.",
-		lead: "An app for finding someone to do something with when you've just moved to a new city. It started as a greyscale wireframe from a workshop. I designed it out and built it in code, so you can click your way through it.",
-		fakta: [["Context","Student project · UCL"],["My role","Wireframe in a group of 3 — identity, UI and frontend by me alone"],["Type","Clickable prototype, built in code"],["Tools","Figma · HTML, CSS, JavaScript"]],
+		lead: "An app for finding someone to do something with when you're new in a city. It started as a greyscale wireframe at a workshop. I drew it out and built it in code, so you can click your way through it.",
+		fakta: [["Context","Student project · UCL"],["My role","Wireframe in a group of 3. Identity, UI and frontend on my own"],["Type","Clickable prototype, built in code"],["Tools","Figma · HTML, CSS, JavaScript"]],
 		afsnit: [
-			["The problem","You move to a new city, you know nobody, and the apps that exist for meeting people are either about dating or about joining a club. There's nothing in between: wanting to do something tonight with someone who feels like the same. That was the starting point at the workshop, and it also turned out to be the hard part to design. You have to be able to take the first step without feeling like you're asking for something."],
-			["The process","There were three of us on the first wireframe. Six screens in Figma, greyscale, no colour and no navigation — you could only go back and forth. It showed the flow, but it didn't show whether it would feel good to use. I took the project further on my own and did two things: gave it an identity built from the warm orange in the logo, and added bottom navigation so you can move freely between the four parts instead of following one route."],
-			["The result","There are two routes in, and they sit side by side on the home screen rather than being a choice you have to make first: find an event someone has already made, or find people with the same interests. I built the finished prototype in hand-written HTML, CSS and JavaScript instead of clicking screens together in Figma. That means the one you can tap around in here on the site is the real thing — not a video of it."]],
-		citat: ["„I'd like to invite five nice girls over for a cosy evening with good food and wine.“","An example of an event, written the way a person would write it"],
-		efter: ["What I took with me","That the most important decision in the project wasn't a visual one. It was deciding to let users write their own invitations instead of having the app do it for them. An app that says „Communal dinner · 5 places“ is a calendar. An app that says „I'll take care of the food, so just bring your favourite drink“ is an invitation. That's the whole difference between something you dare use and something you scroll past."],
+			["The problem","You move to a new city and you know nobody. The apps that exist are either about dating or about joining a club. None of them cover the simple thing: wanting to do something tonight with someone who wants the same. That was the brief at the workshop. The hard part turned out to be how you take the first step without feeling like you're asking for something."],
+			["The process","There were three of us on the first wireframe. Six greyscale screens in Figma, no colour, no navigation. You could only go back and forth. It showed the flow, but not whether the app would feel good to use. I carried on alone. First an identity built from the warm orange in the logo. Then bottom navigation, so you can jump between the four parts without following a set route."],
+			["The result","There are two routes in: find an event someone has already made, or find people with the same interests. They sit side by side on the home screen, so you don't have to choose before you've started. The prototype is written in HTML, CSS and JavaScript. So the one you can tap around in here on the site is the real thing. Not a recording of it."]],
+		citat: ["„I'd like to invite five nice girls over for a cosy evening with good food and wine.“","How an event reads in the app"],
+		efter: ["What I took with me","The most important decision in the project wasn't a visual one. It was letting users write their own invitations. „Communal dinner · 5 places“ is a calendar. „I'll take care of the food, so just bring your favourite drink“ is a person. That's the difference between an app you dare use and one you scroll past."],
 		tal: [["6","screens"],["2","routes in"],["3","in the group"]]
 	}
 };
