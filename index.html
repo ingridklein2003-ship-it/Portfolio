@@ -265,6 +265,7 @@ button{font-family:inherit}
 .case__yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .case__yt figcaption{font-family:var(--f-l);font-size:13px;color:var(--ink-3);margin-top:10px;line-height:1.6}
 .case__video{margin:20px 0 6px;max-width:300px}
+.case__video--bred{max-width:min(640px,100%)}
 .case__video video{width:100%;border-radius:12px;display:block;background:#000}
 .case__video figcaption{font-size:12.5px;color:var(--ink-3);margin-top:9px;line-height:1.6}
 .case__stats{display:flex;gap:34px;flex-wrap:wrap;margin:22px 0 8px}
@@ -304,6 +305,9 @@ button{font-family:inherit}
 .me__strip figure{border-radius:5px;overflow:hidden;background:#EFEBE2}
 .me__strip img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .me__strip figcaption{font-size:12px;color:var(--ink-3);padding:7px 2px 0}
+.me__stor{margin:26px 0 6px}
+.me__stor img{width:100%;height:auto;border-radius:6px;display:block}
+.me__stor figcaption{font-family:var(--f-m);font-size:11.5px;color:var(--ink-3);margin-top:8px}
 .me__h{font-family:var(--f-d);font-weight:800;font-size:21px;letter-spacing:-.03em;margin:28px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
 .me dl{margin-top:6px;border-top:1px solid var(--line)}
 .me dl > div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-family:var(--f-l);font-size:14.5px}
@@ -815,6 +819,11 @@ button{font-family:inherit}
 					</div>
 				</div>
 
+				<figure class="me__stor">
+					<img src="img/portraet-kamera.webp" alt="Ingrid med kameraet for øjet" loading="lazy">
+					<figcaption>Bag kameraet.</figcaption>
+				</figure>
+
 				<h4 class="me__h">Hvor jeg kommer fra</h4>
 				<p>Færøerne er ikke bare et sted på et kort for mig. Det er der, mit blik for farver, kontrast og vejr er formet. Gråt lys, sorte får, røde tage og hav i alle retninger.</p>
 				<div class="me__strip">
@@ -974,7 +983,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-bag" style="left:330px;top:92px;width:760px;height:560px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t">Bag om arbejdet · 12 billeder</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t">Bag om arbejdet · 15 billeder</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Bag om arbejdet</h2><p>Sådan ser det ud, mens det bliver til. Papirprototyper, optagelser, værksted og alt det rod, der ikke kommer med i den færdige case.</p></div>
 			<div class="things">
@@ -984,6 +993,9 @@ button{font-family:inherit}
 				<a class="thing" data-foto="img/bag/bag-01.webp" data-tekst="Vi optog en rundvisning så længe ballonen kunne holdes i luften." href="#"><span class="thing__m"><img src="img/bag/bag-01.webp" alt=""></span><span class="thing__t">House tour, take 1</span><span class="thing__s"><i style="background:#00B8D4"></i>Optagelse · ballonkonceptet</span></a>
 				<a class="thing" data-foto="img/bag/bag-02.webp" data-tekst="Ballonen i luften" href="#"><span class="thing__m"><img src="img/bag/bag-02.webp" alt=""></span><span class="thing__t">Ballonen i luften</span><span class="thing__s"><i style="background:#00B8D4"></i>Optagelse · P5</span></a>
 				<a class="thing" data-foto="img/bag/bag-04.webp" data-tekst="Udstyret var ikke fint. Det virkede." href="#"><span class="thing__m"><img src="img/bag/bag-04.webp" alt=""></span><span class="thing__t">Gimbal på en flyttekasse</span><span class="thing__s"><i style="background:#00B8D4"></i>Q&A-produktion</span></a>
+				<a class="thing" data-foto="img/bag-gimbal-flyttekasse.webp" data-tekst="Flyttekassen er stativet, sofabordet er settet, og laptoppen står med manuskriptet. Sådan så det ud hele dagen." href="#"><span class="thing__m"><img src="img/bag-gimbal-flyttekasse.webp" alt="" loading="lazy"></span><span class="thing__t">Kassen som stativ</span><span class="thing__s"><i style="background:#00B8D4"></i>Q&A · improviseret rig</span></a>
+				<a class="thing" data-foto="img/bag-optagelse-stue.webp" data-tekst="Vi optog hjemme i en stue, fordi formatet skulle kunne gentages uden at booke noget som helst." href="#"><span class="thing__m"><img src="img/bag-optagelse-stue.webp" alt="" loading="lazy"></span><span class="thing__t">Optagelse i stuen</span><span class="thing__s"><i style="background:#00B8D4"></i>Q&A · opstilling</span></a>
+				<a class="thing" data-foto="img/bag-optagelse-gimbal.webp" data-tekst="Én filmer, én bliver filmet, og resten af rummet er som det plejer at være." href="#"><span class="thing__m"><img src="img/bag-optagelse-gimbal.webp" alt="" loading="lazy"></span><span class="thing__t">Midt i en optagelse</span><span class="thing__s"><i style="background:#00B8D4"></i>Q&A · bag kameraet</span></a>
 				<a class="thing" data-foto="img/bag/skate-1.webp" data-tekst="Odense Havn" href="#"><span class="thing__m"><img src="img/bag/skate-1.webp" alt=""></span><span class="thing__t">Odense Havn</span><span class="thing__s"><i style="background:#00B8D4"></i>Foto · location</span></a>
 				<a class="thing" data-foto="img/bag/skate-2.webp" data-tekst="På location" href="#"><span class="thing__m"><img src="img/bag/skate-2.webp" alt=""></span><span class="thing__t">På location</span><span class="thing__s"><i style="background:#00B8D4"></i>Foto · optagelse</span></a>
 				<a class="thing" data-foto="img/bag/lys.webp" data-tekst="Lysmaling" href="#"><span class="thing__m"><img src="img/bag/lys.webp" alt=""></span><span class="thing__t">Lysmaling</span><span class="thing__s"><i style="background:#00B8D4"></i>Eksperiment · lang lukketid</span></a>
@@ -1920,12 +1932,14 @@ function visApp(n){
 
 /* ── Cases ── */
 const CASES={
-	likeamovie:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/plakat-likeamovie.webp",titel:"Like a movie",
+	likeamovie:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/plakat-likeamovie-sort.webp",titel:"Like a movie",
 		lead:"En plakat om en aften der ikke skal glemmes. Sort, rød og kornet, bygget som en kontaktkopi frem for et pænt opslag.",
 		fakta:[["Kontekst","Eget arbejde · lavet i fritiden"],["Min rolle","Idé, foto og layout, alene"],["År","2026"],["Format","Højformat · print"],["Værktøj","Photoshop"]],
 		afsnit:[["Idéen","Tre billeder stablet som negativer på en kontaktkopi, med titlen sat lodret ned ad siden. Formatet gør at man læser billederne i rækkefølge, som klip fra en aften frem for tre løsrevne fotos."],["Håndværket","Billederne er kørt ned i sort-hvid med kraftigt korn, så de ligner noget der er fremkaldt frem for noget der er taget på en telefon. Den røde er kun brugt til ramme og tekst, aldrig i billederne."]],
-		citat:null,efter:null,shots:[],tal:[["3","billeder"],["2","farver"]]},
-	stayalive:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/plakat-stayalive.webp",titel:"Stay Alive",
+		citat:null,efter:null,
+		shots:["img/plakat-likeamovie-sort.webp","img/plakat-likeamovie-roed.webp"],
+		tal:[["3","billeder"],["2","farver"],["2","udgaver"]]},
+	stayalive:{farve:"var(--neon-lime)",mappe:"Print & SoMe",hero:"img/plakat-stayalive-stor.webp",titel:"Stay Alive",
 		lead:"En magasinforside med stregtegning ovenpå foto. Titlen skæres af figuren, så billede og typografi ligger i samme lag.",
 		fakta:[["Kontekst","Eget arbejde · lavet i fritiden"],["Min rolle","Idé, foto, tegning og typografi, alene"],["År","2026"],["Teknik","Foto + stregtegning"],["Værktøj","Photoshop"]],
 		afsnit:[["Idéen","En hverdagssituation ved havet, tegnet op i streg oven på fotoet. Det gør motivet til noget mellem et minde og en illustration. Man kan se det er sket, men det er ikke længere et fotografi."],["Typografien","Titlen ligger bag figuren i stedet for over den. Det er en lille ting, men det er den der får forsiden til at føles som ét billede frem for tekst lagt ovenpå."]],
@@ -1935,7 +1949,10 @@ const CASES={
 		fakta:[["Kontekst","Kundeopgave · Gåsetorvet"],["Periode","2023–2024"],["Min rolle","Grafisk design & illustration, alene"],["Værktøjer","Illustrator · Photoshop"]],
 		afsnit:[["Arbejdet","Jeg arbejdede med illustration, billedbehandling, layout og animation for at skabe et sammenhængende udtryk. Det skulle kunne bære både et julekort, et nytårsopslag og et fysisk trædesign til baren."]],
 		efter:["Delprojekter","Julekort · Gåsen i baren (animation) · „Drik-status“ trædesign · Nytårspost. De hører under samme identitet frem for at ligge som fire løse projekter."],
-		shots:["img/julekort.webp","img/gaas-illustration.webp","img/drikstatus-1.webp"],tal:[["4","delprojekter"],["2","år"]],citat:null},
+		video:{fil:"video/gaas-animation.mp4",poster:"img/gaas-animation-poster.webp",
+			tekst:"Gåsen i baren. Animationen ligger på stedets SoMe, hvor de to gæs sidder ved disken med hver sin fadøl."},
+		shots:["img/gaasetorvet-postkort.webp","img/nytaar-gaas-stor.webp","img/julekort.webp","img/gaas-illustration.webp","img/drikstatus-1.webp"],
+		tal:[["4","delprojekter"],["2","år"]],citat:null},
 	hverdagshjaelp:{farve:"var(--neon-pink)",mappe:"Branding",hero:"img/hverdagshjaelp-logo.webp",titel:"Hverdagshjælp",
 		lead:"Logo og visuel identitet til en nystartet hjælpeservice. Målet var noget venligt og imødekommende, ikke klinisk.",
 		fakta:[["Kontekst","Kundeopgave · nystartet hjælpeservice"],["Min rolle","Idéudvikling, logo og farver, alene"],["År","2025"],["Værktøj","Illustrator"]],
@@ -1997,6 +2014,9 @@ function visCase(n){
 		h+='<h3 class="case__h">'+esc(a[0])+'</h3><p class="case__p">'+esc(a[1])+'</p>';
 		if(a[2]) h+='<figure class="case__midt"><img src="'+a[2]+'" alt="" loading="lazy"></figure>';
 	});
+	if(c.video) h+='<figure class="case__video case__video--bred"><video controls preload="none" poster="'+c.video.poster+'">'+
+		'<source src="'+c.video.fil+'" type="video/mp4"></video>'+
+		'<figcaption>'+esc(c.video.tekst)+'</figcaption></figure>';
 	if(c.citat) h+='<blockquote class="case__quote">'+esc(c.citat[0])+'<span>'+esc(c.citat[1])+'</span></blockquote>';
 	if(c.efter) h+='<h3 class="case__h">'+esc(c.efter[0])+'</h3><p class="case__p">'+esc(c.efter[1])+'</p>';
 	if(c.shots.length){ h+='<h3 class="case__h">'+(sprog==="en"?"More":"Flere")+'</h3><div class="case__shots">'; c.shots.forEach(s=>h+='<img src="'+s+'" alt="" loading="lazy">'); h+='</div>'; }

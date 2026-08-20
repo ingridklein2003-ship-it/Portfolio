@@ -10,6 +10,14 @@ window.OVERSAT = {
 	"Vis": "View",
 	"Færøerne": "Faroe Islands",
 	"Apps jeg har bygget": "Apps I've built",
+	"Bag om arbejdet · 15 billeder": "Behind the work · 15 photographs",
+	"Kassen som stativ": "The box as a tripod",
+	"Q&A · improviseret rig": "Q&A · improvised rig",
+	"Optagelse i stuen": "Filming in the living room",
+	"Q&A · opstilling": "Q&A · setup",
+	"Midt i en optagelse": "Mid-shoot",
+	"Q&A · bag kameraet": "Q&A · behind the camera",
+	"Bag kameraet.": "Behind the camera.",
 	"apps & prototyper": "apps & prototypes",
 	"prøv at ændre koden": "try changing the code",
 	"identitet & logo": "identity & logo",
@@ -232,6 +240,7 @@ window.CASES_EN = {
 	likeamovie: {
 		lead: "A poster about a night you don't want to forget. Black, red and grainy, built like a contact sheet rather than a tidy piece of publicity.",
 		fakta: [["Context","Own work · made in my own time"],["My role","Concept, photography and layout, solo"],["Year","2026"],["Format","Portrait · print"],["Tool","Photoshop"]],
+		tal: [["3","images"],["2","colours"],["2","versions"]],
 		afsnit: [["The idea","Three images stacked like negatives on a contact sheet, with the title set vertically down the side. The format makes you read the images in order, as clips from one night rather than three loose photos."],
 			["The craft","The images are pushed to black and white with heavy grain, so they look developed rather than shot on a phone. The red is used only for the frame and the type, never inside the images."]]
 	},
@@ -246,6 +255,7 @@ window.CASES_EN = {
 		fakta: [["Context","Client work · Gåsetorvet"],["Period","2023–2024"],["My role","Graphic design & illustration, solo"],["Tools","Illustrator · Photoshop"]],
 		afsnit: [["The work","I worked with illustration, image editing, layout and animation to build one coherent look. It had to carry a Christmas card, a New Year post and a physical wooden piece for the bar."]],
 		efter: ["Sub-projects","Christmas card · The goose in the bar (animation) · „Drink status“ wooden design · New Year post. They belong under one identity rather than sitting as four loose projects."],
+		video: {tekst:"The goose in the bar. The animation runs on the venue's social media, where the two geese sit at the counter with a beer each."},
 		tal: [["4","sub-projects"],["2","years"]]
 	},
 	hverdagshjaelp: {
