@@ -80,25 +80,29 @@ button{font-family:inherit}
 .sprogknap.en span{opacity:1;font-weight:600}
 
 /* Ikoner */
-.icons{position:absolute;top:48px;left:26px;z-index:10;display:grid;grid-template-columns:repeat(3,112px);gap:8px 8px;max-height:calc(100% - 148px);overflow-y:auto;padding-right:4px;scrollbar-width:none}
+.icons{position:absolute;top:44px;left:20px;z-index:10;display:grid;grid-template-columns:repeat(3,112px);gap:4px 2px;max-height:calc(100% - 150px);overflow-y:auto;padding-right:4px;scrollbar-width:none}
 .icons::-webkit-scrollbar{display:none}
-.icons__skel{grid-column:1/-1;height:1px;background:rgba(255,255,255,.28);margin:8px 6px 4px}
-.icons__mrk{grid-column:1/-1;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);text-shadow:0 1px 4px rgba(0,0,0,.95);padding:0 6px 2px}
-.icon{background:none;border:none;cursor:pointer;padding:8px 3px 7px;border-radius:9px;display:flex;flex-direction:column;align-items:center;gap:7px;transition:background .15s,transform .2s var(--ease)}
+.icons__skel{grid-column:1/-1;height:1px;background:rgba(255,255,255,.28);margin:7px 6px 3px}
+.icons__mrk{grid-column:1/-1;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);text-shadow:0 1px 4px rgba(0,0,0,.95);padding:0 6px 2px}
+.icon{background:none;border:none;cursor:pointer;text-decoration:none;padding:7px 1px 6px;border-radius:9px;display:flex;flex-direction:column;align-items:center;gap:5px;transition:background .15s,transform .2s var(--ease)}
 .icon:hover{background:rgba(255,255,255,.16)}
 .icon:active{transform:scale(.95)}
 @keyframes ikonhop{0%{transform:translateY(0)}30%{transform:translateY(-14px)}60%{transform:translateY(0)}80%{transform:translateY(-5px)}100%{transform:translateY(0)}}
 .icon.hopper .icon__art{animation:ikonhop .6s cubic-bezier(.3,.7,.4,1)}
 .icon.sel{background:rgba(46,107,255,.45)}
-.icon__art{width:68px;height:56px;display:grid;place-items:center;filter:drop-shadow(0 4px 7px rgba(0,0,0,.45))}
-.icon__art.mappe{width:74px;height:60px;filter:none;display:block}
-.icon__art svg{width:68px;height:56px}
-.icon span{font-size:12px;color:#fff;text-align:center;line-height:1.25;text-shadow:0 1px 4px rgba(0,0,0,.95),0 0 12px rgba(0,0,0,.6);max-width:106px}
-.appicon .icon__art{width:62px;height:62px;background:#fff;border-radius:15px;overflow:hidden;padding:9px;box-shadow:0 6px 16px rgba(0,0,0,.42)}
+.icon__art{width:52px;height:43px;display:grid;place-items:center;filter:drop-shadow(0 4px 7px rgba(0,0,0,.45))}
+.icon__art.mappe{width:56px;height:46px;filter:none;display:block}
+.icon__art svg{width:52px;height:43px}
+.icon span{font-size:11px;color:#fff;text-align:center;line-height:1.22;text-shadow:0 1px 4px rgba(0,0,0,.95),0 0 12px rgba(0,0,0,.6);max-width:94px}
+.icon .icon__und{font-family:var(--f-m);font-size:8.5px;letter-spacing:0;line-height:1.3;
+	color:rgba(255,255,255,.62)!important;margin-top:-2px;max-width:108px;white-space:nowrap;
+	text-decoration:none;text-shadow:0 1px 3px rgba(0,0,0,.95)}
+.icon:hover .icon__und{color:rgba(255,255,255,.9)!important}
+.appicon .icon__art{width:48px;height:48px;background:#fff;border-radius:12px;overflow:hidden;padding:7px;box-shadow:0 5px 13px rgba(0,0,0,.42)}
 .appicon .icon__art img{width:100%;height:100%;object-fit:contain}
 
 /* Hvert app-ikon får sin egen form */
-.appicon[data-app="koeberguiden"] .icon__art{padding:4px}
+.appicon[data-app="koeberguiden"] .icon__art{padding:3px}
 .appicon[data-app="wordfestival"] .icon__art{padding:0;background:none;box-shadow:0 6px 16px rgba(0,0,0,.42)}
 .appicon[data-app="friendfinder"] .icon__art{padding:0;background:none;border-radius:50%;box-shadow:0 6px 16px rgba(0,0,0,.42)}
 .dockitem .dokmig{width:100%;height:100%;border-radius:0;overflow:hidden;display:block}
@@ -109,9 +113,9 @@ button{font-family:inherit}
 .dockitem[data-app="wordfestival"] img{padding:0;background:none}
 .dockitem[data-app="friendfinder"]{border-radius:50%;background:none}
 .dockitem[data-app="friendfinder"] img{padding:0;background:none;border-radius:50%}
-.fileicon .icon__art{width:50px;height:62px;background:#fff;border-radius:4px;position:relative;box-shadow:0 5px 14px rgba(0,0,0,.4);display:grid;place-items:center}
-.fileicon .icon__art b{font-family:var(--f-d);font-weight:800;font-size:15px;color:#D0342C;letter-spacing:-.02em}
-.fileicon .icon__art::after{content:"";position:absolute;top:0;right:0;border-width:0 14px 14px 0;border-style:solid;border-color:#DDD7CA #F8F6F1}
+.fileicon .icon__art{width:39px;height:48px;background:#fff;border-radius:4px;position:relative;box-shadow:0 5px 14px rgba(0,0,0,.4);display:grid;place-items:center}
+.fileicon .icon__art b{font-family:var(--f-d);font-weight:800;font-size:12px;color:#D0342C;letter-spacing:-.02em}
+.fileicon .icon__art::after{content:"";position:absolute;top:0;right:0;border-width:0 11px 11px 0;border-style:solid;border-color:#DDD7CA #F8F6F1}
 .photoicon .icon__art{width:60px;height:60px;background:#fff;border-radius:4px;padding:4px;box-shadow:0 5px 14px rgba(0,0,0,.4);overflow:hidden}
 .photoicon .icon__art img{width:100%;height:100%;object-fit:cover;border-radius:2px}
 .photoicon span:last-child{font-size:11.5px}
@@ -127,7 +131,7 @@ button{font-family:inherit}
 
 
 /* ── Mapper: egen farve, ingen billeder ovenpå ── */
-.mappe{position:relative;width:78px;height:64px;filter:drop-shadow(0 5px 10px rgba(0,0,0,.45))}
+.mappe{position:relative;width:58px;height:48px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.45))}
 .mappe__bag{
 	position:absolute;inset:0;border-radius:6px 6px 7px 7px;
 	background:var(--f);
@@ -145,8 +149,8 @@ button{font-family:inherit}
 }
 
 /* ── Widgets ── */
-.widget{position:absolute;right:26px;z-index:12;width:300px;background:rgba(16,18,22,.62);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.14);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.45);overflow:hidden;display:flex;flex-direction:column;min-width:220px;min-height:160px;color:#F0EEE9}
-.widget__h{display:flex;justify-content:space-between;align-items:center;padding:13px 16px 10px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,238,233,.55);cursor:grab;user-select:none;flex:0 0 auto}
+.widget{position:absolute;right:20px;z-index:12;width:252px;background:rgba(16,18,22,.62);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.14);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.45);overflow:hidden;display:flex;flex-direction:column;min-width:220px;min-height:160px;color:#F0EEE9}
+.widget__h{display:flex;justify-content:space-between;align-items:center;padding:11px 14px 8px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,238,233,.55);cursor:grab;user-select:none;flex:0 0 auto}
 .widget__h:active{cursor:grabbing}
 .widget__h button{background:none;border:none;cursor:pointer;color:#CFF70E;font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .wgrip{position:absolute;z-index:8}
@@ -157,7 +161,7 @@ button{font-family:inherit}
 .wgrip--sw{left:0;bottom:0;width:18px;height:18px;cursor:nesw-resize}
 
 /* Billedwidget */
-#wg-foto{top:48px}
+#wg-foto{top:44px}
 .shot{position:relative;flex:1;min-height:130px;background:#0C0D10;overflow:hidden;margin:0 12px;border-radius:12px}
 .shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity .5s}
 .shot img.on{opacity:1}
@@ -168,7 +172,7 @@ button{font-family:inherit}
 .widget__foot{padding:10px 16px 14px;font-size:12px;color:rgba(240,238,233,.5);font-family:var(--f-l)}
 
 /* Nyhedswidget */
-#wg-nyt{top:378px}
+#wg-nyt{top:312px}
 .nyt{flex:1;overflow-y:auto;padding:0 16px 14px;min-height:80px;scrollbar-width:none}
 .nyt::-webkit-scrollbar{display:none}
 .nyt article{padding:12px 0;border-top:1px solid rgba(255,255,255,.1)}
@@ -324,21 +328,21 @@ button{font-family:inherit}
 .size[aria-pressed="true"]{background:rgba(20,20,20,.13)}
 
 /* ── Dock ── */
-.dock{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:880;background:rgba(16,18,22,.55);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:9px 11px;display:flex;gap:9px;align-items:flex-end;box-shadow:0 18px 44px rgba(0,0,0,.48)}
-.dokmappe{position:relative;width:34px;height:28px;display:block}
-.dokmappe b{pointer-events:none;position:absolute;inset:5px 0 0;background:var(--f);border-radius:3px 5px 5px 5px;display:block}
-.dokmappe b::before{content:"";position:absolute;top:-5px;left:0;width:15px;height:6px;background:var(--f);border-radius:3px 4px 0 0}
-.dokmappe u{text-decoration:none;position:absolute;inset:9px 0 0;background:color-mix(in srgb,var(--f) 78%,#fff);border-radius:4px;display:block;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
-.dokplads{display:flex;flex-direction:column;align-items:center;gap:5px;flex:0 0 auto}
-.dokplads__navn{font-family:var(--f-m);font-size:10px;letter-spacing:.03em;color:rgba(240,238,233,.7);white-space:nowrap;max-width:74px;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.dock{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:880;background:rgba(16,18,22,.55);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:7px 9px;display:flex;gap:6px;align-items:flex-end;box-shadow:0 16px 38px rgba(0,0,0,.48)}
+.dokmappe{position:relative;width:27px;height:22px;display:block}
+.dokmappe b{pointer-events:none;position:absolute;inset:4px 0 0;background:var(--f);border-radius:3px 5px 5px 5px;display:block}
+.dokmappe b::before{content:"";position:absolute;top:-4px;left:0;width:12px;height:5px;background:var(--f);border-radius:3px 4px 0 0}
+.dokmappe u{text-decoration:none;position:absolute;inset:7px 0 0;background:color-mix(in srgb,var(--f) 78%,#fff);border-radius:4px;display:block;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.dokplads{display:flex;flex-direction:column;align-items:center;gap:4px;flex:0 0 auto}
+.dokplads__navn{font-family:var(--f-m);font-size:9px;letter-spacing:.02em;color:rgba(240,238,233,.7);white-space:nowrap;max-width:60px;overflow:hidden;text-overflow:ellipsis;text-align:center}
 .dokplads:hover .dokplads__navn{color:#fff}
-.dockitem{width:52px;height:52px;border:none;border-radius:15px;background:rgba(255,255,255,.09);cursor:pointer;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden;flex:0 0 auto;transform-origin:bottom center;transition:transform .22s cubic-bezier(.2,.9,.3,1.2)}
+.dockitem{width:41px;height:41px;border:none;border-radius:12px;background:rgba(255,255,255,.09);cursor:pointer;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden;flex:0 0 auto;transform-origin:bottom center;transition:transform .22s cubic-bezier(.2,.9,.3,1.2)}
 
-.dockitem svg{width:24px;height:24px}
-.dockitem .mrk{font-family:var(--f-d);font-weight:800;font-size:23px;letter-spacing:-.05em;line-height:1;color:#12100E;display:block}
+.dockitem svg{width:19px;height:19px}
+.dockitem .mrk{font-family:var(--f-d);font-weight:800;font-size:18px;letter-spacing:-.05em;line-height:1;color:#12100E;display:block}
 .dockitem.moerk .mrk{color:#F4F2ED}
-.dockitem .mrk.lille{font-size:17px;letter-spacing:-.02em}
-.dockitem img{width:100%;height:100%;object-fit:contain;padding:8px;background:#fff}
+.dockitem .mrk.lille{font-size:13px;letter-spacing:-.02em}
+.dockitem img{width:100%;height:100%;object-fit:contain;padding:6px;background:#fff}
 .dockitem::after{content:none;position:absolute;bottom:64px;left:50%;transform:translateX(-50%);background:rgba(20,20,20,.92);color:#fff;font-family:var(--f-m);font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
 .dockitem:hover::after{opacity:1}
 @keyframes hop{0%{transform:translateY(0) scale(var(--s,1))}28%{transform:translateY(-22px) scale(calc(var(--s,1)*1.06))}55%{transform:translateY(0) scale(var(--s,1))}72%{transform:translateY(-9px) scale(var(--s,1))}100%{transform:translateY(0) scale(var(--s,1))}}
@@ -507,6 +511,36 @@ button{font-family:inherit}
 .dor__valg b{font-size:15.5px;letter-spacing:-.03em}
 .dor__valg span{font-size:12px;line-height:1.45}
 
+/* ══════════ Bevægelse ══════════ */
+@keyframes ikonInd{from{opacity:0;transform:translateY(12px) scale(.92)}to{opacity:1;transform:none}}
+@keyframes glidInd{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+@keyframes dokInd{from{opacity:0;transform:translateX(-50%) translateY(22px)}to{opacity:1;transform:translateX(-50%)}}
+
+.desktop.klar .icon,
+.desktop.klar .icons__mrk,
+.desktop.klar .icons__skel{animation:ikonInd .48s var(--ease) both;animation-delay:calc(var(--i,0) * .034s)}
+.desktop.klar .widget{animation:glidInd .55s var(--ease) both}
+.desktop.klar #wg-nyt{animation-delay:.14s}
+.desktop.klar .dock{animation:dokInd .5s var(--ease) both;animation-delay:.22s}
+
+/* Mapperne løfter sig når man peger på dem */
+.icon .icon__art{transition:transform .24s var(--ease)}
+.icon:hover .icon__art{transform:translateY(-3px) scale(1.05)}
+.icon:active .icon__art{transform:translateY(0) scale(.95)}
+
+/* Docken forstørrer under musen, som på en Mac */
+.dokplads:hover .dockitem{transform:scale(1.34) translateY(-8px)}
+.dokplads:hover + .dokplads .dockitem,
+.dokplads:has(+ .dokplads:hover) .dockitem{transform:scale(1.15) translateY(-3px)}
+.dokplads:hover .dokplads__navn{color:#fff}
+
+@media(prefers-reduced-motion:reduce){
+	.desktop.klar .icon,.desktop.klar .icons__mrk,.desktop.klar .icons__skel,
+	.desktop.klar .widget,.desktop.klar .dock{animation:none}
+	.icon:hover .icon__art,.dokplads:hover .dockitem,
+	.dokplads:hover + .dokplads .dockitem{transform:none}
+}
+
 .kun-tlf{display:none !important}
 
 /* ══════════ iPad: skrivebordet bliver, bare tættere ══════════ */
@@ -656,30 +690,30 @@ button{font-family:inherit}
 	</div>
 
 	<div class="icons" id="icons">
-		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Digitalt design</span></button>
-		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
-		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Branding</span></button>
-		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Print &amp; SoMe</span></button>
-		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Foto</span></button>
-		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Om mig</span></button>
-		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#16A863"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
+		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Digitalt design</span><span class="icon__und">apps &amp; prototyper</span></button>
+		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span><span class="icon__und">prøv at ændre koden</span></button>
+		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Branding</span><span class="icon__und">identitet &amp; logo</span></button>
+		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Print &amp; SoMe</span><span class="icon__und">plakater &amp; opslag</span></button>
+		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Foto</span><span class="icon__und">3 serier · 62 fotos</span></button>
+		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Om mig</span><span class="icon__und">hvem jeg er</span></button>
+		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#16A863"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span><span class="icon__und">processen bag</span></button>
 
 		<span class="icons__skel"></span>
 		<span class="icons__mrk">Apps jeg har bygget</span>
-		<button class="icon appicon" data-app="koeberguiden"><span class="icon__art"><img src="img/ikon-koeberguiden.png" alt=""></span><span>KøberGuiden</span></button>
-		<button class="icon appicon" data-app="wordfestival"><span class="icon__art"><img src="img/ikon-word.png" alt=""></span><span>Word Festival</span></button>
-		<button class="icon appicon" data-app="friendfinder"><span class="icon__art"><img src="img/ikon-friendfinder.png" alt=""></span><span>Friend Finder</span></button>
+		<button class="icon appicon" data-app="koeberguiden"><span class="icon__art"><img src="img/ikon-koeberguiden.png" alt=""></span><span>KøberGuiden</span><span class="icon__und">app · klient</span></button>
+		<button class="icon appicon" data-app="wordfestival"><span class="icon__art"><img src="img/ikon-word.png" alt=""></span><span>Word Festival</span><span class="icon__und">app · skoleprojekt</span></button>
+		<button class="icon appicon" data-app="friendfinder"><span class="icon__art"><img src="img/ikon-friendfinder.png" alt=""></span><span>Friend Finder</span><span class="icon__und">app · design &amp; kode</span></button>
 
 		<span class="icons__skel"></span>
 		<span class="icons__mrk">Dokumenter</span>
-		<a class="icon fileicon" href="Ingrid-Klein-CV.pdf" download><span class="icon__art"><b>PDF</b></span><span>CV.pdf</span></a>
+		<a class="icon fileicon" href="Ingrid-Klein-CV.pdf" download><span class="icon__art"><b>PDF</b></span><span>CV.pdf</span><span class="icon__und">pdf · 2026</span></a>
 
 
 
 	</div>
 
 	<!-- WIDGETS -->
-	<aside class="widget" id="wg-foto" style="height:292px">
+	<aside class="widget" id="wg-foto" style="height:244px">
 		<div class="widget__h"><span>Mine billeder</span><button id="fotoAlle">Åbn alle →</button></div>
 		<div class="shot" id="shot">
 			<div class="shot__nav"><button id="shotBack" aria-label="Forrige">‹</button><button id="shotNext" aria-label="Næste">›</button></div>
@@ -689,7 +723,7 @@ button{font-family:inherit}
 		<span class="wgrip wgrip--w"></span><span class="wgrip wgrip--e"></span><span class="wgrip wgrip--s"></span><span class="wgrip wgrip--se"></span><span class="wgrip wgrip--sw"></span>
 	</aside>
 
-	<aside class="widget" id="wg-nyt" style="height:300px">
+	<aside class="widget" id="wg-nyt" style="height:252px">
 		<div class="widget__h"><span>Nyt fra værkstedet</span></div>
 		<div class="nyt" id="nyt"></div>
 		<span class="wgrip wgrip--w"></span><span class="wgrip wgrip--e"></span><span class="wgrip wgrip--s"></span><span class="wgrip wgrip--se"></span><span class="wgrip wgrip--sw"></span>
@@ -1565,6 +1599,20 @@ skrue("sTakt",   "uTakt",   v => nyPrikHvert = v, "takt");
 
 tegn();
 
+
+/* ── Bevægelse: ikonerne glider ind forskudt når fordøren lukkes ── */
+Array.from(document.getElementById("icons").children)
+	.forEach((el,i)=>el.style.setProperty("--i", i));
+
+let klarTimer=null;
+function startBevaegelse(){
+	clearTimeout(klarTimer);
+	desktop.classList.remove("klar");
+	void desktop.offsetWidth;              /* tving en genstart af animationen */
+	desktop.classList.add("klar");
+	klarTimer=setTimeout(()=>desktop.classList.remove("klar"), 1300);
+}
+
 /* ── Fordøren ── */
 const dor = document.getElementById("dor");
 if(!dor.classList.contains("vaek")) desktop.classList.add("dor-aaben");
@@ -1572,6 +1620,7 @@ if(!dor.classList.contains("vaek")) desktop.classList.add("dor-aaben");
 function lukDor(){
 	dor.classList.add("vaek");
 	desktop.classList.remove("dor-aaben");
+	startBevaegelse();
 }
 
 function aabnHjem(){
