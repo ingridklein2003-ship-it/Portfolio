@@ -99,6 +99,11 @@ window.OVERSAT = {
 		"A student party from the inside. Flash, beer tables and faces that aren't posing.",
 	"Se serien →": "See the series →",
 	"Åbn →": "Open →",
+	"Luk": "Close",
+	"Der ligger et stykke papir klar": "There's a sheet of paper ready",
+	"E-mail, telefon og CV som PDF": "Email, phone and CV as PDF",
+	"Kontakt & CV": "Contact & CV",
+	"Rul ned — der er mere ↓": "Scroll down — there's more ↓",
 
 	/* ── Projektnavne der ændres ── */
 	"Sanghæfter": "Song booklets",

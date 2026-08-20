@@ -368,7 +368,7 @@ button{font-family:inherit}
 
 
 .hint{
-	position:absolute;left:26px;bottom:60px;z-index:11;
+	position:absolute;left:50%;transform:translateX(-50%);top:44px;z-index:11;
 	font-family:var(--f-m);font-size:12px;color:rgba(255,255,255,.85);
 	background:rgba(10,12,16,.5);backdrop-filter:blur(8px);
 	border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:7px 15px;
@@ -420,6 +420,8 @@ button{font-family:inherit}
 	transition:opacity .5s var(--ease),visibility .5s;
 }
 .dor.vaek{opacity:0;visibility:hidden;pointer-events:none}
+.desktop.dor-aaben .dock,.desktop.dor-aaben .hint{opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.dock,.hint{transition:opacity .35s var(--ease)}
 .dor__kort{
 	width:min(680px,100%);background:var(--win);border-radius:18px;
 	padding:clamp(26px,4vw,44px);box-shadow:0 40px 90px rgba(0,0,0,.5);
@@ -433,7 +435,7 @@ button{font-family:inherit}
 .dor__praktik{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:6px 12px;border:1px solid var(--ink);border-radius:999px;background:#fff;font-family:var(--f-m);font-size:12.5px;letter-spacing:.01em;color:var(--ink);line-height:1.35}
 .dor__praktik::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--neon-green);flex:none}
 .dor__brod{font-family:var(--f-l);font-size:16px;line-height:1.7;color:var(--ink-2);margin-bottom:24px;max-width:56ch}
-.dor__valg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.dor__valg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .dor__valg button{
 	background:var(--win-bar);border:1px solid var(--line);border-radius:14px;
 	padding:18px 16px;text-align:left;transition:all .2s var(--ease);
@@ -457,6 +459,53 @@ button{font-family:inherit}
 .hjemknap{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);color:#fff;font-family:var(--f-m);font-size:11px;letter-spacing:.06em;border-radius:20px;padding:3px 12px;cursor:pointer;transition:background .2s}
 .hjemknap:hover{background:rgba(255,255,255,.3)}
 
+
+/* ══════════ Vejvisning: gør synligt hvad man kan trykke på ══════════ */
+
+/* Projektkortene: pilen stod kun frem når musen var over dem */
+.thing__go{opacity:.6;transform:none;transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.thing:hover .thing__go{opacity:1;transform:translateX(3px)}
+.thing__m{transition:box-shadow .3s var(--ease)}
+.thing:hover .thing__m{box-shadow:0 10px 26px rgba(20,18,15,.20)}
+
+/* Luk-knap med ord, til dem der ikke kender de tre Mac-prikker */
+.lukknap{position:absolute;right:11px;top:50%;transform:translateY(-50%);z-index:4;
+	background:#fff;border:1px solid var(--line);border-radius:20px;
+	font-family:var(--f-m);font-size:12px;color:var(--ink-2);line-height:1;
+	padding:6px 13px;cursor:pointer;display:flex;align-items:center;gap:7px;
+	transition:background .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease)}
+.lukknap:hover{background:var(--ink);border-color:var(--ink);color:var(--win)}
+.lukknap b{font-weight:400;font-size:13px}
+.titlebar__t{padding:0 120px}
+
+/* "Der er mere længere nede" — vinduerne har skjult scrollbar */
+.mer{position:absolute;left:0;right:0;bottom:0;height:84px;z-index:5;pointer-events:none;
+	display:flex;align-items:flex-end;justify-content:center;padding-bottom:14px;
+	background:linear-gradient(180deg,rgba(248,246,241,0) 0%,rgba(248,246,241,.86) 55%,var(--win) 100%);
+	opacity:0;transition:opacity .3s var(--ease)}
+.window.har-mer .mer{opacity:1}
+.mer button{pointer-events:auto;cursor:pointer;background:var(--ink);color:var(--win);border:none;
+	font-family:var(--f-m);font-size:12px;border-radius:20px;padding:8px 16px;
+	box-shadow:0 5px 16px rgba(20,18,15,.3);display:flex;align-items:center;gap:8px;
+	transition:transform .2s var(--ease)}
+.mer button:hover{transform:translateY(-2px)}
+
+/* Samme problem i "Nyt fra værkstedet" */
+.widget__fade{position:absolute;left:0;right:0;bottom:0;height:46px;pointer-events:none;z-index:6;
+	background:linear-gradient(180deg,rgba(16,18,22,0),rgba(16,18,22,.85));
+	opacity:0;transition:opacity .3s var(--ease);border-radius:0 0 20px 20px}
+.widget.har-mer .widget__fade{opacity:1}
+
+/* Fordørens valg skal ligne knapper, ikke infobokse */
+.dor__valg button{cursor:pointer;position:relative;padding:15px 13px 14px;display:flex;flex-direction:column}
+.dor__valg em{margin-top:auto;padding-top:10px;font-style:normal;
+	font-family:var(--f-m);font-size:12.5px;color:var(--neon-blue);
+	transition:transform .2s var(--ease)}
+.dor__valg button:hover em{transform:translateX(4px)}
+.dor__valg button:hover{box-shadow:0 8px 20px rgba(20,18,15,.13)}
+.dor__valg i{font-size:19px;margin-bottom:6px}
+.dor__valg b{font-size:15.5px;letter-spacing:-.03em}
+.dor__valg span{font-size:12px;line-height:1.45}
 
 .kun-tlf{display:none !important}
 
@@ -608,12 +657,12 @@ button{font-family:inherit}
 
 	<div class="icons" id="icons">
 		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Digitalt design</span></button>
-		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
+		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span></button>
 		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Branding</span></button>
 		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Print &amp; SoMe</span></button>
 		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Foto</span></button>
 		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Om mig</span></button>
-		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
+		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#16A863"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span></button>
 
 		<span class="icons__skel"></span>
 		<span class="icons__mrk">Apps jeg har bygget</span>
@@ -649,7 +698,7 @@ button{font-family:inherit}
 	<!-- MAPPEVINDUER -->
 
 	<section class="window" id="w-digital" style="left:300px;top:80px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 3 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 3 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Digitalt design</h2><p>Apps og prototyper hvor research kom før form. Klik på et projekt. Så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.</p></div>
 			<div class="things">
@@ -670,7 +719,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-brand" style="left:340px;top:110px;width:720px;height:560px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Branding · 3 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Branding · 3 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Branding</h2><p>Visuelle universer der skal kunne holde til mange formater og stadig ligne sig selv.</p></div>
 			<div class="things">
@@ -683,7 +732,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-print" style="left:270px;top:96px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-lime)"></span><span class="titlebar__t">Print &amp; SoMe · 5 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-lime)"></span><span class="titlebar__t">Print &amp; SoMe · 5 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Print &amp; SoMe</h2><p>Alt vises i sit rigtige format. Intet er beskåret for at passe i et gitter.</p></div>
 			<div class="things">
@@ -698,7 +747,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-foto" style="left:220px;top:70px;width:800px;height:600px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-green)"></span><span class="titlebar__t">Foto · 3 serier</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-green)"></span><span class="titlebar__t">Foto · 3 serier</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Foto</h2><p>Tre serier. Nordatlantisk gråvejr, havnen i Odense og folk jeg holder af.</p></div>
 			<div class="things">
@@ -720,7 +769,7 @@ button{font-family:inherit}
 
 
 	<section class="window" id="w-mig" style="left:300px;top:76px;width:800px;height:600px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-violet)"></span><span class="titlebar__t">Om mig</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-violet)"></span><span class="titlebar__t">Om mig</span></header>
 		<div class="winbody">
 			<div class="me">
 				<div class="me__top">
@@ -783,7 +832,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-tegn" style="left:280px;top:76px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Tegn en streg</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Tegn en streg</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Tegn en streg</h2><p>Det er dit papir nu. Hent tegningen ned med pilen, så er den din.</p></div>
 			<div class="draw">
@@ -811,7 +860,7 @@ button{font-family:inherit}
 
 
 	<section class="window" id="w-kode" style="left:220px;top:70px;width:900px;height:640px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Kodeværkstedet</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-cyan)"></span><span class="titlebar__t">Kodeværkstedet</span></header>
 		<div class="winbody">
 			<div class="winbody__head">
 				<h2>Kodeværkstedet</h2>
@@ -874,7 +923,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-kontakt" style="left:420px;top:150px;width:520px;height:390px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-cyan)"></span><span class="titlebar__t">Kontakt</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-cyan)"></span><span class="titlebar__t">Kontakt</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Skal vi lave noget sammen?</h2><p>Skriv endelig, også hvis det bare er en idé, du gerne vil vende.</p></div>
 			<dl style="border-top:1px solid var(--line)">
@@ -891,7 +940,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-bag" style="left:330px;top:92px;width:760px;height:560px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t">Bag om arbejdet · 12 billeder</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t">Bag om arbejdet · 12 billeder</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Bag om arbejdet</h2><p>Sådan ser det ud, mens det bliver til. Papirprototyper, optagelser, værksted og alt det rod, der ikke kommer med i den færdige case.</p></div>
 			<div class="things">
@@ -913,7 +962,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-foto-vis" style="left:280px;top:70px;width:820px;height:620px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t" id="visTitel">Billede</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t" id="visTitel">Billede</span></header>
 		<div class="viewer">
 			<div class="viewer__stage">
 				<img id="visImg" src="" alt="">
@@ -980,23 +1029,32 @@ button{font-family:inherit}
 				</div>
 			</div>
 
-			<p class="dor__brod" data-da="Det her er mit skrivebord. Jeg designer i Figma og bygger det selv i kode — sitet her er håndskrevet HTML, CSS og JavaScript. Du kan åbne mapperne og kigge dig omkring, eller bare vælge en af de tre nedenfor, så tager jeg dig direkte derhen." data-en="This is my desktop. I design in Figma and build it myself in code — this site is hand-written HTML, CSS and JavaScript. You can open the folders and look around, or just pick one of the three below and I'll take you straight there.">Det her er mit skrivebord. Jeg designer i Figma og bygger det selv i kode — sitet her er håndskrevet HTML, CSS og JavaScript. Du kan åbne mapperne og kigge dig omkring, eller bare vælge en af de tre nedenfor, så tager jeg dig direkte derhen.</p>
+			<p class="dor__brod" data-da="Det her er mit skrivebord. Jeg designer i Figma og bygger det selv i kode — sitet her er håndskrevet HTML, CSS og JavaScript. Vælg et af de fire nedenfor, så tager jeg dig direkte derhen. Eller luk kortet og åbn mapperne selv." data-en="This is my desktop. I design in Figma and build it myself in code — this site is hand-written HTML, CSS and JavaScript. Pick one of the four below and I'll take you straight there. Or close this card and open the folders yourself.">Det her er mit skrivebord. Jeg designer i Figma og bygger det selv i kode — sitet her er håndskrevet HTML, CSS og JavaScript. Vælg et af de fire nedenfor, så tager jeg dig direkte derhen. Eller luk kortet og åbn mapperne selv.</p>
 
 			<div class="dor__valg">
 				<button data-doraabn="w-digital">
 					<i>📁</i>
 					<b data-da="Se mit arbejde" data-en="See my work">Se mit arbejde</b>
-					<span data-da="Apps, branding, print og foto" data-en="Apps, branding, print and photography">Apps, branding, print og foto</span>
+					<span data-da="Apps, branding, print og foto" data-en="Apps, branding, print, photos">Apps, branding, print og foto</span>
+					<em>Åbn →</em>
 				</button>
 				<button data-doraabn="w-mig">
 					<i>👋</i>
 					<b data-da="Læs om mig" data-en="About me">Læs om mig</b>
 					<span data-da="Hvem jeg er, og hvordan jeg arbejder" data-en="Who I am and how I work">Hvem jeg er, og hvordan jeg arbejder</span>
+					<em>Åbn →</em>
+				</button>
+				<button data-doraabn="w-kontakt">
+					<i>✉️</i>
+					<b data-da="Kontakt &amp; CV" data-en="Contact &amp; CV">Kontakt &amp; CV</b>
+					<span data-da="E-mail, telefon og CV som PDF" data-en="Email, phone and CV as PDF">E-mail, telefon og CV som PDF</span>
+					<em>Åbn →</em>
 				</button>
 				<button data-doraabn="w-tegn">
 					<i>✏️</i>
 					<b data-da="Tegn noget" data-en="Draw something">Tegn noget</b>
-					<span data-da="Der ligger et stykke papir klar til dig" data-en="There's a sheet of paper waiting for you">Der ligger et stykke papir klar til dig</span>
+					<span data-da="Der ligger et stykke papir klar" data-en="There's a sheet of paper ready">Der ligger et stykke papir klar</span>
+					<em>Åbn →</em>
 				</button>
 			</div>
 
@@ -1200,7 +1258,7 @@ document.addEventListener("click",e=>{
 document.querySelectorAll(".window").forEach(w=>{
 	w.addEventListener("pointerdown",()=>{ zTop+=1; w.style.zIndex=zTop; });
 
-	w.querySelectorAll(".light").forEach(btn=>btn.addEventListener("click",e=>{
+	w.querySelectorAll(".light,.lukknap").forEach(btn=>btn.addEventListener("click",e=>{
 		e.stopPropagation();
 		const a=btn.dataset.act;
 		if(a==="close"||a==="min") luk(w);
@@ -1210,7 +1268,7 @@ document.querySelectorAll(".window").forEach(w=>{
 	const bar=w.querySelector(".titlebar");
 	let t=null;
 	bar.addEventListener("pointerdown",e=>{
-		if(e.target.closest(".light")||w.classList.contains("max")) return;
+		if(e.target.closest(".light,.lukknap")||w.classList.contains("max")) return;
 		if(window.matchMedia("(max-width:700px)").matches) return;
 		const r=w.getBoundingClientRect();
 		t={dx:e.clientX-r.left,dy:e.clientY-r.top};
@@ -1509,9 +1567,11 @@ tegn();
 
 /* ── Fordøren ── */
 const dor = document.getElementById("dor");
+if(!dor.classList.contains("vaek")) desktop.classList.add("dor-aaben");
 
 function lukDor(){
 	dor.classList.add("vaek");
+	desktop.classList.remove("dor-aaben");
 }
 
 function aabnHjem(){
@@ -1520,6 +1580,7 @@ function aabnHjem(){
 		luk(w);
 	});
 	dor.classList.remove("vaek");
+	desktop.classList.add("dor-aaben");
 }
 
 document.querySelectorAll("[data-doraabn]").forEach(k=>{
@@ -1947,6 +2008,66 @@ document.getElementById("t-save").addEventListener("click",()=>{
 	a.download="min-streg-hos-kleindesign.png"; a.href=ud.toDataURL("image/png"); a.click();
 });
 window.addEventListener("resize",()=>{ if(document.getElementById("w-tegn").classList.contains("open")) fitCanvas(); });
+
+
+/* ══════════════════════════════════════════════════════════════
+   Vejvisning: vinduerne har skjult scrollbar, så indhold under
+   kanten var usynligt. Her vises en tydelig "der er mere"-knap.
+   ══════════════════════════════════════════════════════════════ */
+function tjekMer(w){
+	const b = w.querySelector(".winbody"); if(!b) return;
+	const rest = b.scrollHeight - b.clientHeight - b.scrollTop;
+	w.classList.toggle("har-mer", b.scrollHeight > b.clientHeight + 12 && rest > 28);
+}
+function tjekAlleMer(){ document.querySelectorAll(".window.open").forEach(tjekMer); }
+
+document.querySelectorAll(".window").forEach(w=>{
+	const b = w.querySelector(".winbody"); if(!b) return;
+
+	const m = document.createElement("div");
+	m.className = "mer";
+	m.innerHTML = '<button type="button">Rul ned — der er mere ↓</button>';
+	w.appendChild(m);
+
+	m.querySelector("button").addEventListener("click", e=>{
+		e.stopPropagation();
+		b.scrollBy({top: Math.round(b.clientHeight * .8), behavior:"smooth"});
+	});
+
+	b.addEventListener("scroll", ()=>tjekMer(w), {passive:true});
+	b.addEventListener("load", ()=>tjekMer(w), true);          /* billeder der lander */
+	if(window.ResizeObserver)   new ResizeObserver(()=>tjekMer(w)).observe(b);
+	if(window.MutationObserver) new MutationObserver(()=>{
+		tjekMer(w); setTimeout(()=>tjekMer(w), 350);
+	}).observe(b, {childList:true, subtree:true});
+});
+
+window.addEventListener("resize", tjekAlleMer);
+window.addEventListener("load", tjekAlleMer);
+
+const _aabnUdenTjek = aabn;
+aabn = function(id){
+	_aabnUdenTjek(id);
+	setTimeout(tjekAlleMer, 80);
+	setTimeout(tjekAlleMer, 450);
+};
+
+/* Samme problem i "Nyt fra værkstedet" */
+(function(){
+	const boks = document.getElementById("nyt");
+	const wg   = document.getElementById("wg-nyt");
+	if(!boks || !wg) return;
+	const f = document.createElement("span");
+	f.className = "widget__fade";
+	wg.appendChild(f);
+	const tjek = ()=>{
+		const rest = boks.scrollHeight - boks.clientHeight - boks.scrollTop;
+		wg.classList.toggle("har-mer", boks.scrollHeight > boks.clientHeight + 8 && rest > 14);
+	};
+	boks.addEventListener("scroll", tjek, {passive:true});
+	if(window.ResizeObserver) new ResizeObserver(tjek).observe(boks);
+	setTimeout(tjek, 500);
+})();
 
 </script>
 
