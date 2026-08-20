@@ -19,7 +19,7 @@ window.OVERSAT = {
 	"Q&A · bag kameraet": "Q&A · behind the camera",
 	"Bag kameraet.": "Behind the camera.",
 	"apps & prototyper": "apps & prototypes",
-	"prøv at ændre koden": "try changing the code",
+	"prøv at ændre koden": "play with the code",
 	"identitet & logo": "identity & logo",
 	"plakater & opslag": "posters & social",
 	"3 serier · 62 fotos": "3 series · 62 photos",

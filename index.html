@@ -55,12 +55,12 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{font-family:var(--f-m);font-size:14px;line-height:1.7;color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden;background:#0E1418}
+body{font-family:var(--f-m);font-size:14px;line-height:1.7;color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden;background:#4E657A}
 img{display:block;max-width:100%}
 button{font-family:inherit}
 
 .desktop{position:fixed;inset:0;background-size:cover;background-position:center;overflow:hidden;transition:background-image .5s}
-.desktop::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,10,14,.30) 0%,rgba(6,10,14,.10) 34%,rgba(6,10,14,.14) 62%,rgba(6,10,14,.46) 100%)}
+.desktop::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,10,14,.16) 0%,rgba(6,10,14,.04) 34%,rgba(6,10,14,.06) 62%,rgba(6,10,14,.26) 100%)}
 
 /* Menulinje */
 .menubar{position:absolute;top:0;left:0;right:0;height:32px;z-index:900;background:rgba(16,18,22,.55);backdrop-filter:blur(24px) saturate(1.2);display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:#fff;font-size:12.5px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -80,7 +80,7 @@ button{font-family:inherit}
 .sprogknap.en span{opacity:1;font-weight:600}
 
 /* Ikoner */
-.icons{position:absolute;top:44px;left:20px;z-index:10;display:grid;grid-template-columns:repeat(3,112px);gap:4px 2px;max-height:calc(100% - 150px);overflow-y:auto;padding-right:4px;scrollbar-width:none}
+.icons{position:absolute;top:44px;left:20px;z-index:10;display:grid;grid-template-columns:repeat(3,126px);gap:2px 0;max-height:calc(100% - 150px);overflow-y:auto;padding-right:4px;scrollbar-width:none}
 .icons::-webkit-scrollbar{display:none}
 .icons__skel{grid-column:1/-1;height:1px;background:rgba(255,255,255,.28);margin:7px 6px 3px}
 .icons__mrk{grid-column:1/-1;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);text-shadow:0 1px 4px rgba(0,0,0,.95);padding:0 6px 2px}
@@ -93,10 +93,14 @@ button{font-family:inherit}
 .icon__art{width:52px;height:43px;display:grid;place-items:center;filter:drop-shadow(0 4px 7px rgba(0,0,0,.45))}
 .icon__art.mappe{width:56px;height:46px;filter:none;display:block}
 .icon__art svg{width:52px;height:43px}
-.icon span{font-size:11px;color:#fff;text-align:center;line-height:1.22;text-shadow:0 1px 4px rgba(0,0,0,.95),0 0 12px rgba(0,0,0,.6);max-width:94px}
-.icon .icon__und{font-family:var(--f-m);font-size:8.5px;letter-spacing:0;line-height:1.3;
-	color:rgba(255,255,255,.62)!important;margin-top:-2px;max-width:108px;white-space:nowrap;
-	text-decoration:none;text-shadow:0 1px 3px rgba(0,0,0,.95)}
+.icon > span:last-child{font-family:var(--f-m);font-size:9.5px;letter-spacing:0;color:#fff;
+	text-align:center;line-height:1.35;white-space:nowrap;max-width:122px;
+	background:rgba(10,16,24,.42);border-radius:5px;padding:2px 7px;
+	text-shadow:0 1px 3px rgba(0,0,0,.55);transition:background .15s}
+.icon:hover > span:last-child{background:rgba(10,16,24,.7)}
+.icon.sel > span:last-child{background:var(--neon-blue)}
+.icon.sel{background:none}
+
 .icon:hover .icon__und{color:rgba(255,255,255,.9)!important}
 .appicon .icon__art{width:48px;height:48px;background:#fff;border-radius:12px;overflow:hidden;padding:7px;box-shadow:0 5px 13px rgba(0,0,0,.42)}
 .appicon .icon__art img{width:100%;height:100%;object-fit:contain}
@@ -121,9 +125,9 @@ button{font-family:inherit}
 .photoicon span:last-child{font-size:11.5px}
 
 /* Fotofremviser */
-.viewer{background:#141414;display:grid;grid-template-rows:1fr auto;height:100%}
-.viewer__stage{position:relative;display:grid;place-items:center;overflow:hidden;padding:16px}
-.viewer__stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px}
+.viewer{background:#141414;display:grid;grid-template-rows:minmax(0,1fr) auto;flex:1;min-height:0;overflow:hidden}
+.viewer__stage{position:relative;display:grid;place-items:center;overflow:hidden;padding:16px;min-height:0}
+.viewer__stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:3px}
 .viewer__nav{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;padding:0 14px;pointer-events:none}
 .viewer__nav button{pointer-events:auto;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;font-size:19px;cursor:pointer}
 .viewer__nav button:hover{background:rgba(255,255,255,.3)}
@@ -275,20 +279,24 @@ button{font-family:inherit}
 .case__back:hover{color:var(--ink);border-color:var(--ink-2);background:#fff}
 
 /* App-vindue */
-.appview{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:34px;align-items:start}
+.appview{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:34px;align-items:start}
 .appview__txt h2{font-family:var(--f-d);font-weight:800;font-size:36px;letter-spacing:-.04em;line-height:1;margin-bottom:12px}
-.phone{position:sticky;top:0}
-.phone__frame{background:#131313;border-radius:40px;padding:12px;box-shadow:0 20px 44px rgba(0,0,0,.34),inset 0 0 0 2px #2C2C2C;position:relative}
-.phone__notch{position:absolute;top:19px;left:50%;transform:translateX(-50%);width:98px;height:23px;background:#131313;border-radius:14px;z-index:4}
-.phone__screen{position:relative;width:100%;aspect-ratio:9/19.5;border-radius:30px;overflow:hidden;background:#fff}
-.phone__screen iframe{width:100%;height:100%;border:0;display:block}
-.phone__screen > img{width:100%;height:100%;object-fit:cover}
+.phone{position:sticky;top:0;justify-self:end;width:max-content}
+.phone__frame{background:#131313;border-radius:40px;padding:10px;width:max-content;box-shadow:0 20px 44px rgba(0,0,0,.34),inset 0 0 0 2px #2C2C2C;position:relative}
+.phone__notch{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:76px;height:18px;background:#131313;border-radius:14px;z-index:4}
+.phone__screen{position:relative;border-radius:28px;overflow:hidden;background:#fff;
+	width:var(--telefonw,300px);height:var(--telefonh,650px)}
+.phone__screen iframe{width:390px;height:845px;border:0;display:block;
+	transform:scale(var(--telefonskala,1));transform-origin:top left}
+.phone__screen > img{width:390px;height:845px;object-fit:cover;display:block;
+	transform:scale(var(--telefonskala,1));transform-origin:top left}
 .phone__bar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:36%;height:4px;border-radius:4px;background:rgba(0,0,0,.3);z-index:5}
 .phone__foot{display:flex;justify-content:space-between;align-items:center;margin-top:13px;font-size:12px;color:var(--ink-2);gap:8px}
 .phone__btn{font-family:var(--f-m);font-size:12px;background:var(--ink);color:#fff;border:none;border-radius:20px;padding:6px 13px;cursor:pointer}
 .phone__btn:hover{background:var(--neon-blue)}
 .phone__tag{background:var(--neon-lime);color:#141414;padding:4px 11px;border-radius:20px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
-.phone__note{font-family:var(--f-l);margin-top:11px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.phone__note{font-family:var(--f-l);margin-top:9px;font-size:12px;color:var(--ink-2);line-height:1.5;
+	max-width:300px}
 
 /* Skitser */
 .sketches{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px}
@@ -305,7 +313,7 @@ button{font-family:inherit}
 .me__strip figure{border-radius:5px;overflow:hidden;background:#EFEBE2}
 .me__strip img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .me__strip figcaption{font-size:12px;color:var(--ink-3);padding:7px 2px 0}
-.me__stor{margin:26px 0 6px}
+.me__stor{margin:24px 0 6px;max-width:440px}
 .me__stor img{width:100%;height:auto;border-radius:6px;display:block}
 .me__stor figcaption{font-family:var(--f-m);font-size:11.5px;color:var(--ink-3);margin-top:8px}
 .me__h{font-family:var(--f-d);font-weight:800;font-size:21px;letter-spacing:-.03em;margin:28px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
@@ -694,23 +702,23 @@ button{font-family:inherit}
 	</div>
 
 	<div class="icons" id="icons">
-		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Digitalt design</span><span class="icon__und">apps &amp; prototyper</span></button>
-		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Kodeværkstedet</span><span class="icon__und">prøv at ændre koden</span></button>
-		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Branding</span><span class="icon__und">identitet &amp; logo</span></button>
-		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Print &amp; SoMe</span><span class="icon__und">plakater &amp; opslag</span></button>
-		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Foto</span><span class="icon__und">3 serier · 62 fotos</span></button>
-		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Om mig</span><span class="icon__und">hvem jeg er</span></button>
-		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#16A863"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>Bag om arbejdet</span><span class="icon__und">processen bag</span></button>
+		<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">apps &amp; prototyper</span></button>
+		<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">prøv at ændre koden</span></button>
+		<button class="icon" data-w="w-brand"><span class="icon__art mappe" style="--f:#FF2E88"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">identitet &amp; logo</span></button>
+		<button class="icon" data-w="w-print"><span class="icon__art mappe" style="--f:#A8D400"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">plakater &amp; opslag</span></button>
+		<button class="icon" data-w="w-foto"><span class="icon__art mappe" style="--f:#00C46F"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">3 serier · 62 fotos</span></button>
+		<button class="icon" data-w="w-mig"><span class="icon__art mappe" style="--f:#8B5CF6"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">hvem jeg er</span></button>
+		<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#16A863"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">processen bag</span></button>
 
 		<span class="icons__skel"></span>
 		<span class="icons__mrk">Apps jeg har bygget</span>
-		<button class="icon appicon" data-app="koeberguiden"><span class="icon__art"><img src="img/ikon-koeberguiden.png" alt=""></span><span>KøberGuiden</span><span class="icon__und">app · klient</span></button>
-		<button class="icon appicon" data-app="wordfestival"><span class="icon__art"><img src="img/ikon-word.png" alt=""></span><span>Word Festival</span><span class="icon__und">app · skoleprojekt</span></button>
-		<button class="icon appicon" data-app="friendfinder"><span class="icon__art"><img src="img/ikon-friendfinder.png" alt=""></span><span>Friend Finder</span><span class="icon__und">app · design &amp; kode</span></button>
+		<button class="icon appicon" data-app="koeberguiden"><span class="icon__art"><img src="img/ikon-koeberguiden.png" alt=""></span><span>KøberGuiden</span></button>
+		<button class="icon appicon" data-app="wordfestival"><span class="icon__art"><img src="img/ikon-word.png" alt=""></span><span>Word Festival</span></button>
+		<button class="icon appicon" data-app="friendfinder"><span class="icon__art"><img src="img/ikon-friendfinder.png" alt=""></span><span>Friend Finder</span></button>
 
 		<span class="icons__skel"></span>
 		<span class="icons__mrk">Dokumenter</span>
-		<a class="icon fileicon" href="Ingrid-Klein-CV.pdf" download><span class="icon__art"><b>PDF</b></span><span>CV.pdf</span><span class="icon__und">pdf · 2026</span></a>
+		<a class="icon fileicon" href="Ingrid-Klein-CV.pdf" download><span class="icon__art"><b>PDF</b></span><span>CV.pdf</span></a>
 
 
 
@@ -840,7 +848,7 @@ button{font-family:inherit}
 				<div class="me__strip">
 					<figure><img src="img/handbold-1.webp" alt=""><figcaption>På banen</figcaption></figure>
 					<figure><img src="img/handbold-2.webp" alt=""><figcaption>Holdet</figcaption></figure>
-					<figure><img src="img/skitse-ingrid-01.webp" alt=""><figcaption>Selvportræt, blyant</figcaption></figure>
+					
 				</div>
 
 				<h4 class="me__h">Undervisning og formidling</h4>
@@ -983,7 +991,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-bag" style="left:330px;top:92px;width:760px;height:560px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t">Bag om arbejdet · 15 billeder</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t">Bag om arbejdet · 13 billeder</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Bag om arbejdet</h2><p>Sådan ser det ud, mens det bliver til. Papirprototyper, optagelser, værksted og alt det rod, der ikke kommer med i den færdige case.</p></div>
 			<div class="things">
@@ -992,10 +1000,9 @@ button{font-family:inherit}
 				<a class="thing" data-foto="img/bag/proto-3.webp" data-tekst="Midt i det" href="#"><span class="thing__m"><img src="img/bag/proto-3.webp" alt=""></span><span class="thing__t">Midt i det</span><span class="thing__s"><i style="background:#00B8D4"></i>Workshop</span></a>
 				<a class="thing" data-foto="img/bag/bag-01.webp" data-tekst="Vi optog en rundvisning så længe ballonen kunne holdes i luften." href="#"><span class="thing__m"><img src="img/bag/bag-01.webp" alt=""></span><span class="thing__t">House tour, take 1</span><span class="thing__s"><i style="background:#00B8D4"></i>Optagelse · ballonkonceptet</span></a>
 				<a class="thing" data-foto="img/bag/bag-02.webp" data-tekst="Ballonen i luften" href="#"><span class="thing__m"><img src="img/bag/bag-02.webp" alt=""></span><span class="thing__t">Ballonen i luften</span><span class="thing__s"><i style="background:#00B8D4"></i>Optagelse · P5</span></a>
+				<a class="thing" data-foto="img/bag/bag-03.webp" data-tekst="Instruktion mellem to takes." href="#"><span class="thing__m"><img src="img/bag/bag-03.webp" alt="" loading="lazy"></span><span class="thing__t">Mellem to takes</span><span class="thing__s"><i style="background:#00B8D4"></i>Optagelse · instruktion</span></a>
 				<a class="thing" data-foto="img/bag/bag-04.webp" data-tekst="Udstyret var ikke fint. Det virkede." href="#"><span class="thing__m"><img src="img/bag/bag-04.webp" alt=""></span><span class="thing__t">Gimbal på en flyttekasse</span><span class="thing__s"><i style="background:#00B8D4"></i>Q&A-produktion</span></a>
-				<a class="thing" data-foto="img/bag-gimbal-flyttekasse.webp" data-tekst="Flyttekassen er stativet, sofabordet er settet, og laptoppen står med manuskriptet. Sådan så det ud hele dagen." href="#"><span class="thing__m"><img src="img/bag-gimbal-flyttekasse.webp" alt="" loading="lazy"></span><span class="thing__t">Kassen som stativ</span><span class="thing__s"><i style="background:#00B8D4"></i>Q&A · improviseret rig</span></a>
-				<a class="thing" data-foto="img/bag-optagelse-stue.webp" data-tekst="Vi optog hjemme i en stue, fordi formatet skulle kunne gentages uden at booke noget som helst." href="#"><span class="thing__m"><img src="img/bag-optagelse-stue.webp" alt="" loading="lazy"></span><span class="thing__t">Optagelse i stuen</span><span class="thing__s"><i style="background:#00B8D4"></i>Q&A · opstilling</span></a>
-				<a class="thing" data-foto="img/bag-optagelse-gimbal.webp" data-tekst="Én filmer, én bliver filmet, og resten af rummet er som det plejer at være." href="#"><span class="thing__m"><img src="img/bag-optagelse-gimbal.webp" alt="" loading="lazy"></span><span class="thing__t">Midt i en optagelse</span><span class="thing__s"><i style="background:#00B8D4"></i>Q&A · bag kameraet</span></a>
+
 				<a class="thing" data-foto="img/bag/skate-1.webp" data-tekst="Odense Havn" href="#"><span class="thing__m"><img src="img/bag/skate-1.webp" alt=""></span><span class="thing__t">Odense Havn</span><span class="thing__s"><i style="background:#00B8D4"></i>Foto · location</span></a>
 				<a class="thing" data-foto="img/bag/skate-2.webp" data-tekst="På location" href="#"><span class="thing__m"><img src="img/bag/skate-2.webp" alt=""></span><span class="thing__t">På location</span><span class="thing__s"><i style="background:#00B8D4"></i>Foto · optagelse</span></a>
 				<a class="thing" data-foto="img/bag/lys.webp" data-tekst="Lysmaling" href="#"><span class="thing__m"><img src="img/bag/lys.webp" alt=""></span><span class="thing__t">Lysmaling</span><span class="thing__s"><i style="background:#00B8D4"></i>Eksperiment · lang lukketid</span></a>
@@ -1219,7 +1226,7 @@ const desktop=document.getElementById("desktop");
 let zTop=100;
 
 /* ── Baggrund ── */
-desktop.style.backgroundImage='url("img/bg/b-3.webp")';
+desktop.style.backgroundImage='url("img/bg/b-3-lys.webp")';
 
 /* ── Vinduer ── */
 function aabn(id){
@@ -1887,6 +1894,7 @@ function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
 
 function visApp(n){
 	sidsteApp=n;
+	const w2 = aktivMappe || document.getElementById("w-digital");
 	let a=APPS[n]; if(!a) return;
 	if(sprog==="en") a=flet(a,(window.APPS_EN||{})[n]);
 	let v='<h2>'+esc(a.titel)+'</h2><p class="case__lead">'+esc(a.lead)+'</p>';
@@ -1904,7 +1912,8 @@ function visApp(n){
 	if(a.citat) v+='<blockquote class="case__quote">'+esc(a.citat[0])+'<span>'+esc(a.citat[1])+'</span></blockquote>';
 	if(a.efter) v+='<h3 class="case__h">'+esc(a.efter[0])+'</h3><p class="case__p">'+esc(a.efter[1])+'</p>';
 	if(a.shots.length){ v+='<h3 class="case__h">'+(sprog==="en"?"Everything else":"Alt det andet")+'</h3><div class="case__shots">'; a.shots.forEach(s=>v+='<img src="'+s+'" alt="" loading="lazy">'); v+='</div>'; }
-	if(a.video){ v+='<figure class="case__video"><video controls preload="none" poster="'+a.video.poster+'">'+
+	if(a.video){ v+='<figure class="case__video"><video controls playsinline preload="metadata" poster="'+a.video.poster+'">'+
+		(a.video.webm?'<source src="'+a.video.webm+'" type="video/webm">':'')+
 		'<source src="'+a.video.fil+'" type="video/mp4"></video>'+
 		'<figcaption>'+esc(a.video.tekst)+'</figcaption></figure>'; }
 
@@ -1921,6 +1930,16 @@ function visApp(n){
 	visIVindue(html, a.farve, a.titel+" · "+a.mappe);
 
 	appWin.dataset.app=n;
+
+	/* Giv vinduet den hoejde der skal til, saa hele telefonen kan ses */
+	if(!window.matchMedia("(max-width:700px)").matches && !w2.classList.contains("max")){
+		const oensket = Math.min(940, window.innerHeight - 144);
+		if(w2.offsetHeight < oensket){
+			w2.style.top = "44px";
+			w2.style.height = oensket + "px";
+		}
+		setTimeout(()=>tjekMer(w2), 40);
+	}
 
 
 	const r=document.getElementById("simReset");
@@ -1949,7 +1968,7 @@ const CASES={
 		fakta:[["Kontekst","Kundeopgave · Gåsetorvet"],["Periode","2023–2024"],["Min rolle","Grafisk design & illustration, alene"],["Værktøjer","Illustrator · Photoshop"]],
 		afsnit:[["Arbejdet","Jeg arbejdede med illustration, billedbehandling, layout og animation for at skabe et sammenhængende udtryk. Det skulle kunne bære både et julekort, et nytårsopslag og et fysisk trædesign til baren."]],
 		efter:["Delprojekter","Julekort · Gåsen i baren (animation) · „Drik-status“ trædesign · Nytårspost. De hører under samme identitet frem for at ligge som fire løse projekter."],
-		video:{fil:"video/gaas-animation.mp4",poster:"img/gaas-animation-poster.webp",
+		video:{fil:"video/gaas-animation.mp4",webm:"video/gaas-animation.webm",poster:"img/gaas-animation-poster.webp",
 			tekst:"Gåsen i baren. Animationen ligger på stedets SoMe, hvor de to gæs sidder ved disken med hver sin fadøl."},
 		shots:["img/gaasetorvet-postkort.webp","img/nytaar-gaas-stor.webp","img/julekort.webp","img/gaas-illustration.webp","img/drikstatus-1.webp"],
 		tal:[["4","delprojekter"],["2","år"]],citat:null},
@@ -2014,7 +2033,8 @@ function visCase(n){
 		h+='<h3 class="case__h">'+esc(a[0])+'</h3><p class="case__p">'+esc(a[1])+'</p>';
 		if(a[2]) h+='<figure class="case__midt"><img src="'+a[2]+'" alt="" loading="lazy"></figure>';
 	});
-	if(c.video) h+='<figure class="case__video case__video--bred"><video controls preload="none" poster="'+c.video.poster+'">'+
+	if(c.video) h+='<figure class="case__video case__video--bred"><video controls playsinline preload="metadata" poster="'+c.video.poster+'">'+
+		(c.video.webm?'<source src="'+c.video.webm+'" type="video/webm">':'')+
 		'<source src="'+c.video.fil+'" type="video/mp4"></video>'+
 		'<figcaption>'+esc(c.video.tekst)+'</figcaption></figure>';
 	if(c.citat) h+='<blockquote class="case__quote">'+esc(c.citat[0])+'<span>'+esc(c.citat[1])+'</span></blockquote>';
@@ -2087,6 +2107,12 @@ function tjekMer(w){
 	const b = w.querySelector(".winbody"); if(!b) return;
 	const rest = b.scrollHeight - b.clientHeight - b.scrollTop;
 	w.classList.toggle("har-mer", b.scrollHeight > b.clientHeight + 12 && rest > 28);
+	/* Telefonen i app-visningen skal kunne ses helt uden at rulle */
+	const plads = Math.max(300, b.clientHeight - 185);
+	const skala = Math.min(0.86, plads / 845);
+	w.style.setProperty("--telefonskala", skala.toFixed(4));
+	w.style.setProperty("--telefonw", Math.round(390 * skala) + "px");
+	w.style.setProperty("--telefonh", Math.round(845 * skala) + "px");
 }
 function tjekAlleMer(){ document.querySelectorAll(".window.open").forEach(tjekMer); }
 
