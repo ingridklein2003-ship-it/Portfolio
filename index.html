@@ -80,10 +80,10 @@ button{font-family:inherit}
 .sprogknap.en span{opacity:1;font-weight:600}
 
 /* Ikoner */
-.icons{position:static;width:100%;display:flex;flex-direction:column;gap:22px;
-	max-height:none;overflow:visible;padding-right:4px;scrollbar-width:none}
+.icons{position:static;width:var(--kolonne);display:flex;flex-direction:column;gap:20px;
+	max-height:none;overflow:visible;scrollbar-width:none}
 .ikonrk--mapper{display:flex;flex-wrap:wrap;gap:2px 0}
-.ikonrk--bund{display:flex;gap:clamp(24px,4vw,64px);flex-wrap:wrap;align-items:flex-start}
+.ikonrk--bund{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
 .ikongr{display:flex;flex-direction:column;gap:3px}
 .ikongr__rk{display:flex;flex-wrap:wrap;gap:2px 0}
 .icons::-webkit-scrollbar{display:none}
@@ -568,9 +568,9 @@ button{font-family:inherit}
 
 /* ══════════ Hilsen: et rigtigt billede af mig, direkte på skrivebordet ══════════ */
 .venstre{position:absolute;left:20px;top:44px;right:296px;z-index:10;
-	display:flex;flex-direction:column;align-items:flex-start;gap:14px;
-	max-height:calc(100% - 120px)}
-.hilsen{position:static;flex:0 0 auto;max-width:min(560px,100%);
+	display:flex;flex-direction:column;align-items:flex-start;gap:16px;
+	--kolonne:min(560px,100%);max-height:calc(100% - 120px)}
+.hilsen{position:static;flex:0 0 auto;width:var(--kolonne);
 	display:flex;align-items:center;gap:clamp(14px,1.8vw,24px);
 	background:rgba(255,255,255,.46);backdrop-filter:blur(26px) saturate(1.6);
 	-webkit-backdrop-filter:blur(26px) saturate(1.6);
