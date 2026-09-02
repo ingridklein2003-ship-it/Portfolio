@@ -6,6 +6,15 @@ window.OVERSAT = {
 
 	/* ── Menulinje og skrivebord ── */
 	"Arkiv": "File",
+	"Mapper": "Folders",
+	"Sider": "Pages",
+	"Tilbage til forsiden": "Back to the start",
+	"Farvetema": "Colour theme",
+	"Baggrund": "Background",
+	"Widgets": "Widgets",
+	"Dock": "Dock",
+	"Hilsen": "Greeting",
+	"Luk alle vinduer": "Close all windows",
 	"Rediger": "Edit",
 	"Vis": "View",
 	"Færøerne": "Faroe Islands",

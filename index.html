@@ -62,6 +62,42 @@ button{font-family:inherit}
 .desktop{position:fixed;inset:0;background-size:cover;background-position:center;overflow:hidden;transition:background-image .5s}
 .desktop::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,10,14,.16) 0%,rgba(6,10,14,.04) 34%,rgba(6,10,14,.06) 62%,rgba(6,10,14,.26) 100%)}
 
+/* Menuer i menulinjen: Arkiv, Rediger, Vis */
+.menuer{display:flex;gap:2px;align-items:center}
+.menu{position:relative;display:block}
+.menuknap{background:none;border:none;padding:4px 9px;border-radius:7px;cursor:pointer;
+	font-family:inherit;font-size:12.5px;color:#fff;opacity:.75;line-height:1;
+	transition:background .15s,opacity .15s}
+.menuknap:hover{opacity:1;background:rgba(255,255,255,.14)}
+.menuknap[aria-expanded="true"]{opacity:1;background:rgba(255,255,255,.22)}
+.menupanel{position:absolute;top:calc(100% + 7px);left:-6px;z-index:960;min-width:214px;
+	background:rgba(28,30,36,.92);backdrop-filter:blur(26px) saturate(1.3);
+	border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:7px;
+	box-shadow:0 22px 48px rgba(0,0,0,.5);animation:menuInd .16s var(--ease) both}
+.menupanel--bred{min-width:250px}
+@keyframes menuInd{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.menupanel__h{font-family:var(--f-m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+	color:rgba(255,255,255,.45);padding:7px 9px 5px}
+.menupost{display:flex;align-items:center;gap:9px;width:100%;text-align:left;
+	background:none;border:none;border-radius:8px;cursor:pointer;
+	font-family:inherit;font-size:13px;color:rgba(255,255,255,.92);padding:7px 9px;line-height:1.2}
+.menupost:hover{background:var(--neon-blue);color:#fff}
+.menupost i{width:13px;height:11px;border-radius:2px 3px 3px 3px;background:var(--f,#888);flex:none;position:relative}
+.menupost i::before{content:"";position:absolute;top:-2px;left:0;width:6px;height:3px;background:var(--f,#888);border-radius:2px 2px 0 0}
+.menupost--flueben::before{content:"✓";width:13px;flex:none;font-size:12px;opacity:0}
+.menupost--flueben.til::before{opacity:1}
+.menuskil{display:block;height:1px;background:rgba(255,255,255,.14);margin:6px 9px}
+.menugitter{display:flex;flex-wrap:wrap;gap:8px;padding:3px 9px 9px}
+.menuprik,.menubg{width:26px;height:26px;border-radius:50%;border:2px solid transparent;
+	cursor:pointer;padding:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);transition:transform .15s}
+.menuprik{background:var(--c)}
+.menubg{border-radius:8px;background:var(--b);background-size:cover;background-position:center}
+.menuprik:hover,.menubg:hover{transform:scale(1.12)}
+.menuprik.valgt,.menubg.valgt{border-color:#fff}
+.desktop.skjul-widgets .widget{display:none}
+.desktop.skjul-dock .dock{display:none}
+.desktop.skjul-hilsen .hilsen{display:none}
+
 /* Menulinje */
 .menubar{position:absolute;top:0;left:0;right:0;height:32px;z-index:900;background:rgba(16,18,22,.55);backdrop-filter:blur(24px) saturate(1.2);display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:#fff;font-size:12.5px;border-bottom:1px solid rgba(255,255,255,.1)}
 .menubar__l{display:flex;gap:18px;align-items:center}
@@ -352,15 +388,23 @@ button{font-family:inherit}
 .size[aria-pressed="true"]{background:rgba(20,20,20,.13)}
 
 /* ── Dock ── */
-.dock{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:880;background:rgba(16,18,22,.55);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:7px 9px;display:flex;gap:6px;align-items:flex-end;box-shadow:0 16px 38px rgba(0,0,0,.48)}
-.dokmappe{position:relative;width:27px;height:22px;display:block}
+.dock{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:880;background:rgba(16,18,22,.55);backdrop-filter:blur(26px) saturate(1.2);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:11px 16px;display:flex;gap:13px;align-items:flex-end;box-shadow:0 16px 38px rgba(0,0,0,.48)}
+.dokmappe{position:relative;width:31px;height:25px;display:block}
 .dokmappe b{pointer-events:none;position:absolute;inset:4px 0 0;background:var(--f);border-radius:3px 5px 5px 5px;display:block}
 .dokmappe b::before{content:"";position:absolute;top:-4px;left:0;width:12px;height:5px;background:var(--f);border-radius:3px 4px 0 0}
 .dokmappe u{text-decoration:none;position:absolute;inset:7px 0 0;background:color-mix(in srgb,var(--f) 78%,#fff);border-radius:4px;display:block;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
-.dokplads{display:flex;flex-direction:column;align-items:center;gap:4px;flex:0 0 auto}
-.dokplads__navn{font-family:var(--f-m);font-size:9px;letter-spacing:.02em;color:rgba(240,238,233,.7);white-space:nowrap;max-width:60px;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.dokplads{position:relative;display:flex;flex-direction:column;align-items:center;flex:0 0 auto}
+.dokplads__navn{position:absolute;bottom:calc(100% + 11px);left:50%;
+	font-family:var(--f-m);font-size:12px;letter-spacing:.01em;color:#fff;white-space:nowrap;
+	background:rgba(18,20,24,.94);border:1px solid rgba(255,255,255,.14);border-radius:9px;
+	padding:6px 11px;pointer-events:none;opacity:0;transform:translate(-50%,6px);
+	transition:opacity .18s var(--ease),transform .18s var(--ease);z-index:5}
+.dokplads__navn::after{content:"";position:absolute;top:100%;left:50%;margin-left:-5px;
+	border:5px solid transparent;border-top-color:rgba(18,20,24,.94)}
+.dokplads:hover .dokplads__navn,.dokplads:focus-within .dokplads__navn{opacity:1;transform:translate(-50%,0)}
+.dokplads:hover .dockitem,.dokplads:focus-within .dockitem{transform:translateY(-14px) scale(1.1)}
 .dokplads:hover .dokplads__navn{color:#fff}
-.dockitem{width:41px;height:41px;border:none;border-radius:12px;background:rgba(255,255,255,.09);cursor:pointer;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden;flex:0 0 auto;transform-origin:bottom center;transition:transform .22s cubic-bezier(.2,.9,.3,1.2)}
+.dockitem{width:46px;height:46px;border:none;border-radius:12px;background:rgba(255,255,255,.09);cursor:pointer;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden;flex:0 0 auto;transform-origin:bottom center;transition:transform .22s cubic-bezier(.2,.9,.3,1.2)}
 
 .dockitem svg{width:19px;height:19px}
 .dockitem .mrk{font-family:var(--f-d);font-weight:800;font-size:18px;letter-spacing:-.05em;line-height:1;color:#12100E;display:block}
@@ -374,7 +418,7 @@ button{font-family:inherit}
 .dockdot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.9);position:absolute;bottom:2px;left:50%;transform:translateX(-50%);opacity:0}
 .dockitem.running .dockdot{opacity:1;animation:aande 2.6s ease-in-out infinite}
 @keyframes aande{0%,100%{opacity:1}50%{opacity:.4}}
-.docksep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);margin:5px 4px 22px}
+.docksep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);margin:4px 2px}
 .dockfolder{background:rgba(255,255,255,.24);display:grid;grid-template-columns:repeat(2,1fr);gap:3px;padding:5px}
 .dockfolder i{
 	border-radius:5px;display:grid;place-items:center;overflow:hidden;
@@ -497,15 +541,7 @@ button{font-family:inherit}
 .thing__m{transition:box-shadow .3s var(--ease)}
 .thing:hover .thing__m{box-shadow:0 10px 26px rgba(20,18,15,.20)}
 
-/* Luk-knap med ord, til dem der ikke kender de tre Mac-prikker */
-.lukknap{position:absolute;right:11px;top:50%;transform:translateY(-50%);z-index:4;
-	background:#fff;border:1px solid var(--line);border-radius:20px;
-	font-family:var(--f-m);font-size:12px;color:var(--ink-2);line-height:1;
-	padding:6px 13px;cursor:pointer;display:flex;align-items:center;gap:7px;
-	transition:background .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease)}
-.lukknap:hover{background:var(--ink);border-color:var(--ink);color:var(--win)}
-.lukknap b{font-weight:400;font-size:13px}
-.titlebar__t{padding:0 120px}
+.titlebar__t{padding:0 96px}
 
 /* "Der er mere længere nede" — vinduerne har skjult scrollbar */
 .mer{position:absolute;left:0;right:0;bottom:0;height:84px;z-index:5;pointer-events:none;
@@ -616,7 +652,6 @@ button{font-family:inherit}
 	border-radius:18px}
 .titlebar{background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(233,229,221,.26));
 	border-bottom:1px solid rgba(214,208,195,.5)}
-.lukknap{background:rgba(255,255,255,.72)}
 .mer{background:linear-gradient(180deg,rgba(250,248,243,0) 0%,rgba(250,248,243,.72) 55%,rgba(250,248,243,.94) 100%)}
 .case__back{background:rgba(255,255,255,.5)}
 
@@ -629,9 +664,8 @@ button{font-family:inherit}
 	.venstre{left:14px;right:280px;max-height:calc(100% - 140px)}
 	.window{left:14px !important;top:42px !important;width:calc(100% - 288px) !important;height:calc(100% - 150px) !important}
 	.things{columns:2 200px}
-	.light{width:15px;height:15px}
-	.dockitem{width:46px;height:46px}
-	.dokplads__navn{font-size:9px;max-width:58px}
+	.light{width:18px;height:18px}
+	.lights{gap:9px}
 }
 
 /* ══════════ Telefon: hjemmeskærm ══════════ */
@@ -644,6 +678,7 @@ button{font-family:inherit}
 	.menubar{position:fixed;height:46px;padding:0 18px;background:none;backdrop-filter:none;border:none}
 	.menubar__l{gap:0}
 	.menubar__brand,.menubar__l span:not(.menubar__ur){display:none}
+	.menuer{display:none}
 	.menubar__ur{border:none;padding:0}
 	.menubar__ur b{font-size:15px;font-weight:600;letter-spacing:0}
 	.menubar__ur i{display:none}
@@ -763,9 +798,57 @@ button{font-family:inherit}
 		<div class="menubar__l">
 			<span class="menubar__brand">KleinDesign</span>
 			<span class="menubar__ur"><b id="urTid">–</b><i id="urDato">–</i></span>
-			<span>Arkiv</span><span>Rediger</span><span>Vis</span>
+			<span class="menuer">
+				<span class="menu"><button class="menuknap" data-menu="m-arkiv">Arkiv</button>
+					<div class="menupanel" id="m-arkiv" hidden>
+						<p class="menupanel__h">Mapper</p>
+						<button class="menupost" data-w="w-digital"><i style="--f:#2E6BFF"></i>Digitalt design</button>
+						<button class="menupost" data-w="w-brand"><i style="--f:#FF2E88"></i>Branding</button>
+						<button class="menupost" data-w="w-print"><i style="--f:#A8D400"></i>Print &amp; SoMe</button>
+						<button class="menupost" data-w="w-foto"><i style="--f:#00C46F"></i>Foto</button>
+						<button class="menupost" data-w="w-bag"><i style="--f:#16A863"></i>Bag om arbejdet</button>
+						<p class="menupanel__h">Sider</p>
+						<button class="menupost" data-w="w-mig"><i style="--f:#8B5CF6"></i>Om mig</button>
+						<button class="menupost" data-w="w-kode"><i style="--f:#00B8D4"></i>Kodeværkstedet</button>
+						<button class="menupost" data-w="w-tegn"><i style="--f:#FF2E88"></i>Tegn en streg</button>
+						<button class="menupost" data-w="w-kontakt"><i style="--f:#2E6BFF"></i>Kontakt</button>
+						<span class="menuskil"></span>
+						<button class="menupost" data-act="hjem">Tilbage til forsiden</button>
+					</div></span>
+				<span class="menu"><button class="menuknap" data-menu="m-rediger">Rediger</button>
+					<div class="menupanel menupanel--bred" id="m-rediger" hidden>
+						<p class="menupanel__h">Farvetema</p>
+						<div class="menugitter">
+							<button class="menuprik" data-accent="#2E6BFF" style="--c:#2E6BFF" aria-label="Blå"></button>
+							<button class="menuprik" data-accent="#FF2E88" style="--c:#FF2E88" aria-label="Pink"></button>
+							<button class="menuprik" data-accent="#00C46F" style="--c:#00C46F" aria-label="Grøn"></button>
+							<button class="menuprik" data-accent="#8B5CF6" style="--c:#8B5CF6" aria-label="Violet"></button>
+							<button class="menuprik" data-accent="#F08A24" style="--c:#F08A24" aria-label="Orange"></button>
+							<button class="menuprik" data-accent="#12100E" style="--c:#12100E" aria-label="Sort"></button>
+						</div>
+						<p class="menupanel__h">Baggrund</p>
+						<div class="menugitter">
+							<button class="menubg" data-bg="foto-lys" style="--b:url('img/bg/b-3-lys.webp')" aria-label="Foto, lyst"></button>
+							<button class="menubg" data-bg="foto-moerk" style="--b:url('img/bg/b-3.webp')" aria-label="Foto, mørkt"></button>
+							<button class="menubg" data-bg="blaa" style="--b:linear-gradient(165deg,#2B4C7E,#16233A)" aria-label="Blå"></button>
+							<button class="menubg" data-bg="grafit" style="--b:linear-gradient(165deg,#3A3A3C,#161617)" aria-label="Grafit"></button>
+							<button class="menubg" data-bg="sand" style="--b:linear-gradient(165deg,#C8B79A,#7A6A52)" aria-label="Sand"></button>
+							<button class="menubg" data-bg="skov" style="--b:linear-gradient(165deg,#3E6B54,#16281F)" aria-label="Skov"></button>
+							<button class="menubg" data-bg="lilla" style="--b:linear-gradient(165deg,#6E4C9B,#241A38)" aria-label="Lilla"></button>
+							<button class="menubg" data-bg="fersken" style="--b:linear-gradient(165deg,#E8A08A,#8A4A46)" aria-label="Fersken"></button>
+						</div>
+					</div></span>
+				<span class="menu"><button class="menuknap" data-menu="m-vis">Vis</button>
+					<div class="menupanel" id="m-vis" hidden>
+						<button class="menupost menupost--flueben" data-vis="widgets">Widgets</button>
+						<button class="menupost menupost--flueben" data-vis="dock">Dock</button>
+						<button class="menupost menupost--flueben" data-vis="hilsen">Hilsen</button>
+						<span class="menuskil"></span>
+						<button class="menupost" data-act="lukalle">Luk alle vinduer</button>
+					</div></span>
+			</span>
 		</div>
-		<div class="menubar__r"><button class="hjemknap" id="hjemknap" data-da="Forfra" data-en="Start over">Forfra</button><span>Færøerne</span><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
+		<div class="menubar__r"><button class="hjemknap" id="hjemknap" data-da="Forfra" data-en="Start over">Forfra</button><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
 	</div>
 
 	<div class="venstre">
@@ -831,7 +914,7 @@ button{font-family:inherit}
 	<!-- MAPPEVINDUER -->
 
 	<section class="window" id="w-digital" style="left:300px;top:80px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 3 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 3 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Digitalt design</h2><p>Apps og prototyper hvor research kom før form. Klik på et projekt. Så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.</p></div>
 			<div class="things">
@@ -852,7 +935,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-brand" style="left:340px;top:110px;width:720px;height:560px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Branding · 3 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Branding · 3 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Branding</h2><p>Visuelle universer der skal kunne holde til mange formater og stadig ligne sig selv.</p></div>
 			<div class="things">
@@ -865,7 +948,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-print" style="left:270px;top:96px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-lime)"></span><span class="titlebar__t">Print &amp; SoMe · 5 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-lime)"></span><span class="titlebar__t">Print &amp; SoMe · 5 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Print &amp; SoMe</h2><p>Alt vises i sit rigtige format. Intet er beskåret for at passe i et gitter.</p></div>
 			<div class="things">
@@ -880,7 +963,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-foto" style="left:220px;top:70px;width:800px;height:600px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-green)"></span><span class="titlebar__t">Foto · 3 serier</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-green)"></span><span class="titlebar__t">Foto · 3 serier</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Foto</h2><p>Tre serier. Nordatlantisk gråvejr, havnen i Odense og folk jeg holder af.</p></div>
 			<div class="things">
@@ -902,7 +985,7 @@ button{font-family:inherit}
 
 
 	<section class="window" id="w-mig" style="left:300px;top:76px;width:800px;height:600px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-violet)"></span><span class="titlebar__t">Om mig</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-violet)"></span><span class="titlebar__t">Om mig</span></header>
 		<div class="winbody">
 			<div class="me">
 				<div class="me__top">
@@ -970,7 +1053,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-tegn" style="left:280px;top:76px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Tegn en streg</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-pink)"></span><span class="titlebar__t">Tegn en streg</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Tegn en streg</h2><p>Det er dit papir nu. Hent tegningen ned med pilen, så er den din.</p></div>
 			<div class="draw">
@@ -998,7 +1081,7 @@ button{font-family:inherit}
 
 
 	<section class="window" id="w-kode" style="left:220px;top:70px;width:900px;height:640px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-cyan)"></span><span class="titlebar__t">Kodeværkstedet</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-cyan)"></span><span class="titlebar__t">Kodeværkstedet</span></header>
 		<div class="winbody">
 			<div class="winbody__head">
 				<h2>Kodeværkstedet</h2>
@@ -1061,7 +1144,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-kontakt" style="left:420px;top:150px;width:520px;height:390px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:var(--neon-cyan)"></span><span class="titlebar__t">Kontakt</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-cyan)"></span><span class="titlebar__t">Kontakt</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Skal vi lave noget sammen?</h2><p>Skriv endelig, også hvis det bare er en idé, du gerne vil vende.</p></div>
 			<dl style="border-top:1px solid var(--line)">
@@ -1078,7 +1161,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-bag" style="left:330px;top:92px;width:760px;height:560px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t">Bag om arbejdet · 13 billeder</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t">Bag om arbejdet · 13 billeder</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Bag om arbejdet</h2><p>Sådan ser det ud, mens det bliver til. Papirprototyper, optagelser, værksted og alt det rod, der ikke kommer med i den færdige case.</p></div>
 			<div class="things">
@@ -1102,7 +1185,7 @@ button{font-family:inherit}
 	</section>
 
 	<section class="window" id="w-foto-vis" style="left:280px;top:70px;width:820px;height:620px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><button class="lukknap" data-act="close"><b>✕</b>Luk</button><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t" id="visTitel">Billede</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:#16A863"></span><span class="titlebar__t" id="visTitel">Billede</span></header>
 		<div class="viewer">
 			<div class="viewer__stage">
 				<img id="visImg" src="" alt="">
@@ -1398,7 +1481,7 @@ document.addEventListener("click",e=>{
 document.querySelectorAll(".window").forEach(w=>{
 	w.addEventListener("pointerdown",()=>{ zTop+=1; w.style.zIndex=zTop; });
 
-	w.querySelectorAll(".light,.lukknap").forEach(btn=>btn.addEventListener("click",e=>{
+	w.querySelectorAll(".light").forEach(btn=>btn.addEventListener("click",e=>{
 		e.stopPropagation();
 		const a=btn.dataset.act;
 		if(a==="close"||a==="min") luk(w);
@@ -1408,7 +1491,7 @@ document.querySelectorAll(".window").forEach(w=>{
 	const bar=w.querySelector(".titlebar");
 	let t=null;
 	bar.addEventListener("pointerdown",e=>{
-		if(e.target.closest(".light,.lukknap")||w.classList.contains("max")) return;
+		if(e.target.closest(".light")||w.classList.contains("max")) return;
 		if(window.matchMedia("(max-width:700px)").matches) return;
 		const r=w.getBoundingClientRect();
 		t={dx:e.clientX-r.left,dy:e.clientY-r.top};
@@ -1756,7 +1839,9 @@ dor.addEventListener("click",e=>{ if(e.target===dor && dorNed) lukDor(); dorNed=
 
 /* Escape gør det samme */
 document.addEventListener("keydown",e=>{
-	if(e.key==="Escape" && !dor.classList.contains("vaek")) lukDor();
+	if(e.key!=="Escape") return;
+	if(menuAaben()){ lukMenuer(); return; }
+	if(!dor.classList.contains("vaek")) lukDor();
 });
 
 /* Hilsenen på skrivebordet åbner Om mig */
@@ -1770,6 +1855,104 @@ document.querySelectorAll(".icon, .dockitem").forEach(el=>{
 	el.addEventListener("click",()=>hint.classList.add("vaek"),{once:true});
 });
 document.getElementById("hjemknap").addEventListener("click",aabnHjem);
+
+
+/* ── Menulinjens menuer: Arkiv, Rediger, Vis ── */
+const menuer = [...document.querySelectorAll(".menu")];
+
+function lukMenuer(){
+	menuer.forEach(m=>{
+		m.querySelector(".menuknap").setAttribute("aria-expanded","false");
+		m.querySelector(".menupanel").hidden = true;
+	});
+}
+function menuAaben(){ return menuer.some(m=>!m.querySelector(".menupanel").hidden); }
+
+menuer.forEach(m=>{
+	const knap = m.querySelector(".menuknap"), panel = m.querySelector(".menupanel");
+	knap.setAttribute("aria-expanded","false");
+	knap.addEventListener("click", e=>{
+		e.stopPropagation();
+		const varAaben = !panel.hidden;
+		lukMenuer();
+		if(!varAaben){ panel.hidden = false; knap.setAttribute("aria-expanded","true"); }
+	});
+});
+document.addEventListener("click", e=>{ if(!e.target.closest(".menu")) lukMenuer(); });
+
+/* Arkiv: åbn en mappe direkte */
+document.querySelectorAll(".menupost[data-w]").forEach(k=>{
+	k.addEventListener("click",()=>{
+		lukMenuer(); lukDor();
+		aabn(k.dataset.w);
+		if(k.dataset.w === "w-tegn") setTimeout(fitCanvas,320);
+	});
+});
+document.querySelectorAll(".menupost[data-act]").forEach(k=>{
+	k.addEventListener("click",()=>{
+		lukMenuer();
+		if(k.dataset.act === "hjem") aabnHjem();
+		if(k.dataset.act === "lukalle"){
+			document.querySelectorAll(".window.open").forEach(w=>{
+				if(GEMT.has(w.id)) tilbageTilMappe(w);
+				luk(w);
+			});
+		}
+	});
+});
+
+/* Vis: slå widgets, dock og hilsen til og fra */
+const VIS = { widgets:"skjul-widgets", dock:"skjul-dock", hilsen:"skjul-hilsen" };
+function visOpdater(){
+	document.querySelectorAll(".menupost[data-vis]").forEach(k=>{
+		k.classList.toggle("til", !desktop.classList.contains(VIS[k.dataset.vis]));
+	});
+}
+document.querySelectorAll(".menupost[data-vis]").forEach(k=>{
+	k.addEventListener("click",e=>{
+		e.stopPropagation();
+		desktop.classList.toggle(VIS[k.dataset.vis]);
+		visOpdater();
+		husk("kd-vis", [...Object.values(VIS)].filter(c=>desktop.classList.contains(c)).join(","));
+	});
+});
+
+/* Rediger: farvetema og baggrund */
+const BAGGRUNDE = {
+	"foto-lys"  : "url('img/bg/b-3-lys.webp')",
+	"foto-moerk": "url('img/bg/b-3.webp')",
+	"blaa"      : "linear-gradient(165deg,#2B4C7E,#16233A)",
+	"grafit"    : "linear-gradient(165deg,#3A3A3C,#161617)",
+	"sand"      : "linear-gradient(165deg,#C8B79A,#7A6A52)",
+	"skov"      : "linear-gradient(165deg,#3E6B54,#16281F)",
+	"lilla"     : "linear-gradient(165deg,#6E4C9B,#241A38)",
+	"fersken"   : "linear-gradient(165deg,#E8A08A,#8A4A46)"
+};
+
+function husk(n,v){ try{ localStorage.setItem(n,v); }catch(e){} }
+function hentHusket(n){ try{ return localStorage.getItem(n); }catch(e){ return null; } }
+
+function saetAccent(farve){
+	document.documentElement.style.setProperty("--neon-blue", farve);
+	document.querySelectorAll(".menuprik").forEach(b=>b.classList.toggle("valgt", b.dataset.accent === farve));
+}
+function saetBaggrund(navn){
+	const v = BAGGRUNDE[navn]; if(!v) return;
+	desktop.style.backgroundImage = v;
+	document.querySelectorAll(".menubg").forEach(b=>b.classList.toggle("valgt", b.dataset.bg === navn));
+}
+document.querySelectorAll(".menuprik").forEach(b=>{
+	b.addEventListener("click",e=>{ e.stopPropagation(); saetAccent(b.dataset.accent); husk("kd-accent", b.dataset.accent); });
+});
+document.querySelectorAll(".menubg").forEach(b=>{
+	b.addEventListener("click",e=>{ e.stopPropagation(); saetBaggrund(b.dataset.bg); husk("kd-bg", b.dataset.bg); });
+});
+
+/* Husket valg fra sidste besøg */
+saetAccent(hentHusket("kd-accent") || "#2E6BFF");
+saetBaggrund(hentHusket("kd-bg") || "foto-lys");
+(hentHusket("kd-vis") || "").split(",").filter(Boolean).forEach(c=>desktop.classList.add(c));
+visOpdater();
 
 
 /* Sprogknapperne i fordøren */
