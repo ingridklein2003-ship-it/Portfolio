@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/album/:slug",
-      "destination": "/album/index.html"
+      "destination": "/album"
     }
   ],
   "cleanUrls": true
