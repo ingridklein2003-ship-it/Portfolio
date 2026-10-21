@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/album/:slug",
+      "destination": "/album/index.html"
+    }
+  ],
+  "cleanUrls": true
+}

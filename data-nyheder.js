@@ -4,6 +4,33 @@
 
 window.NYHEDER = [
   {
+    "dato": "2026-10-21",
+    "type": "projekt",
+    "titel": "Digitalt festalbum med QR-kode",
+    "tekst": "Gæsterne scanner en QR-kode og deler billeder og videoer fra festen. Nu kan det bestilles til bryllupper og andre fester.",
+    "link": "/#festalbum",
+    "titel_en": "Digital party album with a QR code",
+    "tekst_en": "Guests scan a QR code and share photos and videos from the party. It can now be ordered for weddings and other parties."
+  },
+  {
+    "dato": "2026-10-19",
+    "type": "projekt",
+    "titel": "Lineup er sendt til App Store",
+    "tekst": "Min nye app tager ét billede om dagen fra samme vinkel og samler dagene til en timelapse. Den venter på godkendelse.",
+    "link": "https://lineup.kleindesign.dk",
+    "titel_en": "Lineup is submitted to the App Store",
+    "tekst_en": "My new app takes one photo a day from the same angle and turns the days into a timelapse. It is waiting for review."
+  },
+  {
+    "dato": "2026-10-08",
+    "type": "projekt",
+    "titel": "Lingo er ude på App Store",
+    "tekst": "En rolig app til engelsk slang, ét ord ad gangen. Designet og kodet af mig.",
+    "link": "https://apps.apple.com/app/id6817355168",
+    "titel_en": "Lingo is out on the App Store",
+    "tekst_en": "A calm app for English slang, one word at a time. Designed and built by me."
+  },
+  {
     "dato": "2026-08-14",
     "type": "karriere",
     "titel": "Skolen er begyndt igen, og praktikjagten er i gang",
