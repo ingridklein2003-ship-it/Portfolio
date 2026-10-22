@@ -151,6 +151,7 @@ button{font-family:inherit}
 .appicon[data-app="koeberguiden"] .icon__art{padding:3px}
 .appicon[data-app="wordfestival"] .icon__art{padding:0;background:none;box-shadow:0 6px 16px rgba(0,0,0,.42)}
 .appicon[data-app="friendfinder"] .icon__art{padding:0;background:none;border-radius:50%;box-shadow:0 6px 16px rgba(0,0,0,.42)}
+.appicon[data-app="lingo"] .icon__art,.appicon[data-app="lineup"] .icon__art{padding:0;background:none}
 .dockitem .dokmig{width:100%;height:100%;border-radius:0;overflow:hidden;display:block}
 .dockitem .dokmig img{width:100%;height:100%;object-fit:cover;display:block;background:none!important;padding:0!important;border-radius:0}
 
@@ -336,7 +337,7 @@ button{font-family:inherit}
 	width:var(--telefonw,300px);height:var(--telefonh,650px)}
 .phone__screen iframe{width:390px;height:845px;border:0;display:block;
 	transform:scale(var(--telefonskala,1));transform-origin:top left}
-.phone__screen > img{width:390px;height:845px;object-fit:cover;display:block;
+.phone__screen > img{width:390px;max-width:none;height:845px;object-fit:cover;object-position:top;display:block;
 	transform:scale(var(--telefonskala,1));transform-origin:top left}
 .phone__bar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:36%;height:4px;border-radius:4px;background:rgba(0,0,0,.3);z-index:5}
 .phone__foot{display:flex;justify-content:space-between;align-items:center;margin-top:13px;font-size:12px;color:var(--ink-2);gap:8px}
@@ -858,7 +859,7 @@ button{font-family:inherit}
 		<div class="hilsen__txt">
 			<div class="hilsen__navn">Ingrid Klein</div>
 			<div class="hilsen__rolle">Multimediedesigner</div>
-			<p>Jeg designer i Figma og bygger det selv i kode. Identitet, UI og frontend.</p>
+			<p>Jeg designer i Figma og bygger med moderne værktøjer, også AI. Identitet, UI, apps og foto.</p>
 			<p>Jeg arbejder bedst når der er tid til at tænke, teste og rette til. Ellers bliver det bare pænt.</p>
 			<span class="hilsen__praktik">Søger praktikplads 4. januar – 2. april 2027</span>
 			<span class="hilsen__go">Mere om mig →</span>
@@ -882,6 +883,8 @@ button{font-family:inherit}
 						<button class="icon appicon" data-app="koeberguiden"><span class="icon__art"><img src="img/ikon-koeberguiden.png" alt=""></span><span>KøberGuiden</span></button>
 						<button class="icon appicon" data-app="wordfestival"><span class="icon__art"><img src="img/ikon-word.png" alt=""></span><span>Word Festival</span></button>
 						<button class="icon appicon" data-app="friendfinder"><span class="icon__art"><img src="img/ikon-friendfinder.png" alt=""></span><span>Friend Finder</span></button>
+						<button class="icon appicon" data-app="lingo"><span class="icon__art"><img src="img/salg/ikon-lingo.webp" alt=""></span><span>Lingo</span></button>
+						<button class="icon appicon" data-app="lineup"><span class="icon__art"><img src="img/salg/ikon-lineup.webp" alt=""></span><span>Lineup</span></button>
 					</div>
 				</div>
 				<div class="ikongr">
@@ -914,7 +917,7 @@ button{font-family:inherit}
 	<!-- MAPPEVINDUER -->
 
 	<section class="window" id="w-digital" style="left:300px;top:80px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 3 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 5 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Digitalt design</h2><p>Apps og prototyper hvor research kom før form. Klik på et projekt. Så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.</p></div>
 			<div class="things">
@@ -928,7 +931,9 @@ button{font-family:inherit}
 					</span>
 				</a>
 				<a class="thing" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Skoleprojekt · gruppe på 4, videreført alene · Figma</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.png" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Skoleprojekt · design i gruppe, kode af mig · Figma &amp; kode</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.png" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Skoleprojekt · design i gruppe, bygget af mig · Figma &amp; HTML</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="lingo" href="#"><span class="thing__m"><img src="img/salg/ikon-lingo.webp" alt=""></span><span class="thing__t">Lingo</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Eget produkt · ude på App Store · 2026</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="lineup" href="#"><span class="thing__m"><img src="img/salg/ikon-lineup.webp" alt=""></span><span class="thing__t">Lineup</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Eget produkt · kommer snart på App Store · 2026</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -1252,7 +1257,7 @@ button{font-family:inherit}
 				</div>
 			</div>
 
-			<p class="dor__brod" data-da="Det her er mit skrivebord. Jeg designer i Figma og koder det selv. Siden her er skrevet i hånden. Vælg et af de fire nedenfor, så tager jeg dig direkte derhen. Eller luk kortet og kig selv rundt." data-en="This is my desktop. I design in Figma and write the code myself. This site is hand-built. Pick one of the four below and I'll take you straight there. Or close this card and look around on your own.">Det her er mit skrivebord. Jeg designer i Figma og koder det selv. Siden her er skrevet i hånden. Vælg et af de fire nedenfor, så tager jeg dig direkte derhen. Eller luk kortet og kig selv rundt.</p>
+			<p class="dor__brod" data-da="Det her er mit skrivebord. Jeg designer i Figma og bygger med moderne værktøjer, også AI. Vælg et af de fire nedenfor, så tager jeg dig direkte derhen. Eller luk kortet og kig selv rundt." data-en="This is my desktop. I design in Figma and build with modern tools, AI included. Pick one of the four below and I'll take you straight there. Or close this card and look around on your own.">Det her er mit skrivebord. Jeg designer i Figma og bygger med moderne værktøjer, også AI. Vælg et af de fire nedenfor, så tager jeg dig direkte derhen. Eller luk kortet og kig selv rundt.</p>
 
 			<div class="dor__valg">
 				<button data-doraabn="w-digital">
@@ -2183,7 +2188,30 @@ const APPS={
 		citat:["„Jeg vil gerne invitere fem søde piger til en hyggelig aften med god mad og vin.“","Sådan står en begivenhed i appen"],
 		efter:["Det jeg tog med","Det vigtigste valg i projektet var ikke et visuelt et. Det var at lade brugerne skrive deres egne invitationer. „Fællesspisning · 5 pladser“ er en kalender. „Jeg sørger for maden, så tag bare din yndlingsdrik med“ er et menneske. Det er forskellen på en app man tør bruge, og en man scroller forbi."],
 		tal:[["6","skærme"],["2","veje ind"],["3","i gruppen"]],
-		shots:["img/ff-skaerm-hjem.webp","img/ff-skaerm-events.webp","img/ff-skaerm-venner.webp","img/ff-skaerm-person.webp","img/ff-skaerm-profil.webp"]}
+		shots:["img/ff-skaerm-hjem.webp","img/ff-skaerm-events.webp","img/ff-skaerm-venner.webp","img/ff-skaerm-person.webp","img/ff-skaerm-profil.webp"]},
+	lingo:{titel:"Lingo",mappe:"Digitalt design",farve:"var(--neon-blue)",skaerm:"img/salg/lingo-appstore.webp",live:false,
+		tag:"Ude på App Store",link:["https://apps.apple.com/app/id6817355168","Hent appen"],
+		hint:"Skærmbillede fra appen. Hent den på App Store for at prøve den, eller læs mere på lingo.kleindesign.dk.",
+		lead:"En rolig app til engelsk slang. Ét ord ad gangen, med betydning, eksempler og hvor ordet kommer fra.",
+		fakta:[["Kontekst","Eget produkt · KleinDesign"],["Min rolle","Idé, design, App Store-side, hjemmeside og SoMe"],["Bygget med","Figma · SwiftUI · AI-værktøjer"],["Status","Ude på App Store · 2026"]],
+		afsnit:[
+			["Idéen","Slang er svært at slå op, og ordbøger gør det tungt. Lingo viser ét ord ad gangen som et kort. På forsiden står ordet og betydningen. Vender man kortet, kommer eksemplerne og historien bag ordet.",null],
+			["Sådan er den bygget","Jeg har stået for idéen, designet og alle valgene undervejs. Selve appen er bygget med AI-værktøjer, som jeg har styret og rettet til, til den var klar til App Store. Det er den måde, jeg arbejder på, når en idé skal blive til noget rigtigt uden et stort udviklerhold.",null]
+		],
+		citat:null,
+		efter:["Ud over appen","En hjemmeside på lingo.kleindesign.dk, App Store-billeder og korte videoer til Instagram og TikTok."],
+		tal:[],shots:[]},
+	lineup:{titel:"Lineup",mappe:"Digitalt design",farve:"var(--neon-blue)",skaerm:"img/salg/lineup-appstore.webp",live:false,
+		tag:"Kommer snart",link:["https://lineup.kleindesign.dk","Se hjemmesiden"],
+		hint:"Skærmbillede fra appen. Den venter på godkendelse i App Store. Se videoen til venstre.",
+		lead:"Ét billede om dagen fra samme vinkel. Gårsdagens billede vises svagt gennem kameraet, så hvert billede passer oven i det forrige, og dagene bliver til en timelapse.",
+		fakta:[["Kontekst","Eget produkt · KleinDesign"],["Min rolle","Idé, design, hjemmeside og introvideo"],["Bygget med","Figma · SwiftUI · AI-værktøjer"],["Status","Sendt til App Store · 2026"]],
+		afsnit:[
+			["Idéen","En plante der vokser, en mave der bliver større, håret der gror ud. Det er svært at se fra dag til dag, men tydeligt i en timelapse. Det svære er at ramme samme vinkel hver gang, og det er det, appen hjælper med.",null],
+			["Sådan er den bygget","Jeg har designet appen, de illustrerede eksempler og hjemmesiden. Appen er bygget med AI-værktøjer, som jeg har styret og tilpasset hele vejen, fra kameraet til eksporten med musik.",null]
+		],
+		citat:null,efter:null,tal:[],shots:[],
+		video:{fil:"img/salg/lineup-intro.mp4",poster:"img/salg/lineup-intro-poster.jpg",tekst:"Introvideoen til Instagram og TikTok, som jeg har lavet til lanceringen."}}
 };
 
 const appWin={dataset:{}};
@@ -2216,8 +2244,9 @@ function visApp(n){
 		'<figcaption>'+esc(a.video.tekst)+'</figcaption></figure>'; }
 
 	const sk=a.live?'<iframe id="simFrame" src="'+a.sim+'" title="Simulator"></iframe>':'<img src="'+a.skaerm+'" alt="">';
-	const bad=a.live?'<span class="phone__tag">'+(sprog==="en"?"Live prototype":"Live prototype")+'</span>':'<span class="phone__tag" style="background:var(--line)">'+(sprog==="en"?"Static":"Statisk")+'</span>';
-	const kn=a.live?'<button class="phone__btn" id="simReset">'+(sprog==="en"?"Restart":"Start forfra")+'</button>':'';
+	const bad=a.live?'<span class="phone__tag">'+(sprog==="en"?"Live prototype":"Live prototype")+'</span>':'<span class="phone__tag" style="background:var(--line)">'+esc(a.tag||(sprog==="en"?"Static":"Statisk"))+'</span>';
+	const kn=a.live?'<button class="phone__btn" id="simReset">'+(sprog==="en"?"Restart":"Start forfra")+'</button>':
+		a.link?'<a class="phone__btn" style="text-decoration:none" href="'+a.link[0]+'" target="_blank" rel="noopener">'+esc(a.link[1])+'</a>':'';
 
 	const html='<button class="case__back" type="button" id="caseBack" style="margin:0 0 20px">'+
 		(sprog==="en"?"← Back to the folder":"← Tilbage til mappen")+'</button>'+

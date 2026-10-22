@@ -20,8 +20,8 @@ window.OVERSAT = {
 	"Færøerne": "Faroe Islands",
 	"Apps jeg har bygget": "Apps I've built",
 	"Multimediedesigner": "Multimedia designer",
-	"Jeg designer i Figma og bygger det selv i kode. Identitet, UI og frontend.":
-		"I design in Figma and build it myself in code. Identity, UI and frontend.",
+	"Jeg designer i Figma og bygger med moderne værktøjer, også AI. Identitet, UI, apps og foto.":
+		"I design in Figma and build with modern tools, AI included. Identity, UI, apps and photography.",
 	"Jeg arbejder bedst når der er tid til at tænke, teste og rette til. Ellers bliver det bare pænt.":
 		"I work best when there is time to think, test and adjust. Otherwise it just ends up pretty.",
 	"Søger praktikplads 4. januar – 2. april 2027": "Looking for an internship 4 January – 2 April 2027",
@@ -52,7 +52,7 @@ window.OVERSAT = {
 
 	/* ── Mapper ── */
 	"Digitalt design": "Digital design",
-	"Digitalt design · 3 emner": "Digital design · 3 items",
+	"Digitalt design · 5 emner": "Digital design · 5 items",
 	"Branding": "Branding",
 	"Branding · 3 emner": "Branding · 3 items",
 	"Print & SoMe": "Print & social",
@@ -116,7 +116,9 @@ window.OVERSAT = {
 	"Eget produkt · app under udvikling": "Own product · app in development",
 	"Podcast · under optagelse": "Podcast · in production",
 	"Skoleprojekt · gruppe på 4, videreført alene · Figma": "Student project · group of 4, carried on alone · Figma",
-	"Skoleprojekt · design i gruppe, kode af mig · Figma & kode": "Student project · designed in a group, coded by me · Figma & code",
+	"Skoleprojekt · design i gruppe, bygget af mig · Figma & HTML": "Student project · designed in a group, built by me · Figma & HTML",
+	"Eget produkt · ude på App Store · 2026": "Own product · out on the App Store · 2026",
+	"Eget produkt · kommer snart på App Store · 2026": "Own product · coming soon to the App Store · 2026",
 	"Klient · design & illustration · Illustrator, Photoshop · 2023–24": "Client · design & illustration · Illustrator, Photoshop · 2023–24",
 	"Klient · logo & identitet, alene · Illustrator · 2025": "Client · logo & identity, solo · Illustrator · 2025",
 	"Eget arbejde · 18 motiver · iPad, Procreate & Illustrator": "Own work · 18 pieces · iPad, Procreate & Illustrator",
@@ -360,5 +362,27 @@ window.APPS_EN = {
 		citat: ["„I'd like to invite five nice girls over for a cosy evening with good food and wine.“","How an event reads in the app"],
 		efter: ["What I took with me","The most important decision in the project wasn't a visual one. It was letting users write their own invitations. „Communal dinner · 5 places“ is a calendar. „I'll take care of the food, so just bring your favourite drink“ is a person. That's the difference between an app you dare use and one you scroll past."],
 		tal: [["6","screens"],["2","routes in"],["3","in the group"]]
+	},
+	lingo: {
+		tag: "Out on the App Store", link: ["https://apps.apple.com/app/id6817355168","Get the app"],
+		hint: "A screenshot from the app. Get it on the App Store to try it, or read more at lingo.kleindesign.dk.",
+		lead: "A calm app for English slang. One word at a time, with the meaning, examples and where the word comes from.",
+		fakta: [["Context","Own product · KleinDesign"],["My role","Idea, design, App Store page, website and social"],["Built with","Figma · SwiftUI · AI tools"],["Status","Out on the App Store · 2026"]],
+		afsnit: [
+			["The idea","Slang is hard to look up, and dictionaries make it heavy. Lingo shows one word at a time as a card. The front has the word and its meaning. Flip the card and you get the examples and the story behind the word.",null],
+			["How it's built","I was in charge of the idea, the design and every decision along the way. The app itself is built with AI tools that I steered and adjusted until it was ready for the App Store. That's how I work when an idea needs to become something real without a big development team.",null]
+		],
+		efter: ["Beyond the app","A website at lingo.kleindesign.dk, App Store images and short videos for Instagram and TikTok."]
+	},
+	lineup: {
+		tag: "Coming soon", link: ["https://lineup.kleindesign.dk","See the website"],
+		hint: "A screenshot from the app. It's waiting for App Store review. Watch the video on the left.",
+		lead: "One photo a day from the same angle. Yesterday's photo shows faintly through the camera, so every shot lines up with the last, and the days become a timelapse.",
+		fakta: [["Context","Own product · KleinDesign"],["My role","Idea, design, website and intro video"],["Built with","Figma · SwiftUI · AI tools"],["Status","Submitted to the App Store · 2026"]],
+		afsnit: [
+			["The idea","A plant growing, a bump getting bigger, hair growing out. It's hard to see from one day to the next, but obvious in a timelapse. The hard part is hitting the same angle every time, and that's what the app helps with.",null],
+			["How it's built","I designed the app, the illustrated examples and the website. The app is built with AI tools that I steered and adjusted all the way, from the camera to the export with music.",null]
+		],
+		video: {tekst:"The intro video for Instagram and TikTok that I made for the launch."}
 	}
 };

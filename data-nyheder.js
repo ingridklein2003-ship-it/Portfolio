@@ -25,10 +25,10 @@ window.NYHEDER = [
     "dato": "2026-10-08",
     "type": "projekt",
     "titel": "Lingo er ude på App Store",
-    "tekst": "En rolig app til engelsk slang, ét ord ad gangen. Designet og kodet af mig.",
+    "tekst": "En rolig app til engelsk slang, ét ord ad gangen. Designet af mig og bygget med AI-værktøjer.",
     "link": "https://apps.apple.com/app/id6817355168",
     "titel_en": "Lingo is out on the App Store",
-    "tekst_en": "A calm app for English slang, one word at a time. Designed and built by me."
+    "tekst_en": "A calm app for English slang, one word at a time. Designed by me and built with AI tools."
   },
   {
     "dato": "2026-08-14",
