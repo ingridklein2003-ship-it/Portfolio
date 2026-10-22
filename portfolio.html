@@ -658,6 +658,24 @@ button{font-family:inherit}
 
 .kun-tlf{display:none !important}
 
+/* ══════════ Book-knapper til salgssiden ══════════ */
+.bookknap{background:#fff;color:#101B24;font-family:var(--f-m);font-size:11px;font-weight:500;letter-spacing:.04em;
+	border-radius:20px;padding:4px 12px;text-decoration:none;transition:background .2s}
+.bookknap:hover{background:var(--neon-lime)}
+.hilsen__knapper{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:9px}
+.hilsen__knapper .hilsen__go{margin-top:0}
+.hilsen__book{display:inline-flex;align-items:center;background:#101B24;color:#fff;text-decoration:none;
+	font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:7px 14px}
+.hilsen__book:hover{background:var(--neon-blue)}
+.dor__book{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px;
+	background:var(--ink);color:#fff;text-decoration:none;border-radius:14px;padding:16px 18px;transition:transform .2s var(--ease)}
+.dor__book:hover{transform:translateY(-2px)}
+.dor__book b{display:block;font-family:var(--f-d);font-weight:700;font-size:18px;letter-spacing:-.02em}
+.dor__book span span{font-family:var(--f-l);font-size:13.5px;color:rgba(255,255,255,.72)}
+.dor__book em{font-style:normal;font-family:var(--f-m);font-size:12.5px;white-space:nowrap;background:#fff;color:var(--ink);
+	border-radius:999px;padding:8px 14px}
+.ikon-overskrift{display:none}
+
 /* ══════════ iPad: skrivebordet bliver, bare tættere ══════════ */
 @media(min-width:701px) and (max-width:1100px){
 	.widget{display:flex;width:250px;right:14px}
@@ -789,6 +807,65 @@ button{font-family:inherit}
 	.dor__valg{grid-template-columns:1fr}
 	.dor__top{flex-direction:column;align-items:flex-start;gap:12px}
 }
+
+/* ══════════ Telefon: én rolig side at scrolle ned ad ══════════ */
+@media(max-width:700px){
+	/* Profilkort øverst */
+	.desktop .hilsen,.desktop.skjul-hilsen .hilsen{display:flex !important;width:auto;margin:58px 14px 0;
+		align-items:flex-start;gap:14px;padding:16px;border-radius:22px;background:rgba(255,255,255,.78);cursor:default}
+	.hilsen:hover{transform:none}
+	.hilsen__foto{width:68px !important}
+	.hilsen__navn{font-size:24px}
+	.hilsen p{font-size:14px;line-height:1.5}
+	.hilsen p + p{display:none}
+	.hilsen__praktik{font-size:10.5px;line-height:1.35}
+	.hilsen__book{font-size:11.5px;padding:10px 16px}
+	.hilsen__go{font-size:11px}
+
+	.icons{padding:0 14px 4px}
+	.ikon-overskrift{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+		color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);margin:26px 6px 10px}
+
+	/* Mapperne bliver en liste */
+	.ikonrk--mapper{display:flex !important;flex-direction:column;gap:0;background:rgba(255,255,255,.78);
+		backdrop-filter:blur(26px) saturate(1.5);-webkit-backdrop-filter:blur(26px) saturate(1.5);
+		border-radius:20px;overflow:hidden}
+	.ikonrk--mapper .icon{width:100%;flex-direction:row;align-items:center;gap:14px;padding:11px 16px;border-radius:0;
+		border-bottom:1px solid rgba(16,27,36,.09)}
+	.ikonrk--mapper .icon:last-child{border-bottom:none}
+	.ikonrk--mapper .icon:active{background:rgba(16,27,36,.06)}
+	.ikonrk--mapper .icon::after{content:"›";font-size:24px;line-height:1;color:rgba(16,27,36,.35);margin-left:auto}
+	.ikonrk--mapper .icon__art.mappe{width:36px;height:36px;border-radius:10px;flex:0 0 36px;filter:none}
+	.ikonrk--mapper .mappe__bag{border-radius:10px}
+	.ikonrk--mapper .icon__art.mappe::after{left:10px;right:10px;top:13px;bottom:11px}
+	.ikonrk--mapper .icon__art.mappe::before{left:10px;top:10px;width:7px;height:4px}
+	.ikonrk--mapper .icon > span:last-child,.ikonrk--mapper .icon.sel > span:last-child,.ikonrk--mapper .icon:hover > span:last-child{
+		display:block;background:none;text-shadow:none;color:#101B24 !important;font-family:var(--f-l);font-size:16px;
+		max-width:none;padding:0;text-align:left}
+	.ikonrk--mapper .icon > span:last-child::first-letter{text-transform:uppercase}
+
+	/* Apps i fire lige kolonner */
+	.ikongr{margin-top:0}
+	.ikongr + .ikongr{margin-top:18px}
+	.ikongr__rk{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:18px 8px}
+	.ikongr__rk .icon{width:auto;min-width:0}
+	.ikongr__rk .icon > span:last-child{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+	.widget{margin:22px 14px 0}
+	.desktop{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+
+	/* Menulinjen */
+	.bookknap{font-size:12px;padding:6px 14px}
+	.menubar{background:rgba(16,27,36,.5) !important;backdrop-filter:blur(18px) saturate(1.4) !important;-webkit-backdrop-filter:blur(18px) saturate(1.4) !important}
+
+	/* Velkomstkortet */
+	.dor__book{flex-direction:column;align-items:flex-start;gap:12px}
+	.dor__valg{grid-template-columns:1fr 1fr !important;gap:8px}
+	.dor__valg button{padding:12px 12px 11px}
+	.dor__valg span{display:none}
+	.dor__valg em{padding-top:6px}
+	.dor__brod{display:none}
+}
 </style>
 </head>
 <body>
@@ -849,7 +926,7 @@ button{font-family:inherit}
 					</div></span>
 			</span>
 		</div>
-		<div class="menubar__r"><button class="hjemknap" id="hjemknap" data-da="Forfra" data-en="Start over">Forfra</button><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
+		<div class="menubar__r"><a class="bookknap" href="/" data-da="Book mig →" data-en="Hire me →">Book mig →</a><button class="hjemknap" id="hjemknap" data-da="Forfra" data-en="Start over">Forfra</button><button class="sprogknap" id="sprogknap" aria-label="Skift sprog"><b>DA</b><i>/</i><span>EN</span></button></div>
 	</div>
 
 	<div class="venstre">
@@ -862,11 +939,12 @@ button{font-family:inherit}
 			<p>Jeg designer i Figma og bygger med moderne værktøjer, også AI. Identitet, UI, apps og foto.</p>
 			<p>Jeg arbejder bedst når der er tid til at tænke, teste og rette til. Ellers bliver det bare pænt.</p>
 			<span class="hilsen__praktik">Søger praktikplads 4. januar – 2. april 2027</span>
-			<span class="hilsen__go">Mere om mig →</span>
+			<span class="hilsen__knapper"><a class="hilsen__book" href="/" data-da="Book mig" data-en="Hire me">Book mig</a><span class="hilsen__go">Mere om mig →</span></span>
 		</div>
 	</div>
 
 		<div class="icons" id="icons">
+			<p class="ikon-overskrift" data-da="Mit arbejde" data-en="My work">Mit arbejde</p>
 			<div class="ikonrk ikonrk--mapper">
 				<button class="icon" data-w="w-digital"><span class="icon__art mappe" style="--f:#2E6BFF"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">apps &amp; prototyper</span></button>
 				<button class="icon" data-w="w-kode"><span class="icon__art mappe" style="--f:#00B8D4"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">prøv at ændre koden</span></button>
@@ -877,6 +955,7 @@ button{font-family:inherit}
 				<button class="icon" data-w="w-bag"><span class="icon__art mappe" style="--f:#16A863"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span class="icon__und">processen bag</span></button>
 			</div>
 
+			<p class="ikon-overskrift" data-da="Apps jeg har lavet" data-en="Apps I've made">Apps jeg har lavet</p>
 			<div class="ikonrk ikonrk--bund">
 				<div class="ikongr">
 					<div class="ikongr__rk">
@@ -1258,6 +1337,12 @@ button{font-family:inherit}
 			</div>
 
 			<p class="dor__brod" data-da="Det her er mit skrivebord. Jeg designer i Figma og bygger med moderne værktøjer, også AI. Vælg et af de fire nedenfor, så tager jeg dig direkte derhen. Eller luk kortet og kig selv rundt." data-en="This is my desktop. I design in Figma and build with modern tools, AI included. Pick one of the four below and I'll take you straight there. Or close this card and look around on your own.">Det her er mit skrivebord. Jeg designer i Figma og bygger med moderne værktøjer, også AI. Vælg et af de fire nedenfor, så tager jeg dig direkte derhen. Eller luk kortet og kig selv rundt.</p>
+
+			<a class="dor__book" href="/">
+				<span><b data-da="Vil du booke mig?" data-en="Want to hire me?">Vil du booke mig?</b>
+				<span data-da="Festalbum med QR-kode, hjemmesider, apps og foto." data-en="Party albums with a QR code, websites, apps and photography.">Festalbum med QR-kode, hjemmesider, apps og foto.</span></span>
+				<em data-da="Se priser og book →" data-en="Prices and booking →">Se priser og book →</em>
+			</a>
 
 			<div class="dor__valg">
 				<button data-doraabn="w-digital">
@@ -1851,7 +1936,7 @@ document.addEventListener("keydown",e=>{
 
 /* Hilsenen på skrivebordet åbner Om mig */
 const hilsen=document.getElementById("hilsen");
-hilsen.addEventListener("click",()=>aabn("w-mig"));
+hilsen.addEventListener("click",e=>{ if(!e.target.closest("a")) aabn("w-mig"); });
 hilsen.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); aabn("w-mig"); } });
 
 /* Hintet forsvinder når man har åbnet noget */
