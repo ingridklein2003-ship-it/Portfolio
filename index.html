@@ -6,7 +6,7 @@
 <title>KleinDesign · Hjemmesider, apps og digitale festalbum</title>
 <meta name="description" content="Ingrid Klein designer og bygger hjemmesider, apps og grafik og tager billeder. Bestil et digitalt bryllups- eller festalbum, hvor gæsterne deler billeder med en QR-kode. Fra 1.495 kr.">
 <link rel="canonical" href="https://www.kleindesign.dk/">
-<meta name="theme-color" content="#F8F6F1">
+<meta name="theme-color" content="#1B2733">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="da_DK">
 <meta property="og:site_name" content="KleinDesign">
@@ -33,71 +33,124 @@
 	--pink:#FF2E88;
 	--green:#00C46F;
 	--violet:#8B5CF6;
+	--cyan:#00B8D4;
 	--night:#1B2733;
 	--f-d:"Bricolage Grotesque",system-ui,sans-serif;
 	--f-m:"IBM Plex Mono",monospace;
 	--f-l:"Inter",system-ui,sans-serif;
-	--r:22px;
+	--r:18px;
+	--ease:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--f-l);-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:64px}
+body{margin:0;background:#4E657A;color:var(--ink);font:400 17px/1.6 var(--f-l);-webkit-font-smoothing:antialiased}
 img,video{display:block;max-width:100%;height:auto}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+/* Skrivebordet: samme baggrund som portfolien, ligger fast bag siden */
+.desk{position:fixed;inset:0;z-index:-1;background:#4E657A url("img/bg/b-3-lys.webp") center/cover}
+.desk::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,14,.22) 0%,rgba(6,10,14,.08) 40%,rgba(6,10,14,.34) 100%)}
+
 .wrap{width:min(1120px,100% - 32px);margin-inline:auto}
 .mono{font-family:var(--f-m);font-size:13px;letter-spacing:.02em;color:var(--ink-3)}
 h1,h2,h3{font-family:var(--f-d);letter-spacing:-.03em;margin:0}
-h2{font-size:clamp(34px,5vw,54px);line-height:1.02;font-weight:800}
+h2{font-size:clamp(32px,4.6vw,50px);line-height:1.02;font-weight:800}
 h3{font-size:24px;font-weight:700;letter-spacing:-.02em}
-.lede{font-size:19px;color:var(--ink-2);max-width:40ch}
-section{padding:88px 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 22px;border-radius:999px;
+.lede{font-size:18.5px;color:var(--ink-2);max-width:44ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;
 	font:600 16px/1 var(--f-l);text-decoration:none;border:1.5px solid var(--ink);transition:transform .15s,background .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn--solid{background:var(--ink);color:var(--paper)}
 .btn--ghost{background:transparent;color:var(--ink)}
 .btn--ghost:hover{background:var(--bar)}
+.btn--white{background:#fff;color:var(--ink);border-color:#fff}
+.btn--glass{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.5);backdrop-filter:blur(10px)}
+.btn--glass:hover{background:rgba(255,255,255,.26)}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-m);font-size:12.5px;padding:5px 12px;border:1px solid var(--ink);border-radius:999px;background:var(--card)}
 .tag i{width:7px;height:7px;border-radius:50%;background:var(--green)}
 .tag--soon i{background:#F2B33D}
 
-/* Header */
-.top{position:sticky;top:0;z-index:10;background:rgba(248,246,241,.88);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent}
-.top.scrolled{border-bottom-color:var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.brand{font-family:var(--f-d);font-weight:800;font-size:21px;letter-spacing:-.03em;text-decoration:none}
-.nav{display:flex;gap:24px;align-items:center;font-size:15px;font-weight:500}
-.nav a{text-decoration:none;color:var(--ink-2)}
-.nav a:hover{color:var(--ink)}
-.nav .btn{min-height:40px;padding:0 18px;font-size:15px;color:var(--paper)}
+/* Menulinje som på portfolien */
+.menubar{position:sticky;top:0;z-index:50;height:40px;background:rgba(16,18,22,.55);backdrop-filter:blur(24px) saturate(1.2);-webkit-backdrop-filter:blur(24px) saturate(1.2);
+	border-bottom:1px solid rgba(255,255,255,.1);color:#fff;font-family:var(--f-m);font-size:12.5px}
+.menubar .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;width:min(1240px,100% - 32px)}
+.menubar__l{display:flex;align-items:center;gap:18px;min-width:0}
+.brand{font-family:var(--f-d);font-weight:800;font-size:16px;letter-spacing:-.02em;text-decoration:none}
+.ur{display:flex;align-items:baseline;gap:9px;padding-right:14px;border-right:1px solid rgba(255,255,255,.22);white-space:nowrap}
+.ur b{font-weight:500;font-size:13px}
+.ur i{font-style:normal;opacity:.75}
+.menubar nav{display:flex;gap:4px}
+.menubar nav a{text-decoration:none;opacity:.75;padding:4px 9px;border-radius:7px}
+.menubar nav a:hover{opacity:1;background:rgba(255,255,255,.14)}
+.menubar__r{display:flex;gap:10px;align-items:center}
+.pill{font-family:var(--f-m);font-size:12px;text-decoration:none;border-radius:20px;padding:4px 12px;white-space:nowrap;
+	background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);color:#fff;transition:background .2s}
+.pill:hover{background:rgba(255,255,255,.26)}
+.pill--book{background:#F8F6F1;border-color:#F8F6F1;color:var(--ink);font-weight:500}
+.pill--book:hover{background:#fff}
 
-/* Hero */
-.hero{padding:56px 0 72px;overflow-x:clip}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(46px,7vw,86px);line-height:.96;font-weight:800;margin:18px 0 22px}
-.hero h1 em{font-style:normal;color:var(--blue)}
+/* Hero direkte på skrivebordet */
+.hero{padding:64px 0 88px;color:#fff;overflow-x:clip}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero .mono{color:rgba(255,255,255,.78)}
+.hero h1{font-size:clamp(46px,7vw,86px);line-height:.96;font-weight:800;margin:18px 0 22px;text-shadow:0 2px 30px rgba(6,10,14,.25)}
+.hero h1 em{font-style:normal;color:#BFD2FF}
+.hero .lede{color:rgba(255,255,255,.88)}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 .hero-art{position:relative;height:500px}
-.phone{position:absolute;width:250px;border-radius:38px;background:var(--ink);padding:9px;box-shadow:0 40px 70px -30px rgba(20,20,20,.5)}
+.phone{position:absolute;width:250px;border-radius:38px;background:var(--ink);padding:9px;box-shadow:0 40px 70px -24px rgba(0,0,0,.6)}
 .phone img{border-radius:30px;width:100%;height:auto;aspect-ratio:390/720;object-fit:cover;object-position:top}
 .phone--a{right:150px;top:0;transform:rotate(-4deg)}
 .phone--b{right:0;top:70px;transform:rotate(5deg)}
-.hero-art .card-qr{position:absolute;left:-6px;bottom:6px;width:170px;border-radius:10px;transform:rotate(-8deg);box-shadow:0 24px 40px -18px rgba(20,20,20,.55)}
+.hero-art .card-qr{position:absolute;left:-6px;bottom:6px;width:170px;border-radius:10px;transform:rotate(-8deg);box-shadow:0 24px 40px -14px rgba(0,0,0,.6)}
 
-/* Album */
-.album{background:var(--night);color:#F1EEE8}
-.album .mono{color:#A9B4BF}
-.album .lede{color:#C9CFD6}
-.album-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:44px}
+/* Skrivebordsikoner (mapper) som genveje */
+.icons{display:flex;gap:6px;flex-wrap:wrap;margin-top:40px}
+.icon{width:96px;display:flex;flex-direction:column;align-items:center;gap:7px;padding:8px 2px 6px;border-radius:10px;text-decoration:none;transition:background .15s,transform .2s var(--ease)}
+.icon:hover{background:rgba(255,255,255,.16)}
+.icon:active{transform:scale(.95)}
+.icon > span:last-child{font-family:var(--f-m);font-size:11px;color:#fff;background:rgba(10,16,24,.42);border-radius:5px;padding:2px 7px;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.55)}
+.icon:hover > span:last-child{background:var(--blue)}
+.mappe{position:relative;width:58px;height:48px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.45))}
+.mappe__bag{position:absolute;inset:0;border-radius:6px 6px 7px 7px;background:var(--f);
+	clip-path:polygon(0 14%,0 6%,3% 0,33% 0,42% 9%,97% 9%,100% 15%,100% 94%,97% 100%,3% 100%,0 94%)}
+.mappe__front{position:absolute;left:0;right:0;bottom:0;height:66%;border-radius:2px 2px 7px 7px;
+	background:linear-gradient(170deg,color-mix(in srgb,var(--f) 78%,white) 0%,var(--f) 55%,color-mix(in srgb,var(--f) 82%,black) 100%);
+	clip-path:polygon(0 0,100% 0,100% 92%,97% 100%,3% 100%,0 92%)}
+.mappe__front::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:rgba(255,255,255,.45)}
+
+/* Vinduer */
+.win-sec{padding:0 0 56px}
+.window{background:rgba(250,248,243,.94);backdrop-filter:blur(40px) saturate(1.6);-webkit-backdrop-filter:blur(40px) saturate(1.6);
+	border-radius:var(--r);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.38),0 0 0 1px rgba(0,0,0,.08)}
+.titlebar{height:42px;display:flex;align-items:center;padding:0 14px;position:relative;
+	background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(233,229,221,.55));border-bottom:1px solid rgba(214,208,195,.7)}
+.lights{display:flex;gap:7px}
+.lights i{width:12px;height:12px;border-radius:50%;background:#FF5F57}
+.lights i:nth-child(2){background:#FEBC2E}
+.lights i:nth-child(3){background:#28C840}
+.titlebar__t{position:absolute;left:0;right:0;text-align:center;font-family:var(--f-m);font-size:12.5px;color:var(--ink-2);pointer-events:none}
+.winbody{padding:clamp(28px,5vw,56px)}
+.window .mono.kicker{display:block;margin-bottom:12px}
+.window--narrow{max-width:900px;margin-inline:auto}
+.window--right{margin-left:auto}
+
+/* Festalbum: mørkt vindue */
+.window--dark{background:rgba(27,39,51,.95);color:#F1EEE8}
+.window--dark .titlebar{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border-bottom-color:rgba(255,255,255,.1)}
+.window--dark .titlebar__t{color:#A9B4BF}
+.window--dark .mono{color:#A9B4BF}
+.window--dark .lede{color:#C9CFD6}
+.album-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
 .steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;
-	background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px}
+	background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
 .steps li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;
 	background:#F1EEE8;color:var(--ink);font:700 18px var(--f-d)}
 .steps b{display:block;font-family:var(--f-d);font-size:20px;letter-spacing:-.02em;margin-bottom:2px}
 .steps span{color:#C9CFD6;font-size:15.5px}
-.price{background:#F1EEE8;color:var(--ink);border-radius:var(--r);padding:30px}
+.price{background:#F1EEE8;color:var(--ink);border-radius:14px;padding:30px;position:relative}
 .price .from{font-family:var(--f-m);font-size:13px;color:var(--ink-3)}
 .price .amount{font-family:var(--f-d);font-weight:800;font-size:58px;letter-spacing:-.04em;line-height:1;margin:6px 0 4px}
 .price .note{color:var(--ink-2);font-size:15px;margin:0 0 20px}
@@ -106,16 +159,16 @@ section{padding:88px 0}
 .checks li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;
 	background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10' fill='%23141414'/%3E%3Cpath d='m6 10.5 2.6 2.6L14 7.6' fill='none' stroke='%23F1EEE8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
 .price .cta{margin-top:0}
-.price .btn--ghost{border-color:var(--ink)}
-.also{margin:18px 0 0;font-size:15px;color:#C9CFD6}
-.cards-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px;max-width:620px}
-.cards-row figure{margin:0}
-.cards-row img{border-radius:14px;width:100%;box-shadow:0 20px 40px -24px rgba(0,0,0,.7)}
-.cards-row figcaption{font-family:var(--f-m);font-size:12.5px;color:#A9B4BF;margin-top:10px}
+.cards-row{display:flex;gap:28px;margin-top:52px;padding-left:8px}
+.cards-row figure{margin:0;width:min(240px,45%)}
+.cards-row figure:first-child{transform:rotate(-3deg)}
+.cards-row figure:last-child{transform:rotate(2.5deg) translateY(14px)}
+.cards-row img{border-radius:10px;width:100%;box-shadow:0 24px 40px -18px rgba(0,0,0,.8)}
+.cards-row figcaption{font-family:var(--f-m);font-size:12px;color:#A9B4BF;margin-top:10px;text-align:center}
 
 /* Apps */
-.apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px}
-.app{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:1fr 180px;gap:22px;align-items:start}
+.apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.app{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;grid-template-columns:1fr 170px;gap:22px;align-items:start}
 .app-head{display:flex;gap:14px;align-items:center;margin-bottom:14px}
 .app-head img{width:60px;height:60px;border-radius:14px;box-shadow:0 6px 14px -6px rgba(0,0,0,.35)}
 .app p{color:var(--ink-2);margin:12px 0 18px;font-size:16px}
@@ -124,73 +177,105 @@ section{padding:88px 0}
 .app .shot{border-radius:16px;overflow:hidden;background:var(--bar);aspect-ratio:9/19.5}
 .app .shot img,.app .shot video{width:100%;height:100%;object-fit:cover}
 
-/* Ydelser */
-.services{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px}
-.service{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
-.service .dot{width:12px;height:12px;border-radius:50%;margin-bottom:18px}
+/* Ydelser: fire mapper */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.service{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.service .mappe{width:46px;height:38px;margin-bottom:18px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.2))}
 .service p{color:var(--ink-2);margin:10px 0 0;font-size:16px}
-.service .mono{display:block;margin-top:16px}
-.services-note{margin-top:22px;color:var(--ink-2)}
+.service .mono{display:block;margin-top:16px;font-size:12px}
+.services-note{margin:22px 0 0;color:var(--ink-2)}
 
-/* Foto */
-.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
-.photo-grid img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px}
+/* Foto: printede billeder */
+.prints{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.print{margin:0;background:#fff;padding:8px 8px 0;border-radius:4px;box-shadow:0 14px 30px -12px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.05);
+	transform:rotate(var(--rot,0deg));transition:transform .35s var(--ease),box-shadow .35s}
+.print:nth-child(6n+1){--rot:-1.6deg}.print:nth-child(6n+2){--rot:1.2deg}.print:nth-child(6n+3){--rot:-.6deg}
+.print:nth-child(6n+4){--rot:1.4deg}.print:nth-child(6n+5){--rot:-1deg}.print:nth-child(6n+6){--rot:.8deg}
+.print:hover{transform:rotate(0) scale(1.03);box-shadow:0 26px 50px -16px rgba(0,0,0,.5);z-index:2;position:relative}
+.print img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:2px}
+.print figcaption{font-family:var(--f-m);font-size:11px;color:var(--ink-3);padding:7px 2px 8px}
 
-/* Om */
-.about .wrap{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:center}
-.about img{width:220px;height:220px;border-radius:50%;object-fit:cover}
+/* Bryllup ligger direkte på skrivebordet */
+.loose{padding:8px 0 72px;color:#fff}
+.loose__head{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.loose .mono{color:rgba(255,255,255,.78)}
+.loose h2{text-shadow:0 2px 24px rgba(6,10,14,.3)}
+.loose .lede{color:rgba(255,255,255,.88);margin:14px 0 0}
+.loose .prints{gap:28px;margin-top:44px}
+.loose .print{box-shadow:0 24px 50px -16px rgba(0,0,0,.6)}
+
+/* Om mig */
+.about .winbody{display:grid;grid-template-columns:200px 1fr;gap:44px;align-items:center}
+.about img{width:200px;height:200px;border-radius:50%;object-fit:cover}
 .about p{color:var(--ink-2);max-width:56ch}
 
 /* Kontakt */
-.contact{background:var(--card);border-top:1px solid var(--line)}
-.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.contact .winbody{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:start}
 .direct{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
 .direct a{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:500}
 .direct a span{font-family:var(--f-m);font-size:12.5px;color:var(--ink-3);width:84px}
-.form-box{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:8px 22px 12px;min-height:520px}
+.form-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 22px 12px;min-height:520px}
 .form-box iframe{width:100%;border:0}
 
-footer{padding:36px 0 48px;color:var(--ink-3);font-size:14.5px}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-footer nav{display:flex;gap:18px;flex-wrap:wrap}
-footer a{text-decoration:none}
-footer a:hover{color:var(--ink)}
+/* Dock nederst */
+footer{padding:8px 0 40px;display:grid;justify-items:center;gap:14px}
+.dock{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:8px;border-radius:20px;
+	background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.dock a{font-family:var(--f-m);font-size:12.5px;color:#fff;text-decoration:none;padding:8px 14px;border-radius:12px}
+.dock a:hover{background:rgba(255,255,255,.2)}
+footer small{font-family:var(--f-m);font-size:12px;color:rgba(255,255,255,.7)}
 
 @media (max-width:900px){
-	section{padding:64px 0}
-	.nav a:not(.btn){display:none}
-	.hero .wrap,.album-grid,.apps-grid,.contact .wrap,.about .wrap{grid-template-columns:1fr}
-	.hero{padding-top:28px}
+	.menubar nav,.ur i{display:none}
+	.hero{padding:36px 0 64px}
+	.hero .wrap,.album-grid,.apps-grid,.contact .winbody,.about .winbody{grid-template-columns:1fr}
 	.hero-art{height:400px;max-width:420px;width:100%;margin-inline:auto}
 	.phone{width:200px}
 	.phone--a{right:auto;left:20px}
 	.phone--b{right:14px;top:60px}
 	.hero-art .card-qr{width:130px;left:auto;right:150px;bottom:-10px}
 	.services{grid-template-columns:1fr 1fr}
-	.photo-grid{grid-template-columns:1fr 1fr;gap:10px}
+	.prints,.loose .prints{grid-template-columns:1fr 1fr;gap:14px}
 	.about img{width:140px;height:140px}
+	.win-sec{padding-bottom:36px}
 }
 @media (max-width:560px){
+	.ur{display:none}
+	.pill--port{display:none}
+	.icon{width:80px}
 	.app{grid-template-columns:1fr}
 	.app .shot{max-width:220px}
-	.price .amount{font-size:48px}
+	.price{padding:24px}
+	.price .amount{font-size:46px}
 	.services{grid-template-columns:1fr}
+	.winbody{padding:26px 20px}
+	.titlebar{height:36px}
+	.lights i{width:10px;height:10px}
+	.print{padding:5px 5px 0}
+	.print figcaption{font-size:10px;padding:5px 1px 6px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.print{transition:none}}
 </style>
 </head>
 <body>
-<header class="top" id="top">
+<div class="desk" aria-hidden="true"></div>
+
+<header class="menubar" id="top">
 	<div class="wrap">
-		<a class="brand" href="/">KleinDesign</a>
-		<nav class="nav" aria-label="Menu">
-			<a href="#festalbum">Festalbum</a>
-			<a href="#apps">Apps</a>
-			<a href="#ydelser">Ydelser</a>
-			<a href="#foto">Foto</a>
-			<a href="/portfolio">Portfolio</a>
-			<a class="btn btn--solid" href="#kontakt">Kontakt</a>
-		</nav>
+		<div class="menubar__l">
+			<a class="brand" href="/">KleinDesign</a>
+			<span class="ur" aria-hidden="true"><b id="klok">00.00</b><i id="dato"></i></span>
+			<nav aria-label="Menu">
+				<a href="#festalbum">Festalbum</a>
+				<a href="#apps">Apps</a>
+				<a href="#ydelser">Ydelser</a>
+				<a href="#foto">Foto</a>
+			</nav>
+		</div>
+		<div class="menubar__r">
+			<a class="pill pill--port" href="/portfolio">Portfolio</a>
+			<a class="pill pill--book" href="#kontakt">Book mig →</a>
+		</div>
 	</div>
 </header>
 
@@ -202,9 +287,15 @@ footer a:hover{color:var(--ink)}
 				<h1>Jeg designer og bygger det, <em>du har brug for.</em></h1>
 				<p class="lede">Hjemmesider, apps, grafik og foto. Og et digitalt festalbum, hvor alle gæsterne deler deres billeder med en QR-kode.</p>
 				<div class="cta">
-					<a class="btn btn--solid" href="#festalbum">Se festalbummet</a>
-					<a class="btn btn--ghost" href="#kontakt">Skriv til mig</a>
+					<a class="btn btn--white" href="#festalbum">Se festalbummet</a>
+					<a class="btn btn--glass" href="#kontakt">Skriv til mig</a>
 				</div>
+				<nav class="icons" aria-label="Genveje">
+					<a class="icon" href="#festalbum"><span class="mappe" style="--f:#FF2E88" aria-hidden="true"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>festalbum</span></a>
+					<a class="icon" href="#apps"><span class="mappe" style="--f:#2E6BFF" aria-hidden="true"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>apps</span></a>
+					<a class="icon" href="#foto"><span class="mappe" style="--f:#00C46F" aria-hidden="true"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>foto</span></a>
+					<a class="icon" href="/portfolio"><span class="mappe" style="--f:#8B5CF6" aria-hidden="true"><span class="mappe__bag"></span><span class="mappe__front"></span></span><span>portfolio</span></a>
+				</nav>
 			</div>
 			<div class="hero-art" aria-hidden="true">
 				<div class="phone phone--a"><img src="img/salg/album-forside.webp" alt="" width="390" height="844"></div>
@@ -214,185 +305,239 @@ footer a:hover{color:var(--ink)}
 		</div>
 	</section>
 
-	<section class="album" id="festalbum">
+	<section class="win-sec" id="festalbum">
 		<div class="wrap">
-			<span class="mono">Bryllupper · fødselsdage · konfirmationer · firmafester</span>
-			<h2 style="margin-top:12px">Alle gæsternes billeder samlet ét sted</h2>
-			<p class="lede">Gæsterne scanner QR-koden på bordet og deler billeder og videoer direkte fra telefonen. Ingen app og intet login. Bagefter får I det hele samlet.</p>
+			<div class="window window--dark">
+				<div class="titlebar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="titlebar__t">festalbum.app</span></div>
+				<div class="winbody">
+					<span class="mono kicker">Bryllupper · fødselsdage · konfirmationer · firmafester</span>
+					<h2>Alle gæsternes billeder samlet ét sted</h2>
+					<p class="lede" style="margin-top:16px">Gæsterne scanner QR-koden på bordet og deler billeder og videoer direkte fra telefonen. Ingen app og intet login. Bagefter får I det hele samlet.</p>
 
-			<div class="album-grid">
-				<ol class="steps">
-					<li><div><b>Jeg laver jeres side</b><span>Med jeres navne, dato, en hilsen til gæsterne og en fotojagt med jeres egne opgaver.</span></div></li>
-					<li><div><b>Gæsterne scanner og deler</b><span>QR-kortene står på bordene. Et tryk åbner kameraet eller kamerarullen, og billederne uploades i fuld kvalitet.</span></div></li>
-					<li><div><b>I får det hele bagefter</b><span>Albummet er låst med jeres kode. I downloader alle billeder som zip, og hilsnerne kommer som en samlet PDF.</span></div></li>
-				</ol>
+					<div class="album-grid">
+						<ol class="steps">
+							<li><div><b>Jeg laver jeres side</b><span>Med jeres navne, dato, en hilsen til gæsterne og en fotojagt med jeres egne opgaver.</span></div></li>
+							<li><div><b>Gæsterne scanner og deler</b><span>QR-kortene står på bordene. Et tryk åbner kameraet eller kamerarullen, og billederne uploades i fuld kvalitet.</span></div></li>
+							<li><div><b>I får det hele bagefter</b><span>Albummet er låst med jeres kode. I downloader alle billeder som zip, og hilsnerne kommer som en samlet PDF.</span></div></li>
+						</ol>
 
-				<div class="price">
-					<div class="from">Festalbum med QR-kode</div>
-					<div class="amount">fra 1.495 kr.</div>
-					<p class="note">Fast pris aftales, inden jeg går i gang.</p>
-					<ul class="checks">
-						<li>Personlig side med jeres navne og farver</li>
-						<li>QR-kort klar til print (A6 eller 4 pr. A4)</li>
-						<li>Billeder og video uden app eller login</li>
-						<li>Fotojagt med jeres egne opgaver</li>
-						<li>Hilsner fra gæsterne samlet som PDF</li>
-						<li>Alt kan downloades som zip</li>
-					</ul>
-					<div class="cta">
-						<a class="btn btn--solid" href="#kontakt">Bestil jeres album</a>
-						<a class="btn btn--ghost" href="/album/demo" target="_blank" rel="noopener">Prøv demoen</a>
+						<div class="price">
+							<div class="from">Festalbum med QR-kode</div>
+							<div class="amount">fra 1.495 kr.</div>
+							<p class="note">Fast pris aftales, inden jeg går i gang.</p>
+							<ul class="checks">
+								<li>Personlig side med jeres navne og farver</li>
+								<li>QR-kort klar til print (A6 eller 4 pr. A4)</li>
+								<li>Billeder og video uden app eller login</li>
+								<li>Fotojagt med jeres egne opgaver</li>
+								<li>Hilsner fra gæsterne samlet som PDF</li>
+								<li>Alt kan downloades som zip</li>
+							</ul>
+							<div class="cta">
+								<a class="btn btn--solid" href="#kontakt">Bestil jeres album</a>
+								<a class="btn btn--ghost" href="/album/demo" target="_blank" rel="noopener">Prøv demoen</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="cards-row">
+						<figure><img src="img/salg/qr-kort-forside.webp" alt="QR-kort med navnene Anna og Jonas og en QR-kode" width="780" height="1100" loading="lazy"><figcaption>qr-kort-forside.pdf</figcaption></figure>
+						<figure><img src="img/salg/qr-kort-bagside.webp" alt="QR-kortets bagside med fotojagtens opgaver" width="780" height="1100" loading="lazy"><figcaption>fotojagt-bagside.pdf</figcaption></figure>
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<div class="cards-row">
-				<figure><img src="img/salg/qr-kort-forside.webp" alt="QR-kort med navnene Anna og Jonas og en QR-kode" width="780" height="1100" loading="lazy"><figcaption>QR-kortets forside</figcaption></figure>
-				<figure><img src="img/salg/qr-kort-bagside.webp" alt="QR-kortets bagside med fotojagtens opgaver" width="780" height="1100" loading="lazy"><figcaption>Fotojagten på bagsiden</figcaption></figure>
+	<section class="loose" aria-labelledby="bryllup-h">
+		<div class="wrap">
+			<div class="loose__head">
+				<div>
+					<span class="mono">Foto · bryllup</span>
+					<h2 id="bryllup-h" style="margin-top:12px">Jeg tager også billederne</h2>
+					<p class="lede">Fra et bryllup jeg fotograferede. Dans, kram og lange taler ved stearinlys.</p>
+				</div>
+				<a class="btn btn--glass" href="#kontakt">Book en fotograf</a>
+			</div>
+			<div class="prints">
+				<figure class="print"><img src="img/bryllup/bryllup-01.webp" alt="Bruden griner under dansen med gæsterne" width="1600" height="900" loading="lazy"><figcaption>bryllup-01.jpg</figcaption></figure>
+				<figure class="print"><img src="img/bryllup/bryllup-02.webp" alt="Gæster med armene i vejret på dansegulvet" width="1600" height="900" loading="lazy"><figcaption>bryllup-02.jpg</figcaption></figure>
+				<figure class="print"><img src="img/bryllup/bryllup-03.webp" alt="Et langt kram midt i festsalen" width="1600" height="900" loading="lazy"><figcaption>bryllup-03.jpg</figcaption></figure>
+				<figure class="print"><img src="img/bryllup/bryllup-04.webp" alt="Bruden i festsalen under talerne" width="1600" height="900" loading="lazy"><figcaption>bryllup-04.jpg</figcaption></figure>
+				<figure class="print"><img src="img/bryllup/bryllup-05.webp" alt="Gæster der danser og griner på dansegulvet" width="1600" height="900" loading="lazy"><figcaption>bryllup-05.jpg</figcaption></figure>
+				<figure class="print"><img src="img/bryllup/bryllup-06.webp" alt="Gæster ved runde borde med levende lys" width="1600" height="900" loading="lazy"><figcaption>bryllup-06.jpg</figcaption></figure>
 			</div>
 		</div>
 	</section>
 
-	<section id="apps">
+	<section class="win-sec" id="apps">
 		<div class="wrap">
-			<span class="mono">Egne apps</span>
-			<h2 style="margin-top:12px">Fra idé til App Store</h2>
-			<p class="lede">Jeg designer mine egne iPhone-apps og bygger dem med AI-værktøjer, så det går hurtigt. Den samme proces kan jeg bruge på din idé.</p>
+			<div class="window">
+				<div class="titlebar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="titlebar__t">apps — egne projekter</span></div>
+				<div class="winbody">
+					<span class="mono kicker">Egne apps</span>
+					<h2>Fra idé til App Store</h2>
+					<p class="lede" style="margin-top:16px">Jeg designer mine egne iPhone-apps og bygger dem med AI-værktøjer, så det går hurtigt. Den samme proces kan jeg bruge på din idé.</p>
 
-			<div class="apps-grid">
-				<article class="app">
-					<div>
-						<div class="app-head">
-							<img src="img/salg/ikon-lingo.webp" alt="" width="60" height="60">
-							<div><h3>Lingo</h3><span class="tag"><i></i>Ude på App Store</span></div>
-						</div>
-						<p>En rolig app til engelsk slang. Ét ord ad gangen, med betydning, eksempler og hvor ordet kommer fra.</p>
-						<div class="links">
-							<a class="btn btn--solid" href="https://apps.apple.com/app/id6817355168" target="_blank" rel="noopener">Hent på App Store</a>
-							<a class="btn btn--ghost" href="https://lingo.kleindesign.dk" target="_blank" rel="noopener">Læs mere</a>
-						</div>
+					<div class="apps-grid">
+						<article class="app">
+							<div>
+								<div class="app-head">
+									<img src="img/salg/ikon-lingo.webp" alt="" width="60" height="60">
+									<div><h3>Lingo</h3><span class="tag"><i></i>Ude på App Store</span></div>
+								</div>
+								<p>En rolig app til engelsk slang. Ét ord ad gangen, med betydning, eksempler og hvor ordet kommer fra.</p>
+								<div class="links">
+									<a class="btn btn--solid" href="https://apps.apple.com/app/id6817355168" target="_blank" rel="noopener">Hent på App Store</a>
+									<a class="btn btn--ghost" href="https://lingo.kleindesign.dk" target="_blank" rel="noopener">Læs mere</a>
+								</div>
+							</div>
+							<div class="shot"><img src="img/salg/lingo-appstore.webp" alt="Lingos forside med dagens ord" width="600" height="1304" loading="lazy"></div>
+						</article>
+
+						<article class="app">
+							<div>
+								<div class="app-head">
+									<img src="img/salg/ikon-lineup.webp" alt="" width="60" height="60">
+									<div><h3>Lineup</h3><span class="tag tag--soon"><i></i>Kommer snart</span></div>
+								</div>
+								<p>Ét billede om dagen fra samme vinkel. Gårsdagens billede vises gennem kameraet, og dagene bliver til en timelapse.</p>
+								<div class="links">
+									<a class="btn btn--ghost" href="https://lineup.kleindesign.dk" target="_blank" rel="noopener">Læs mere</a>
+								</div>
+							</div>
+							<div class="shot"><video id="lineupVideo" src="img/salg/lineup-intro.mp4" poster="img/salg/lineup-intro-poster.jpg" muted loop playsinline preload="none" aria-label="Kort video af Lineup-appen"></video></div>
+						</article>
 					</div>
-					<div class="shot"><img src="img/salg/lingo-appstore.webp" alt="Lingos forside med dagens ord" width="600" height="1304" loading="lazy"></div>
-				</article>
-
-				<article class="app">
-					<div>
-						<div class="app-head">
-							<img src="img/salg/ikon-lineup.webp" alt="" width="60" height="60">
-							<div><h3>Lineup</h3><span class="tag tag--soon"><i></i>Kommer snart</span></div>
-						</div>
-						<p>Ét billede om dagen fra samme vinkel. Gårsdagens billede vises gennem kameraet, og dagene bliver til en timelapse.</p>
-						<div class="links">
-							<a class="btn btn--ghost" href="https://lineup.kleindesign.dk" target="_blank" rel="noopener">Læs mere</a>
-						</div>
-					</div>
-					<div class="shot"><video id="lineupVideo" src="img/salg/lineup-intro.mp4" poster="img/salg/lineup-intro-poster.jpg" muted loop playsinline preload="none" aria-label="Kort video af Lineup-appen"></video></div>
-				</article>
-			</div>
-		</div>
-	</section>
-
-	<section id="ydelser" style="padding-top:0">
-		<div class="wrap">
-			<span class="mono">Ydelser</span>
-			<h2 style="margin-top:12px">Det kan jeg hjælpe med</h2>
-			<div class="services">
-				<article class="service">
-					<div class="dot" style="background:var(--blue)"></div>
-					<h3>Hjemmesider</h3>
-					<p>Hurtige, enkle sider til en forening, en butik, et event eller en ny app. Bygget og tilpasset til netop dig, så de er lette at holde opdateret.</p>
-					<span class="mono">Fx lingo.kleindesign.dk</span>
-				</article>
-				<article class="service">
-					<div class="dot" style="background:var(--pink)"></div>
-					<h3>Apps og prototyper</h3>
-					<p>Fra skitse i Figma til en klikbar prototype eller en app på App Store. Godt til at teste en idé, før du bruger mange penge på den.</p>
-					<span class="mono">Fx Lingo og Lineup</span>
-				</article>
-				<article class="service">
-					<div class="dot" style="background:var(--green)"></div>
-					<h3>Grafik og indhold</h3>
-					<p>Logo, plakater, opslag og korte videoer til Instagram og TikTok, der passer til resten af dit udtryk.</p>
-					<span class="mono">Fx app-videoer og plakater</span>
-				</article>
-				<article class="service">
-					<div class="dot" style="background:var(--violet)"></div>
-					<h3>Foto</h3>
-					<p>Portrætter, fester og steder. Billeder til din hjemmeside, dine opslag eller jeres store dag.</p>
-					<span class="mono">Fx billederne herunder</span>
-				</article>
-			</div>
-			<p class="services-note">Pris efter opgaven. Skriv, hvad du har brug for, så får du et fast tilbud.</p>
-		</div>
-	</section>
-
-	<section class="photos" id="foto" style="padding-top:0">
-		<div class="wrap">
-			<span class="mono">Foto</span>
-			<h2 style="margin-top:12px">Jeg tager også billederne</h2>
-			<p class="lede">Et udvalg fra mine egne serier. Folk jeg holder af, havnen i Odense og Færøerne, hvor jeg kommer fra.</p>
-			<div class="photo-grid">
-				<img src="img/galleri/vis-26.webp" alt="Ung mand der griner i en stue" width="1600" height="1067" loading="lazy">
-				<img src="img/galleri/vis-33.webp" alt="Fire venner tæt sammen i en sofa" width="1600" height="1067" loading="lazy">
-				<img src="img/galleri/vis-18.webp" alt="Skater i luften foran en grafittivæg ved Odense Havn" width="1600" height="1067" loading="lazy">
-				<img src="img/galleri/vis-29.webp" alt="To venner der krammer i en sofa" width="1600" height="1067" loading="lazy">
-				<img src="img/galleri/vis-07.webp" alt="Stejl klippe ud mod havet på Færøerne" width="1600" height="1067" loading="lazy">
-				<img src="img/galleri/vis-13.webp" alt="Farvede træhuse i en færøsk bygd" width="1600" height="1067" loading="lazy">
-			</div>
-			<div class="cta"><a class="btn btn--ghost" href="/portfolio">Se flere billeder</a></div>
-		</div>
-	</section>
-
-	<section class="about" id="om" style="padding-top:0">
-		<div class="wrap">
-			<img src="img/mig-rund.webp" alt="Ingrid Klein" width="220" height="220" loading="lazy">
-			<div>
-				<span class="mono">Om mig</span>
-				<h2 style="margin:12px 0 16px">Hej, jeg er Ingrid</h2>
-				<p>Jeg er multimediedesigner fra Odense. Jeg designer, fotograferer og bygger med moderne værktøjer, også AI, og jeg tilpasser hver løsning til den, den er til. Du har én person at tale med, fra den første skitse til siden eller appen er ude.</p>
-				<div class="cta" style="margin-top:20px">
-					<a class="btn btn--ghost" href="/portfolio">Se mit arbejde</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="contact" id="kontakt">
+	<section class="win-sec" id="ydelser">
 		<div class="wrap">
-			<div>
-				<span class="mono">Kontakt</span>
-				<h2 style="margin:12px 0 16px">Skal vi lave noget sammen?</h2>
-				<p class="lede">Skriv kort, hvad du har brug for. Jeg svarer inden for et døgn på hverdage.</p>
-				<ul class="direct">
-					<li><a href="mailto:KleinDesignGrafik@gmail.com"><span>E-mail</span>KleinDesignGrafik@gmail.com</a></li>
-					<li><a href="tel:+4553398230"><span>Telefon</span>+45 53 39 82 30</a></li>
-					<li><a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener"><span>Instagram</span>@kleindesign.grafik</a></li>
-				</ul>
+			<div class="window">
+				<div class="titlebar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="titlebar__t">ydelser</span></div>
+				<div class="winbody">
+					<span class="mono kicker">Ydelser</span>
+					<h2>Det kan jeg hjælpe med</h2>
+					<div class="services">
+						<article class="service">
+							<span class="mappe" style="--f:#2E6BFF" aria-hidden="true"><span class="mappe__bag"></span><span class="mappe__front"></span></span>
+							<h3>Hjemmesider</h3>
+							<p>Hurtige, enkle sider til en forening, en butik, et event eller en ny app. Bygget og tilpasset til netop dig, så de er lette at holde opdateret.</p>
+							<span class="mono">Fx lingo.kleindesign.dk</span>
+						</article>
+						<article class="service">
+							<span class="mappe" style="--f:#FF2E88" aria-hidden="true"><span class="mappe__bag"></span><span class="mappe__front"></span></span>
+							<h3>Apps og prototyper</h3>
+							<p>Fra skitse i Figma til en klikbar prototype eller en app på App Store. Godt til at teste en idé, før du bruger mange penge på den.</p>
+							<span class="mono">Fx Lingo og Lineup</span>
+						</article>
+						<article class="service">
+							<span class="mappe" style="--f:#A8D400" aria-hidden="true"><span class="mappe__bag"></span><span class="mappe__front"></span></span>
+							<h3>Grafik og indhold</h3>
+							<p>Logo, plakater, opslag og korte videoer til Instagram og TikTok, der passer til resten af dit udtryk.</p>
+							<span class="mono">Fx app-videoer og plakater</span>
+						</article>
+						<article class="service">
+							<span class="mappe" style="--f:#00C46F" aria-hidden="true"><span class="mappe__bag"></span><span class="mappe__front"></span></span>
+							<h3>Foto</h3>
+							<p>Portrætter, fester og steder. Billeder til din hjemmeside, dine opslag eller jeres store dag.</p>
+							<span class="mono">Fx billederne herunder</span>
+						</article>
+					</div>
+					<p class="services-note">Pris efter opgaven. Skriv, hvad du har brug for, så får du et fast tilbud.</p>
+				</div>
 			</div>
-			<div class="form-box">
-				<iframe data-tally-src="https://tally.so/embed/zExZq0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" title="Skriv til KleinDesign"></iframe>
+		</div>
+	</section>
+
+	<section class="win-sec" id="foto">
+		<div class="wrap">
+			<div class="window">
+				<div class="titlebar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="titlebar__t">foto — mine serier</span></div>
+				<div class="winbody">
+					<span class="mono kicker">Foto</span>
+					<h2>Folk, havnen og Færøerne</h2>
+					<p class="lede" style="margin-top:16px">Et udvalg fra mine egne serier. Folk jeg holder af, havnen i Odense og Færøerne, hvor jeg kommer fra.</p>
+					<div class="prints">
+						<figure class="print"><img src="img/galleri/vis-26.webp" alt="Ung mand der griner i en stue" width="1600" height="1067" loading="lazy"><figcaption>venner-26.jpg</figcaption></figure>
+						<figure class="print"><img src="img/galleri/vis-33.webp" alt="Fire venner tæt sammen i en sofa" width="1600" height="1067" loading="lazy"><figcaption>venner-33.jpg</figcaption></figure>
+						<figure class="print"><img src="img/galleri/vis-18.webp" alt="Skater i luften foran en grafittivæg ved Odense Havn" width="1600" height="1067" loading="lazy"><figcaption>odense-havn.jpg</figcaption></figure>
+						<figure class="print"><img src="img/galleri/vis-29.webp" alt="To venner der krammer i en sofa" width="1600" height="1067" loading="lazy"><figcaption>venner-29.jpg</figcaption></figure>
+						<figure class="print"><img src="img/galleri/vis-07.webp" alt="Stejl klippe ud mod havet på Færøerne" width="1600" height="1067" loading="lazy"><figcaption>færøerne-07.jpg</figcaption></figure>
+						<figure class="print"><img src="img/galleri/vis-13.webp" alt="Farvede træhuse i en færøsk bygd" width="1600" height="1067" loading="lazy"><figcaption>færøerne-13.jpg</figcaption></figure>
+					</div>
+					<div class="cta" style="margin-top:36px"><a class="btn btn--ghost" href="/portfolio">Se flere billeder</a></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="win-sec about" id="om">
+		<div class="wrap">
+			<div class="window window--narrow">
+				<div class="titlebar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="titlebar__t">om mig</span></div>
+				<div class="winbody">
+					<img src="img/mig-rund.webp" alt="Ingrid Klein" width="220" height="220" loading="lazy">
+					<div>
+						<span class="mono kicker">Om mig</span>
+						<h2 style="margin-bottom:16px">Hej, jeg er Ingrid</h2>
+						<p>Jeg er multimediedesigner fra Odense. Jeg designer, fotograferer og bygger med moderne værktøjer, også AI, og jeg tilpasser hver løsning til den, den er til. Du har én person at tale med, fra den første skitse til siden eller appen er ude.</p>
+						<div class="cta" style="margin-top:20px">
+							<a class="btn btn--ghost" href="/portfolio">Se mit arbejde</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="win-sec contact" id="kontakt">
+		<div class="wrap">
+			<div class="window">
+				<div class="titlebar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="titlebar__t">ny besked — til Ingrid</span></div>
+				<div class="winbody">
+					<div>
+						<span class="mono kicker">Kontakt</span>
+						<h2 style="margin-bottom:16px">Skal vi lave noget sammen?</h2>
+						<p class="lede">Skriv kort, hvad du har brug for. Jeg svarer inden for et døgn på hverdage.</p>
+						<ul class="direct">
+							<li><a href="mailto:KleinDesignGrafik@gmail.com"><span>E-mail</span>KleinDesignGrafik@gmail.com</a></li>
+							<li><a href="tel:+4553398230"><span>Telefon</span>+45 53 39 82 30</a></li>
+							<li><a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener"><span>Instagram</span>@kleindesign.grafik</a></li>
+						</ul>
+					</div>
+					<div class="form-box">
+						<iframe data-tally-src="https://tally.so/embed/zExZq0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" title="Skriv til KleinDesign"></iframe>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
 </main>
 
 <footer>
-	<div class="wrap">
-		<span>© 2026 KleinDesign · Ingrid Klein</span>
-		<nav aria-label="Sidefod">
-			<a href="/portfolio">Portfolio</a>
-			<a href="/album/demo">Demo af festalbum</a>
-			<a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener">LinkedIn</a>
-			<a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener">Instagram</a>
-		</nav>
-	</div>
+	<nav class="dock" aria-label="Sidefod">
+		<a href="/portfolio">Portfolio</a>
+		<a href="/album/demo">Demo af festalbum</a>
+		<a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener">LinkedIn</a>
+		<a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener">Instagram</a>
+	</nav>
+	<small>© 2026 KleinDesign · Ingrid Klein</small>
 </footer>
 
 <script src="https://tally.so/widgets/embed.js" async onload="Tally.loadEmbeds()"></script>
 <script>
-	// Kant under menuen, når man har scrollet
-	const header = document.getElementById("top");
-	addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 8), { passive: true });
+	// Ur og dato i menulinjen, som på portfolien
+	const klok = document.getElementById("klok"), dato = document.getElementById("dato");
+	function tik() {
+		const n = new Date();
+		klok.textContent = String(n.getHours()).padStart(2, "0") + "." + String(n.getMinutes()).padStart(2, "0");
+		dato.textContent = n.toLocaleDateString("da-DK", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+	}
+	tik(); setInterval(tik, 20000);
 
 	// Lineup-videoen kører kun, mens den er synlig (og ikke ved reduceret bevægelse)
 	const v = document.getElementById("lineupVideo");
