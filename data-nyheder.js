@@ -4,6 +4,24 @@
 
 window.NYHEDER = [
   {
+    "dato": "2026-11-04",
+    "type": "projekt",
+    "titel": "Lineup er ude på App Store",
+    "tekst": "Ét billede om dagen fra samme vinkel, samlet til en timelapse. Appen er godkendt og kan hentes nu.",
+    "link": "https://apps.apple.com/app/id6822511206",
+    "titel_en": "Lineup is out on the App Store",
+    "tekst_en": "One photo a day from the same angle, turned into a timelapse. The app is approved and available now."
+  },
+  {
+    "dato": "2026-10-02",
+    "type": "projekt",
+    "titel": "Pausespillet kører til Bulldogs' hjemmekampe",
+    "tekst": "Vores gruppeprojekt for Odense Bulldogs bliver brugt i første pause. Jeg har lavet introvideoen, kampguiden og designmanualen. Projektet er stadig i gang frem mod eksamen.",
+    "link": "https://odense-bulldogs.vercel.app",
+    "titel_en": "The break-time game runs at Bulldogs' home matches",
+    "tekst_en": "Our group project for Odense Bulldogs is used in the first break. I made the intro video, the match guide and the design manual. The project is still in progress towards the exam."
+  },
+  {
     "dato": "2026-10-21",
     "type": "projekt",
     "titel": "Digitalt festalbum med QR-kode",
@@ -25,10 +43,10 @@ window.NYHEDER = [
     "dato": "2026-10-08",
     "type": "projekt",
     "titel": "Lingo er ude på App Store",
-    "tekst": "En rolig app til engelsk slang, ét ord ad gangen. Designet af mig og bygget med AI-værktøjer.",
+    "tekst": "Urban Dictionary møder TikTok. Mikkel Schrøder og jeg byggede den på én dag og sendte den ind til App Store samme aften.",
     "link": "https://apps.apple.com/app/id6817355168",
     "titel_en": "Lingo is out on the App Store",
-    "tekst_en": "A calm app for English slang, one word at a time. Designed by me and built with AI tools."
+    "tekst_en": "Urban Dictionary meets TikTok. Mikkel Schrøder and I built it in one day and submitted it to the App Store the same evening."
   },
   {
     "dato": "2026-08-14",

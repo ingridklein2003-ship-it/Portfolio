@@ -151,7 +151,7 @@ button{font-family:inherit}
 .appicon[data-app="koeberguiden"] .icon__art{padding:3px}
 .appicon[data-app="wordfestival"] .icon__art{padding:0;background:none;box-shadow:0 6px 16px rgba(0,0,0,.42)}
 .appicon[data-app="friendfinder"] .icon__art{padding:0;background:none;border-radius:50%;box-shadow:0 6px 16px rgba(0,0,0,.42)}
-.appicon[data-app="lingo"] .icon__art,.appicon[data-app="lineup"] .icon__art{padding:0;background:none}
+.appicon[data-app="lingo"] .icon__art,.appicon[data-app="lineup"] .icon__art,.appicon[data-app="bulldogs"] .icon__art{padding:0;background:none}
 .dockitem .dokmig{width:100%;height:100%;border-radius:0;overflow:hidden;display:block}
 .dockitem .dokmig img{width:100%;height:100%;object-fit:cover;display:block;background:none!important;padding:0!important;border-radius:0}
 
@@ -337,7 +337,7 @@ button{font-family:inherit}
 	width:var(--telefonw,300px);height:var(--telefonh,650px)}
 .phone__screen iframe{width:390px;height:845px;border:0;display:block;
 	transform:scale(var(--telefonskala,1));transform-origin:top left}
-.phone__screen > img{width:390px;max-width:none;height:845px;object-fit:cover;object-position:top;display:block;
+.phone__screen > img,.phone__screen > video{width:390px;max-width:none;height:845px;object-fit:cover;object-position:top;display:block;
 	transform:scale(var(--telefonskala,1));transform-origin:top left}
 .phone__bar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:36%;height:4px;border-radius:4px;background:rgba(0,0,0,.3);z-index:5}
 .phone__foot{display:flex;justify-content:space-between;align-items:center;margin-top:13px;font-size:12px;color:var(--ink-2);gap:8px}
@@ -667,6 +667,7 @@ button{font-family:inherit}
 .hilsen__book{display:inline-flex;align-items:center;background:#101B24;color:#fff;text-decoration:none;
 	font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:7px 14px}
 .hilsen__book:hover{background:var(--neon-blue)}
+.praktik .dor__book{display:none!important}
 .dor__book{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px;
 	background:var(--ink);color:#fff;text-decoration:none;border-radius:14px;padding:16px 18px;transition:transform .2s var(--ease)}
 .dor__book:hover{transform:translateY(-2px)}
@@ -964,6 +965,7 @@ button{font-family:inherit}
 						<button class="icon appicon" data-app="friendfinder"><span class="icon__art"><img src="img/ikon-friendfinder.png" alt=""></span><span>Friend Finder</span></button>
 						<button class="icon appicon" data-app="lingo"><span class="icon__art"><img src="img/salg/ikon-lingo.webp" alt=""></span><span>Lingo</span></button>
 						<button class="icon appicon" data-app="lineup"><span class="icon__art"><img src="img/salg/ikon-lineup.webp" alt=""></span><span>Lineup</span></button>
+						<button class="icon appicon" data-app="bulldogs"><span class="icon__art"><img src="img/bulldogs/ikon-bulldogs.webp" alt=""></span><span>Bulldogs</span></button>
 					</div>
 				</div>
 				<div class="ikongr">
@@ -996,7 +998,7 @@ button{font-family:inherit}
 	<!-- MAPPEVINDUER -->
 
 	<section class="window" id="w-digital" style="left:300px;top:80px;width:760px;height:580px">
-		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 5 emner</span></header>
+		<header class="titlebar"><span class="lights"><button class="light light--r" data-act="close"></button><button class="light light--y" data-act="min"></button><button class="light light--g" data-act="max"></button></span><span class="titlebar__accent" style="background:var(--neon-blue)"></span><span class="titlebar__t">Digitalt design · 6 emner</span></header>
 		<div class="winbody">
 			<div class="winbody__head"><h2>Digitalt design</h2><p>Apps og prototyper hvor research kom før form. Klik på et projekt. Så åbner beskrivelsen med en telefon ved siden af, du kan trykke rundt i.</p></div>
 			<div class="things">
@@ -1011,8 +1013,9 @@ button{font-family:inherit}
 				</a>
 				<a class="thing" data-app="wordfestival" href="#"><span class="thing__m"><img src="img/word-festival-cover.webp" alt=""></span><span class="thing__t">Word Festival</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Skoleprojekt · gruppe på 4, videreført alene · Figma</span><span class="thing__go">Åbn →</span></a>
 				<a class="thing" data-app="friendfinder" href="#"><span class="thing__m"><img src="img/friend-finder-logo.png" alt=""></span><span class="thing__t">Friend Finder</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Skoleprojekt · design i gruppe, bygget af mig · Figma &amp; HTML</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-app="lingo" href="#"><span class="thing__m"><img src="img/salg/ikon-lingo.webp" alt=""></span><span class="thing__t">Lingo</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Eget produkt · ude på App Store · 2026</span><span class="thing__go">Åbn →</span></a>
-				<a class="thing" data-app="lineup" href="#"><span class="thing__m"><img src="img/salg/ikon-lineup.webp" alt=""></span><span class="thing__t">Lineup</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Eget produkt · kommer snart på App Store · 2026</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="lingo" href="#"><span class="thing__m"><img src="img/salg/ikon-lingo.webp" alt=""></span><span class="thing__t">Lingo</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Lavet med Mikkel Schrøder · ude på App Store · 2026</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="lineup" href="#"><span class="thing__m"><img src="img/salg/ikon-lineup.webp" alt=""></span><span class="thing__t">Lineup</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Lavet med Mikkel Schrøder · ude på App Store · 2026</span><span class="thing__go">Åbn →</span></a>
+				<a class="thing" data-app="bulldogs" href="#"><span class="thing__m"><img src="img/bulldogs/ikon-bulldogs.webp" alt=""></span><span class="thing__t">Odense Bulldogs</span><span class="thing__s"><i style="background:var(--neon-blue)"></i>Gruppeprojekt · pausespil, content &amp; designmanual · 2026</span><span class="thing__go">Åbn →</span></a>
 			</div>
 		</div>
 		<span class="grip grip--w"></span><span class="grip grip--e"></span><span class="grip grip--s"></span><span class="grip grip--se"></span><span class="grip grip--sw"></span>
@@ -1075,9 +1078,9 @@ button{font-family:inherit}
 				<div class="me__top">
 					<img class="me__port" src="img/hero-portrait.webp" alt="Portræt af Ingrid">
 					<div>
-						<h3>Født på Færøerne,<br><em>uddannet i Odense.</em></h3>
-						<p>Jeg voksede op mellem rå natur, gamle huse og moderne byliv. Det sidder i måden jeg ser på ting. Kontrasten mellem det rolige og det rå går igen i næsten alt, jeg laver.</p>
+						<h3>Jeg tænker, tester<br><em>og retter til.</em></h3>
 						<p>Jeg arbejder bedst, når der er tid til at tænke, teste og justere. I stedet for at haste mod en løsning går jeg i dybden med idéen og målgruppen, så designet ikke bare virker visuelt, men også siger noget klart.</p>
+						<p>Jeg læser multimediedesign på UCL i Odense og er opvokset på Færøerne.</p>
 					</div>
 				</div>
 
@@ -1107,7 +1110,7 @@ button{font-family:inherit}
 
 				<h4 class="me__h">Undervisning og formidling</h4>
 				<p id="om-underv-1">Jeg har undervist flere gange på <strong>brobygning</strong>, hvor gymnasie- og HF-elever kommer ud og prøver multimediedesign af. Jeg står for undervisningen og er den, der forklarer faget for folk, der aldrig har rørt det før.</p>
-				<p id="om-underv-2">Derudover har jeg repræsenteret uddannelsen ved <strong>åbent hus</strong>, og fra september er jeg <strong>tutor</strong> for de nye studerende.</p>
+				<p id="om-underv-2">Derudover har jeg repræsenteret uddannelsen ved <strong>åbent hus</strong>, og siden september har jeg været <strong>tutor</strong> for de nye studerende.</p>
 				<p>Det er den del af mit arbejde, der ikke kan vises som et billede: at kunne forklare noget fagligt for nogen, der ikke kan det endnu, og gøre det så de får lyst til at prøve.</p>
 
 				<div class="me__strip">
@@ -1121,14 +1124,14 @@ button{font-family:inherit}
 
 				<h4 class="me__h">Kort fortalt</h4>
 				<dl>
-					<div><dt>Praktik</dt><dd>Søger praktikplads 4. januar – 2. april 2027 · UI/UX og frontend</dd></div>
-					<div><dt>Fokus</dt><dd>UI/UX, visuel identitet, frontend, foto</dd></div>
+					<div><dt>Praktik</dt><dd>Søger praktikplads 4. januar – 2. april 2027 · UI/UX, app-design og content</dd></div>
+					<div><dt>Fokus</dt><dd>UI/UX, content og SoMe, visuel identitet, foto</dd></div>
 					<div><dt>Stil</dt><dd>Roligt og råt, med små legende detaljer</dd></div>
 					<div><dt>Værktøjer</dt><dd>Illustrator, Photoshop, InDesign, Premiere, Figma</dd></div>
 					<div><dt>Proces</dt><dd>Idé → skitser → test → iteration</dd></div>
 					<div><dt>Sprog</dt><dd>Færøsk (modersmål), dansk, engelsk</dd></div>
-					<div><dt>Ved siden af</dt><dd>Underviser på brobygning · tutor fra september 2026</dd></div>
-					<div><dt>Base</dt><dd>Færøerne &amp; Danmark</dd></div>
+					<div><dt>Ved siden af</dt><dd>Underviser på brobygning · tutor siden september 2026</dd></div>
+					<div><dt>Base</dt><dd>Odense · opvokset på Færøerne</dd></div>
 					<div><dt>Find mig</dt><dd><a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener" style="color:var(--neon-blue)">LinkedIn</a> · <a href="https://www.instagram.com/kleindesign.grafik/" target="_blank" rel="noopener" style="color:var(--neon-blue)">Instagram</a></dd></div>
 				</dl>
 			</div>
@@ -1232,7 +1235,7 @@ button{font-family:inherit}
 		<div class="winbody">
 			<div class="winbody__head"><h2>Skal vi lave noget sammen?</h2><p>Skriv endelig, også hvis det bare er en idé, du gerne vil vende.</p></div>
 			<dl style="border-top:1px solid var(--line)">
-				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Praktik</dt><dd>Søger praktikplads 4. januar – 2. april 2027 · UI/UX-design og frontend</dd></div>
+				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Praktik</dt><dd>Søger praktikplads 4. januar – 2. april 2027 · UI/UX, app-design og content</dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">E-mail</dt><dd><a href="mailto:KleinDesignGrafik@gmail.com" style="color:var(--neon-blue)">KleinDesignGrafik@gmail.com</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">Telefon</dt><dd><a href="tel:+4553398230" style="color:var(--neon-blue)">+45 53 39 82 30</a></dd></div>
 				<div style="display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px"><dt style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px">LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ingrid-marianad%C3%B3ttir-klein-2a067a235" target="_blank" rel="noopener" style="color:var(--neon-blue)">Ingrid Mariannardóttir Klein ↗</a></dd></div>
@@ -1384,6 +1387,7 @@ button{font-family:inherit}
 
 </div>
 
+<script>if(/[?&]praktik\b/.test(location.search))document.documentElement.classList.add("praktik");</script>
 <script src="data-sprog.js"></script>
 <script src="data-nyheder.js"></script>
 <script src="data-galleri.js"></script>
@@ -2277,26 +2281,42 @@ const APPS={
 	lingo:{titel:"Lingo",mappe:"Digitalt design",farve:"var(--neon-blue)",skaerm:"img/salg/lingo-appstore.webp",live:false,
 		tag:"Ude på App Store",link:["https://apps.apple.com/app/id6817355168","Hent appen"],
 		hint:"Skærmbillede fra appen. Hent den på App Store for at prøve den, eller læs mere på lingo.kleindesign.dk.",
-		lead:"En rolig app til engelsk slang. Ét ord ad gangen, med betydning, eksempler og hvor ordet kommer fra.",
-		fakta:[["Kontekst","Eget produkt · KleinDesign"],["Min rolle","Idé, design, App Store-side, hjemmeside og SoMe"],["Bygget med","Figma · SwiftUI · AI-værktøjer"],["Status","Ude på App Store · 2026"]],
+		lead:"Urban Dictionary møder TikTok. Scroll gennem et feed med slangord, få dagens ord som notifikation, og slå ord op i et bibliotek, der bliver ved med at vokse.",
+		fakta:[["Kontekst","Lavet sammen med Mikkel Schrøder på én dag"],["Sammen","Idé, research, mockups og selve appen"],["Bygget med","Figma · SwiftUI · AI-værktøjer · AdMob"],["Status","Ude på App Store · 2026 · på over 40 telefoner"]],
 		afsnit:[
-			["Idéen","Slang er svært at slå op, og ordbøger gør det tungt. Lingo viser ét ord ad gangen som et kort. På forsiden står ordet og betydningen. Vender man kortet, kommer eksemplerne og historien bag ordet.",null],
-			["Sådan er den bygget","Jeg har stået for idéen, designet og alle valgene undervejs. Selve appen er bygget med AI-værktøjer, som jeg har styret og rettet til, til den var klar til App Store. Det er den måde, jeg arbejder på, når en idé skal blive til noget rigtigt uden et stort udviklerhold.",null]
+			["Challengen","Mikkel og jeg gav os selv en udfordring: Inden dagen var omme, skulle vi have en app klar til App Store, og den skulle kunne tjene penge. Vi brainstormede, lavede lidt desk research og vendte idéerne med hinanden, indtil vi landede på Lingo.",null],
+			["På en eftermiddag","Da idéen var på plads, havde vi stort set kun en eftermiddag tilbage. Så vi lavede mockups, skar ned på listen over features og gik i gang med at bygge. Inden dagen var omme, havde vi koblet AdMob på og sendt Lingo ind til App Store. Det lærte mig at prioritere hårdt: hvad skal med i første version, og hvad kan vente.",null]
 		],
 		citat:null,
 		efter:["Ud over appen","En hjemmeside på lingo.kleindesign.dk, App Store-billeder og korte videoer til Instagram og TikTok."],
-		tal:[],shots:[]},
+		tal:[],shots:["img/salg/lingo-shot-1.webp","img/salg/lingo-shot-2.webp","img/salg/lingo-shot-3.webp","img/salg/lingo-shot-4.webp","img/salg/lingo-shot-5.webp","img/salg/lingo-shot-6.webp","img/salg/lingo-shot-7.webp"],
+		video:{fil:"img/salg/lingo-reel.mp4",poster:"img/salg/lingo-reel-poster.webp",tekst:"App-reelen „the ick“ til Instagram og TikTok. Optaget i appen og klippet, så man ser et ord blive slået op og vendt."}},
 	lineup:{titel:"Lineup",mappe:"Digitalt design",farve:"var(--neon-blue)",skaerm:"img/salg/lineup-appstore.webp",live:false,
-		tag:"Kommer snart",link:["https://lineup.kleindesign.dk","Se hjemmesiden"],
-		hint:"Skærmbillede fra appen. Den venter på godkendelse i App Store. Se videoen til venstre.",
+		tag:"Ude på App Store",link:["https://apps.apple.com/app/id6822511206","Hent appen"],
+		hint:"Skærmbillede fra appen. Hent den på App Store for at prøve den, eller læs mere på lineup.kleindesign.dk.",
 		lead:"Ét billede om dagen fra samme vinkel. Gårsdagens billede vises svagt gennem kameraet, så hvert billede passer oven i det forrige, og dagene bliver til en timelapse.",
-		fakta:[["Kontekst","Eget produkt · KleinDesign"],["Min rolle","Idé, design, hjemmeside og introvideo"],["Bygget med","Figma · SwiftUI · AI-værktøjer"],["Status","Sendt til App Store · 2026"]],
+		fakta:[["Kontekst","Eget produkt · KleinDesign"],["Min rolle","Idé, design, hjemmeside og introvideo"],["Bygget med","Figma · SwiftUI · AI-værktøjer"],["Status","Ude på App Store · november 2026"]],
 		afsnit:[
 			["Idéen","En plante der vokser, en mave der bliver større, håret der gror ud. Det er svært at se fra dag til dag, men tydeligt i en timelapse. Det svære er at ramme samme vinkel hver gang, og det er det, appen hjælper med.",null],
 			["Sådan er den bygget","Jeg har designet appen, de illustrerede eksempler og hjemmesiden. Appen er bygget med AI-værktøjer, som jeg har styret og tilpasset hele vejen, fra kameraet til eksporten med musik.",null]
 		],
-		citat:null,efter:null,tal:[],shots:[],
-		video:{fil:"img/salg/lineup-intro.mp4",poster:"img/salg/lineup-intro-poster.jpg",tekst:"Introvideoen til Instagram og TikTok, som jeg har lavet til lanceringen."}}
+		citat:null,efter:null,tal:[],shots:["img/salg/lineup-shot-1.webp","img/salg/lineup-shot-2.webp","img/salg/lineup-shot-3.webp","img/salg/lineup-shot-4.webp","img/salg/lineup-shot-5.webp"],
+		video:{fil:"img/salg/lineup-intro.mp4",poster:"img/salg/lineup-intro-poster.jpg",tekst:"Introvideoen til Instagram og TikTok, som jeg har lavet til lanceringen."}},
+	bulldogs:{titel:"Odense Bulldogs",mappe:"Digitalt design",farve:"var(--neon-blue)",skaerm:"img/bulldogs/bulldogs-gameplay-poster.webp",skaermVideo:"img/bulldogs/bulldogs-gameplay.mp4",live:false,
+		tag:"Testversion",link:["https://odense-bulldogs.vercel.app","Prøv spillet"],
+		hint:"Optagelse fra spillets træning. Tryk på Prøv spillet for at spille selv på telefonen. Træningspoint tæller ikke i konkurrencen.",
+		lead:"Et pausespil til Odense Bulldogs' hjemmekampe. I første pause scanner tilskuerne en QR-kode på storskærmen og spiller på telefonen. De fem bedste vinder en fadøl eller en sodavand.",
+		fakta:[["Kontekst","Gruppeprojekt · 3. semester, UCL · for Odense Bulldogs. Spillet er udviklet af gruppen"],["Min rolle","Introvideo, kampguide, SoMe-indhold, style tile og designmanual"],["Status","I gang frem mod eksamen · testversion i brug til hjemmekampe"]],
+		afsnit:[
+			["Opgaven","Klubben vil gerne have tilskuerne mere med, både før kampen og i pauserne. Vores svar er et spil, der passer til pausen: kort, nemt at gå til og med noget at vinde. Man holder pucken i live ved at aflevere til sine egne spillere, og det bliver sværere jo længere man holder.",null],
+			["Status lige nu","Projektet er ikke færdigt. Vi arbejder stadig på det frem mod eksamen, så det, der vises her, er testversioner. Men spillet er allerede i brug: Bulldogs kører det til hver hjemmekamp lige nu.",null],
+			["Min del","Jeg har stået for det, der skal få folk til at spille og forstå kampen: introvideoen, en kampguide til nye tilskuere og stories til vores spørgeskema. Jeg har også lavet en style tile og en designmanual i Figma, så klubbens farver, typografi og tone bliver brugt ens i spillet og på SoMe.","img/bulldogs/styletile.webp"],
+			["Kampguiden","Mange i hallen er nye i ishockey. Guiden forklarer de regler, man skal kende for at følge med, som en karrusel, stories og en PDF til billetmailen. Holdets kaptajn læste den igennem, og vi rettede ordvalget efter ham, fx faceoff i stedet for tekning.","img/bulldogs/kampguide-02_Offside.webp"]
+		],
+		citat:null,efter:null,
+		tal:[["5","trin i introvideoen"],["8","slides i kampguiden"]],
+		shots:["img/bulldogs/storskaerm-qr.webp","img/bulldogs/storskaerm-regler.webp","img/bulldogs/kampguide-01_Forside.webp","img/bulldogs/kampguide-04_Icing.webp","img/bulldogs/story-spil.webp","img/bulldogs/kampguide-06_Spilletid.webp","img/bulldogs/kampguide-07_Uafgjort.webp","img/bulldogs/opslag-spil.webp","img/bulldogs/story-publikum.webp","img/bulldogs/story-spoergeskema.webp","img/bulldogs/story-vindere.webp"],
+		video:{fil:"img/bulldogs/bulldogs-reel.mp4",poster:"img/bulldogs/bulldogs-reel-poster.jpg",tekst:"Introvideoen til spillet. Den forklarer det på fem trin, fra QR-koden på storskærmen til præmien i baren."}}
 };
 
 const appWin={dataset:{}};
@@ -2328,7 +2348,9 @@ function visApp(n){
 		'<source src="'+a.video.fil+'" type="video/mp4"></video>'+
 		'<figcaption>'+esc(a.video.tekst)+'</figcaption></figure>'; }
 
-	const sk=a.live?'<iframe id="simFrame" src="'+a.sim+'" title="Simulator"></iframe>':'<img src="'+a.skaerm+'" alt="">';
+	const sk=a.live?'<iframe id="simFrame" src="'+a.sim+'" title="Simulator"></iframe>':
+		a.skaermVideo?'<video src="'+a.skaermVideo+'" poster="'+a.skaerm+'" style="background:#0a2118 url('+a.skaerm+') top/cover" autoplay muted loop playsinline aria-label="Optagelse af spillet"></video>':
+		'<img src="'+a.skaerm+'" alt="">';
 	const bad=a.live?'<span class="phone__tag">'+(sprog==="en"?"Live prototype":"Live prototype")+'</span>':'<span class="phone__tag" style="background:var(--line)">'+esc(a.tag||(sprog==="en"?"Static":"Statisk"))+'</span>';
 	const kn=a.live?'<button class="phone__btn" id="simReset">'+(sprog==="en"?"Restart":"Start forfra")+'</button>':
 		a.link?'<a class="phone__btn" style="text-decoration:none" href="'+a.link[0]+'" target="_blank" rel="noopener">'+esc(a.link[1])+'</a>':'';

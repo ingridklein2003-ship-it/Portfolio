@@ -52,7 +52,7 @@ window.OVERSAT = {
 
 	/* ── Mapper ── */
 	"Digitalt design": "Digital design",
-	"Digitalt design · 5 emner": "Digital design · 5 items",
+	"Digitalt design · 6 emner": "Digital design · 6 items",
 	"Branding": "Branding",
 	"Branding · 3 emner": "Branding · 3 items",
 	"Print & SoMe": "Print & social",
@@ -118,7 +118,8 @@ window.OVERSAT = {
 	"Skoleprojekt · gruppe på 4, videreført alene · Figma": "Student project · group of 4, carried on alone · Figma",
 	"Skoleprojekt · design i gruppe, bygget af mig · Figma & HTML": "Student project · designed in a group, built by me · Figma & HTML",
 	"Eget produkt · ude på App Store · 2026": "Own product · out on the App Store · 2026",
-	"Eget produkt · kommer snart på App Store · 2026": "Own product · coming soon to the App Store · 2026",
+	"Lavet med Mikkel Schrøder · ude på App Store · 2026": "Made with Mikkel Schrøder · out on the App Store · 2026",
+	"Gruppeprojekt · pausespil, content & designmanual · 2026": "Group project · break-time game, content & design manual · 2026",
 	"Klient · design & illustration · Illustrator, Photoshop · 2023–24": "Client · design & illustration · Illustrator, Photoshop · 2023–24",
 	"Klient · logo & identitet, alene · Illustrator · 2025": "Client · logo & identity, solo · Illustrator · 2025",
 	"Eget arbejde · 18 motiver · iPad, Procreate & Illustrator": "Own work · 18 pieces · iPad, Procreate & Illustrator",
@@ -179,8 +180,10 @@ window.OVERSAT = {
 	"Video · still": "Video · still",
 
 	/* ── Om mig ── */
-	"Født på Færøerne,": "Born in the Faroe Islands,",
-	"uddannet i Odense.": "trained in Odense.",
+	"Jeg tænker, tester": "I think, test",
+	"og retter til.": "and refine.",
+	"Jeg læser multimediedesign på UCL i Odense og er opvokset på Færøerne.": "I study multimedia design at UCL in Odense and grew up in the Faroe Islands.",
+	"Odense · opvokset på Færøerne": "Odense · grew up in the Faroe Islands",
 	"Hvor jeg kommer fra": "Where I come from",
 	"Håndbold blev til arbejdsmetode": "Handball became a way of working",
 	"Undervisning og formidling": "Teaching and outreach",
@@ -222,15 +225,14 @@ window.OVERSAT = {
 	"Base": "Based in",
 	"Find mig": "Find me",
 	"Praktik": "Internship",
-	"Søger praktikplads 4. januar – 2. april 2027 · UI/UX og frontend": "Looking for an internship 4 January – 2 April 2027 · UI/UX and frontend",
-	"Søger praktikplads 4. januar – 2. april 2027 · UI/UX-design og frontend": "Looking for an internship 4 January – 2 April 2027 · UI/UX design and frontend",
-	"UI/UX, visuel identitet, frontend, foto": "UI/UX, visual identity, frontend, photography",
+	"Søger praktikplads 4. januar – 2. april 2027 · UI/UX, app-design og content": "Looking for an internship 4 January – 2 April 2027 · UI/UX, app design and content",
+		"UI/UX, content og SoMe, visuel identitet, foto": "UI/UX, content and social media, visual identity, photography",
 	"Identitet, digitalt design, foto": "Identity, digital design, photography",
 	"Roligt og råt, med små legende detaljer": "Calm and raw, with small playful details",
 	"Illustrator, Photoshop, InDesign, Premiere, Figma": "Illustrator, Photoshop, InDesign, Premiere, Figma",
 	"Idé → skitser → test → iteration": "Idea → sketches → test → iteration",
 	"Færøsk (modersmål), dansk, engelsk": "Faroese (native), Danish, English",
-	"Underviser på brobygning · tutor fra september 2026": "Teaches outreach programmes · student tutor from September 2026",
+	"Underviser på brobygning · tutor siden september 2026": "Teaches outreach programmes · student tutor since September 2026",
 	"Færøerne & Danmark": "Faroe Islands & Denmark",
 
 	/* ── Kontakt ── */
@@ -250,7 +252,7 @@ window.OVERSAT = {
 /* Afsnit med fed skrift indeni. Hele afsnittet skiftes ud */
 window.OVERSAT_HTML = {
 	"om-underv-1": 'I have taught several <strong>outreach programmes</strong> where upper-secondary students come in and try multimedia design. I run the teaching myself and I\'m the one explaining the field to people who have never touched it.',
-	"om-underv-2": 'I have also represented the programme at <strong>open days</strong>, and from September I\'m a <strong>tutor</strong> for the new students.'
+	"om-underv-2": 'I have also represented the programme at <strong>open days</strong>, and since September I\'ve been a <strong>tutor</strong> for the new students.'
 };
 
 /* ── Engelske udgaver af casene ── */
@@ -366,23 +368,38 @@ window.APPS_EN = {
 	lingo: {
 		tag: "Out on the App Store", link: ["https://apps.apple.com/app/id6817355168","Get the app"],
 		hint: "A screenshot from the app. Get it on the App Store to try it, or read more at lingo.kleindesign.dk.",
-		lead: "A calm app for English slang. One word at a time, with the meaning, examples and where the word comes from.",
-		fakta: [["Context","Own product · KleinDesign"],["My role","Idea, design, App Store page, website and social"],["Built with","Figma · SwiftUI · AI tools"],["Status","Out on the App Store · 2026"]],
+		lead: "Urban Dictionary meets TikTok. Scroll a feed of slang words, get the word of the day as a notification, and look words up in a library that keeps growing.",
+		fakta: [["Context","Made with Mikkel Schrøder in one day"],["Together","Idea, research, mockups and the app itself"],["Built with","Figma · SwiftUI · AI tools · AdMob"],["Status","Out on the App Store · 2026 · on 40+ phones"]],
 		afsnit: [
-			["The idea","Slang is hard to look up, and dictionaries make it heavy. Lingo shows one word at a time as a card. The front has the word and its meaning. Flip the card and you get the examples and the story behind the word.",null],
-			["How it's built","I was in charge of the idea, the design and every decision along the way. The app itself is built with AI tools that I steered and adjusted until it was ready for the App Store. That's how I work when an idea needs to become something real without a big development team.",null]
+			["The challenge","Mikkel and I gave ourselves a challenge: by the end of the day we had to have an app ready for the App Store, and it had to be able to make money. We brainstormed, did some desk research and bounced ideas off each other until we landed on Lingo.",null],
+			["In one afternoon","Once we had the idea, there was basically one afternoon left. So we made mockups, cut the feature list down and started building. By the end of the day we had hooked up AdMob and submitted Lingo to the App Store. It taught me to prioritise hard: what goes in the first version, and what can wait.",null]
 		],
-		efter: ["Beyond the app","A website at lingo.kleindesign.dk, App Store images and short videos for Instagram and TikTok."]
+		efter: ["Beyond the app","A website at lingo.kleindesign.dk, App Store images and short videos for Instagram and TikTok."],
+		video: {tekst:"The app reel „the ick“ for Instagram and TikTok. Recorded in the app and edited so you see a word being looked up and flipped."}
 	},
 	lineup: {
-		tag: "Coming soon", link: ["https://lineup.kleindesign.dk","See the website"],
-		hint: "A screenshot from the app. It's waiting for App Store review. Watch the video on the left.",
+		tag: "Out on the App Store", link: ["https://apps.apple.com/app/id6822511206","Get the app"],
+		hint: "A screenshot from the app. Get it on the App Store to try it, or read more at lineup.kleindesign.dk.",
 		lead: "One photo a day from the same angle. Yesterday's photo shows faintly through the camera, so every shot lines up with the last, and the days become a timelapse.",
-		fakta: [["Context","Own product · KleinDesign"],["My role","Idea, design, website and intro video"],["Built with","Figma · SwiftUI · AI tools"],["Status","Submitted to the App Store · 2026"]],
+		fakta: [["Context","Own product · KleinDesign"],["My role","Idea, design, website and intro video"],["Built with","Figma · SwiftUI · AI tools"],["Status","Out on the App Store · November 2026"]],
 		afsnit: [
 			["The idea","A plant growing, a bump getting bigger, hair growing out. It's hard to see from one day to the next, but obvious in a timelapse. The hard part is hitting the same angle every time, and that's what the app helps with.",null],
 			["How it's built","I designed the app, the illustrated examples and the website. The app is built with AI tools that I steered and adjusted all the way, from the camera to the export with music.",null]
 		],
 		video: {tekst:"The intro video for Instagram and TikTok that I made for the launch."}
+	},
+	bulldogs: {
+		tag: "Test version", link: ["https://odense-bulldogs.vercel.app","Try the game"],
+		hint: "A recording from the game's practice mode. Tap Try the game to play it on your phone. Practice points don't count in the competition.",
+		lead: "A break-time game for Odense Bulldogs' home matches. In the first break, the crowd scans a QR code on the big screen and plays on their phones. The top five win a draught beer or a soft drink.",
+		fakta: [["Context","Group project · 3rd semester, UCL · for Odense Bulldogs. The game was developed by the group"],["My role","Intro video, match guide, social content, style tile and design manual"],["Status","In progress towards the exam · test version used at home matches"]],
+		afsnit: [
+			["The brief","The club wants the crowd more involved, both before the match and in the breaks. Our answer is a game that fits the break: short, easy to pick up and with something to win. You keep the puck alive by passing to your own players, and it gets harder the longer you last.",null],
+			["Where it stands","The project isn't finished. We're still working on it towards the exam, so what you see here are test versions. But the game is already in use: Bulldogs runs it at every home match right now.",null],
+			["My part","I was in charge of what gets people to play and to follow the match: the intro video, a match guide for new fans and stories for our survey. I also made a style tile and a design manual in Figma, so the club's colours, type and tone are used the same way in the game and on social media.","img/bulldogs/styletile.webp"],
+			["The match guide","Many people in the arena are new to ice hockey. The guide explains the rules you need to follow along, as a carousel, stories and a PDF for the ticket email. The team captain read it through, and we adjusted the wording after his feedback.","img/bulldogs/kampguide-02_Offside.webp"]
+		],
+		tal: [["5","steps in the intro video"],["8","slides in the match guide"]],
+		video: {tekst:"The intro video for the game. It explains it in five steps, from the QR code on the big screen to the prize at the bar."}
 	}
 };
