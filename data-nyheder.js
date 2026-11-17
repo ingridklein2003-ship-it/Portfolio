@@ -4,6 +4,31 @@
 
 window.NYHEDER = [
   {
+    "dato": "2026-11-17",
+    "type": "karriere",
+    "titel": "Jeg søger studiejob",
+    "tekst": "Ved siden af studiet leder jeg efter et studiejob, hvor jeg kan få mere erfaring med digitalt design, UX og indhold. Skriv endelig, hvis du har noget.",
+    "titel_en": "I'm looking for a student job",
+    "tekst_en": "Alongside my studies I'm looking for a student job where I can gain more experience with digital design, UX and content. Feel free to get in touch."
+  },
+  {
+    "dato": "2026-11-17",
+    "type": "karriere",
+    "titel": "Jeg har fundet praktikplads",
+    "tekst": "Fra 4. januar til 2. april 2027 er jeg i praktik hos Trade eXpansion i Odense. Jeg skal arbejde med digital kommunikation, UX og indhold, og jeg glæder mig til at få det hele i hænderne.",
+    "titel_en": "I've found an internship",
+    "tekst_en": "From 4 January to 2 April 2027 I'll be an intern at Trade eXpansion in Odense, working with digital communication, UX and content. I can't wait to get started."
+  },
+  {
+    "dato": "2026-11-17",
+    "type": "projekt",
+    "titel": "De sidste detaljer på Bulldogs-projektet",
+    "tekst": "Vi er i gang med de sidste detaljer på eksamensprojektet med Odense Bulldogs, som skal afleveres den 27. november. Derefter begynder læsningen til selve eksamen.",
+    "link": "/portfolio?projekt=bulldogs",
+    "titel_en": "The final details on the Bulldogs project",
+    "tekst_en": "We're working on the final details of our exam project with Odense Bulldogs, due on 27 November. After that, I'll start preparing for the exam itself."
+  },
+  {
     "dato": "2026-11-04",
     "type": "projekt",
     "titel": "Lineup er ude på App Store",

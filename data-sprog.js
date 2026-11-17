@@ -24,7 +24,7 @@ window.OVERSAT = {
 		"I design in Figma and build with modern tools, AI included. Identity, UI, apps and photography.",
 	"Jeg arbejder bedst når der er tid til at tænke, teste og rette til. Ellers bliver det bare pænt.":
 		"I work best when there is time to think, test and adjust. Otherwise it just ends up pretty.",
-	"Søger praktikplads 4. januar – 2. april 2027": "Looking for an internship 4 January – 2 April 2027",
+	"Søger studiejob · praktik hos Trade eXpansion fra januar": "Looking for a student job · internship at Trade eXpansion from January",
 	"Mere om mig →": "More about me →",
 	"Bag om arbejdet · 15 billeder": "Behind the work · 15 photographs",
 	"Kassen som stativ": "The box as a tripod",
@@ -225,7 +225,7 @@ window.OVERSAT = {
 	"Base": "Based in",
 	"Find mig": "Find me",
 	"Praktik": "Internship",
-	"Søger praktikplads 4. januar – 2. april 2027 · UI/UX, app-design og content": "Looking for an internship 4 January – 2 April 2027 · UI/UX, app design and content",
+	"Trade eXpansion, 4. januar – 2. april 2027 · digital kommunikation, UX og content": "Trade eXpansion, 4 January – 2 April 2027 · digital communication, UX and content",
 		"UI/UX, content og SoMe, visuel identitet, foto": "UI/UX, content and social media, visual identity, photography",
 	"Identitet, digitalt design, foto": "Identity, digital design, photography",
 	"Roligt og råt, med små legende detaljer": "Calm and raw, with small playful details",
